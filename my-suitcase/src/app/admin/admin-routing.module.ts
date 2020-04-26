@@ -4,10 +4,10 @@ import { AdminComponent } from './admin.component';
 
 // Root routes of this particular module: ADMIN.
 const routes: Routes = [
-  { path: '', component: AdminComponent, children: [
-      { path: '', redirectTo: 'user', pathMatch: 'full' },
+  {
+    path: '', component: AdminComponent, children: [
+      // { path: '', redirectTo: 'user', pathMatch: 'full' },
       { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
-
     ]
   },
 ];

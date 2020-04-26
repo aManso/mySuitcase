@@ -3,7 +3,7 @@ import { SharedModule } from '../../core/shared/shared.module';
 // import { AdminRoutingModule } from '.././admin-routing.module';
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersListComponent } from './containers/users-list/users-list.component';
-// import { UserDetailComponent } from './containers/user-detail/user-detail.component';
+import { UserDetailComponent } from './containers/user-detail/user-detail.component';
 
 @NgModule({
 
@@ -14,7 +14,7 @@ import { UsersListComponent } from './containers/users-list/users-list.component
   ],
   declarations: [
     UsersListComponent,
-    // UserDetailComponent,
+    UserDetailComponent,
   ],
   exports: [],
   providers: [],

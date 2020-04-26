@@ -8,6 +8,9 @@ const routes: Routes = [
   { path: 'public', loadChildren: () => import('./public/public.module').then(m => m.PublicModule) },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   // Example: { path: 'intranet', loadChildren: () => import('./intranet/intranet.module').then(m => m.IntranetModule) },
+  { path: '**', redirectTo: 'public/home' },
+  // Wildcard route for a 404 page
+  // { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
