@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~9.1.5",
     "@angular/platform-browser-dynamic": "~9.1.5",
     "@angular/router": "~9.1.5",
+    "eslint": "^6.8.0",
     "rxjs": "~6.5.5",
     "tslib": "^1.11.2",
     "zone.js": "~0.10.3"
