@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
-import {SharedModule} from '../../core/shared/shared.module';
-import { DesignComponent } from './containers/home/design.component';
+import { DesignComponent } from './containers/design/design.component';
 import { DesignRoutingModule } from './design-routing.module';
 
 @NgModule({
 
   imports: [
-    SharedModule,
     DesignRoutingModule,
   ],
   declarations: [

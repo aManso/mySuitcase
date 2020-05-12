@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     RouterModule,
   ],
-  // By exporting here any module will be available inthe entire application.
+  // By exporting here any module will be available in the entire application.
   exports: [
     FormsModule,
     ReactiveFormsModule,
