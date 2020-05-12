@@ -23,7 +23,7 @@
 }
 
 .hero-banner-sm{
-  // background: url(../img/banner/banner.png) left center no-repeat;
+  background: url(src/img/banner/banner.png) left center no-repeat;
   background-size: cover;
   padding-top: 140px;
   padding-bottom: 90px;
@@ -68,7 +68,7 @@
     left: 0;
     width: 595px;
     height: 660px;
-    // background: url(../img/home/bg-shape-left.png) left center no-repeat;
+    background: url(src/img/home/bg-shape-left.png) left center no-repeat;
     background-size: cover;
     z-index: -1;
 
@@ -86,7 +86,7 @@
     right: 0;
     width: 755px;
     height: 860px;
-    // background: url(../img/home/bg-shape-right.png) left center no-repeat;
+    background: url(src/img/home/bg-shape-right.png) left center no-repeat;
     background-size: cover;
     z-index: -1;
 
@@ -106,26 +106,26 @@
   ============================================================================================ */
   .banner-breadcrumb{
     display: inline-block;
-
+    
     .breadcrumb{
       background: transparent;
       padding: 0;
-
+  
       &-item{
         padding: .1rem;
-
+  
         a{
           text-transform: capitalize;
           color: #fff;
         }
-
+  
         &+.breadcrumb-item::before{
           color: #fff;
           padding-left: .2rem;
           padding-right: .4rem;
           // content: "-";
         }
-
+  
         &.active{
           color: #fff;
         }
