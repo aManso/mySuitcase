@@ -85,7 +85,8 @@
     top: 0;
     right: 0;
     width: 755px;
-    height: 860px;
+    height: 100%;
+    max-height: 860px;
     background: url(src/img/home/bg-shape-right.png) left center no-repeat;
     background-size: cover;
     z-index: -1;

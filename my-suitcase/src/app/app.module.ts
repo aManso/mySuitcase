@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './core/shared/shared.module';
-import {NotFoundModule} from './core/shared/not-found/not-found.module';
+import { NotFoundModule } from './core/shared/not-found/not-found.module';
 
 @NgModule({
   declarations: [
