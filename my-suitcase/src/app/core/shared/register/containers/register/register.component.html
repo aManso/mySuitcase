@@ -1,0 +1,43 @@
+<form class="col-lg-6 col-xl-6 offset-xl-1" [formGroup]="registerForm">
+  <div class="search-wrapper">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Introduce tu nombre de usuario"  formControlName="name">
+      <small id="nameHelp" class="form-text text-muted">Opcional</small>
+
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Introduce email"  formControlName="email">
+      <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con nadie</small>
+
+      <label for="password">Contraseña</label>
+      <input type="password" class="form-control" id="password" placeholder="Introduce la contraseña" formControlName="password">
+
+      <label for="passwordConfirmation">Repite la contraseña</label>
+      <input type="password" class="form-control" id="passwordConfirmation" placeholder="Repite la contraseña" formControlName="passwordConfirmation">
+
+      <label for="age">Edad</label>
+      <input type="number" class="form-control" id="age" aria-describedby="age" placeholder="Introduce tu edad"  formControlName="age">
+      <small id="ageHelp" class="form-text text-muted">Opcional</small>
+
+      <label for="age">Sexo</label>
+
+      <div>
+        <input id="male" type="radio" value="male" name="gender" formControlName="gender">
+        <label for="male">Male</label>
+      </div>
+
+      <div>
+        <input id="female" type="radio" value="female" name="gender" formControlName="gender">
+        <label for="female">Female</label>
+      </div>
+
+      <small id="genderHelp" class="form-text text-muted">Opcional</small>
+    </div>
+    <div class="button-block">
+      <button type="submit" [disabled]="!isValidForm()" class="btn btn-primary" (click)="submit()">Empezar!</button>
+    </div>
+    <a href="javascript:void(0)" (click)="goTo('login')" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">Ya estoy registrado, volver</a>
+  </div>
+
+  <img class="login-img" alt="login image" src="img/home/service1.png">
+</form>

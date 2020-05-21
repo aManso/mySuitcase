@@ -6,12 +6,10 @@ import { PublicComponent } from './public.component';
 const routes: Routes = [
   // This module has its own children. Be careful with redirection.
     { path: '', component: PublicComponent, children: [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-    { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
-    { path: 'design', loadChildren: () => import('./design/design.module').then(m => m.DesignModule) },
-    ]
-  },
+      { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+      { path: 'design', loadChildren: () => import('./design/design.module').then(m => m.DesignModule) },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+    ]},
 ];
 
 @NgModule({
