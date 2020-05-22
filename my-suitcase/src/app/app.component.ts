@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {LoginService} from './core/shared/login/login.service';
+import {User} from './core/models/user';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public isSessionActive: boolean;
+
+  public constructor(
+    private _loginService: LoginService,
+  ) {
+    this._loginService.logged$.subscribe((user: User|boolean) => {
+      this.isSessionActive = !!user;
+    });
+  }
+
+  public logout() {
+    this._loginService.logout();
+  }
 }

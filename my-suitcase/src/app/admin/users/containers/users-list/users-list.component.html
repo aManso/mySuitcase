@@ -1,8 +1,14 @@
-<h2>/users</h2>
+<form [formGroup]="usersForm">
 
-<h3>Listado de usuarios</h3>
-<i>
-  <ul>User A</ul>
-  <ul>User B</ul>
-  <ul>User C</ul>
-</i>
+  <input type="text" class="form-control" id="userId" formControlName="userId" name="userId">
+
+  <button (click)="getUsers()">Get users</button>
+  <button (click)="getUser()">Get user</button>
+  <button (click)="addUser()">add user</button>
+  <button (click)="updateUser()">update user</button>
+  <button (click)="deleteUser()">delete user</button>
+
+  <code>
+    {{result}}
+  </code>
+</form>
