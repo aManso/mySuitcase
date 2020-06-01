@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from '../shared.module';
-import { BASE_ROUTE, LoginComponent} from './containers/login/login.component';
+import { SharedModule } from '../../core/shared/shared.module';
+import { BASE_ROUTE, LoginComponent} from './login.component';
 import { LoginRoutingModule } from './login-routing.module';
 import { CommonModule } from '@angular/common';
 

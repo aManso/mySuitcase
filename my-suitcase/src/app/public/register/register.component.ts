@@ -1,8 +1,9 @@
 import { Inject, Component, OnInit, InjectionToken } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../../../models/user';
-import { RegisterService } from '../../register.service';
+import { User } from '../../core/models/user';
+import { RegisterService } from './register.service';
+import { passwordMatchingValidator, passwordValidator } from '../../core/validators/validators';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 
@@ -13,6 +14,7 @@ export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 })
 export class RegisterComponent implements OnInit{
   public registerForm: FormGroup;
+  public passwordForm: FormGroup;
 
   public constructor(
     private _registerService: RegisterService,
@@ -27,14 +29,31 @@ export class RegisterComponent implements OnInit{
   }
 
   private _setRegisterForm() {
+    this.passwordForm = this._setPasswordForm();
     return this.fb.group({
       email: [null, Validators.compose([Validators.required, Validators.email])],
-      password: [null, Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(12)])],
-      passwordConfirmation: [null, Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(12)])],
+      passwords: this.passwordForm,
       name: [null, Validators.maxLength(12)],
       age: [null, Validators.compose([Validators.min(14), Validators.max(99)])],
       gender: null,
     });
+  }
+
+  private _setPasswordForm(): FormGroup {
+    return new FormGroup({
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(20),
+        passwordValidator(),
+      ]),
+      passwordConfirmation: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(20),
+        passwordValidator(),
+      ]),
+    }, {validators: passwordMatchingValidator})
   }
 
   public goTo(path: string) {
@@ -42,7 +61,7 @@ export class RegisterComponent implements OnInit{
   }
 
   public isValidForm(): boolean {
-    return this.registerForm.valid && this.registerForm.controls.password.value === this.registerForm.controls.passwordConfirmation.value;
+    return this.registerForm.valid;
   }
 
   public submit() {

@@ -4,7 +4,6 @@ import { SharedModule } from '../core/shared/shared.module';
 import { PublicRoutingModule } from './public-routing.module';
 
 @NgModule({
-
   imports: [
     SharedModule,
     PublicRoutingModule,

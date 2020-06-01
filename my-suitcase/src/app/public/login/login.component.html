@@ -8,14 +8,15 @@
     <div class="form-group" *ngIf="loginMode">
       <label for="password">Contraseña</label>
       <input type="password" class="form-control" id="password" placeholder="Introduce la contraseña" formControlName="password">
+      <small id="passwordHelp" class="form-text text-muted">La contraseña debe contener entre 6 y 20 caracteres, de los cuales 1 minúscula, 1 mayúscula, 1 número y 1 carácter especial</small>
     </div>
     <div class="form-check" *ngIf="loginMode">
       <input type="checkbox" class="form-check-input" id="rememberme">
-      <label class="form-check-label" for="rememberme">Recuerdame</label>
+      <label class="form-check-label" for="rememberme">Recuérdame</label>
     </div>
     <div class="button-block">
       <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary" (click)="submit()">Adelante!</button>
-      <button type="submit" class="btn btn-primary" (click)="goTo('register')">Soy nuevo, quiero empezar!</button>
+      <button type="submit" class="btn btn-primary" (click)="goTo('register')">Registrarse!</button>
     </div>
     <a href="javascript:void(0)" (click)="toggleMode()" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">{{loginMode ? 'Olvide la contraseña' : 'Ya me acuerdo de la contraseña'}}</a>
   </div>

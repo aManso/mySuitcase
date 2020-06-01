@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './core/shared/shared.module';
-import { NotFoundModule } from './core/shared/not-found/not-found.module';
-import { LoginService } from './core/shared/login/login.service';
+import { NotFoundModule } from './not-found/not-found.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationGuard } from './core/guards/authentication.guard';
 import { AuthorizationGuard } from './core/guards/authorization.guard';
@@ -23,7 +22,6 @@ import { AuthorizationGuard } from './core/guards/authorization.guard';
     AppRoutingModule,
   ],
   providers: [
-    LoginService,
     AuthenticationGuard,
     AuthorizationGuard,
   ],
