@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './core/shared/shared.module';
 import { NotFoundModule } from './not-found/not-found.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthenticationGuard } from './core/guards/authentication.guard';
 import { AuthorizationGuard } from './core/guards/authorization.guard';
+import {TokenInterceptorService} from './core/interceptor/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,11 @@ import { AuthorizationGuard } from './core/guards/authorization.guard';
   providers: [
     AuthenticationGuard,
     AuthorizationGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

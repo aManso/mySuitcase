@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../../core/models/user';
+import {User, UserRegister} from '../../core/models/user';
 import { Subject, Observable } from 'rxjs';
 import { LoginService } from '../login/login.service';
 
@@ -18,12 +18,15 @@ export class RegisterService {
 
   public register (user: User) {
     const $registerResponse = new Subject<User|boolean>();
-    (this.http.post(this.URL_REGISTER, user) as Observable<User>).subscribe((loggedUser: User|boolean) => {
-      if (typeof loggedUser === 'object') {
-        console.log('user registered', loggedUser);
-        this._loginService.setActiveUser(loggedUser);
+    (this.http.post(this.URL_REGISTER, user) as Observable<UserRegister|boolean>).subscribe((response: UserRegister|boolean) => {
+      if (typeof response === 'object') {
+        console.log('user registered', response.user);
+        this._loginService.setActiveUser(response.user);
+        sessionStorage.setItem('activeUserToken', response.token);
+        $registerResponse.next(response.user);
+      } else {
+        $registerResponse.next(response);
       }
-      $registerResponse.next(loggedUser);
     }, (error: any) => {
       $registerResponse.error(error);
     });

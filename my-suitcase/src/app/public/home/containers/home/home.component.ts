@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit{
   ) { }
 
   ngOnInit() {
-    this.isLogged = !!this._loginService.getActiveUser();
+    this.isLogged = !!this._loginService.isLoggedIn();
     this.isAdmin = this.isLogged && this._loginService.getActiveUser().admin;
     this._loginService.logged$.subscribe((user: User|boolean) => {
       this.isLogged = !!user;

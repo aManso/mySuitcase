@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { User } from '../../core/models/user';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { User, UserLogin} from '../../core/models/user';
 import { Subject, Observable, of } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
@@ -22,15 +22,19 @@ export class LoginService {
     this.logged$ = new Subject<User|boolean>();
   }
 
-  public login (form: {email: string, password: string}) {
+  public login (form: {email: string, password: string}): Observable<User|boolean> {
     const $loginResponse = new Subject<User|boolean>();
-    (this._http.post(this.URL_CHECK_EXISTING_USER, form) as Observable<User>).subscribe((loggedUser: User|boolean) => {
-      if (typeof loggedUser === 'object') {
-        console.log('user logged', loggedUser);
-        this._selectedUser = loggedUser;
+    (this._http.post(this.URL_CHECK_EXISTING_USER, form) as Observable<UserLogin>).subscribe((response: UserLogin|boolean) => {
+      if (typeof response === 'object') {
+        console.log('user logged', response.user);
+        this._selectedUser = response.user;
+        sessionStorage.setItem('activeUserToken', response.token);
+        $loginResponse.next(response.user);
+        this.logged$.next(response.user)
+      } else {
+        $loginResponse.next(response);
+        this.logged$.next(response)
       }
-      $loginResponse.next(loggedUser);
-      this.logged$.next(loggedUser)
     }, (error: any) => {
       $loginResponse.error(error);
     });
@@ -45,6 +49,14 @@ export class LoginService {
     return this._selectedUser;
   }
 
+  public isLoggedIn(): boolean {
+    return !!sessionStorage.getItem('activeUserToken');
+  }
+
+  public getToken(): string {
+    return sessionStorage.getItem('activeUserToken');
+  }
+
   public getUsers(): Observable<User[]> {
     return this._http.get(this.URL_API).pipe(
       retry(3),
@@ -56,6 +68,12 @@ export class LoginService {
       }),
       catchError((err: any) => {
         console.log(err.message);
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === 401 || err.status === 500) {
+            console.log('unauthorized request');
+            this._router.navigate(['/login'])
+          }
+        }
         return of([])
       })
     ) as Observable<User[]>;
@@ -111,6 +129,7 @@ export class LoginService {
 
   public logout () {
     this._selectedUser = null;
+    sessionStorage.removeItem('activeUserToken');
     this.logged$.next(false);
     this._router.navigate(['/']);
   }
