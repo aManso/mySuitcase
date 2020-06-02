@@ -14,16 +14,14 @@ export class AuthorizationGuard implements CanActivate, CanActivateChild {
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     this.lastIntendedTargetRoute = state.url;
-    const loggedUser = this._loginService.getActiveUser();
-    if (!loggedUser || !loggedUser.admin) {
+    if (!this._loginService.isLoggedIn() || !this._loginService.getActiveUser().admin) {
       this._router.navigate(['/login']);
     }
     return true;
   }
 
   public canActivateChild(): boolean {
-    const loggedUser = this._loginService.getActiveUser();
-    if (!loggedUser || !loggedUser.admin) {
+    if (!this._loginService.isLoggedIn() || !this._loginService.getActiveUser().admin) {
       this._router.navigate(['/login']);
     }
     return true;
