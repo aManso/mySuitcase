@@ -23,7 +23,7 @@
 }
 
 .hero-banner-sm{
-  background: url(src/img/banner/banner.png) left center no-repeat;
+  background: url(src/assets/img/banner/banner.png) left center no-repeat;
   background-size: cover;
   padding-top: 140px;
   padding-bottom: 90px;
@@ -68,7 +68,7 @@
     left: 0;
     width: 595px;
     height: 660px;
-    background: url(src/img/home/bg-shape-left.png) left center no-repeat;
+    background: url(src/assets/img/home/bg-shape-left.png) left center no-repeat;
     background-size: cover;
     z-index: -1;
 
@@ -87,7 +87,7 @@
     width: 755px;
     height: 100%;
     max-height: 860px;
-    background: url(src/img/home/bg-shape-right.png) left center no-repeat;
+    background: url(src/assets/img/home/bg-shape-right.png) left center no-repeat;
     background-size: cover;
     z-index: -1;
 
