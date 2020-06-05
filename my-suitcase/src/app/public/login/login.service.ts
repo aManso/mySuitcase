@@ -5,6 +5,7 @@ import { User, UserLogin} from '../../core/models/user';
 import { Subject, Observable, of } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { SessionService } from '../../core/services/session.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,21 +15,28 @@ export class LoginService {
   private readonly URL_CHECK_EXISTING_USER = environment.apiUrl + 'login/';
   private _selectedUser: User;
   public logged$: Subject<User|boolean>;
+  private _storageMethod: any;
 
   public constructor(
     private _http: HttpClient,
     private _router: Router,
+    private _sessionService: SessionService,
   ) {
     this.logged$ = new Subject<User|boolean>();
+    this._sessionService.logout$.subscribe(() => {
+      this.logout();
+    })
   }
 
-  public login (form: {email: string, password: string}): Observable<User|boolean> {
+  public login (form: {email: string, password: string, keepSession: boolean}): Observable<User|boolean> {
     const $loginResponse = new Subject<User|boolean>();
     (this._http.post(this.URL_CHECK_EXISTING_USER, form) as Observable<UserLogin>).subscribe((response: UserLogin|boolean) => {
       if (typeof response === 'object') {
         console.log('user logged', response.user);
         this._selectedUser = response.user;
-        sessionStorage.setItem('activeUserToken', response.token);
+        this._storageMethod = form.keepSession ? localStorage : sessionStorage;
+        this._sessionService.setStorageMethod(this._storageMethod);
+        this._sessionService.startSession(response.token);
         $loginResponse.next(response.user);
         this.logged$.next(response.user)
       } else {
@@ -50,11 +58,7 @@ export class LoginService {
   }
 
   public isLoggedIn(): boolean {
-    return !!sessionStorage.getItem('activeUserToken');
-  }
-
-  public getToken(): string {
-    return sessionStorage.getItem('activeUserToken');
+    return this._storageMethod ? !!this._storageMethod.getItem('activeUserToken') : !!sessionStorage.getItem('activeUserToken') || !!localStorage.getItem('activeUserToken');
   }
 
   public getUsers(): Observable<User[]> {
@@ -130,6 +134,8 @@ export class LoginService {
   public logout () {
     this._selectedUser = null;
     sessionStorage.removeItem('activeUserToken');
+    localStorage.removeItem('activeUserToken');
+    this._sessionService.stopInterval();
     this.logged$.next(false);
     this._router.navigate(['/']);
   }

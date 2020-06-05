@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {User, UserRegister} from '../../core/models/user';
+import { User, UserRegister } from '../../core/models/user';
 import { Subject, Observable } from 'rxjs';
 import { LoginService } from '../login/login.service';
+import { SessionService } from '../../core/services/session.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ export class RegisterService {
   public constructor(
     private http: HttpClient,
     private _loginService: LoginService,
+    private _sessionService: SessionService,
   ) {
   }
 
@@ -22,7 +24,7 @@ export class RegisterService {
       if (typeof response === 'object') {
         console.log('user registered', response.user);
         this._loginService.setActiveUser(response.user);
-        sessionStorage.setItem('activeUserToken', response.token);
+        this._sessionService.startSession(response.token);
         $registerResponse.next(response.user);
       } else {
         $registerResponse.next(response);
