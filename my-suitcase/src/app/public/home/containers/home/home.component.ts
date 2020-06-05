@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../../../../core/shared/login/login.service';
+import { LoginService } from '../../../login/login.service';
 import { User } from '../../../../core/models/user';
 
 @Component({
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit{
   ) { }
 
   ngOnInit() {
-    this.isLogged = !!this._loginService.getActiveUser();
+    this.isLogged = !!this._loginService.isLoggedIn();
     this.isAdmin = this.isLogged && this._loginService.getActiveUser().admin;
     this._loginService.logged$.subscribe((user: User|boolean) => {
       this.isLogged = !!user;

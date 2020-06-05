@@ -6,8 +6,8 @@ const routes: Routes = [
   // Lazy loading: just load the application modules as they are called. Only the necessary ones.
   { path: 'public', loadChildren: () => import('./public/public.module').then(m => m.PublicModule) },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-  { path: 'login', loadChildren: () => import('./core/shared/login/login.module').then(m => m.LoginModule) },
-  { path: 'register', loadChildren: () => import('./core/shared/register/register.module').then(m => m.RegisterModule) },
+  { path: 'login', loadChildren: () => import('./public/login/login.module').then(m => m.LoginModule) },
+  { path: 'register', loadChildren: () => import('./public/register/register.module').then(m => m.RegisterModule) },
   { path: '', redirectTo: 'public', pathMatch:'full'},
   // Wildcard route for a 404 page
   { path: '**', redirectTo: 'page-not-found' },

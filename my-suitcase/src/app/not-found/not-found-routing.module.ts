@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegisterComponent } from './containers/register/register.component';
+import { NotFoundComponent } from './not-found.component';
 
+// Root routes of this particular module: HOME.
 const routes: Routes = [
-  { path: '', component: RegisterComponent},
+  { path: 'page-not-found', component: NotFoundComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class RegisterRoutingModule { }
+export class NotFoundRoutingModule { }
