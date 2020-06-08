@@ -9,6 +9,7 @@
 
 # dependencies
 /my-suitcase/node_modules
+/my-suitcase/dist
 /server/node_modules
 
 # profiling files

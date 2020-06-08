@@ -1,9 +1,10 @@
 import { Inject, Component, OnInit, InjectionToken } from '@angular/core';
-import { LoginService } from '../../login.service';
+import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../../../models/user';
-import { AuthenticationGuard } from '../../../../guards/authentication.guard';
+import { User } from '../../core/models/user';
+import { AuthenticationGuard } from '../../core/guards/authentication.guard';
+import { passwordValidator } from '../../core/validators/validators';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 
@@ -26,16 +27,18 @@ export class LoginComponent implements OnInit{
   }
 
   public ngOnInit() {
-    this.loginForm = this.fb.group({
-      email: [null, Validators.compose([Validators.required, Validators.email])],
-      password: [null, Validators.compose([Validators.required, Validators.minLength(6)])],
-    });
+    this.loginForm = this._setLoginForm();
   }
 
   private _setLoginForm() {
     return this.fb.group({
       email: [null, Validators.compose([Validators.required, Validators.email])],
-      password: [null, Validators.compose([Validators.required, Validators.minLength(6)])],
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(20),
+        // passwordValidator(),
+      ]),
     });
   }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
-import {LoginService} from '../shared/login/login.service';
+import {LoginService} from '../../public/login/login.service';
 
 
 @Injectable()
@@ -14,7 +14,7 @@ export class AuthenticationGuard implements CanActivate, CanActivateChild {
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     this.lastIntendedTargetRoute = state.url;
-    const loggedUser = !!this._loginService.getActiveUser();
+    const loggedUser = this._loginService.isLoggedIn();
     if (!loggedUser) {
       this._router.navigate(['/login']);
     }
@@ -22,7 +22,7 @@ export class AuthenticationGuard implements CanActivate, CanActivateChild {
   }
 
   public canActivateChild(): boolean {
-    const loggedUser = !!this._loginService.getActiveUser();
+    const loggedUser = this._loginService.isLoggedIn();
     if (!loggedUser) {
       this._router.navigate(['/login']);
     }

@@ -1,7 +1,7 @@
 import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
-import { User } from '../../../../core/models/user';
-import { LoginService } from '../../../../core/shared/login/login.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { User } from '../../../../core/models/user';
+import { LoginService } from '../../../../public/login/login.service';
 
 @Component({
   selector: 'app-users-list',
@@ -23,11 +23,14 @@ export class UsersListComponent implements OnInit {
     });
   }
 
-  // TODO just for testing
+  // **************** Just for testing *************
   public getUsers() {
     this._loginService.getUsers().subscribe((userList: User[]) => {
       this.result = JSON.stringify(userList);
       this._changeDetector.detectChanges();
+    }, (error) => {
+      // TODO replace for a info message
+      console.error(error)
     })
   }
 
@@ -35,6 +38,9 @@ export class UsersListComponent implements OnInit {
     this._loginService.getUser(this.usersForm.controls.userId.value).subscribe((user: User) => {
       this.result = JSON.stringify(user);
       this._changeDetector.detectChanges();
+    }, (error) => {
+      // TODO replace for a info message
+      console.error(error)
     })
   }
 
@@ -57,6 +63,9 @@ export class UsersListComponent implements OnInit {
     }).subscribe((user: User) => {
       this.result = user;
       this._changeDetector.detectChanges();
+    }, (error) => {
+      // TODO replace for a info message
+      console.error(error)
     })
   }
 
@@ -64,6 +73,9 @@ export class UsersListComponent implements OnInit {
     this._loginService.getUser(this.usersForm.controls.userId.value).subscribe((user: User) => {
       this.result = JSON.stringify(user);
       this._changeDetector.detectChanges();
+    }, (error) => {
+      // TODO replace for a info message
+      console.error(error)
     })
   }
 
@@ -71,6 +83,10 @@ export class UsersListComponent implements OnInit {
     this._loginService.deleteUser(this.usersForm.controls.userId.value).subscribe((response: any) => {
       this.result = JSON.stringify(response);
       this.getUsers();
+    }, (error) => {
+      // TODO replace for a info message
+      console.error(error)
     })
   }
+  // **************** End of methods for testing *************
 }

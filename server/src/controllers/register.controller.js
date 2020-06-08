@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const userCtrl = {};
 const userModel = require('../models/user');
 
@@ -13,7 +14,12 @@ userCtrl.register = async (req, res) => {
         console.log('user modeled to be registered', user);
         const response = await user.save();
         console.log('User registered');
-        return res.json(response);
+        // we remove the password that is not needed in FE
+        delete response.password;
+        // we create the jwt
+        let payload = {subject: user. _id};
+        let token = jwt.sign(payload, 'secretKey');
+        return res.json({response, token});
     }
 };
 
