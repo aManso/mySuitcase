@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found.component';
 
-// Root routes of this particular module: HOME.
+// Root routes of this particular module: NOT-FOUND.
 const routes: Routes = [
   { path: 'page-not-found', component: NotFoundComponent},
 ];

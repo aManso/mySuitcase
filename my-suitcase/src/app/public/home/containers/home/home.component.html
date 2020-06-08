@@ -1,12 +1,28 @@
-<h2>Estas en public/home</h2>
+
+
+<navbar-component></navbar-component>
 
 <button *ngIf="isLogged && isAdmin" (click)="goTo('admin')">Admin</button>
-<button (click)="goTo('public/design')">Design</button>
+<p>Estás en public/home</p>
+<section class="hero-banner magic-ball">
 
-<div style="text-align:center">
-  <h1>
-    Welcome to my-suitcase!
-  </h1>
-  <img width="300" alt="Angular Logo" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F9%2F95%2FSuitcase_With_Stickers_-_No_Trademarks.svg%2F438px-Suitcase_With_Stickers_-_No_Trademarks.svg.png&f=1&nofb=1">
-</div>
+  <div class="container">
+    <div class="row align-items-center text-center text-md-left">
+      <div class="col-md-6 col-lg-5 mb-5 mb-md-0">
+        <h1>Olvídate de olvidar cosas en tu próximo destino.</h1>
+        <p> El hacer maletas siempre fue la parte más tediosa del viaje. Con <i>Mysuitcase</i> te ayudamos a optimizar ese proceso para que no olvides nada en tu próximo viaje. ¿Por qué perder el tiempo con las cosas que no lo requieren? </p>
+        <button class="button button-hero mt-4" (click)="goTo('public/design')">Login/Sign Up</button>
+      </div>
+      <div class="col-md-6 col-lg-7 col-xl-6 offset-xl-1">
+        <img class="img-fluid" src="../../../../../assets/img/home/carry1-noback.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer-component></footer-component>
+
+
+
 

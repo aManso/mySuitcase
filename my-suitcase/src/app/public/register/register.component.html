@@ -1,13 +1,14 @@
+<navbar-component></navbar-component>
 <form class="col-lg-6 col-xl-6 offset-xl-1" [formGroup]="registerForm">
   <div class="search-wrapper">
     <div class="form-group">
       <label for="name">Nombre</label>
       <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Introduce tu nombre de usuario"  formControlName="name">
-      <small id="nameHelp" class="form-text text-muted">Opcional</small>
+      <!-- <small id="nameHelp" class="form-text text-muted">Opcional</small> -->
 
       <label for="email">Email</label>
       <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Introduce email"  formControlName="email">
-      <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con nadie</small>
+      <!-- <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con nadie</small> -->
 
       <div [formGroup]="passwordForm">
         <label for="password">Contraseña</label>
@@ -37,10 +38,12 @@
       <small id="genderHelp" class="form-text text-muted">Opcional</small>
     </div>
     <div class="button-block">
-      <button type="submit" [disabled]="!isValidForm()" class="btn btn-primary" (click)="submit()">Empezar!</button>
+      <button type="submit" [disabled]="!isValidForm()" class="button border-1 mt-3" (click)="submit()">Empezar!</button>
     </div>
     <a href="javascript:void(0)" (click)="goTo('login')" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">Ya estoy registrado, volver</a>
   </div>
 
   <img class="login-img" alt="login image" src="assets/img/home/service1.png">
 </form>
+
+<footer-component></footer-component>
