@@ -1,9 +1,9 @@
 import { Inject, Component, OnInit, InjectionToken } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../core/models/user';
-import { RegisterService } from './register.service';
-import { passwordMatchingValidator, passwordValidator } from '../../core/validators/validators';
+import { User } from '../../../core/models/user';
+import { RegisterService } from '../register.service';
+import { passwordMatchingValidator, passwordValidator } from '../../../core/validators/validators';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 

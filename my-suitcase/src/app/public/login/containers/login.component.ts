@@ -1,10 +1,10 @@
 import { Inject, Component, OnInit, InjectionToken } from '@angular/core';
-import { LoginService } from './login.service';
+import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../core/models/user';
-import { AuthenticationGuard } from '../../core/guards/authentication.guard';
-import { passwordValidator } from '../../core/validators/validators';
+import { User } from '../../../core/models/user';
+import { AuthenticationGuard } from '../../../core/guards/authentication.guard';
+import { passwordValidator } from '../../../core/validators/validators';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 
