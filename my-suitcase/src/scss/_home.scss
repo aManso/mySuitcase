@@ -51,7 +51,7 @@
   }
 }
 .about-img{
-  
+
   @media(min-width: 1200px){
     position: relative;
     left: -100px;
@@ -122,48 +122,48 @@
 
 
 
-.magic-ball{
-  position: relative;
+// .magic-ball{
+//   position: relative;
 
-  &::before{
-    content: "";
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 8px solid $primary-color;
-    opacity: .5;
-    position: absolute;
-    bottom: -68px;
-    left: -15px;
+//   &::before{
+//     content: "";
+//     display: block;
+//     width: 40px;
+//     height: 40px;
+//     border-radius: 50%;
+//     border: 8px solid $primary-color;
+//     opacity: .5;
+//     position: absolute;
+//     bottom: -68px;
+//     left: -15px;
 
-    @media(min-width: 768px){
-      width: 70px;
-      height: 70px;
-      left: -35px;
-      border: 15px solid $primary-color;
-    }
-  }
+//     @media(min-width: 768px){
+//       width: 70px;
+//       height: 70px;
+//       left: -35px;
+//       border: 15px solid $primary-color;
+//     }
+//   }
 
-  &::after{
-    content: "";
-    display: block;
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
-    background-color: rgb(235, 235, 255);
-    opacity: .5;
-    position: absolute;
-    bottom: -263px;
-    left: 70px;
+//   &::after{
+//     content: "";
+//     display: block;
+//     width: 68px;
+//     height: 68px;
+//     border-radius: 50%;
+//     background-color: rgb(235, 235, 255);
+//     opacity: .5;
+//     position: absolute;
+//     bottom: -263px;
+//     left: 70px;
 
-    @media(min-width: 768px){
-      width: 98px;
-      height: 98px;
-      left: 165px;
-    }
-  }
-}
+//     @media(min-width: 768px){
+//       width: 98px;
+//       height: 98px;
+//       left: 165px;
+//     }
+//   }
+// }
 
 .magic-ball-about{
 
@@ -332,11 +332,11 @@
       margin-bottom: 0;
     }
   }
-  
+
   &:hover{
 
     .card-blog-body{
-      box-shadow: 0px 10px 20px 0px rgba(14, 30, 112, 0.1); 
+      box-shadow: 0px 10px 20px 0px rgba(14, 30, 112, 0.1);
     }
   }
 }
@@ -370,11 +370,12 @@
   background: #f8f8ff;
   padding: 30px 10px;
   text-align: center;
+  border: 1px solid $secondary-color;
 
   @media(min-width: 600px){
     padding: 60px;
   }
-  
+
   h3{
     font-size: 25px;
     margin-bottom: 25px;
@@ -425,7 +426,7 @@
   }
 
   .input-group-append{
-    
+
     .input-group-text{
       border: 0;
       padding-right: 20px;

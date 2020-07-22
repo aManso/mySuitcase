@@ -1,28 +1,40 @@
-/* font family
-	============================================================================================ */
+/* Common variables for all the app */
+
+/* Screens */
+$desktop: 992px;
+$tablet:  768px;
+$mobile:  576px;
+
+/* Font family */
 $title-font: 'Roboto Condensed', sans-serif;
-$text-font: 'Roboto', sans-serif;                    
+$text-font: 'Roboto', sans-serif;
 
 
-/* color variables
-	============================================================================================ */
+/* Color variables */
 $title-color: #2a2a2a;
 $text-color: #888888;
-$primary-color: #6059f6;
-// $primary-color2: #ea0763;
+$primary-color: #D88A83;
+$secondary-color: #BA6C65;
 
 
-// $black: #242429;
+$black: #242429;
 $link-color: #777777;
 $white: #fff;
 
+/* #D88A83
+#BA6C65
+#F2BE8D
+#394359
+#303242 */
 
-/* google fonts
-	============================================================================================ */
+
+/* Google fonts */
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
 
 
 
-
-
+// Shared styles
+.nav-link{
+  color: unset;
+}
