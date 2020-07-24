@@ -8,7 +8,7 @@ const MINUTES_TO_SHOW_COUNTDOWN = 1;
 })
 export class SessionService {
   private _interval: any;
-  private secondsCountDown = 50;
+  private secondsCountDown = 10;
   public sessionSeconds = MINUTES_TO_SHOW_COUNTDOWN * 60;
   public showTimeOutPopUp$: Subject<number> = new Subject<number>();
   public logout$: Subject<void> = new Subject<void>();
