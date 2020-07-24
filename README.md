@@ -23,7 +23,10 @@ THIS A TESTING TEXT.
 * Tech 1 - version 1.0
 
 ## Setup
-Describe how to install 
+npm install 
+
+## Deploy
+npm start (with proxy.conf to distinguish PROD vs DEV - https://medium.com/@asfo/creando-un-proxy-en-angular-para-conectarte-a-un-api-local-y-de-producci%C3%B3n-106c34cd9815)
 
 ## Features
 List of features ready and TODOs for future development
@@ -36,4 +39,4 @@ To-do list:
  Visit the wiki [here](https://github.com/aguadotzn/mySuitcase/wiki). 
 
 ## Contact
-Created by [@aguadotzn](https://twitter.com/aguadotzn) - feel free to contact me!
+Created by [@aManso](https://www.linkedin.com/in/alejandro-manso-026a2a2b/) & [@aguadotzn](https://twitter.com/aguadotzn) - feel free to contact us!
