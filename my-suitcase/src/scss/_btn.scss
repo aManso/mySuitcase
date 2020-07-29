@@ -3,7 +3,8 @@
   display: inline-block;
   background-color: $primary-color;
   color: $white;
-  border-radius: 30px;
+  border-radius: 20px;
+  margin: 10px;
   padding: 8px 25px;
   text-transform: capitalize;
   @include transition;
@@ -13,7 +14,7 @@
   }
 
   &:hover{
-    background-color: #201aa3;
+    background-color: $secondary-color;
     color: $white;
   }
 }
@@ -27,7 +28,7 @@
 }
 
 .button-shadow{
-  box-shadow: 0px 10px 20px 0px rgba(181, 176, 255, 0.2); 
+  box-shadow: 0px 10px 20px 0px rgba(181, 176, 255, 0.2);
 }
 
 button.button{

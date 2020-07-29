@@ -11,6 +11,7 @@
     text-transform: uppercase;
     color: $primary-color;
     margin-bottom: 15px;
+    font-size: 60px;
 
     @media(max-width: 1200px){
       font-size: 40px;
@@ -107,26 +108,26 @@
   ============================================================================================ */
   .banner-breadcrumb{
     display: inline-block;
-    
+
     .breadcrumb{
       background: transparent;
       padding: 0;
-  
+
       &-item{
         padding: .1rem;
-  
+
         a{
           text-transform: capitalize;
           color: #fff;
         }
-  
+
         &+.breadcrumb-item::before{
           color: #fff;
           padding-left: .2rem;
           padding-right: .4rem;
           // content: "-";
         }
-  
+
         &.active{
           color: #fff;
         }
