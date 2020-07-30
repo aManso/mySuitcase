@@ -3,6 +3,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 const app = express();
 
+const { db } = require('./db/database');
+
 // Settings
 // es como crear una variable, y ahora puedo acceder a la variable port desde cualquier parte de la app
 app.set('port', process.env.port || 3000);

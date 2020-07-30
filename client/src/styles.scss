@@ -1,0 +1,20 @@
+@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+/* Directory file of styles. To see style go to scss/ */
+@import "./scss/_variables";
+@import "./scss/_mixins";
+@import "./scss/_reset";
+@import "./scss/_header";
+@import "./scss/_responsive";
+@import "./scss/_banner";
+@import "./scss/_section-intro";
+@import "./scss/_home";
+// @import "scss/gallery";
+@import "./scss/contact";
+@import "./scss/blog";
+@import "./scss/btn";
+@import "./scss/footer";
+@import "./scss/dialogs";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
