@@ -7,11 +7,12 @@ import {SessionService} from "../../../../core/services/session.service";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  // styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit{
   public isAdmin:boolean;
   public isLogged = false;
+  public createFormActivated = false;
 
   constructor(
     private _loginService: LoginService,
@@ -35,5 +36,21 @@ export class HomeComponent implements OnInit{
   public logout():void {
     this._sessionService.stopInterval();
     this._loginService.logout();
+  }
+
+  public createSuitcase() {
+    document.getElementById("buttons-area").classList.add("disappear");
+    document.getElementById("image-area").classList.add("disappear");
+    document.getElementById("questions-area").classList.add("appear");
+    this._removeElementById("buttons-area", 3000);
+    this._removeElementById("image-area", 3000);
+  }
+
+  private _removeElementById(id: string, delay: number) {
+    // The delay has to be in sync with the time that the transition takes
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      element.parentNode.removeChild(element);
+    }, delay);
   }
 }

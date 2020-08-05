@@ -1,0 +1,23 @@
+@import "./../../../../../scss/variables";
+
+.full-screen :host {
+  display: inline-block;
+  height: $max-footer-height-full-screen;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+
+  .footer-area {
+    height: 100%;
+    padding-top: 0;
+  }
+
+  .footer-bottom {
+    margin-top: 0;
+  }
+
+  .row {
+    height: 0;
+  }
+}
