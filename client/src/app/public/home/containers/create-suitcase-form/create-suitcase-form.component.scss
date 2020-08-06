@@ -1,0 +1,19 @@
+@import "./../../../../../scss/variables";
+
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+#create-form-header {
+  align-items: center;
+  background-color: $tertiary-color;
+  color: white;
+  display: flex;
+  height: 50px;
+  padding: 0 20px;
+}
+
+#create-form-content {
+  padding: 20px;
+}

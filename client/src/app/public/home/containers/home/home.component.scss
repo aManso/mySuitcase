@@ -1,0 +1,60 @@
+@import "./../../../../../scss/_variables";
+
+.full-screen .logged-user-section {
+  height: calc(100vh - #{$max-footer-height-full-screen});
+}
+
+.container, .row {
+  height: 100%;
+  position: relative;
+}
+
+#questions-area {
+  top: 110%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+}
+
+.appear {
+  display: flex!important;
+  animation-name: appear;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: appear;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.disappear {
+  animation-name: disappear;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: disappear;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes disappear {
+  /* You could think of as "step 1" */
+  0% {
+    margin-top: 0;
+  }
+  /* You could think of as "step 2" */
+  100% {
+    margin-top: -1500px;
+  }
+}
+
+@keyframes appear {
+  /* You could think of as "step 1" */
+  0% {
+    top: 110%;
+  }
+  /* You could think of as "step 2" */
+  100% {
+    top: 0%;
+  }
+}
