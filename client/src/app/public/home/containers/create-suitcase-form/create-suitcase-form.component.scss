@@ -20,8 +20,9 @@
 }
 
 #createSuitcaseForm {
+  overflow: hidden;
   position: relative;
-  min-height: 150px; // 100 for the question block + 35px for the button + 15 to separate
+  min-height: 200px; // 100 for the question block + 35px for the button + 15 to separate
 }
 
 #create-form-content {
@@ -40,8 +41,10 @@
 }
 
 #button-wrapper {
+  display: flex;
+  justify-content: center;
   position: relative;
-  top: 100px; // space booked for the questions
+  top: 150px; // space booked for the questions
 }
 
 #date-form-field, #place-form-field, #type-form-field {
@@ -50,6 +53,23 @@
   justify-content: space-between;
   position: absolute;
   width: 100%;
+}
+
+#date-form-field {
+
+  mat-form-field {
+    margin: 0 10px;
+  }
+}
+
+#type-form-field {
+  flex-direction: column;
+  justify-content: flex-start;
+
+  #type_options {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 // ANIMATIONS
@@ -133,5 +153,12 @@
   /* You could think of as "step 2" */
   100% {
     top: 0;
+  }
+}
+
+@media (max-width: 750px) {
+  #date-form-field {
+    flex-direction: column;
+    justify-content: flex-start;
   }
 }

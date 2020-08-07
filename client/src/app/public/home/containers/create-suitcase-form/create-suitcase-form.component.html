@@ -39,11 +39,13 @@
       </mat-form-field>
     </div>
     <div id="{{steps[3].id}}" [formGroup]="createSuitcaseForm.controls.type">
-        <mat-label>Que tipo de viaje vas a realizar?</mat-label>
+      <mat-label>Que tipo de viaje vas a realizar?</mat-label>
+      <div id="type_options">
         <mat-checkbox class="" formControlName="beach">Playa</mat-checkbox>
         <mat-checkbox class="" formControlName="mountain">Montaña</mat-checkbox>
         <mat-checkbox class="" formControlName="cultural">Cultural</mat-checkbox>
         <mat-checkbox class="" formControlName="sport">Deporte</mat-checkbox>
+      </div>
     </div>
 
     <div id="button-wrapper">
