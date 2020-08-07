@@ -9,12 +9,12 @@ export interface User {
     postCode: string,
     coordinates: string,
   };
-  admin: boolean,
+  admin: boolean;
   age: number;
   email: string;
   joiningDate: Date;
   name: string;
-  password: string,
+  password: string;
 }
 
 export interface UserLogin {

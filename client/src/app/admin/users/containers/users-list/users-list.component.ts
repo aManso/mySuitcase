@@ -30,8 +30,8 @@ export class UsersListComponent implements OnInit {
       this._changeDetector.detectChanges();
     }, (error) => {
       // TODO replace for a info message
-      console.error(error)
-    })
+      console.error(error);
+    });
   }
 
   public getUser() {
@@ -40,8 +40,8 @@ export class UsersListComponent implements OnInit {
       this._changeDetector.detectChanges();
     }, (error) => {
       // TODO replace for a info message
-      console.error(error)
-    })
+      console.error(error);
+    });
   }
 
   public addUser() {
@@ -65,8 +65,8 @@ export class UsersListComponent implements OnInit {
       this._changeDetector.detectChanges();
     }, (error) => {
       // TODO replace for a info message
-      console.error(error)
-    })
+      console.error(error);
+    });
   }
 
   public updateUser() {
@@ -75,8 +75,8 @@ export class UsersListComponent implements OnInit {
       this._changeDetector.detectChanges();
     }, (error) => {
       // TODO replace for a info message
-      console.error(error)
-    })
+      console.error(error);
+    });
   }
 
   public deleteUser() {
@@ -85,8 +85,8 @@ export class UsersListComponent implements OnInit {
       this.getUsers();
     }, (error) => {
       // TODO replace for a info message
-      console.error(error)
-    })
+      console.error(error);
+    });
   }
   // **************** End of methods for testing *************
 }

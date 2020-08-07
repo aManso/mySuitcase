@@ -3,7 +3,7 @@ import { ThemePalette } from '@angular/material/core';
 import { ProgressBarMode } from '@angular/material/progress-bar';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {CreateSuitcaseFormSteps} from "./create-suitcase-form.interfaces";
+import {CreateSuitcaseFormSteps} from './create-suitcase-form.interfaces';
 
 const suitcaseNameMaxLength = 20;
 
@@ -80,12 +80,12 @@ export class CreateSuitcaseFormComponent implements OnInit {
 
   public nextQuestion() {
     // remove the classes in case we went back and forward
-    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.remove("appearFromTop");
-    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.remove("disappearToBottom");
-    document.getElementById(this.steps[this.currentQuestion].id).classList.remove("disappearToBottom");
+    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.remove('appearFromTop');
+    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.remove('disappearToBottom');
+    document.getElementById(this.steps[this.currentQuestion].id).classList.remove('disappearToBottom');
     // add the classes to disappear the current question and introduce the next one
-    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.add("disappearToTop");
-    document.getElementById(this.steps[this.currentQuestion].id).classList.add("appearFromBottom");
+    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.add('disappearToTop');
+    document.getElementById(this.steps[this.currentQuestion].id).classList.add('appearFromBottom');
     // update the rest of the variables to be in the second question
     this._updateHeader(this.currentQuestion);
     this.currentQuestion = this.currentQuestion + 1;
@@ -93,7 +93,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
   }
 
   public goToCreateSuitcase() {
-    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.add("disappearToTop");
+    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.add('disappearToTop');
     setTimeout(() => {
       this._router.navigate(['/public/create-suitcase']);
     }, 1000);
@@ -101,12 +101,12 @@ export class CreateSuitcaseFormComponent implements OnInit {
 
   public goPreviousQuestion() {
     // remove the classes in case we went back and forward
-    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.remove("appearFromBottom");
-    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.remove("appearFromTop");
-    document.getElementById(this.steps[this.currentQuestion - 2].id).classList.remove("disappearToTop");
+    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.remove('appearFromBottom');
+    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.remove('appearFromTop');
+    document.getElementById(this.steps[this.currentQuestion - 2].id).classList.remove('disappearToTop');
     // add the classes to disappear the current question and introduce the previous one
-    document.getElementById(this.steps[this.currentQuestion - 2].id).classList.add("appearFromTop");
-    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.add("disappearToBottom");
+    document.getElementById(this.steps[this.currentQuestion - 2].id).classList.add('appearFromTop');
+    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.add('disappearToBottom');
     // update the rest of the variables to be in the second question
     this._updateHeader(this.currentQuestion);
     this.currentQuestion = this.currentQuestion - 1;

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../core/shared/shared.module';
 import { HomeComponent } from './containers/home/home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { CreateSuitcaseFormComponent } from "./containers/create-suitcase-form/create-suitcase-form.component";
+import { CreateSuitcaseFormComponent } from './containers/create-suitcase-form/create-suitcase-form.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';

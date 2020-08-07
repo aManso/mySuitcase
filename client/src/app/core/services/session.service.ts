@@ -45,15 +45,15 @@ export class SessionService {
           this.logout$.next();
         }
       }
-    }, 1000)
+    }, 1000);
   }
 
 
-  public reset (): void {
+  public reset(): void {
     this.sessionSeconds = MINUTES_TO_SHOW_COUNTDOWN * 60;
   }
 
-  public stopInterval (): void {
+  public stopInterval(): void {
     if (this._interval) {
       this.reset();
       clearInterval(this._interval);

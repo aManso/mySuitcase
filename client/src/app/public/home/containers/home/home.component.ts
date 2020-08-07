@@ -2,17 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../login/login.service';
 import { User } from '../../../../core/models/user';
-import {SessionService} from "../../../../core/services/session.service";
+import {SessionService} from '../../../../core/services/session.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
-  public isAdmin:boolean;
+export class HomeComponent implements OnInit {
+  public isAdmin: boolean;
   public isLogged = false;
-  public createFormActivated = false;
 
   constructor(
     private _loginService: LoginService,
@@ -33,17 +32,17 @@ export class HomeComponent implements OnInit{
     this._router.navigate([path]);
   }
 
-  public logout():void {
+  public logout(): void {
     this._sessionService.stopInterval();
     this._loginService.logout();
   }
 
   public createSuitcase() {
-    document.getElementById("buttons-area").classList.add("disappearToTop");
-    document.getElementById("image-area").classList.add("disappearToTop");
-    document.getElementById("questions-area").classList.add("appearFromBottom");
-    this._removeElementById("buttons-area", 1000);
-    this._removeElementById("image-area", 1000);
+    document.getElementById('buttons-area').classList.add('disappearToTop');
+    document.getElementById('image-area').classList.add('disappearToTop');
+    document.getElementById('questions-area').classList.add('appearFromBottom');
+    this._removeElementById('buttons-area', 1000);
+    this._removeElementById('image-area', 1000);
   }
 
   private _removeElementById(id: string, delay: number) {

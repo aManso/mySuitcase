@@ -8,8 +8,8 @@
 /bazel-out
 
 # dependencies
-/my-suitcase/node_modules
-/my-suitcase/dist
+/client/node_modules
+/client/dist
 /server/node_modules
 
 # profiling files
