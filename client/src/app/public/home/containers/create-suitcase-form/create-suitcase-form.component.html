@@ -18,13 +18,13 @@
     <div id="{{steps[1].id}}">
       <mat-form-field appearance="fill">
         <mat-label>Desde</mat-label>
-        <input matInput [matDatepicker]="pickerFrom" formControlName="from">
+        <input matInput [matDatepicker]="pickerFrom" [min]="currentDate" formControlName="from">
         <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
         <mat-datepicker #pickerFrom></mat-datepicker>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Hasta</mat-label>
-        <input matInput [matDatepicker]="pickerTo" formControlName="to">
+        <input matInput [matDatepicker]="pickerTo" [min]="createSuitcaseForm.controls.from.value ? createSuitcaseForm.controls.from.value : currentDate" formControlName="to">
         <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
         <mat-datepicker #pickerTo></mat-datepicker>
       </mat-form-field>

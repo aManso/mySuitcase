@@ -19,6 +19,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
   public color: ThemePalette = 'primary';
   public mode: ProgressBarMode = 'determinate';
   public createSuitcaseForm: FormGroup;
+  public currentDate = new Date();
   public steps: CreateSuitcaseFormSteps[] = [
     {
       id: 'name-form-field',
@@ -78,9 +79,14 @@ export class CreateSuitcaseFormComponent implements OnInit {
   }
 
   public nextQuestion() {
+    // remove the classes in case we went back and forward
+    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.remove("appearFromTop");
+    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.remove("disappearToBottom");
+    document.getElementById(this.steps[this.currentQuestion].id).classList.remove("disappearToBottom");
+    // add the classes to disappear the current question and introduce the next one
     document.getElementById(this.steps[this.currentQuestion - 1].id).classList.add("disappearToTop");
     document.getElementById(this.steps[this.currentQuestion].id).classList.add("appearFromBottom");
-    // this._removeElementById(this.steps[this.currentQuestion - 1].id, 3000);
+    // update the rest of the variables to be in the second question
     this._updateHeader(this.currentQuestion);
     this.currentQuestion = this.currentQuestion + 1;
     this._updateProgressBar();
@@ -94,19 +100,21 @@ export class CreateSuitcaseFormComponent implements OnInit {
   }
 
   public goPreviousQuestion() {
+    // remove the classes in case we went back and forward
+    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.remove("appearFromBottom");
+    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.remove("appearFromTop");
     document.getElementById(this.steps[this.currentQuestion - 2].id).classList.remove("disappearToTop");
-  }
-
-  private _removeElementById(id: string, delay: number) {
-    // The delay has to be in sync with the time that the transition takes
-    setTimeout(() => {
-      const element = document.getElementById(id);
-      element.style.display = 'none'
-    }, delay);
+    // add the classes to disappear the current question and introduce the previous one
+    document.getElementById(this.steps[this.currentQuestion - 2].id).classList.add("appearFromTop");
+    document.getElementById(this.steps[this.currentQuestion - 1].id).classList.add("disappearToBottom");
+    // update the rest of the variables to be in the second question
+    this._updateHeader(this.currentQuestion);
+    this.currentQuestion = this.currentQuestion - 1;
+    this._updateProgressBar();
   }
 
   private _updateHeader(questionNr: number) {
-    document.getElementById('create-form-header__text').innerHTML = this.steps[questionNr - 1].headerText;
+    document.getElementById('create-form-header__text').innerHTML = questionNr > 0 ? this.steps[questionNr - 1].headerText : 'Empecemos';
   }
 
   public isDisabled(): boolean {

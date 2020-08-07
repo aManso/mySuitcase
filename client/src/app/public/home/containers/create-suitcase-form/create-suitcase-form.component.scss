@@ -83,6 +83,7 @@
 }
 
 .disappearToBottom {
+  display: flex!important;
   animation-name: disappearToBottom;
   animation-duration: 1s;
   animation-fill-mode: forwards;
@@ -98,14 +99,14 @@
   }
   /* You could think of as "step 2" */
   100% {
-    bottom: 300%;
+    bottom: 350%;
   }
 }
 
 @keyframes appearFromBottom {
   /* You could think of as "step 1" */
   0% {
-    top: 300%;
+    top: 350%;
   }
   /* You could think of as "step 2" */
   100% {
@@ -116,22 +117,21 @@
 @keyframes disappearToBottom {
   /* You could think of as "step 1" */
   0% {
-    bottom: 300%;
+    top: 0;
   }
   /* You could think of as "step 2" */
   100% {
-    bottom: 0;
+    top: 350%;
   }
 }
 
 @keyframes appearFromTop {
   /* You could think of as "step 1" */
   0% {
-    top: 0;
+    top: -350%;
   }
   /* You could think of as "step 2" */
   100% {
-    top: 300%;
+    top: 0;
   }
 }
-
