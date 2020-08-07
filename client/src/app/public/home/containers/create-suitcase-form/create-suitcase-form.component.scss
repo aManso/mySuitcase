@@ -1,7 +1,11 @@
 @import "./../../../../../scss/variables";
 
 :host {
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  justify-content: space-between;
+  padding-bottom: 40px;
   width: 100%;
 }
 
@@ -11,9 +15,123 @@
   color: white;
   display: flex;
   height: 50px;
+  justify-content: space-between;
   padding: 0 20px;
 }
 
-#create-form-content {
-  padding: 20px;
+#createSuitcaseForm {
+  position: relative;
+  min-height: 150px; // 100 for the question block + 35px for the button + 15 to separate
 }
+
+#create-form-content {
+  margin: auto;
+  padding: 20px;
+  width: 75%;
+
+  .question {
+    width: 100%;
+  }
+}
+
+#name-form-field {
+  position: absolute;
+  width: 100%;
+}
+
+#button-wrapper {
+  position: relative;
+  top: 100px; // space booked for the questions
+}
+
+#date-form-field, #place-form-field, #type-form-field {
+  display: none;
+  height: 100%;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+}
+
+// ANIMATIONS
+.appearFromBottom {
+  display: flex!important;
+  animation-name: appearFromBottom;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: appearFromBottom;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.disappearToTop {
+  animation-name: disappearToTop;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: disappearToTop;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.appearFromTop {
+  display: flex!important;
+  animation-name: appearFromTop;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: appearFromTop;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.disappearToBottom {
+  animation-name: disappearToBottom;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: disappearToBottom;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes disappearToTop {
+  /* You could think of as "step 1" */
+  0% {
+    bottom: 0;
+  }
+  /* You could think of as "step 2" */
+  100% {
+    bottom: 300%;
+  }
+}
+
+@keyframes appearFromBottom {
+  /* You could think of as "step 1" */
+  0% {
+    top: 300%;
+  }
+  /* You could think of as "step 2" */
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes disappearToBottom {
+  /* You could think of as "step 1" */
+  0% {
+    bottom: 300%;
+  }
+  /* You could think of as "step 2" */
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes appearFromTop {
+  /* You could think of as "step 1" */
+  0% {
+    top: 0;
+  }
+  /* You could think of as "step 2" */
+  100% {
+    top: 300%;
+  }
+}
+

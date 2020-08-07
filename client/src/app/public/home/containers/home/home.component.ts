@@ -39,11 +39,11 @@ export class HomeComponent implements OnInit{
   }
 
   public createSuitcase() {
-    document.getElementById("buttons-area").classList.add("disappear");
-    document.getElementById("image-area").classList.add("disappear");
-    document.getElementById("questions-area").classList.add("appear");
-    this._removeElementById("buttons-area", 3000);
-    this._removeElementById("image-area", 3000);
+    document.getElementById("buttons-area").classList.add("disappearToTop");
+    document.getElementById("image-area").classList.add("disappearToTop");
+    document.getElementById("questions-area").classList.add("appearFromBottom");
+    this._removeElementById("buttons-area", 1000);
+    this._removeElementById("image-area", 1000);
   }
 
   private _removeElementById(id: string, delay: number) {
