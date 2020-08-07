@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../login/login.service';
 import { User } from '../../../../core/models/user';
-import {SessionService} from "../../../../core/services/session.service";
+import { SessionService } from "../../../../core/services/session.service";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
-  public isAdmin:boolean;
+export class HomeComponent implements OnInit {
+  public isAdmin: boolean;
   public isLogged = false;
   public createFormActivated = false;
 
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit{
     this.isLogged = !!this._loginService.isLoggedIn();
     const user = this._loginService.getActiveUser();
     this.isAdmin = this.isLogged && user && user.admin;
-    this._loginService.logged$.subscribe((loggedUser: User|boolean) => {
+    this._loginService.logged$.subscribe((loggedUser: User | boolean) => {
       this.isLogged = !!loggedUser;
     });
   }
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit{
     this._router.navigate([path]);
   }
 
-  public logout():void {
+  public logout(): void {
     this._sessionService.stopInterval();
     this._loginService.logout();
   }
