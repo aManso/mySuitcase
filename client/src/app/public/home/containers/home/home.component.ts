@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../login/login.service';
 import { User } from '../../../../core/models/user';
-import {SessionService} from '../../../../core/services/session.service';
+import { SessionService } from '../../../../core/services/session.service';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     this.isLogged = !!this._loginService.isLoggedIn();
     const user = this._loginService.getActiveUser();
     this.isAdmin = this.isLogged && user && user.admin;
-    this._loginService.logged$.subscribe((loggedUser: User|boolean) => {
+    this._loginService.logged$.subscribe((loggedUser: User | boolean) => {
       this.isLogged = !!loggedUser;
     });
   }
