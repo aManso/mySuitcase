@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'login', loadChildren: () => import('./public/login/login.module').then(m => m.LoginModule) },
   { path: 'register', loadChildren: () => import('./public/register/register.module').then(m => m.RegisterModule) },
-  { path: '', redirectTo: 'public', pathMatch:'full'},
+  { path: '', redirectTo: 'public', pathMatch: 'full'},
   // Wildcard route for a 404 page
   { path: '**', redirectTo: 'page-not-found' },
 ];

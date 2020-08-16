@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { LoginService } from './public/login/login.service';
-import { User } from './core/models/user';
 import { SessionService } from './core/services/session.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TimeoutDialogComponent } from './timeout-dialog/timeout-dialog.component';
@@ -68,7 +67,7 @@ export class AppComponent implements AfterViewInit {
     this.sessionService.reset();
   }
 
-  public logout():void {
+  public logout(): void {
     this.sessionService.stopInterval();
     this._loginService.logout();
   }

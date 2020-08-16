@@ -25,10 +25,10 @@ export class LoginService {
     this.logged$ = new Subject<User|boolean>();
     this._sessionService.logout$.subscribe(() => {
       this.logout();
-    })
+    });
   }
 
-  public login (form: {email: string, password: string, keepSession: boolean}): Observable<User|boolean> {
+  public login(form: {email: string, password: string, keepSession: boolean}): Observable<User|boolean> {
     const $loginResponse = new Subject<User|boolean>();
     (this._http.post(this.URL_CHECK_EXISTING_USER, form) as Observable<UserLogin>).subscribe((response: UserLogin|boolean) => {
       if (typeof response === 'object') {
@@ -83,8 +83,8 @@ export class LoginService {
     ) as Observable<User[]>;
   }
 
-  public getUser(_id: string): Observable<User> {
-    return this._http.get(this.URL_API + _id).pipe(
+  public getUser(id: string): Observable<User> {
+    return this._http.get(this.URL_API + id).pipe(
       retry(3),
       map(res => {
         if (!res) {
@@ -119,8 +119,8 @@ export class LoginService {
     ) as Observable<any>;
   }
 
-  public deleteUser(_id: string): Observable<any> {
-    return this._http.delete(this.URL_API + _id).pipe(
+  public deleteUser(id: string): Observable<any> {
+    return this._http.delete(this.URL_API + id).pipe(
       retry(3),
       map(res => {
         if (!res) {
@@ -131,7 +131,7 @@ export class LoginService {
     ) as Observable<any>;
   }
 
-  public logout () {
+  public logout() {
     this._selectedUser = null;
     sessionStorage.removeItem('activeUserToken');
     localStorage.removeItem('activeUserToken');

@@ -18,44 +18,47 @@
   align-items: center;
 }
 
-.appear {
+
+.appearFromBottom {
   display: flex!important;
-  animation-name: appear;
-  animation-duration: 3s;
+  animation-name: appearFromBottom;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
-  -webkit-animation-name: appear;
-  -webkit-animation-duration: 3s;
+  -webkit-animation-name: appearFromBottom;
+  -webkit-animation-duration: 2s;
   -webkit-animation-fill-mode: forwards;
 }
 
-.disappear {
-  animation-name: disappear;
-  animation-duration: 3s;
+.disappearToTop {
+  animation-name: disappearToTop;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
-  -webkit-animation-name: disappear;
-  -webkit-animation-duration: 3s;
+  -webkit-animation-name: disappearToTop;
+  -webkit-animation-duration: 1s;
   -webkit-animation-fill-mode: forwards;
 }
 
-@keyframes disappear {
+@keyframes disappearToTop {
   /* You could think of as "step 1" */
   0% {
-    margin-top: 0;
+    bottom: 0;
+    display: flex;
   }
   /* You could think of as "step 2" */
   100% {
-    margin-top: -1500px;
+    bottom: 50%;
+    display: none;
   }
 }
 
-@keyframes appear {
+@keyframes appearFromBottom {
   /* You could think of as "step 1" */
   0% {
-    top: 110%;
+    top: 50%;
   }
   /* You could think of as "step 2" */
   100% {
-    top: 0%;
+    top: 0;
   }
 }
 

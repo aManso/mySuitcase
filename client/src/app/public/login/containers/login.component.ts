@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../../core/models/user';
 import { AuthenticationGuard } from '../../../core/guards/authentication.guard';
+// TODO use it when launching to PROD
 import { passwordValidator } from '../../../core/validators/validators';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
