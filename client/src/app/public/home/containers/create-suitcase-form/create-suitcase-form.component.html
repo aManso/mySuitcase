@@ -30,13 +30,19 @@
       </mat-form-field>
     </div>
     <div id="{{steps[2].id}}">
-      <mat-form-field class="question" appearance="outline">
+      <mat-form-field class="question pac-card" appearance="outline" id="pac-card">
         <mat-label>Donde te vas?</mat-label>
-        <input matInput placeholder="Lugar" formControlName="place" required>
+        <input id="pac-input" matInput placeholder="Elige una ciudad" required>
         <mat-icon matSuffix>public</mat-icon>
-        <mat-hint>Max 20 caracteres</mat-hint>
-        <mat-error *ngIf="createSuitcaseForm.controls.place.invalid">El nombre de la maleta excede los 20 caracteres</mat-error>
       </mat-form-field>
+
+      <div #mapContainer id='map'></div>
+
+      <div id="infowindow-content">
+        <img src="" width="16" height="16" id="place-icon" />
+        <span id="place-name" class="title"></span><br />
+        <span id="place-address"></span>
+      </div>
     </div>
     <div id="{{steps[3].id}}" [formGroup]="createSuitcaseForm.controls.type">
       <mat-label>Que tipo de viaje vas a realizar?</mat-label>
