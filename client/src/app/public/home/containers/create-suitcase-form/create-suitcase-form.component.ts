@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import {CreateSuitcaseFormSteps} from './create-suitcase-form.interfaces';
 import {TripLocation} from '../../../../core/models/trip';
 import {Suitcase} from '../../../../core/models/suitcase';
-import {SuitcaseService} from "../../../services/suitcase.service";
+import {SuitcaseService} from '../../../services/suitcase.service';
 
 const suitcaseNameMaxLength = 20;
 
@@ -109,18 +109,22 @@ export class CreateSuitcaseFormComponent implements OnInit {
     }
   }
 
-  private _saveSuitcase(): void {
-    const suitcase: Suitcase = {
-      name: this.createSuitcaseForm.value.name,
-      date: {
-        from: this.createSuitcaseForm.value.from,
-        to: this.createSuitcaseForm.value.to,
-      },
-      place: this.createSuitcaseForm.value.place,
-      type: this.createSuitcaseForm.value.type,
-      isInProgress: true,
-    };
-    this._suitcaseService.saveSuitcase(suitcase);
+  public saveSuitcase(): void {
+    if (this.createSuitcaseForm.valid) {
+      const suitcase: Suitcase = {
+        name: this.createSuitcaseForm.value.name,
+        date: {
+          from: this.createSuitcaseForm.value.from,
+          to: this.createSuitcaseForm.value.to,
+        },
+        place: this.createSuitcaseForm.value.place,
+        type: this.createSuitcaseForm.value.type,
+        isInProgress: true,
+      };
+      this._suitcaseService.saveSuitcase(suitcase).subscribe(() => {
+        this._goToCreateSuitcase();
+      });
+    }
   }
 
 
@@ -160,8 +164,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
     this._updateProgressBar();
   }
 
-  public goToCreateSuitcase() {
-    this._saveSuitcase();
+  private _goToCreateSuitcase() {
     document.getElementById(this.steps[this.currentQuestion - 1].id).classList.add('disappearToTop');
     setTimeout(() => {
       this._router.navigate(['/public/create-suitcase']);
