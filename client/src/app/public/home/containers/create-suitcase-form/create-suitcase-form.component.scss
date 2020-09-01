@@ -1,4 +1,5 @@
 @import "./../../../../../scss/variables";
+$header-height: 50px;
 
 :host {
   display: flex;
@@ -14,12 +15,13 @@
   background-color: $tertiary-color;
   color: white;
   display: flex;
-  height: 50px;
+  height: $header-height;
   justify-content: space-between;
   padding: 0 20px;
 }
 
 #createSuitcaseForm {
+  height: 100%;
   overflow: hidden;
   position: relative;
   min-height: 200px; // 100 for the question block + 35px for the button + 15 to separate
@@ -29,8 +31,10 @@
   margin: auto;
   padding: 20px;
   width: 75%;
+  height: calc(100% - #{$header-height});
 
   .question {
+    border-radius: 5px;
     width: 100%;
   }
 }
@@ -43,8 +47,9 @@
 #button-wrapper {
   display: flex;
   justify-content: center;
-  position: relative;
-  top: 150px; // space booked for the questions
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
 }
 
 #date-form-field, #place-form-field, #type-form-field {
@@ -55,11 +60,19 @@
   width: 100%;
 }
 
+#name-form-field, #date-form-field, #type-form-field {
+  padding-top: 50px;
+}
+
 #date-form-field {
 
   mat-form-field {
     margin: 0 10px;
   }
+}
+
+#place-form-field {
+  flex-direction: column;
 }
 
 #type-form-field {
@@ -162,3 +175,71 @@
     justify-content: flex-start;
   }
 }
+
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  width: 100%;
+  min-height: 300px;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+

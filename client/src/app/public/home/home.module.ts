@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {SuitcaseService} from '../services/suitcase.service';
 
 @NgModule({
 
@@ -35,7 +36,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     CreateSuitcaseFormComponent,
   ],
   exports: [],
-  providers: [],
+  providers: [
+    SuitcaseService,
+  ],
 })
 export class HomeModule {
   constructor() {}

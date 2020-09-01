@@ -21,6 +21,7 @@ app.use(cors({origin: 'http://localhost:4200'}));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/login', require('./routes/login'));
 app.use('/api/register', require('./routes/register'));
+app.use('/api/suitcase', require('./routes/suitcase'));
 
 // Connecting
 app.listen(app.get('port'), () => {
