@@ -17,8 +17,8 @@ userCtrl.register = async (req, res) => {
         // we remove the password that is not needed in FE
         delete response.password;
         // we create the jwt
-        let payload = {subject: user. _id};
-        let token = jwt.sign(payload, 'secretKey');
+        let payload = {userId: user._id};
+        let token = jwt.sign(payload, 'secretKey', {expiresIn: '1h'});
         return res.json({response, token});
     }
 };
