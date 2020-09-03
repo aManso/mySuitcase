@@ -21,7 +21,7 @@ export class SuitcaseService {
   public saveSuitcase(suitcase: Suitcase): Observable<void > {
     const $saveResponse = new Subject<void>();
     this._currentSuitcase = suitcase;
-    this._http.post(this.URL_API, {suitcase, suitcaseName: this._loginService.getActiveUser()._id}).subscribe((response: null) => {
+    this._http.post(this.URL_API, {suitcase}).subscribe((response: null) => {
       console.log('Suitcase saved! ', response);
       $saveResponse.next();
     }, (error: any) => {
