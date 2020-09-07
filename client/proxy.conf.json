@@ -4,5 +4,17 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": false
+  },
+  "/data/2.5/*}": {
+    "target": "http://api.openweathermap.org",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/other": {
+    "target": "http://api.openweathermap.org/data/2.5/onecall?lat=36.721261&lon=-4.4212655&exclude=current,minutely,hourly&units=metric&APPID=196a1bbd3530f9a1bfe6b1d93626f518",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }

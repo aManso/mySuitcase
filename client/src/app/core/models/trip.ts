@@ -3,8 +3,10 @@ export interface TripLocation {
   country: string;
   city?: string;
   street?: string;
-  coordinates: {
-    lat: number,
-    lng: number,
-  };
+  coordinates: Coordinates;
+}
+
+export interface Coordinates {
+  lat: number,
+  lng: number,
 }
