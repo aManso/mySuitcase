@@ -1,0 +1,135 @@
+@import "./../../../scss/variables";
+
+:host {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+#weather-widget {
+  height: 100%;
+}
+
+.weather-forecast-wrapper {
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.weather-forecast__day-row {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70px;
+  min-width: 70px;
+  padding: 5px;
+  box-sizing: border-box;
+  border: solid 1px grey;
+  margin-right: 5px;
+  &:nth-child(even) {
+    background-color: #f0f8ff;
+  }
+}
+.weather-forecast__data .fas {
+  display: flex;
+  font-size: 46px;
+  justify-content: center;
+}
+.weather-forecast__description {
+  display: block;
+  font-size: $font-size-small-xxx;
+  text-align: center;
+}
+.calendar {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+.weather-forecast__day-of-month {
+  color: red;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  bottom: 5px;
+}
+
+
+
+// OTHER DATA
+.weather-forecast__temperatures i, .weather-forecast__day-night i, .weather-forecast__atmosphere i {
+  width: 15px;
+  display: inline-flex;
+  margin-right: 4px;
+}
+
+.weather-forecast__temperatures {
+  i {
+    width: 10px;
+  }
+  span {
+    font-size: $font-size-small-x;
+  }
+}
+
+.weather-forecast__wind-speed {
+  font-size: $font-size-small-xx;
+}
+
+.thermometer-max {
+  color: red;
+}
+
+.thermometer-min {
+  color: blue;
+}
+
+.sunrise {
+  color: #ffd966;
+}
+
+.sunset {
+}
+
+.tint {
+  color: dodgerblue;
+}
+
+// SUN
+.sun:before, .bolt:before {
+  color: #ffd966;;
+}
+
+// CLOUDS
+.clouds-1:before {
+  color: #e6e6e6;
+}
+
+.clouds-2:before {
+  color: #b3b3b3;
+}
+
+.clouds-3:before {
+  // default
+  color: #888888;
+}
+
+.clouds-4:before {
+  color: #4d4d4d;
+}
+
+.rain-1:before {
+  color: lightskyblue;
+}
+
+.rain-2:before {
+  color: dodgerblue;
+}
+
+.rain-3:before {
+  color: mediumblue;
+}
+

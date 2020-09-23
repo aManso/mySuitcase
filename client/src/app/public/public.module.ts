@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PublicComponent } from './public.component';
 import { SharedModule } from '../core/shared/shared.module';
 import { PublicRoutingModule } from './public-routing.module';
+import { SuitcaseService } from './services/suitcase.service';
 
 @NgModule({
   imports: [
@@ -12,7 +13,9 @@ import { PublicRoutingModule } from './public-routing.module';
     PublicComponent,
   ],
   exports: [],
-  providers: [],
+  providers: [
+    SuitcaseService,
+  ],
 })
 export class PublicModule {
   constructor() {}

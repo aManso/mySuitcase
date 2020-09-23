@@ -1,0 +1,63 @@
+<div id="weather-widget" *ngIf="weatherData">
+  <!--according to https://openweathermap.org/weather-conditions-->
+  <div class="weather-forecast-wrapper">
+    <div *ngFor="let weatherOfTheDay of weatherData.daily" class="weather-forecast__day-row" [ngSwitch]="weatherOfTheDay.weather[0].main">
+      <div class="weather-forecast__data">
+        <ng-container *ngSwitchCase="'Clear'">
+          <i class="fas fa-sun sun"></i>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'Clouds'" [ngSwitch]="weatherOfTheDay.weather[0].description">
+          <i *ngSwitchCase="'few clouds'" class="fas fa-cloud-sun clouds-1"></i>
+          <i *ngSwitchCase="'scattered clouds'" class="fas fa-cloud clouds-2"></i>
+          <i *ngSwitchCase="'broken clouds'" class="fas fa-cloud clouds-3"></i>
+          <i *ngSwitchCase="'overcast clouds'" class="fas fa-cloud clouds-4"></i>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'Rain'" [ngSwitch]="weatherOfTheDay.weather[0].description">
+          <i *ngSwitchCase="'light rain'" class="fas fa-cloud-sun-rain rain-1"></i>
+          <i *ngSwitchCase="'moderate rain'" class="fas fa-cloud-sun-rain rain-1"></i>
+          <i *ngSwitchCase="'heavy intensity rain'" class="fas fa-cloud-rain rain-2"></i>
+          <i *ngSwitchCase="'very heavy rain'" class="fas fa-cloud-rain rain-2"></i>
+          <i *ngSwitchCase="'extreme rain'" class="fas fa-cloud-rain rain-2"></i>
+          <i *ngSwitchCase="'light intensity shower rain'" class="fas fa-cloud-showers-heavy rain-3"></i>
+          <i *ngSwitchCase="'shower rain'" class="fas fa-cloud-showers-heavy rain-3"></i>
+          <i *ngSwitchCase="'heavy intensity shower rain'" class="fas fa-cloud-showers-heavy rain-3"></i>
+          <i *ngSwitchCase="'ragged shower rain'" class="fas fa-cloud-showers-heavy rain-3"></i>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'Thunderstorm'">
+          <i class="fas fa-bolt bolt"></i>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'Snow'">
+          <i class="fas fa-snowflake"></i>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'Drizzle'">
+          <i class="fas fa-cloud-rain"></i>
+        </ng-container>
+
+        <!--'Mist' || 'Fog' || 'Smoke' || 'Haze' || 'Dust' || 'Sand' || 'Ash' || 'Squall' || 'Tornado'-->
+        <i *ngSwitchDefault class="fas fa-smog"></i>
+        <span class="weather-forecast__description">{{weatherOfTheDay.weather[0].description}}</span>
+      </div>
+      <div class="weather-forecast__temperatures">
+        <i class="fas fa-thermometer-quarter thermometer-min"></i><span>{{weatherOfTheDay.temp.min}}`C</span><br>
+        <i class="fas fa-thermometer-full thermometer-max"></i><span>{{weatherOfTheDay.temp.max}}`C</span><br>
+      </div>
+      <div class="weather-forecast__day-night">
+        <i class="fas fa-sun sunrise"></i><span>{{weatherOfTheDay.sunrise}}</span><br>
+        <i class="fas fa-moon sunset"></i><span>{{weatherOfTheDay.sunset}}</span><br>
+      </div>
+      <div class="weather-forecast__atmosphere">
+        <i class="fas fa-wind wind"></i><span class="weather-forecast__wind-speed">{{weatherOfTheDay.wind_speed}} m/s</span><br>
+        <i class="fas fa-tint tint"></i><span>{{weatherOfTheDay.humidity}}%</span><br>
+      </div>
+      <div class="weather-forecast__calendar">
+        <i class="far fa-calendar calendar"></i>
+        <span class="weather-forecast__day-of-month">{{weatherOfTheDay.dayOfMonth}}</span>
+      </div>
+    </div>
+  </div>
+</div>
