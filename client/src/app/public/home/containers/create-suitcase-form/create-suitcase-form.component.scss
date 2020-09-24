@@ -170,6 +170,10 @@ $header-height: 50px;
 }
 
 @media (max-width: 750px) {
+  #createSuitcaseForm {
+    min-height: 250px;
+  }
+
   #date-form-field {
     flex-direction: column;
     justify-content: flex-start;
