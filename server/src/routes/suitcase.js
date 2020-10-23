@@ -5,5 +5,6 @@ const suitcaseCtrl = require('../controllers/suitcase.controller');
 const commonService = require('./common');
 
 router.post('/save', commonService.verifyToken, suitcaseCtrl.save);
+router.post('/recommendations', commonService.verifyToken, suitcaseCtrl.fetchRecommendations);
 
 module.exports = router;

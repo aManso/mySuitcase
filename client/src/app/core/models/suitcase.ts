@@ -1,5 +1,5 @@
 // Information about the suitcase
-import {TripLocation} from './trip';
+import {TripLocation, TripType} from './trip';
 
 export interface Suitcase {
   name: string;
@@ -8,6 +8,6 @@ export interface Suitcase {
     to: Date;
   }
   place: TripLocation;
-  type: string;
+  type: TripType;
   isInProgress: boolean;
 }

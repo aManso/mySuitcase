@@ -6,6 +6,7 @@
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
+    "posttest": "node -e 'console.log(\"Testing done!\")'",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

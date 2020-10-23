@@ -76,7 +76,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
       from: [null, [Validators.required]],
       to: [null, [Validators.required]],
       place: [null, [Validators.required, Validators.maxLength(suitcaseNameMaxLength)],],
-      type: this.getTypes()
+      type: this._buildOptionList(),
     });
   }
 
@@ -84,13 +84,34 @@ export class CreateSuitcaseFormComponent implements OnInit {
     this.progressBarValue = this.percentagePerQuestion * this.currentQuestion;
   }
 
-  public getTypes(): FormGroup {
-    return this._formBuilder.group({
-      beach: new FormControl(false),
-      mountain: new FormControl(false),
-      cultural: new FormControl(false),
-      sport: new FormControl(false),
+  private _buildOptionList() {
+    const list = [
+      {
+        name: 'beach',
+        selected: false,
+      },
+      {
+        name: 'mountain',
+        selected: false,
+      },
+      {
+        name: 'cultural',
+        selected: false,
+      },
+      {
+        name: 'sport',
+        selected: false,
+      },
+    ];
+    const arr = list.map(option => {
+      return this._formBuilder.group(option);
+      // return this._formBuilder.control(option.selected);
     });
+    return this._formBuilder.array(arr);
+  }
+
+  public getName(option: any) {
+    return option.value.name;
   }
 
   private _updateHeader(questionNr: number) {
@@ -118,13 +139,29 @@ export class CreateSuitcaseFormComponent implements OnInit {
           to: this.createSuitcaseForm.value.to,
         },
         place: this.createSuitcaseForm.value.place,
-        type: this.createSuitcaseForm.value.type,
+        type: this._transformListToObject(this.createSuitcaseForm.value.type),
         isInProgress: true,
       };
       this._suitcaseService.saveSuitcase(suitcase).subscribe(() => {
         this._goToCreateSuitcase();
       });
     }
+  }
+
+  private _transformListToObject(optionList: any[]) {
+    const type = {
+      common : {
+        selected: true,
+        priority: 1,
+      }
+    };
+    optionList.forEach((option) => {
+      type[option.name] = {
+        selected: option.selected,
+        priority: 1,
+      }
+    });
+    return type;
   }
 
 
