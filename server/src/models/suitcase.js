@@ -17,10 +17,26 @@ const SuitcaseSchema = new Schema({
         },
     },
     type: {
-        beach: {type: String, required: false},
-        mountain: {type: String, required: false},
-        cultural: {type: String, required: false},
-        sport: {type: String, required: false},
+        beach: {
+            selected: {type: String, required: false},
+            priority: {type: Number, required: false},
+        },
+        common: {
+            selected: {type: String, required: false},
+            priority: {type: Number, required: false},
+        },
+        cultural: {
+            selected: {type: String, required: false},
+            priority: {type: Number, required: false},
+        },
+        mountain: {
+            selected: {type: String, required: false},
+            priority: {type: Number, required: false},
+        },
+        sport: {
+            selected: {type: String, required: false},
+            priority: {type: Number, required: false},
+        },
     },
     isInProgress: {type: Boolean, required: false},
     metadata: {
