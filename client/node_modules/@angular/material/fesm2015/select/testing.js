@@ -55,8 +55,7 @@ class MatSelectHarness extends MatFormFieldControlHarness {
     /** Gets a boolean promise indicating if the select is in multi-selection mode. */
     isMultiple() {
         return __awaiter(this, void 0, void 0, function* () {
-            const ariaMultiselectable = (yield this.host()).getAttribute('aria-multiselectable');
-            return (yield ariaMultiselectable) === 'true';
+            return (yield this.host()).hasClass('mat-select-multiple');
         });
     }
     /** Gets a promise for the select's value text. */
@@ -75,6 +74,12 @@ class MatSelectHarness extends MatFormFieldControlHarness {
     blur() {
         return __awaiter(this, void 0, void 0, function* () {
             return (yield this.host()).blur();
+        });
+    }
+    /** Whether the select is focused. */
+    isFocused() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return (yield this.host()).isFocused();
         });
     }
     /** Gets the options inside the select panel. */
@@ -142,6 +147,14 @@ class MatSelectHarness extends MatFormFieldControlHarness {
     }
 }
 MatSelectHarness.hostSelector = '.mat-select';
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 
 /**
  * @license

@@ -123,6 +123,12 @@ class MatSliderHarness extends ComponentHarness {
             return (yield this.host()).blur();
         });
     }
+    /** Whether the slider is focused. */
+    isFocused() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return (yield this.host()).isFocused();
+        });
+    }
     /** Calculates the percentage of the given value. */
     _calculatePercentage(value) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -132,7 +138,7 @@ class MatSliderHarness extends ComponentHarness {
     }
 }
 /** The selector for the host element of a `MatSlider` instance. */
-MatSliderHarness.hostSelector = 'mat-slider';
+MatSliderHarness.hostSelector = '.mat-slider';
 
 /**
  * @license

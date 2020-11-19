@@ -5,10 +5,11 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+import { FocusOrigin } from '@angular/cdk/a11y';
 import { OverlayRef } from '@angular/cdk/overlay';
 import { Observable } from 'rxjs';
 import { DialogPosition } from './dialog-config';
-import { MatDialogContainer } from './dialog-container';
+import { _MatDialogContainerBase } from './dialog-container';
 /** Possible states of the lifecycle of a dialog. */
 export declare const enum MatDialogState {
     OPEN = 0,
@@ -20,7 +21,7 @@ export declare const enum MatDialogState {
  */
 export declare class MatDialogRef<T, R = any> {
     private _overlayRef;
-    _containerInstance: MatDialogContainer;
+    _containerInstance: _MatDialogContainerBase;
     readonly id: string;
     /** The instance of component opened into the dialog. */
     componentInstance: T;
@@ -38,7 +39,7 @@ export declare class MatDialogRef<T, R = any> {
     private _closeFallbackTimeout;
     /** Current state of the dialog. */
     private _state;
-    constructor(_overlayRef: OverlayRef, _containerInstance: MatDialogContainer, id?: string);
+    constructor(_overlayRef: OverlayRef, _containerInstance: _MatDialogContainerBase, id?: string);
     /**
      * Close the dialog.
      * @param dialogResult Optional result to return to the dialog opener.
@@ -89,3 +90,9 @@ export declare class MatDialogRef<T, R = any> {
     /** Fetches the position strategy object from the overlay ref. */
     private _getPositionStrategy;
 }
+/**
+ * Closes the dialog with the specified interaction type. This is currently not part of
+ * `MatDialogRef` as that would conflict with custom dialog ref mocks provided in tests.
+ * More details. See: https://github.com/angular/components/pull/9257#issuecomment-651342226.
+ */
+export declare function _closeDialogVia<R>(ref: MatDialogRef<R>, interactionType: FocusOrigin, result?: R): void;

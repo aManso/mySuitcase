@@ -86,6 +86,12 @@ class MatButtonToggleHarness extends ComponentHarness {
             return (yield this._button()).blur();
         });
     }
+    /** Whether the toggle is focused. */
+    isFocused() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return (yield this._button()).isFocused();
+        });
+    }
     /** Toggle the checked state of the buttons toggle. */
     toggle() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -116,7 +122,15 @@ class MatButtonToggleHarness extends ComponentHarness {
     }
 }
 /** The selector for the host element of a `MatButton` instance. */
-MatButtonToggleHarness.hostSelector = 'mat-button-toggle';
+MatButtonToggleHarness.hostSelector = '.mat-button-toggle';
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 
 /**
  * @license
@@ -167,7 +181,15 @@ class MatButtonToggleGroupHarness extends ComponentHarness {
     }
 }
 /** The selector for the host element of a `MatButton` instance. */
-MatButtonToggleGroupHarness.hostSelector = 'mat-button-toggle-group';
+MatButtonToggleGroupHarness.hostSelector = '.mat-button-toggle-group';
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 
 /**
  * @license

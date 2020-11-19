@@ -108,6 +108,12 @@ class MatCheckboxHarness extends ComponentHarness {
             return (yield this._input()).blur();
         });
     }
+    /** Whether the checkbox is focused. */
+    isFocused() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return (yield this._input()).isFocused();
+        });
+    }
     /**
      * Toggles the checked state of the checkbox.
      *
@@ -152,7 +158,15 @@ class MatCheckboxHarness extends ComponentHarness {
     }
 }
 /** The selector for the host element of a `MatCheckbox` instance. */
-MatCheckboxHarness.hostSelector = 'mat-checkbox';
+MatCheckboxHarness.hostSelector = '.mat-checkbox';
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 
 /**
  * @license

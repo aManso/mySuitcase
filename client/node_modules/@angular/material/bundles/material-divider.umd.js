@@ -20,39 +20,39 @@
             /** Whether the divider is vertically aligned. */
             get: function () { return this._vertical; },
             set: function (value) { this._vertical = coercion.coerceBooleanProperty(value); },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatDivider.prototype, "inset", {
             /** Whether the divider is an inset divider. */
             get: function () { return this._inset; },
             set: function (value) { this._inset = coercion.coerceBooleanProperty(value); },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
-        MatDivider.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'mat-divider',
-                        host: {
-                            'role': 'separator',
-                            '[attr.aria-orientation]': 'vertical ? "vertical" : "horizontal"',
-                            '[class.mat-divider-vertical]': 'vertical',
-                            '[class.mat-divider-horizontal]': '!vertical',
-                            '[class.mat-divider-inset]': 'inset',
-                            'class': 'mat-divider'
-                        },
-                        template: '',
-                        encapsulation: core.ViewEncapsulation.None,
-                        changeDetection: core.ChangeDetectionStrategy.OnPush,
-                        styles: [".mat-divider{display:block;margin:0;border-top-width:1px;border-top-style:solid}.mat-divider.mat-divider-vertical{border-top:0;border-right-width:1px;border-right-style:solid}.mat-divider.mat-divider-inset{margin-left:80px}[dir=rtl] .mat-divider.mat-divider-inset{margin-left:auto;margin-right:80px}\n"]
-                    }] }
-        ];
-        MatDivider.propDecorators = {
-            vertical: [{ type: core.Input }],
-            inset: [{ type: core.Input }]
-        };
         return MatDivider;
     }());
+    MatDivider.decorators = [
+        { type: core.Component, args: [{
+                    selector: 'mat-divider',
+                    host: {
+                        'role': 'separator',
+                        '[attr.aria-orientation]': 'vertical ? "vertical" : "horizontal"',
+                        '[class.mat-divider-vertical]': 'vertical',
+                        '[class.mat-divider-horizontal]': '!vertical',
+                        '[class.mat-divider-inset]': 'inset',
+                        'class': 'mat-divider'
+                    },
+                    template: '',
+                    encapsulation: core.ViewEncapsulation.None,
+                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    styles: [".mat-divider{display:block;margin:0;border-top-width:1px;border-top-style:solid}.mat-divider.mat-divider-vertical{border-top:0;border-right-width:1px;border-right-style:solid}.mat-divider.mat-divider-inset{margin-left:80px}[dir=rtl] .mat-divider.mat-divider-inset{margin-left:auto;margin-right:80px}\n"]
+                },] }
+    ];
+    MatDivider.propDecorators = {
+        vertical: [{ type: core.Input }],
+        inset: [{ type: core.Input }]
+    };
 
     /**
      * @license
@@ -64,15 +64,15 @@
     var MatDividerModule = /** @class */ (function () {
         function MatDividerModule() {
         }
-        MatDividerModule.decorators = [
-            { type: core.NgModule, args: [{
-                        imports: [core$1.MatCommonModule],
-                        exports: [MatDivider, core$1.MatCommonModule],
-                        declarations: [MatDivider],
-                    },] }
-        ];
         return MatDividerModule;
     }());
+    MatDividerModule.decorators = [
+        { type: core.NgModule, args: [{
+                    imports: [core$1.MatCommonModule],
+                    exports: [MatDivider, core$1.MatCommonModule],
+                    declarations: [MatDivider],
+                },] }
+    ];
 
     /**
      * @license
