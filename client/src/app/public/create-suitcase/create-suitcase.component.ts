@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SuitcaseService } from '../services/suitcase.service';
 import { Suitcase } from '../../core/models/suitcase';
-import {TripType} from "../../core/models/trip";
+import { TripType } from '../../core/models/trip';
 
 @Component({
   selector: 'app-create-suitcase',
