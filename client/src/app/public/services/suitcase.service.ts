@@ -35,11 +35,11 @@ export class SuitcaseService {
     return this._currentSuitcase;
   }
 
-  public fetchRecommendations(options: TripType, pageNumber: number, limit?: number): Observable<void> {
-    const $saveResponse = new Subject<void>();
-    this._http.post(this.RECOMMENDATIONS_SUITCASE_API, {options, pageNumber, limit}).subscribe((response: null) => {
+  public fetchRecommendations(options: TripType, pageNumber: number, limit?: number): Observable<TripType> {
+    const $saveResponse = new Subject<TripType>();
+    this._http.post(this.RECOMMENDATIONS_SUITCASE_API, {options, pageNumber, limit}).subscribe((response: TripType) => {
       console.log('Recommendations retrieved', response);
-      $saveResponse.next();
+      $saveResponse.next(response);
     }, (error: any) => {
       console.log('There was a problem at retrieving the recommendations: ', error);
       $saveResponse.error(error);

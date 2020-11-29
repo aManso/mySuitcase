@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { SuitcaseService } from '../services/suitcase.service';
 import { Suitcase } from '../../core/models/suitcase';
-import {TripType} from "../../core/models/trip";
+import { TripType } from '../../core/models/trip';
 
 @Component({
   selector: 'app-create-suitcase',
   templateUrl: './create-suitcase.component.html',
-  styleUrls: ['./create-suitcase.component.scss']
+  styleUrls: ['./create-suitcase.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateSuitcaseComponent implements OnInit {
   public suitcase: Suitcase;
@@ -14,9 +15,11 @@ export class CreateSuitcaseComponent implements OnInit {
   public weatherDays: number;
   private _sevenDaysDateInMillis: number;
   private _currentPageNumber = 1;
+  public suggestionList: TripType;
 
   constructor(
     private _suitcaseService: SuitcaseService,
+    private readonly _changeDetector: ChangeDetectorRef,
   ) {
   }
 
@@ -31,7 +34,10 @@ export class CreateSuitcaseComponent implements OnInit {
   }
 
   private _fetchSuggestionList(tripType: TripType) {
-    this._suitcaseService.fetchRecommendations(tripType, this._currentPageNumber);
+    this._suitcaseService.fetchRecommendations(tripType, this._currentPageNumber).subscribe((response) => {
+      this.suggestionList = response;
+      this._changeDetector.detectChanges();
+    });
   }
 
   private _checkShowWeather(): boolean {
