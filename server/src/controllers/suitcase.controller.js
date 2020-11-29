@@ -30,9 +30,13 @@ suitcaseCtrl.fetchRecommendations = async (req, res) => {
     for (let i = 0; i < Object.keys(req.body.options).length; i++) {
         const optionKey = Object.keys(req.body.options)[i];
         if (req.body.options[optionKey].selected) {
-            recommendations[optionKey] = await recommendationModel[optionKey].find({ prio: req.body.options[optionKey].priority })
-                .skip( req.body.pageNumber > 0 ? ( ( req.body.pageNumber - 1 ) * nPerPage ) : 0 )
-                .limit( req.body.limit || nPerPage);
+            recommendations[optionKey] = {
+                selected: true,
+                currentPriority: req.body.options[optionKey].currentPriority,
+                items: await recommendationModel[optionKey].find({prio: req.body.options[optionKey].currentPriority})
+                    .skip(req.body.pageNumber > 0 ? ((req.body.pageNumber - 1) * nPerPage) : 0)
+                    .limit(req.body.limit || nPerPage)
+            };
         }
     }
     console.log(recommendations);

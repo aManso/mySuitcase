@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+const ItemSchema = new Schema({
+    name: {type: String, required: true},
+    priority: {type: Number, required: false},
+});
+
 const SuitcaseSchema = new Schema({
     name: {type: String, required: true},
     date: {
@@ -19,23 +24,28 @@ const SuitcaseSchema = new Schema({
     type: {
         beach: {
             selected: {type: String, required: false},
-            priority: {type: Number, required: false},
+            currentPriority: {type: Number, required: false},
+            items: {type: [ItemSchema], required: false}
         },
         common: {
             selected: {type: String, required: false},
-            priority: {type: Number, required: false},
+            currentPriority: {type: Number, required: false},
+            items: {type: [ItemSchema], required: false}
         },
         cultural: {
             selected: {type: String, required: false},
-            priority: {type: Number, required: false},
+            currentPriority: {type: Number, required: false},
+            items: {type: [ItemSchema], required: false}
         },
         mountain: {
             selected: {type: String, required: false},
-            priority: {type: Number, required: false},
+            currentPriority: {type: Number, required: false},
+            items: {type: [ItemSchema], required: false}
         },
         sport: {
             selected: {type: String, required: false},
-            priority: {type: Number, required: false},
+            currentPriority: {type: Number, required: false},
+            items: {type: [ItemSchema], required: false}
         },
     },
     isInProgress: {type: Boolean, required: false},
@@ -43,7 +53,6 @@ const SuitcaseSchema = new Schema({
         creationDate: {type: Date, required: true},
     },
 });
-
 
 module.exports = function(collectionName){
     return mongoose.model('Suitcase', SuitcaseSchema, collectionName + '-suitcase');
