@@ -54,8 +54,8 @@
     </div>
 
     <div id="button-wrapper">
-      <button mat-raised-button *ngIf="currentQuestion !== steps.length" [disabled]="isDisabled()" (click)="nextQuestion()" [mat-dialog-close]="false" color="primary">Continuar</button>
-      <button mat-raised-button *ngIf="currentQuestion === steps.length" [disabled]="isDisabled()" (click)="saveSuitcase()" [mat-dialog-close]="false" color="primary">Hacer la lista</button>
+      <button mat-raised-button *ngIf="currentQuestion !== steps.length" [disabled]="isDisabled()" (click)="nextQuestion()" color="primary">Continuar</button>
+      <button mat-raised-button *ngIf="currentQuestion === steps.length" [disabled]="isDisabled()" (click)="saveSuitcase()" color="primary">Hacer la lista</button>
     </div>
   </form>
 </div>
