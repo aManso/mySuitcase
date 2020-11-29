@@ -8,7 +8,6 @@
 /bazel-out
 
 # dependencies
-./node_modules
 /client/node_modules
 /client/dist
 /server/node_modules
