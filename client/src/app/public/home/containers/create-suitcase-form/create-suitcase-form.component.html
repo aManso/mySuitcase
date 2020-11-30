@@ -44,19 +44,18 @@
         <span id="place-address"></span>
       </div>
     </div>
-    <div id="{{steps[3].id}}" [formGroup]="createSuitcaseForm.controls.type">
+    <div id="{{steps[3].id}}" formArrayName="type">
       <mat-label>Que tipo de viaje vas a realizar?</mat-label>
       <div id="type_options">
-        <mat-checkbox class="" formControlName="beach">Playa</mat-checkbox>
-        <mat-checkbox class="" formControlName="mountain">Montaña</mat-checkbox>
-        <mat-checkbox class="" formControlName="cultural">Cultural</mat-checkbox>
-        <mat-checkbox class="" formControlName="sport">Deporte</mat-checkbox>
+        <ng-container *ngFor="let option of createSuitcaseForm.controls.type.controls; let i=index" [formGroupName]="i">
+          <mat-checkbox class="" formControlName="selected">{{getName(option)}}</mat-checkbox>
+        </ng-container>
       </div>
     </div>
 
     <div id="button-wrapper">
-      <button mat-raised-button *ngIf="currentQuestion !== steps.length" [disabled]="isDisabled()" (click)="nextQuestion()" [mat-dialog-close]="false" color="primary">Continuar</button>
-      <button mat-raised-button *ngIf="currentQuestion === steps.length" [disabled]="isDisabled()" (click)="saveSuitcase()" [mat-dialog-close]="false" color="primary">Hacer la lista</button>
+      <button mat-raised-button *ngIf="currentQuestion !== steps.length" [disabled]="isDisabled()" (click)="nextQuestion()" color="primary">Continuar</button>
+      <button mat-raised-button *ngIf="currentQuestion === steps.length" [disabled]="isDisabled()" (click)="saveSuitcase()" color="primary">Hacer la lista</button>
     </div>
   </form>
 </div>

@@ -1,5 +1,9 @@
-<div>Suitcase drag and drop</div>
-
 <div *ngIf="showWeather" class="weather-panel-wrapper">
   <my-suitcase-weather-panel [coordinates]="suitcase.place.coordinates" [weatherDays]="weatherDays"></my-suitcase-weather-panel>
+</div>
+
+<div *ngIf="suggestionList">
+  <div class="item" *ngFor="let item of suggestionList.common.items">
+    {{item.name}}
+  </div>
 </div>

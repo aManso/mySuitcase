@@ -3,6 +3,6 @@
   <p>The session is going to expire in {{sessionService.sessionSeconds}}</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button [mat-dialog-close]="false" color="warn">Salir</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial color="primary">Mantener</button>
+  <button mat-button color="warn">Salir</button>
+  <button mat-button mat-dialog-close cdkFocusInitial color="primary">Mantener</button>
 </mat-dialog-actions>

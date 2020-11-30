@@ -3,10 +3,10 @@ import { ThemePalette } from '@angular/material/core';
 import { ProgressBarMode } from '@angular/material/progress-bar';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {CreateSuitcaseFormSteps} from './create-suitcase-form.interfaces';
-import {TripLocation} from '../../../../core/models/trip';
-import {Suitcase} from '../../../../core/models/suitcase';
-import {SuitcaseService} from '../../../services/suitcase.service';
+import { CreateSuitcaseFormSteps } from './create-suitcase-form.interfaces';
+import {TripLocation, TripType} from '../../../../core/models/trip';
+import { Suitcase } from '../../../../core/models/suitcase';
+import { SuitcaseService } from '../../../services/suitcase.service';
 
 const suitcaseNameMaxLength = 20;
 
@@ -45,15 +45,22 @@ export class CreateSuitcaseFormComponent implements OnInit {
       headerText: '-'
     },
   ];
-  public map: google.maps.Map;
-  @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
+  // public myLatLng;
+  // @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
   lat = 41.646961;
   lng = -4.745940;
   coordinates = new google.maps.LatLng(this.lat, this.lng);
-  marker = new google.maps.Marker({
-    position: this.coordinates,
-    map: this.map,
-  });
+  // public map = new google.maps.Map(
+  //   document.getElementById("lol") as HTMLElement,
+  //   {
+  //     zoom: 4,
+  //     center: this.coordinates,
+  //   }
+  // );
+  // marker = new google.maps.Marker({
+  //   position: this.coordinates,
+  //   map: this.map,
+  // });
 
   constructor(
     private readonly _formBuilder: FormBuilder,
@@ -76,7 +83,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
       from: [null, [Validators.required]],
       to: [null, [Validators.required]],
       place: [null, [Validators.required, Validators.maxLength(suitcaseNameMaxLength)],],
-      type: this.getTypes()
+      type: this._buildOptionList(),
     });
   }
 
@@ -84,13 +91,34 @@ export class CreateSuitcaseFormComponent implements OnInit {
     this.progressBarValue = this.percentagePerQuestion * this.currentQuestion;
   }
 
-  public getTypes(): FormGroup {
-    return this._formBuilder.group({
-      beach: new FormControl(false),
-      mountain: new FormControl(false),
-      cultural: new FormControl(false),
-      sport: new FormControl(false),
+  private _buildOptionList() {
+    const list = [
+      {
+        name: 'beach',
+        selected: false,
+      },
+      {
+        name: 'mountain',
+        selected: false,
+      },
+      {
+        name: 'cultural',
+        selected: false,
+      },
+      {
+        name: 'sport',
+        selected: false,
+      },
+    ];
+    const arr = list.map(option => {
+      return this._formBuilder.group(option);
+      // return this._formBuilder.control(option.selected);
     });
+    return this._formBuilder.array(arr);
+  }
+
+  public getName(option: any) {
+    return option.value.name;
   }
 
   private _updateHeader(questionNr: number) {
@@ -111,20 +139,36 @@ export class CreateSuitcaseFormComponent implements OnInit {
 
   public saveSuitcase(): void {
     if (this.createSuitcaseForm.valid) {
-      const suitcase: Suitcase = {
-        name: this.createSuitcaseForm.value.name,
-        date: {
+      const suitcase = new Suitcase(
+        this.createSuitcaseForm.value.name,
+        {
           from: this.createSuitcaseForm.value.from,
           to: this.createSuitcaseForm.value.to,
         },
-        place: this.createSuitcaseForm.value.place,
-        type: this.createSuitcaseForm.value.type,
-        isInProgress: true,
-      };
+        this.createSuitcaseForm.value.place,
+        this._transformListToObject(this.createSuitcaseForm.value.type),
+        true,
+      );
       this._suitcaseService.saveSuitcase(suitcase).subscribe(() => {
         this._goToCreateSuitcase();
       });
     }
+  }
+
+  private _transformListToObject(optionList: any[]): TripType {
+    const tripType = {
+      common : {
+        selected: true,
+        currentPriority: 1,
+      }
+    };
+    optionList.forEach((option) => {
+      tripType[option.name] = {
+        selected: option.selected,
+        currentPriority: 1,
+      }
+    });
+    return tripType;
   }
 
 
