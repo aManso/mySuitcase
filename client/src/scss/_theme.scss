@@ -1,0 +1,65 @@
+@import '~@angular/material/theming';
+@import 'variables';
+@include mat-core();
+
+$mat-suitcase-secondary: (
+  100: #c1c8d7,
+  300: #7383a5,
+  500: $tertiary-color,
+  700: #1e232f,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+$mat-suitcase-primary: (
+  50: #f9edec,
+  100: #f3dad8,
+  200: #edc8c5,
+  300: #e7b6b1,
+  400: $primary-color,
+  500: #ce6d64,
+  600: #c2483d,
+  700: #9b3a31,
+  800: #742b25,
+  900: #4e1d18,
+  A100: #f3dad8,
+  A200: #e7b6b1,
+  A400: #ce6d64,
+  A700: #742b25,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$my-app-primary: mat-palette($mat-suitcase-primary, 400);
+$my-app-accent:  mat-palette($mat-suitcase-secondary);
+$my-app-warn:    mat-palette($mat-red, 700);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+@include angular-material-theme($my-app-theme);
+

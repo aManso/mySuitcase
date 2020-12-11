@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { SuitcaseService } from '../services/suitcase.service';
-import { Coordinates } from '../../core/models/trip';
+import { SuitcaseService } from '../../../services/suitcase.service';
+import { Coordinates } from '../../../../core/models/trip';
 
 @Component({
   selector: 'my-suitcase-weather-panel',

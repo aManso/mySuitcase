@@ -30,7 +30,6 @@ import { MatButtonModule } from '@angular/material/button';
     MatDialogModule,
     // Tip: The routing module must be the last to import. Why? It is possible that a series of modules will not be loaded when routing.
     AppRoutingModule,
-    BrowserAnimationsModule,
   ],
   providers: [
     AuthenticationGuard,

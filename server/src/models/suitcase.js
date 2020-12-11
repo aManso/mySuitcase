@@ -24,28 +24,34 @@ const SuitcaseSchema = new Schema({
     type: {
         beach: {
             selected: {type: String, required: false},
+            currentPage: {type: Number, required: false},
             currentPriority: {type: Number, required: false},
             items: {type: [ItemSchema], required: false}
         },
         common: {
             selected: {type: String, required: false},
+            currentPage: {type: Number, required: false},
             currentPriority: {type: Number, required: false},
             items: {type: [ItemSchema], required: false}
         },
         cultural: {
             selected: {type: String, required: false},
+            currentPage: {type: Number, required: false},
             currentPriority: {type: Number, required: false},
             items: {type: [ItemSchema], required: false}
         },
         mountain: {
             selected: {type: String, required: false},
+            currentPage: {type: Number, required: false},
             currentPriority: {type: Number, required: false},
             items: {type: [ItemSchema], required: false}
         },
         sport: {
             selected: {type: String, required: false},
+            currentPage: {type: Number, required: false},
             currentPriority: {type: Number, required: false},
-            items: {type: [ItemSchema], required: false}
+            items: {type: [ItemSchema], required: false},
+            sports: {type: [String], required: false}
         },
     },
     isInProgress: {type: Boolean, required: false},

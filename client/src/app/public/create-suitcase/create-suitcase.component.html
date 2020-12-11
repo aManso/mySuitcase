@@ -1,9 +1,143 @@
-<div *ngIf="showWeather" class="weather-panel-wrapper">
-  <my-suitcase-weather-panel [coordinates]="suitcase.place.coordinates" [weatherDays]="weatherDays"></my-suitcase-weather-panel>
-</div>
+<div class="container">
+  <div class="row">
+    <form #itemForm="ngForm" class="form" (submit)="addNewItem(newItem, itemForm.controls['newItem'])">
+      <mat-form-field id="new-item-field" class="form-field" appearance="fill" color="primary">
+        <mat-label>Nuevo item</mat-label>
+        <input matInput [(ngModel)]="newItem" name="newItem">
+        <div id="selection-categories-wrapper">
+          <mat-icon matSuffix [ngClass]="selectedCategory === 'tech'? '': 'disabled-icon'" class="selection-icon" (click)="selectedCategory = 'tech'" matTooltip="Tecnología" [matTooltipPosition]="'below'">photo_camera</mat-icon>
+          <mat-icon matSuffix [ngClass]="selectedCategory === 'clothes' ? '': 'disabled-icon'" class="selection-icon" (click)="selectedCategory = 'clothes'" matTooltip="Ropa" [matTooltipPosition]="'below'">checkroom</mat-icon>
+          <mat-icon matSuffix [ngClass]="selectedCategory === 'cleanliness' ? '': 'disabled-icon'" class="selection-icon" (click)="selectedCategory = 'cleanliness'" matTooltip="Aseo" [matTooltipPosition]="'below'">clean_hands</mat-icon>
+          <mat-icon matSuffix [ngClass]="selectedCategory === 'medicines' ? '': 'disabled-icon'" class="selection-icon" (click)="selectedCategory = 'medicines'" matTooltip="Medicinas" [matTooltipPosition]="'below'">medical_services</mat-icon>
+          <mat-icon matSuffix [ngClass]="selectedCategory === 'documents' ? '': 'disabled-icon'" class="selection-icon" (click)="selectedCategory = 'documents'" matTooltip="Documentos" [matTooltipPosition]="'below'">description</mat-icon>
 
-<div *ngIf="suggestionList">
-  <div class="item" *ngFor="let item of suggestionList.common.items">
-    {{item.name}}
+        </div>
+        <mat-icon matSuffix [ngClass]="newItem ? '': 'disabled-icon'" class="clickable-icon" id="add-icon" (click)="addNewItem(newItem, itemForm.controls['newItem'])">add</mat-icon>
+        <mat-error *ngIf="itemForm.controls['newItem']?.errors?.duplicated">El elemento ya se encuentra en la lista</mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <div *ngIf="dataReady" class="card">
+        <div class="card-header" *ngIf="suggestionList">
+          <mat-icon matSuffix matTooltip="Suggestions" [matTooltipPosition]="'below'">emoji_objects</mat-icon>
+          <span>Sugerencias</span>
+        </div>
+
+        <my-suitcase-item-list #common
+          [itemList]="suggestionList.common ? suggestionList.common.items : []"
+          [maxShownList]="10"
+          [listName]="'common'"
+          [subsubheaders]="subsubheaders"
+          (onAddItem)="addItemFromChild($event)"
+          (onRemoveItem)="removeItemFromChild($event)">
+        </my-suitcase-item-list>
+
+        <my-suitcase-item-list #beach
+          [itemList]="suggestionList.beach ? suggestionList.beach.items : []"
+          [maxShownList]="5"
+          [listName]="'beach'"
+          [subsubheaders]="subsubheaders"
+          (onAddItem)="addItemFromChild($event)"
+          (onRemoveItem)="removeItemFromChild($event)">
+        </my-suitcase-item-list>
+
+        <my-suitcase-item-list #mountain
+          [itemList]="suggestionList.mountain ? suggestionList.mountain.items : []"
+          [maxShownList]="5"
+          [listName]="'mountain'"
+          [subsubheaders]="subsubheaders"
+          (onAddItem)="addItemFromChild($event)"
+          (onRemoveItem)="removeItemFromChild($event)">
+        </my-suitcase-item-list>
+
+        <my-suitcase-item-list #cultural
+          [itemList]="suggestionList.cultural ? suggestionList.cultural.items : []"
+          [maxShownList]="5"
+          [listName]="'cultural'"
+          [subsubheaders]="subsubheaders"
+          (onAddItem)="addItemFromChild($event)"
+          (onRemoveItem)="removeItemFromChild($event)">
+        </my-suitcase-item-list>
+
+        <my-suitcase-item-list #sport
+          [itemList]="suggestionList.sport ? suggestionList.sport.items : []"
+          [maxShownList]="5"
+          [listName]="'sport'"
+          [subsubheaders]="subsubheaders"
+          (onAddItem)="addItemFromChild($event)"
+          (onRemoveItem)="removeItemFromChild($event)">
+        </my-suitcase-item-list>
+
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <mat-icon matSuffix matTooltip="Suggestions" [matTooltipPosition]="'below'">backpack</mat-icon>
+          <span>Elementos de mi maleta</span>
+          <mat-icon aria-hidden="false" aria-label="Save the suitcase" id="save-icon" class="icon" [ngClass]="totalItemsInList > 0 ? '': 'disabled'" (click)="submitSuitcase()">save</mat-icon>
+        </div>
+        <div *ngFor="let item of suitcaseList['tech']; let i=index" class="common-card-body">
+          <div class="card-header card-subsubheader" *ngIf="showSubsubheader('tech', item.name)">
+            <mat-icon matSuffix matTooltip="Tecnología" [matTooltipPosition]="'below'">photo_camera</mat-icon>
+            <span>Tecnología</span>
+          </div>
+          <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+        </div>
+        <div *ngFor="let item of suitcaseList['cleanliness']; let i=index" class="common-card-body">
+          <div class="card-header card-subsubheader" *ngIf="showSubsubheader('cleanliness', item.name)">
+            <mat-icon matSuffix matTooltip="Aseo" [matTooltipPosition]="'below'">clean_hands</mat-icon>
+            <span>Aseo personal</span>
+          </div>
+          <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+        </div>
+        <div *ngFor="let item of suitcaseList['clothes']; let i=index" class="common-card-body">
+          <div class="card-header card-subsubheader" *ngIf="showSubsubheader('clothes', item.name)">
+            <mat-icon matSuffix matTooltip="Ropa" [matTooltipPosition]="'below'">checkroom</mat-icon>
+            <span>Ropa</span>
+          </div>
+          <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+        </div>
+        <div *ngFor="let item of suitcaseList['medicines']; let i=index" class="common-card-body">
+          <div class="card-header card-subsubheader" *ngIf="showSubsubheader('medicines', item.name)">
+            <mat-icon matSuffix matTooltip="Medicinas" [matTooltipPosition]="'below'">medical_services</mat-icon>
+            <span>Medicinas</span>
+          </div>
+          <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+        </div>
+        <div *ngFor="let item of suitcaseList['documents']; let i=index" class="common-card-body">
+          <div class="card-header card-subsubheader" *ngIf="showSubsubheader('documents', item.name)">
+            <mat-icon matSuffix matTooltip="Documentos" [matTooltipPosition]="'below'">description</mat-icon>
+            <span>Documentación</span>
+          </div>
+          <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+        </div>
+        <div *ngFor="let item of suitcaseList['others']; let i=index" class="common-card-body">
+          <div class="card-header card-subsubheader" *ngIf="showSubsubheader('others', item.name)">Otros</div>
+          <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div *ngIf="showWeather" class="weather-panel-wrapper">
+        <my-suitcase-weather-panel [coordinates]="suitcase.place.coordinates" [weatherDays]="weatherDays"></my-suitcase-weather-panel>
+      </div>
+    </div>
   </div>
 </div>
+
+<ng-template #cardBody let-item let-i="i">
+  <div class="card-body">
+    <div class="item"  #suitcase [@showHiddenItem]="item.show ? 'show' : 'hidden'">
+      <span>{{item.name}}</span>
+      <div class="item-actions">
+        <mat-icon aria-hidden="false" aria-label="Discard item" (click)="removeItem(suitcaseList[item.type], i, 'suitcase', viewChildrenSuitcase)">delete_sweep</mat-icon>
+      </div>
+    </div>
+  </div>
+</ng-template>

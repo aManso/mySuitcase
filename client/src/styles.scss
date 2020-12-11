@@ -1,6 +1,7 @@
 @import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 /* Directory file of styles. To see style go to scss/ */
+@import "./scss/_theme";
 @import "./scss/_variables";
 @import "./scss/_mixins";
 @import "./scss/_reset";
@@ -15,6 +16,7 @@
 @import "./scss/btn";
 @import "./scss/footer";
 @import "./scss/dialogs";
+@import "./scss/icons";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

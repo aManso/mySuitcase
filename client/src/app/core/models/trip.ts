@@ -3,33 +3,42 @@ export interface TripType {
   beach?: {
     selected: boolean,
     currentPriority?: number,
+    currentPage?: number,
     items?: TripItem[],
   }
   common?: {
     selected: boolean,
     currentPriority?: number,
+    currentPage?: number,
     items?: TripItem[],
   }
   cultural?: {
     selected: boolean,
     currentPriority?: number,
+    currentPage?: number,
     items?: TripItem[],
   }
   mountain?: {
     selected: boolean,
     currentPriority?: number,
+    currentPage?: number,
     items?: TripItem[],
   }
   sport?: {
     selected: boolean,
     currentPriority?: number,
+    currentPage?: number,
+    sports?: string[],
     items?: TripItem[],
   }
 }
 
 export interface TripItem {
   name: string,
+  type?: string,
   priority: number,
+  isNew?: boolean,
+  show?: boolean,
 }
 
 

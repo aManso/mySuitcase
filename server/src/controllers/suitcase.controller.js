@@ -30,13 +30,26 @@ suitcaseCtrl.fetchRecommendations = async (req, res) => {
     for (let i = 0; i < Object.keys(req.body.options).length; i++) {
         const optionKey = Object.keys(req.body.options)[i];
         if (req.body.options[optionKey].selected) {
-            recommendations[optionKey] = {
-                selected: true,
-                currentPriority: req.body.options[optionKey].currentPriority,
-                items: await recommendationModel[optionKey].find({prio: req.body.options[optionKey].currentPriority})
-                    .skip(req.body.pageNumber > 0 ? ((req.body.pageNumber - 1) * nPerPage) : 0)
-                    .limit(req.body.limit || nPerPage)
-            };
+            if (optionKey !== 'sport') {
+                recommendations[optionKey] = {
+                    selected: true,
+                    currentPage: req.body.options[optionKey].currentPage,
+                    currentPriority: req.body.options[optionKey].currentPriority,
+                    items: await recommendationModel[optionKey].find({prio: req.body.options[optionKey].currentPriority})
+                        .skip(req.body.pageNumber > 0 ? ((req.body.pageNumber - 1) * nPerPage) : 0)
+                        .limit(req.body.limit || nPerPage),
+                };
+            } else {
+                recommendations[optionKey] = {
+                    selected: true,
+                    currentPage: req.body.options[optionKey].currentPage,
+                    currentPriority: req.body.options[optionKey].currentPriority,
+                    items: await recommendationModel[optionKey].find({sport_name: { $in: req.body.options[optionKey].sports }})
+                        .skip(req.body.pageNumber > 0 ? ((req.body.pageNumber - 1) * nPerPage) : 0)
+                        .limit(req.body.limit || nPerPage),
+                    sports: req.body.options[optionKey].sports
+                };
+            }
         }
     }
     console.log(recommendations);

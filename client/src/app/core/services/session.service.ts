@@ -1,7 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
 import { Subject } from 'rxjs';
 
-const MINUTES_TO_SHOW_COUNTDOWN = 1;
+const MINUTES_TO_SHOW_COUNTDOWN = 10;
 
 @Injectable({
   providedIn: 'root',

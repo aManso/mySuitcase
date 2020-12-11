@@ -1,14 +1,149 @@
+@import "./../../../scss/variables";
+@import "./../../../scss/theme";
+
 $weather-size: 300px;
+
+.row {
+  margin-bottom: 20px;
+}
 
 .weather-panel-wrapper {
   border: solid 1px black;
-  box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px $black;
   display: inline-block;
   height: $weather-size;
   padding: 20px;
-  position: absolute;
-  right: 10px;
-  width: $weather-size;
+  width: 100%;
   overflow: hidden;
   background: white;
+}
+
+#selection-categories-wrapper {
+  position: absolute;
+  bottom: 5px;
+  right: 200px;
+  display: flex;
+  width: 150px;
+  overflow: hidden;
+  justify-content: space-between;
+
+  .selection-icon {
+    border: solid 1px;
+    border-radius: 5px;
+    width: 26px;
+    cursor: pointer;
+    color: $secondary-color;
+  }
+}
+
+.container {
+  margin-top: 40px;
+}
+
+.form, .form-field {
+  width: 100%;
+}
+
+#new-item-field {
+  border-radius: 5px;
+}
+
+.item {
+  height: 50px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: #394359;
+}
+
+.card-header {
+  background: $tertiary-color;
+  color: white;
+  display: flex;
+  align-items: center;
+
+  mat-icon {
+    margin-right: 5px;
+  }
+}
+
+.card-subheader {
+  background: map_get($mat-suitcase-secondary, 300);;
+  color: white;
+}
+
+.card-subsubheader {
+  background: map_get($mat-suitcase-secondary, 100);;
+  color: white;
+}
+
+.card-body {
+  padding: 0;
+
+  .item:nth-child(odd) {
+    background: map_get($mat-suitcase-primary, 50);
+  }
+}
+
+.common-card-body:nth-child(odd) .card-body .item {
+  background: map_get($mat-suitcase-primary, 50);
+}
+
+.common-card-body:nth-child(even) .card-body .item {
+  background: $white;
+}
+
+@keyframes disappearTop {
+  0%{
+    opacity: 1;
+    height: 50px;
+    transform: rotateX(90deg);
+  }
+  50%{
+    opacity: 0.5;
+    height: 25px;
+    transform: rotateX(0deg);
+  }
+  100%{
+    display: none;
+    opacity: 0;
+    height: 0px;
+    transform: rotateX(90deg);
+  }
+}
+
+.removedItem {
+  animation-name: disappearTop;
+  animation-duration: 500ms;
+  animation-timing-function: linear;
+}
+
+@-webkit-keyframes flip-out-ver-right{0%{-webkit-transform:rotateY(0);transform:rotateY(0);opacity:1}100%{-webkit-transform:rotateY(70deg);transform:rotateY(70deg);opacity:0}}@keyframes flip-out-ver-right{0%{-webkit-transform:rotateY(0);transform:rotateY(0);opacity:1}100%{-webkit-transform:rotateY(70deg);transform:rotateY(70deg);opacity:0}}
+.flip-out-ver-right{-webkit-animation:flip-out-ver-right .5s ease-in-out forwards;animation:flip-out-ver-right .5s ease-in-out forwards}
+
+#add-icon {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+}
+
+#save-icon {
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  background: $secondary-color;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 10px;
+
+  &.disabled {
+    background-color: lightgrey;
+    cursor: none;
+  }
 }
