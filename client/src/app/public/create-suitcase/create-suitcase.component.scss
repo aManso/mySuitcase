@@ -55,7 +55,7 @@ $weather-size: 300px;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  color: #394359;
+  color: $tertiary-color;
 }
 
 .card-header {
@@ -70,12 +70,12 @@ $weather-size: 300px;
 }
 
 .card-subheader {
-  background: map_get($mat-suitcase-secondary, 300);;
+  background: map_get($mat-suitcase-secondary, 300);
   color: white;
 }
 
 .card-subsubheader {
-  background: map_get($mat-suitcase-secondary, 100);;
+  background: map_get($mat-suitcase-secondary, 100);
   color: white;
 }
 
@@ -147,3 +147,20 @@ $weather-size: 300px;
     cursor: none;
   }
 }
+
+.item-data {
+  display: flex;
+  align-items: center;
+}
+
+.mat-input-element.item-quantity {
+  max-width: 40px;
+  text-align: center;
+  padding: 2px;
+  border: 1px solid $tertiary-color;
+  border-radius: 5px;
+  background-color: map_get($mat-suitcase-secondary, 300);
+  margin-left: 10px;
+  color: white;
+}
+

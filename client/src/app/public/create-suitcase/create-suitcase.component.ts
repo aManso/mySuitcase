@@ -177,6 +177,7 @@ export class CreateSuitcaseComponent implements OnInit {
       itemList.splice(index, 1);
     }
     const type = item.type ? item.type : 'others';
+    item.quantity = 1;
     this.suitcaseList[type].push(item);
     setTimeout(() => {
       this.suitcaseList[type][this.suitcaseList[type].length - 1].show = true;

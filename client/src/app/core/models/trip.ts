@@ -39,6 +39,7 @@ export interface TripItem {
   priority: number,
   isNew?: boolean,
   show?: boolean,
+  quantity?: number;
 }
 
 

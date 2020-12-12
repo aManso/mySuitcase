@@ -134,7 +134,10 @@
 <ng-template #cardBody let-item let-i="i">
   <div class="card-body">
     <div class="item"  #suitcase [@showHiddenItem]="item.show ? 'show' : 'hidden'">
-      <span>{{item.name}}</span>
+      <div class="item-data">
+        <span>{{item.name}}</span>
+        <input matInput type="number" [(ngModel)]="item.quantity" class="item-quantity">
+      </div>
       <div class="item-actions">
         <mat-icon aria-hidden="false" aria-label="Discard item" (click)="removeItem(suitcaseList[item.type], i, 'suitcase', viewChildrenSuitcase)">delete_sweep</mat-icon>
       </div>
