@@ -27,6 +27,18 @@
       <span>Deporte</span>
     </div>
   </ng-container>
+  <ng-container *ngSwitchCase="'pet'">
+    <div class="card-header card-subheader" *ngIf="itemList.length > 0">
+      <mat-icon matSuffix matTooltip="Mascota" [matTooltipPosition]="'below'">pets</mat-icon>
+      <span>Mascota</span>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'baby'">
+    <div class="card-header card-subheader" *ngIf="itemList.length > 0">
+      <mat-icon matSuffix matTooltip="Bebé" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
+      <span>Bebé</span>
+    </div>
+  </ng-container>
   <div *ngFor="let item of itemList | slice:0:5; let i=index" class="common-card-body" [ngSwitch]="item.type">
     <ng-container *ngSwitchCase="'tech'">
       <div class="card-header card-subsubheader" *ngIf="showSubsubheader('tech', item.name)">

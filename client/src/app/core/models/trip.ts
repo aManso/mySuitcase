@@ -30,6 +30,18 @@ export interface TripType {
     currentPage?: number,
     sports?: string[],
     items?: TripItem[],
+  },
+  pet?: {
+    selected: boolean,
+    currentPriority?: number,
+    currentPage?: number,
+    items?: TripItem[],
+  },
+  baby?: {
+    selected: boolean,
+    currentPriority?: number,
+    currentPage?: number,
+    items?: TripItem[],
   }
 }
 

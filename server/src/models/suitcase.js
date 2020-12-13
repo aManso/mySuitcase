@@ -4,6 +4,9 @@ const { Schema } = mongoose;
 const ItemSchema = new Schema({
     name: {type: String, required: true},
     priority: {type: Number, required: false},
+    type: {type: String, required: false},
+    weather: {type: String, required: false},
+    male: {type: Boolean, required: false},
 });
 
 const SuitcaseSchema = new Schema({
@@ -52,6 +55,18 @@ const SuitcaseSchema = new Schema({
             currentPriority: {type: Number, required: false},
             items: {type: [ItemSchema], required: false},
             sports: {type: [String], required: false}
+        },
+        pet: {
+            selected: {type: String, required: false},
+            currentPage: {type: Number, required: false},
+            currentPriority: {type: Number, required: false},
+            items: {type: [ItemSchema], required: false}
+        },
+        babe: {
+            selected: {type: String, required: false},
+            currentPage: {type: Number, required: false},
+            currentPriority: {type: Number, required: false},
+            items: {type: [ItemSchema], required: false}
         },
     },
     isInProgress: {type: Boolean, required: false},

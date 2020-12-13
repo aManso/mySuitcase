@@ -4,7 +4,22 @@ const mongoose = require('mongoose');
 const suitcaseCtrl = {};
 const nPerPage = 10;
 
+
 suitcaseCtrl.save = async (req, res) => {
+    // res.send('Hello world');
+    console.log('suitcase data: ', req.body.suitcase);
+    console.log('suitcaseName: ', req.userId);
+    let suitcase = suitcaseCtrl.setUpSuitcaseToBeSaved(req.body.suitcase);
+    const suitcaseModel = require('../models/suitcase')(req.userId);
+    suitcase = new suitcaseModel(suitcase);
+    console.log('suitcase modeled to be saved', suitcase);
+    const response = await suitcase.save();
+    console.log('Suitcase saved');
+    return res.json({response});
+};
+
+suitcaseCtrl.update = async (req, res) => {
+    // TODO change code to UPDATE
     // res.send('Hello world');
     console.log('suitcase data: ', req.body.suitcase);
     console.log('suitcaseName: ', req.userId);

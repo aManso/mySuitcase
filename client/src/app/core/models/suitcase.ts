@@ -20,6 +20,7 @@ export class Suitcase {
   public place: TripLocation;
   public type: TripType;
   private _isInProgress: boolean;
+  private _items: any;
 
   constructor(name: string, date: {from: Date, to: Date}, place: TripLocation, type: TripType, isInProgress: boolean) {
     this.name = name;
@@ -27,6 +28,7 @@ export class Suitcase {
     this.place = place;
     this.type = type;
     this._isInProgress = isInProgress;
+    this._items = {};
   }
 
   // we use get and set because this can be assign later on the creation
@@ -36,6 +38,15 @@ export class Suitcase {
 
   set inProgress(isInProgress: boolean) {
     this._isInProgress = isInProgress;
+  }
+
+  // we use get and set because this can be assign later on the creation
+  get items() {
+    return this._items;
+  }
+
+  set items(items: any) {
+    this._items = items;
   }
 
   isNorthHemisphere(): boolean { return this.place.coordinates.lat > 0; }

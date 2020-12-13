@@ -62,6 +62,8 @@ export class CreateSuitcaseComponent implements OnInit {
   @ViewChildren('sport') viewChildrenSport!: QueryList<any>;
   @ViewChildren('beach') viewChildrenBeach!: QueryList<any>;
   @ViewChildren('mountain') viewChildrenMountain!: QueryList<any>;
+  @ViewChildren('pet') viewChildrenPet!: QueryList<any>;
+  @ViewChildren('baby') viewChildrenBaby!: QueryList<any>;
   @ViewChildren('suitcase') viewChildrenSuitcase!: QueryList<any>;
   public subsubheaders = {
     tech: [],
@@ -72,8 +74,10 @@ export class CreateSuitcaseComponent implements OnInit {
     others: [],
     beach: [],
     sport: [],
+    pet: [],
+    baby: [],
   };
-  public suitcaseList = {
+  public suitcaseShownList = {
     tech: [],
     cleanliness: [],
     clothes: [],
@@ -82,6 +86,21 @@ export class CreateSuitcaseComponent implements OnInit {
     others: [],
     beach: [],
     sport: [],
+    pet: [],
+    baby: [],
+  };
+
+  private _suitcaseSavedList = {
+    tech: [],
+    cleanliness: [],
+    clothes: [],
+    medicines: [],
+    documents: [],
+    others: [],
+    beach: [],
+    sport: [],
+    pet: [],
+    baby: [],
   };
 
   constructor(
@@ -139,8 +158,8 @@ export class CreateSuitcaseComponent implements OnInit {
   }
 
   private _duplicatedInSuitcase(newName: string): boolean {
-    return Object.keys(this.suitcaseList).some((key) => {
-      return this.suitcaseList[key].some((item) => {
+    return Object.keys(this.suitcaseShownList).some((key) => {
+      return this.suitcaseShownList[key].some((item) => {
         return item.name === newName;
       })
     })
@@ -178,9 +197,10 @@ export class CreateSuitcaseComponent implements OnInit {
     }
     const type = item.type ? item.type : 'others';
     item.quantity = 1;
-    this.suitcaseList[type].push(item);
+    this.suitcaseShownList[type].push(item);
+    this._suitcaseSavedList[type].push(item);
     setTimeout(() => {
-      this.suitcaseList[type][this.suitcaseList[type].length - 1].show = true;
+      this.suitcaseShownList[type][this.suitcaseShownList[type].length - 1].show = true;
       this.subsubheaders[type].push(item);
       if (listName) {
         this._removeFirstItemFromInnerList(listName, type);
@@ -195,7 +215,7 @@ export class CreateSuitcaseComponent implements OnInit {
   public removeItemFromChild(object: {itemList: TripItem[], index:number, listName: string}) {
     this.removeItem(object.itemList, object.index, object.listName);
   }
-  public removeItem(itemList: TripItem[], index:number, listName: string, viewChildren?: QueryList<any>) {
+  public removeItem(itemList: TripItem[], index:number, listName: string, viewChildren?: QueryList<any>, type?: string) {
     if (viewChildren) {
       // Alternate two keyframe animations
       this.counter % 2 ? this._renderer.addClass(viewChildren.toArray()[index].nativeElement, 'flip-out-ver-right') :
@@ -204,11 +224,14 @@ export class CreateSuitcaseComponent implements OnInit {
     }
     // When it finishes add it to the final list
     setTimeout(() => {
-      if (listName && !viewChildren) { // not for suitcaseList
+      if (listName && !viewChildren) { // not for suitcaseShownList
         this._removeFirstItemFromInnerList(listName, itemList[index].type || 'others');
         this._checkMoreRecommendations(listName);
       }
       itemList.splice(index, 1);
+      if (listName === 'suitcase') {
+        this._suitcaseSavedList[type].splice(index, 1);
+      }
       this.totalItemsInList--;
       this._changeDetector.detectChanges();
     }, 1000)
@@ -221,6 +244,8 @@ export class CreateSuitcaseComponent implements OnInit {
       case 'mountain': this.viewChildrenMountain.toArray()[0]["_subsubheadersInner"][type].splice(0, 1); break;
       case 'cultural': this.viewChildrenCultural.toArray()[0]["_subsubheadersInner"][type].splice(0, 1); break;
       case 'sport': this.viewChildrenSport.toArray()[0]["_subsubheadersInner"][type].splice(0, 1); break;
+      case 'pet': this.viewChildrenPet.toArray()[0]["_subsubheadersInner"][type].splice(0, 1); break;
+      case 'baby': this.viewChildrenBaby.toArray()[0]["_subsubheadersInner"][type].splice(0, 1); break;
     }
   }
 
@@ -233,6 +258,8 @@ export class CreateSuitcaseComponent implements OnInit {
       });
       dialogRef.afterClosed().subscribe((confirm: boolean) => {
         if (confirm || confirm === undefined) {
+          this.suitcase.items = this._suitcaseSavedList;
+          this._suitcaseService.saveSuitcase(this.suitcase, true);
         }
         dialogRef.close();
       });

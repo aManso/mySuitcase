@@ -2,6 +2,7 @@
 @import "./../../../scss/theme";
 
 $weather-size: 300px;
+$actions-size: 25px;
 
 .row {
   margin-bottom: 20px;
@@ -23,7 +24,7 @@ $weather-size: 300px;
   bottom: 5px;
   right: 200px;
   display: flex;
-  width: 150px;
+  width: 200px;
   overflow: hidden;
   justify-content: space-between;
 
@@ -148,19 +149,30 @@ $weather-size: 300px;
   }
 }
 
-.item-data {
-  display: flex;
-  align-items: center;
-}
+.suitcase-card {
+  .item-data {
+    display: flex;
+    align-items: center;
+    width: calc(100% - #{$actions-size});
 
-.mat-input-element.item-quantity {
-  max-width: 40px;
-  text-align: center;
-  padding: 2px;
-  border: 1px solid $tertiary-color;
-  border-radius: 5px;
-  background-color: map_get($mat-suitcase-secondary, 300);
-  margin-left: 10px;
-  color: white;
-}
+    .item-name {
+      width: 50%;
+      overflow: hidden;
+    }
 
+    .mat-input-element.item-quantity {
+      max-width: 40px;
+      text-align: center;
+      padding: 2px;
+      border: 1px solid $tertiary-color;
+      border-radius: 5px;
+      background-color: map_get($mat-suitcase-secondary, 300);
+      margin-left: 10px;
+      color: white;
+    }
+  }
+
+  .item-actions {
+    width: $actions-size;
+  }
+}
