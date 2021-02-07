@@ -12,12 +12,6 @@ export interface TripType {
     currentPage?: number,
     items?: TripItem[],
   }
-  cultural?: {
-    selected: boolean,
-    currentPriority?: number,
-    currentPage?: number,
-    items?: TripItem[],
-  }
   mountain?: {
     selected: boolean,
     currentPriority?: number,

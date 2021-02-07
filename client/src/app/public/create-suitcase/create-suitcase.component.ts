@@ -58,7 +58,6 @@ export class CreateSuitcaseComponent implements OnInit {
   public totalItemsInList = 0;
   public dataReady = false;
   @ViewChildren('common') viewChildrenCommon!: QueryList<any>;
-  @ViewChildren('cultural') viewChildrenCultural!: QueryList<any>;
   @ViewChildren('sport') viewChildrenSport!: QueryList<any>;
   @ViewChildren('beach') viewChildrenBeach!: QueryList<any>;
   @ViewChildren('mountain') viewChildrenMountain!: QueryList<any>;

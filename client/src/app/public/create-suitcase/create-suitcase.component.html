@@ -51,14 +51,6 @@
           (onRemoveItem)="removeItemFromChild($event)">
         </my-suitcase-item-list>
 
-        <my-suitcase-item-list #cultural
-          [itemList]="suggestionList.cultural ? suggestionList.cultural.items : []"
-          [maxShownList]="5"
-          [listName]="'cultural'"
-          (onAddItem)="addItemFromChild($event)"
-          (onRemoveItem)="removeItemFromChild($event)">
-        </my-suitcase-item-list>
-
         <my-suitcase-item-list #sport
           [itemList]="suggestionList.sport ? suggestionList.sport.items : []"
           [maxShownList]="5"

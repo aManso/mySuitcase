@@ -37,12 +37,6 @@ const SuitcaseSchema = new Schema({
             currentPriority: {type: Number, required: false},
             items: {type: [ItemSchema], required: false}
         },
-        cultural: {
-            selected: {type: String, required: false},
-            currentPage: {type: Number, required: false},
-            currentPriority: {type: Number, required: false},
-            items: {type: [ItemSchema], required: false}
-        },
         mountain: {
             selected: {type: String, required: false},
             currentPage: {type: Number, required: false},

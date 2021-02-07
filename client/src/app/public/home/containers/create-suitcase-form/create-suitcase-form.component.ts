@@ -105,10 +105,6 @@ export class CreateSuitcaseFormComponent implements OnInit {
         name: 'mountain',
         selected: false,
       },
-      // {
-      //   name: 'cultural',
-      //   selected: false,
-      // },
       {
         name: 'sport',
         selected: false,
