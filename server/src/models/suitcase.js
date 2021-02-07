@@ -62,7 +62,7 @@ const SuitcaseSchema = new Schema({
             currentPriority: {type: Number, required: false},
             items: {type: [ItemSchema], required: false}
         },
-        babe: {
+        baby: {
             selected: {type: String, required: false},
             currentPage: {type: Number, required: false},
             currentPriority: {type: Number, required: false},

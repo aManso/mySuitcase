@@ -6,8 +6,6 @@ import {
   ViewChildren,
   QueryList,
   OnInit,
-  SimpleChanges,
-  OnChanges,
   Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
@@ -18,12 +16,11 @@ import {TripItem} from "../../../../core/models/trip";
   templateUrl: './item-list.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class ItemListComponent implements OnInit, OnChanges {
+export class ItemListComponent implements OnInit {
   public counter = 1;
   @Input() itemList: TripItem[];
   @Input() maxShownList: number;
   @Input() listName: string;
-  @Input() subsubheaders: any;
   private _subsubheadersInner = {};
   @ViewChildren('item') itemViewChildren!: QueryList<any>;
   @Output()
@@ -38,21 +35,26 @@ export class ItemListComponent implements OnInit, OnChanges {
   }
 
   public ngOnInit() {
-    this._subsubheadersInner = JSON.parse(JSON.stringify(this.subsubheaders));
-    Object.assign({}, this.subsubheaders);
     this._sortItems(this.itemList);
   }
 
-  public ngOnChanges(changes: SimpleChanges) {
-    // Extract changes to the input property by its name
-    let simpleChange: any = changes['subsubheaders'];
-// Whenever the data in the parent changes, this method gets triggered. You
-// can act on the changes here. You will have both the previous value and the
-// current value here.
-
+  private resetSubheaders() {
+    return {
+      tech: [],
+      cleanliness: [],
+      clothes: [],
+      medicines: [],
+      documents: [],
+      others: [],
+      beach: [],
+      sport: [],
+      pet: [],
+      baby: [],
+    };
   }
 
   private _sortItems(itemList: TripItem[]) {
+    this._subsubheadersInner = JSON.parse(JSON.stringify(this.resetSubheaders()));
     itemList.forEach((item: TripItem) => {
       if (item.type) {
         this._subsubheadersInner[item.type].push(item);
@@ -64,6 +66,7 @@ export class ItemListComponent implements OnInit, OnChanges {
 
   public addItem(item: TripItem, index?:number, itemList?: TripItem[], ) {
     this.onAddItem.emit({item, index, itemList, listName: this.listName});
+    this._sortItems(this.itemList);
   }
 
   public removeItem(itemList: TripItem[], index:number) {
@@ -71,6 +74,7 @@ export class ItemListComponent implements OnInit, OnChanges {
       this._renderer.addClass(this.itemViewChildren.toArray()[index].nativeElement, 'removedItem');
     this.counter++;
     this.onRemoveItem.emit({itemList, index, listName: this.listName});
+    this._sortItems(this.itemList);
   }
 
   public showSubsubheader(type, name: string): boolean {

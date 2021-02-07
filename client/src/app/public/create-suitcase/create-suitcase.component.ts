@@ -203,7 +203,6 @@ export class CreateSuitcaseComponent implements OnInit {
       this.suitcaseShownList[type][this.suitcaseShownList[type].length - 1].show = true;
       this.subsubheaders[type].push(item);
       if (listName) {
-        this._removeFirstItemFromInnerList(listName, type);
         this._checkMoreRecommendations(listName); // not when its a new item
       }
       this.totalItemsInList++;
@@ -225,7 +224,6 @@ export class CreateSuitcaseComponent implements OnInit {
     // When it finishes add it to the final list
     setTimeout(() => {
       if (listName && !viewChildren) { // not for suitcaseShownList
-        this._removeFirstItemFromInnerList(listName, itemList[index].type || 'others');
         this._checkMoreRecommendations(listName);
       }
       itemList.splice(index, 1);
@@ -235,18 +233,6 @@ export class CreateSuitcaseComponent implements OnInit {
       this.totalItemsInList--;
       this._changeDetector.detectChanges();
     }, 1000)
-  }
-
-  private _removeFirstItemFromInnerList(listName: string, type: string) {
-    switch (listName) {
-      case 'common': this.viewChildrenCommon.toArray()[0]["_subsubheadersInner"][type].splice(0, 1); break;
-      case 'beach': this.viewChildrenBeach.toArray()[0]["_subsubheadersInner"][type].splice(0, 1); break;
-      case 'mountain': this.viewChildrenMountain.toArray()[0]["_subsubheadersInner"][type].splice(0, 1); break;
-      case 'cultural': this.viewChildrenCultural.toArray()[0]["_subsubheadersInner"][type].splice(0, 1); break;
-      case 'sport': this.viewChildrenSport.toArray()[0]["_subsubheadersInner"][type].splice(0, 1); break;
-      case 'pet': this.viewChildrenPet.toArray()[0]["_subsubheadersInner"][type].splice(0, 1); break;
-      case 'baby': this.viewChildrenBaby.toArray()[0]["_subsubheadersInner"][type].splice(0, 1); break;
-    }
   }
 
   public submitSuitcase() {

@@ -21,10 +21,10 @@ export class SuitcaseService {
 
   public saveSuitcase(suitcase: Suitcase, existing = false): Observable<void> {
     const $saveResponse = new Subject<void>();
-    this._currentSuitcase = suitcase;
     const url = existing ? this.UPDATE_SUITCASE_API : this.SAVE_SUITCASE_API;
-    this._http.post(url, {suitcase}).subscribe((response: null) => {
-      console.log('Suitcase saved! ', response);
+    this._http.post(url, {suitcase}).subscribe((data: any) => {
+      this._currentSuitcase = data.response;
+      console.log('Suitcase saved! ', data.response);
       $saveResponse.next();
     }, (error: any) => {
       console.log('There was a problem at saving the suitcase: ', error);
