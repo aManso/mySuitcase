@@ -122,7 +122,7 @@ export class CreateSuitcaseComponent implements OnInit {
       this._changeDetector.detectChanges();
     });
     this.showWeather = this._checkShowWeather();
-    this.weatherDays = this.showWeather ? Math.ceil((this._sevenDaysDateInMillis - this.suitcase.date.from.getTime()) / (1000*60*60*24)) : 0;
+    this.weatherDays = this.showWeather ? Math.ceil((this._sevenDaysDateInMillis - new Date(this.suitcase.date.from).getTime()) / (1000*60*60*24)) : 0;
   }
 
   private _fetchSuggestionList(tripType: TripType, pageNr: number): Observable<TripType> {
@@ -153,7 +153,7 @@ export class CreateSuitcaseComponent implements OnInit {
   }
 
   private _checkShowWeather(): boolean {
-    return !!this.suitcase && this.suitcase.date.from.getTime() < this._sevenDaysDateInMillis;
+    return !!this.suitcase && new Date(this.suitcase.date.from).getTime() < this._sevenDaysDateInMillis;
   }
 
   private _duplicatedInSuitcase(newName: string): boolean {
