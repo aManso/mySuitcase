@@ -120,6 +120,27 @@
           </div>
           <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
         </div>
+        <div *ngFor="let item of suitcaseShownList['beach']; let i=index" class="common-card-body">
+          <div class="card-header card-subsubheader" *ngIf="showSubsubheader('beach', item.name)">
+            <mat-icon matSuffix matTooltip="Playa" [matTooltipPosition]="'below'">beach_access</mat-icon>
+            <span>Playa</span>
+          </div>
+          <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+        </div>
+        <div *ngFor="let item of suitcaseShownList['mountain']; let i=index" class="common-card-body">
+          <div class="card-header card-subsubheader" *ngIf="showSubsubheader('mountain', item.name)">
+            <mat-icon matSuffix matTooltip="Montaña" [matTooltipPosition]="'below'">filter_hdr</mat-icon>
+            <span>Montaña</span>
+          </div>
+          <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+        </div>
+        <div *ngFor="let item of suitcaseShownList['sport']; let i=index" class="common-card-body">
+          <div class="card-header card-subsubheader" *ngIf="showSubsubheader('sport', item.name)">
+            <mat-icon matSuffix matTooltip="Deporte" [matTooltipPosition]="'below'">sports_soccer</mat-icon>
+            <span>Deporte</span>
+          </div>
+          <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+        </div>
         <div *ngFor="let item of suitcaseShownList['baby']; let i=index" class="common-card-body">
           <div class="card-header card-subsubheader" *ngIf="showSubsubheader('baby', item.name)">
             <mat-icon matSuffix matTooltip="Bebé" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>

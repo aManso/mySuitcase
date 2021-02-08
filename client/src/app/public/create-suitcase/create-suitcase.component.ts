@@ -88,7 +88,6 @@ export class CreateSuitcaseComponent implements OnInit {
     pet: [],
     baby: [],
   };
-
   private _suitcaseSavedList = {
     tech: [],
     cleanliness: [],
@@ -190,11 +189,11 @@ export class CreateSuitcaseComponent implements OnInit {
   public addItemFromChild(object: {item: TripItem, index?:number, itemList: TripItem[], listName: string}) {
     this._addItem(object.item, object.index, object.itemList, object.listName);
   }
-  private _addItem(item: TripItem, index?:number, itemList?: TripItem[], listName?: string) {
+  private _addItem(item: TripItem, index?:number, suggestionList?: TripItem[], listName?: string) {
     if (index > -1) {
-      itemList.splice(index, 1);
+      suggestionList.splice(index, 1);
     }
-    const type = item.type ? item.type : 'others';
+    const type = item.type ? listName === 'beach' || listName === 'mountain' || listName === 'sport' ? listName : item.type : 'others';
     item.quantity = 1;
     this.suitcaseShownList[type].push(item);
     this._suitcaseSavedList[type].push(item);
