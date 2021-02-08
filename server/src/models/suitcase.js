@@ -10,6 +10,8 @@ const ItemSchema = new Schema({
 });
 
 const SuitcaseSchema = new Schema({
+    // _id should not be present because mongoose expects that if it is define in the schema you will give manually an id
+    // _id: {type: String, required: false},
     name: {type: String, required: true},
     date: {
         from: {type: Date, required: false},
@@ -62,6 +64,19 @@ const SuitcaseSchema = new Schema({
             currentPriority: {type: Number, required: false},
             items: {type: [ItemSchema], required: false}
         },
+    },
+    items: {
+        baby: {type: [ItemSchema], required: false},
+        beach: {type: [ItemSchema], required: false},
+        cleanliness: {type: [ItemSchema], required: false},
+        clothes: {type: [ItemSchema], required: false},
+        documents: {type: [ItemSchema], required: false},
+        medicines: {type: [ItemSchema], required: false},
+        mountain: {type: [ItemSchema], required: false},
+        others: {type: [ItemSchema], required: false},
+        pet: {type: [ItemSchema], required: false},
+        sport: {type: [ItemSchema], required: false},
+        tech: {type: [ItemSchema], required: false},
     },
     isInProgress: {type: Boolean, required: false},
     metadata: {

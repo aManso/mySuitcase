@@ -19,16 +19,14 @@ suitcaseCtrl.save = async (req, res) => {
 };
 
 suitcaseCtrl.update = async (req, res) => {
-    // TODO change code to UPDATE
-    // res.send('Hello world');
     console.log('suitcase data: ', req.body.suitcase);
-    console.log('suitcaseName: ', req.userId);
     let suitcase = suitcaseCtrl.setUpSuitcaseToBeSaved(req.body.suitcase);
     const suitcaseModel = require('../models/suitcase')(req.userId);
     suitcase = new suitcaseModel(suitcase);
-    console.log('suitcase modeled to be saved', suitcase);
-    const response = await suitcase.save();
-    console.log('Suitcase saved');
+    console.log('suitcase modeled to be updated', suitcase);
+    const id  = req.body.suitcase._id;
+    const response = await suitcaseModel.findByIdAndUpdate(id, {$set: suitcase}, {new: true });
+    console.log('Suitcase updated');
     return res.json({response});
 };
 
