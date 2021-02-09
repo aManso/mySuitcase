@@ -81,20 +81,7 @@ export class CreateSuitcaseComponent implements OnInit {
     baby: [],
   };
   // suitcase shown in template
-  public suitcaseShownList = {
-    tech: [],
-    cleanliness: [],
-    clothes: [],
-    medicines: [],
-    documents: [],
-    others: [],
-    beach: [],
-    sport: [],
-    pet: [],
-    baby: [],
-  };
-  // suitcase that will be saved
-  private _suitcaseSavedList = {
+  public suitcaseList = {
     tech: [],
     cleanliness: [],
     clothes: [],
@@ -174,8 +161,8 @@ export class CreateSuitcaseComponent implements OnInit {
 
   private _duplicatedInSuitcase(newName: string): boolean {
     // when adding manually a new item, check if that item already exist in the provisional list
-    return Object.keys(this.suitcaseShownList).some((key) => {
-      return this.suitcaseShownList[key].some((item) => {
+    return Object.keys(this.suitcaseList).some((key) => {
+      return this.suitcaseList[key].some((item) => {
         return item.name === newName;
       })
     })
@@ -220,13 +207,12 @@ export class CreateSuitcaseComponent implements OnInit {
     const type = item.type ? listName === 'beach' || listName === 'mountain' || listName === 'sport' ? listName : item.type : 'others';
     item.quantity = 1;
     // add the item to the list to be shown in the provisional list and in the list to be saved
-    this.suitcaseShownList[type].push(item);
-    this._suitcaseSavedList[type].push(item);
+    this.suitcaseList[type].push(item);
 
     // do async the rest of actions to allow the animations
     setTimeout(() => {
       // change the status show to true to do the animation of appearing
-      this.suitcaseShownList[type][this.suitcaseShownList[type].length - 1].show = true;
+      this.suitcaseList[type][this.suitcaseList[type].length - 1].show = true;
       this.subsubheaders[type].push(item);
 
       // if it comes from suggestion list, check it there is need to fetch more recommendations
@@ -257,7 +243,7 @@ export class CreateSuitcaseComponent implements OnInit {
       // remove it from the list
       itemList.splice(index, 1);
       // if coming from suggestion list check the suggestions otherwise also remove it from the list to be saved
-      fromSuggestionList ? this._checkMoreRecommendations(listName) : this._suitcaseSavedList[type].splice(index, 1);
+      if (fromSuggestionList) this._checkMoreRecommendations(listName);
       this.totalItemsInList--;
       this._changeDetector.detectChanges();
     }, 1000)
@@ -274,7 +260,7 @@ export class CreateSuitcaseComponent implements OnInit {
       });
       dialogRef.afterClosed().subscribe((confirm: boolean) => {
         if (confirm || confirm === undefined) {
-          this.suitcase.items = this._suitcaseSavedList;
+          this.suitcase.items = this.suitcaseList;
           this._suitcaseService.saveSuitcase(this.suitcase, true);
         }
         dialogRef.close();
