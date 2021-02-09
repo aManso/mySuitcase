@@ -120,13 +120,8 @@ export class CreateSuitcaseFormComponent implements OnInit {
     ];
     const arr = list.map(option => {
       return this._formBuilder.group(option);
-      // return this._formBuilder.control(option.selected);
     });
     return this._formBuilder.array(arr);
-  }
-
-  public getName(option: any) {
-    return option.value.name;
   }
 
   private _updateHeader(questionNr: number) {

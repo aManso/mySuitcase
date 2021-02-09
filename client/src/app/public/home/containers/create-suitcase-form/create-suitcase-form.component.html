@@ -51,7 +51,7 @@
         <mat-label>Que tipo de viaje vas a realizar?</mat-label>
         <div id="type_options">
           <ng-container *ngFor="let option of createSuitcaseForm.controls.type.controls; let i=index" [formGroupName]="i">
-            <mat-checkbox class="" formControlName="selected">{{getName(option)}}</mat-checkbox>
+            <mat-checkbox class="" formControlName="selected">{{option.value.name}}</mat-checkbox>
           </ng-container>
         </div>
       </div>
