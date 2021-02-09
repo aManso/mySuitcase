@@ -229,7 +229,7 @@ export class CreateSuitcaseComponent implements OnInit {
     // remove item from suggestions
     this.removeItem(object.itemList, object.index, object.listName);
   }
-  public removeItem(itemList: TripItem[], index:number, listName: string, viewChildren?: QueryList<any>, type?: string) {
+  public removeItem(itemList: TripItem[], index:number, listName: string, viewChildren?: QueryList<any>) {
     // if removing from the suggestions add a class to trigger an animation
     const fromSuggestionList = !viewChildren;
     if (!fromSuggestionList && viewChildren) {
