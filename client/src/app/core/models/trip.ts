@@ -44,7 +44,8 @@ export interface TripItem {
   type?: string,
   priority: number,
   isNew?: boolean,
-  show?: boolean,
+  showInSuitcase?: boolean,
+  showInSuggestion?: boolean,
   quantity?: number;
 }
 

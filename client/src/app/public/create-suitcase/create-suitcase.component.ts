@@ -183,7 +183,7 @@ export class CreateSuitcaseComponent implements OnInit {
         const newItem: TripItem = {
           name: item,
           isNew: true,
-          show: false,
+          showInSuitcase: false,
           priority: 1,
           type: this.selectedCategory,
         };
@@ -198,10 +198,6 @@ export class CreateSuitcaseComponent implements OnInit {
     this._addItem(object.item, object.index, object.itemList, object.listName);
   }
   private _addItem(item: TripItem, index?:number, suggestionList?: TripItem[], listName?: string) {
-    // if there is an index its because it is added from the suggestion list, so remove from it
-    if (index > -1) {
-      suggestionList.splice(index, 1);
-    }
     // by def the type is the main category, except for beach, mountain and sport where the type is the subcategory and
     // otherwise consider the item in the 'other' category.
     const type = item.type ? listName === 'beach' || listName === 'mountain' || listName === 'sport' ? listName : item.type : 'others';
@@ -212,7 +208,7 @@ export class CreateSuitcaseComponent implements OnInit {
     // do async the rest of actions to allow the animations
     setTimeout(() => {
       // change the status show to true to do the animation of appearing
-      this.suitcaseList[type][this.suitcaseList[type].length - 1].show = true;
+      this.suitcaseList[type][this.suitcaseList[type].length - 1].showInSuitcase = true;
       this.subsubheaders[type].push(item);
 
       // if it comes from suggestion list, check it there is need to fetch more recommendations

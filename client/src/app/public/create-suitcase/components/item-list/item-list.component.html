@@ -78,7 +78,7 @@
 
 <ng-template #cardBody let-item let-i="i">
   <div class="card-body">
-    <div class="item" #item>
+    <div class="item" #item [@showHiddenItem]="item.showInSuggestion ? 'show' : 'hidden'">
       <span>{{item.name}}</span>
       <div class="item-actions">
         <mat-icon aria-hidden="false" aria-label="Discard item" (click)="removeItem(itemList, i)">delete_sweep</mat-icon>

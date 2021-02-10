@@ -172,7 +172,7 @@
 
 <ng-template #cardBody let-item let-i="i">
   <div class="card-body">
-    <div class="item"  #suitcase [@showHiddenItem]="item.show ? 'show' : 'hidden'">
+    <div class="item"  #suitcase [@showHiddenItem]="item.showInSuitcase ? 'show' : 'hidden'">
       <div class="item-data">
         <span class="item-name">{{item.name}}</span>
         <input matInput type="number" [(ngModel)]="item.quantity" class="item-quantity">
