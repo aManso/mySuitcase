@@ -149,6 +149,23 @@ export class CreateSuitcaseComponent implements OnInit {
           this.suggestionList[type].currentPriority++;
           this._checkMoreRecommendations(type);
         }
+        let viewChildren: QueryList<any>;
+        switch (type) {
+          case 'sport': viewChildren = this.viewChildrenSport;
+            break;
+          case 'beach': viewChildren = this.viewChildrenBeach;
+            break;
+          case 'mountain': viewChildren = this.viewChildrenMountain;
+            break;
+          case 'pet': viewChildren = this.viewChildrenPet;
+            break;
+          case 'baby': viewChildren = this.viewChildrenBaby;
+            break;
+          default: viewChildren = this.viewChildrenCommon;
+            break;
+        }
+        this._changeDetector.detectChanges();
+        viewChildren.toArray()[0]._sortItems(viewChildren.toArray()[0].itemList);
         this._changeDetector.detectChanges();
       });
     }

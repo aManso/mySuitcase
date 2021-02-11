@@ -109,6 +109,8 @@ export class ItemListComponent implements OnInit {
     this.counter++;
     this.onRemoveItem.emit({itemList, index, listName: this.listName});
     this._sortItems(this.itemList);
+    // trigger a refresh in parent component to let it know the item has been removed from the list
+    this._changeDetector.markForCheck();
   }
 
   public showSubsubheader(type, name: string): boolean {
