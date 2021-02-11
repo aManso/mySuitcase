@@ -3,6 +3,7 @@
 
 $weather-size: 300px;
 $actions-size: 25px;
+$margin: 15px;
 
 .row {
   margin-bottom: 20px;
@@ -50,20 +51,29 @@ $actions-size: 25px;
 }
 
 .item {
-  height: 50px;
-  padding: 10px 20px;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
   color: $tertiary-color;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  min-height: 50px;
+  padding: 10px 20px;
+}
+
+.item-data {
+  width: calc(100% - #{$actions-size} - #{$actions-size} - #{$margin});
+}
+
+.item-actions {
+  width: calc(#{$actions-size} + #{$actions-size});
+  margin-left: $margin;
 }
 
 .card-header {
+  align-items: center;
   background: $tertiary-color;
   color: white;
   display: flex;
-  align-items: center;
 
   mat-icon {
     margin-right: 5px;
@@ -153,7 +163,7 @@ $actions-size: 25px;
   .item-data {
     display: flex;
     align-items: center;
-    width: calc(100% - #{$actions-size});
+    width: calc(100% - #{$actions-size} - #{$margin});
 
     .item-name {
       width: 50%;
@@ -173,6 +183,59 @@ $actions-size: 25px;
   }
 
   .item-actions {
-    width: $actions-size;
+    width: calc(#{$actions-size} + #{$margin});
+  }
+}
+
+@media (max-width: 992px){
+  .suggestion-lists {
+    max-height: 250px;
+    overflow-y: scroll;
+  }
+
+  .suitcase-column {
+    top: 500px;
+    max-width: 720px;
+    position: absolute;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px){
+  #selection-categories-wrapper {
+    right: 20px;
+  }
+
+  .suitcase-column {
+    top: 500px;
+    max-width: 540px;
+    position: absolute;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px){
+  .weather-panel-wrapper {
+    display: none;
+  }
+
+  #new-item-field {
+    margin-bottom: 40px;
+  }
+
+  #selection-categories-wrapper {
+    bottom: -40px;
+    left: 0;
+  }
+
+  .row:nth-child(1) {
+    margin: 0;
+  }
+
+  .suitcase-column {
+    top: 500px;
+    max-width: 540px;
+    position: absolute;
+    padding-bottom: 20px;
   }
 }

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="dataReady">
   <div class="row">
     <form #itemForm="ngForm" class="form" (submit)="addNewItem(newItem, itemForm.controls['newItem'])">
       <mat-form-field id="new-item-field" class="form-field" appearance="fill" color="primary">
@@ -20,65 +20,66 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-4">
-      <div *ngIf="dataReady" class="card">
-        <div class="card-header" *ngIf="suggestionList">
+    <div class="col-lg-4 col-sm-6">
+      <div class="card">
+        <div class="card-header suggestion-header" *ngIf="suggestionList">
           <mat-icon matSuffix matTooltip="Suggestions" [matTooltipPosition]="'below'">emoji_objects</mat-icon>
           <span>Sugerencias</span>
         </div>
 
-        <my-suitcase-item-list #common
-          [itemList]="suggestionList.common ? suggestionList.common.items : []"
-          [maxShownList]="10"
-          [listName]="'common'"
-          (onAddItem)="addItemFromChild($event)"
-          (onRemoveItem)="removeItemFromChild($event)">
-        </my-suitcase-item-list>
+        <div class="suggestion-lists">
+          <my-suitcase-item-list #common
+                                 [itemList]="suggestionList.common ? suggestionList.common.items : []"
+                                 [maxShownList]="10"
+                                 [listName]="'common'"
+                                 (onAddItem)="addItemFromChild($event)"
+                                 (onRemoveItem)="removeItemFromChild($event)">
+          </my-suitcase-item-list>
 
-        <my-suitcase-item-list #beach
-          [itemList]="suggestionList.beach ? suggestionList.beach.items : []"
-          [maxShownList]="5"
-          [listName]="'beach'"
-          (onAddItem)="addItemFromChild($event)"
-          (onRemoveItem)="removeItemFromChild($event)">
-        </my-suitcase-item-list>
+          <my-suitcase-item-list #beach
+                                 [itemList]="suggestionList.beach ? suggestionList.beach.items : []"
+                                 [maxShownList]="5"
+                                 [listName]="'beach'"
+                                 (onAddItem)="addItemFromChild($event)"
+                                 (onRemoveItem)="removeItemFromChild($event)">
+          </my-suitcase-item-list>
 
-        <my-suitcase-item-list #mountain
-          [itemList]="suggestionList.mountain ? suggestionList.mountain.items : []"
-          [maxShownList]="5"
-          [listName]="'mountain'"
-          (onAddItem)="addItemFromChild($event)"
-          (onRemoveItem)="removeItemFromChild($event)">
-        </my-suitcase-item-list>
+          <my-suitcase-item-list #mountain
+                                 [itemList]="suggestionList.mountain ? suggestionList.mountain.items : []"
+                                 [maxShownList]="5"
+                                 [listName]="'mountain'"
+                                 (onAddItem)="addItemFromChild($event)"
+                                 (onRemoveItem)="removeItemFromChild($event)">
+          </my-suitcase-item-list>
 
-        <my-suitcase-item-list #sport
-          [itemList]="suggestionList.sport ? suggestionList.sport.items : []"
-          [maxShownList]="5"
-          [listName]="'sport'"
-          (onAddItem)="addItemFromChild($event)"
-          (onRemoveItem)="removeItemFromChild($event)">
-        </my-suitcase-item-list>
+          <my-suitcase-item-list #sport
+                                 [itemList]="suggestionList.sport ? suggestionList.sport.items : []"
+                                 [maxShownList]="5"
+                                 [listName]="'sport'"
+                                 (onAddItem)="addItemFromChild($event)"
+                                 (onRemoveItem)="removeItemFromChild($event)">
+          </my-suitcase-item-list>
 
-        <my-suitcase-item-list #baby
-           [itemList]="suggestionList.baby ? suggestionList.baby.items : []"
-           [maxShownList]="5"
-           [listName]="'baby'"
-           (onAddItem)="addItemFromChild($event)"
-           (onRemoveItem)="removeItemFromChild($event)">
-        </my-suitcase-item-list>
+          <my-suitcase-item-list #baby
+                                 [itemList]="suggestionList.baby ? suggestionList.baby.items : []"
+                                 [maxShownList]="5"
+                                 [listName]="'baby'"
+                                 (onAddItem)="addItemFromChild($event)"
+                                 (onRemoveItem)="removeItemFromChild($event)">
+          </my-suitcase-item-list>
 
-        <my-suitcase-item-list #pet
-           [itemList]="suggestionList.pet ? suggestionList.pet.items : []"
-           [maxShownList]="5"
-           [listName]="'pet'"
-           (onAddItem)="addItemFromChild($event)"
-           (onRemoveItem)="removeItemFromChild($event)">
-        </my-suitcase-item-list>
-
+          <my-suitcase-item-list #pet
+                                 [itemList]="suggestionList.pet ? suggestionList.pet.items : []"
+                                 [maxShownList]="5"
+                                 [listName]="'pet'"
+                                 (onAddItem)="addItemFromChild($event)"
+                                 (onRemoveItem)="removeItemFromChild($event)">
+          </my-suitcase-item-list>
+        </div>
       </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-lg-4 suitcase-column">
       <div class="card suitcase-card">
         <div class="card-header">
           <mat-icon matSuffix matTooltip="Suggestions" [matTooltipPosition]="'below'">backpack</mat-icon>
@@ -162,7 +163,7 @@
       </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-lg-4 col-sm-6">
       <div *ngIf="showWeather" class="weather-panel-wrapper">
         <my-suitcase-weather-panel [coordinates]="suitcase.place.coordinates" [weatherDays]="weatherDays"></my-suitcase-weather-panel>
       </div>
