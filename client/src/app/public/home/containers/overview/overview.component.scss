@@ -1,0 +1,81 @@
+@import "./../../../../../scss/_variables";
+@import "./../../../../../scss/_mixins";
+
+.card-img {
+  height: 250px;
+}
+
+.overview-card {
+  cursor: pointer;
+  margin-bottom: 30px;
+  position: relative;
+
+  .overview-card-overlay {
+    background: $white;
+    bottom: 0;
+    left: 0;
+    opacity: 0.9;
+    padding: 40px;
+    position: absolute;
+    transform: translateY(40px);
+    width: 100%;
+    z-index: -1;
+    @include transition;
+
+    h4{
+      margin-bottom: 0;
+    }
+
+    small{
+      font-size: 15px;
+      color: #555555;
+      margin-bottom: 10px;
+    }
+
+    p{
+      font-size: 16px;
+    }
+
+    .overview-title {
+      font-size: 20px;
+      margin-bottom: 15px;
+      font-family: "Roboto Condensed", sans-serif;
+      color: black;
+      line-height: 1.25;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    .overview-actions {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+
+      .icon {
+        width: 40px;
+        height: 40px;
+        padding: 20px 10px 0 10px;
+
+        &:hover {
+          font-size: 40px;
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  &:hover{
+
+    .overview-card-overlay {
+      transform: translateY(0);
+      width: 100%;
+      z-index: 1;
+
+      @media(min-width: 1200px){
+        width: 74%;
+      }
+    }
+  }
+}

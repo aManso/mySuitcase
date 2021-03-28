@@ -158,7 +158,8 @@
 
 
 <ng-template #logged>
-  <div class="full-screen">
+  <div id="sections-container">
+    <!--================Create new suitcase section Start =================-->
     <section class="logged-user-section hero-banner">
       <div class="container">
         <div class="row align-items-center text-center text-md-left">
@@ -175,6 +176,14 @@
         </div>
       </div>
     </section>
+    <!--================Create new suitcase section End =================-->
+
+
+    <!--================Overview created suitcases section Start =================-->
+    <section class="section-margin" [@isCreatingSuitcase]="isCreating ? 'hidden' : 'show'">
+      <my-suitcase-overview></my-suitcase-overview>
+    </section>
+    <!--================Overview created suitcases section End =================-->
   </div>
 </ng-template>
 <footer-component></footer-component>

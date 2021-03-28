@@ -72,9 +72,10 @@ export class ItemListComponent implements OnInit {
       documents: [],
       others: [],
       beach: [],
-      sport: [],
-      pet: [],
       baby: [],
+      mountain: [],
+      pet: [],
+      sport: [],
     };
   }
 

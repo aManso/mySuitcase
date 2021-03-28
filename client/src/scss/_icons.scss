@@ -1,5 +1,7 @@
+@import 'variables';
+
 .icon {
-  color: #d88a83;
+  color: $primary-color;
   height: 20px;
   font-size: 20px;
   width: 20px;
@@ -7,12 +9,16 @@
 
 .clickable-icon {
   cursor: pointer;
-  color: #d88a83;
+  color: $primary-color;
 }
 
 .disabled-icon {
   cursor: default;
   color: lightgrey!important;
+}
+
+.link-icon {
+  color: $link-color-secondary;
 }
 
 .mat-form-field-appearance-fill .mat-form-field-flex {

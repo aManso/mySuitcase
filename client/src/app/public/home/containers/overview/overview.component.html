@@ -1,0 +1,130 @@
+<div class="container" *ngIf="dataReady">
+  <ng-container *ngFor="let suitcase of suitcaseList; let i=index;">
+    <ng-container *ngIf="i%2===0;">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="overview-card" [ngSwitch]="suitcaseList[i].icon">
+            <!--mountain-->
+            <ng-container *ngSwitchCase="'mountain'">
+              <img class="card-img" src="../../../../../assets/img/categories/mountain.gif" alt="">
+            </ng-container>
+
+            <!--beach-->
+            <ng-container *ngSwitchCase="'beach'">
+              <img class="card-img" src="../../../../../assets/img/categories/beach.gif" alt="">
+            </ng-container>
+
+            <!--baby-->
+            <ng-container *ngSwitchCase="'baby'">
+              <img class="card-img" src="../../../../../assets/img/categories/baby2.gif" alt="">
+            </ng-container>
+
+            <!--pet-->
+            <ng-container *ngSwitchCase="'pet'">
+              <img class="card-img" src="../../../../../assets/img/categories/pet.jpeg" alt="">
+            </ng-container>
+
+            <!--sport-->
+            <ng-container *ngSwitchCase="'sport'">
+              <img class="card-img" src="../../../../../assets/img/categories/sport.gif" alt="">
+            </ng-container>
+
+            <!--others-->
+            <ng-container *ngSwitchDefault>
+              <img class="card-img" src="../../../../../assets/img/blog/blog-3.png" alt="">
+            </ng-container>
+
+            <div class="overview-card-overlay">
+              <h4 class="overview-title">{{suitcaseList[i].name}}</h4>
+              <div class="media">
+                <div class="media-body">
+                  <div class="overview-date">
+                    <mat-icon matSuffix class="icon">date_range</mat-icon>
+                    <span class="align-middle">{{suitcaseList[i].getPrintDate()}}</span>
+                  </div>
+                  <div class="overview-place">
+                    <mat-icon matSuffix class="icon">public</mat-icon>
+                    <span class="align-middle">{{suitcaseList[i].getPrintPlace()}}</span>
+                  </div>
+                  <div class="overview-categories">
+                    <mat-icon matSuffix class="icon" *ngIf="suitcaseList[i].type.beach.selected">beach_access</mat-icon>
+                    <mat-icon matSuffix class="icon" *ngIf="suitcaseList[i].type.mountain.selected">filter_hdr</mat-icon>
+                    <mat-icon matSuffix class="icon" *ngIf="suitcaseList[i].type.sport.selected">sports_soccer</mat-icon>
+                    <!--<mat-icon matSuffix class="icon" *ngIf="suitcase.type.sport.selected">pedal_bike</mat-icon>-->
+                    <mat-icon matSuffix class="icon" *ngIf="suitcaseList[i].type.pet.selected">pets</mat-icon>
+                    <mat-icon matSuffix class="icon" *ngIf="suitcaseList[i].type.baby.selected">baby_changing_station</mat-icon>
+                  </div>
+                </div>
+                <div class="overview-actions">
+                  <mat-icon matSuffix class="icon clickable-icon link-icon" (click)="edit(suitcaseList[i])">create</mat-icon>
+                  <mat-icon matSuffix class="icon clickable-icon link-icon" (click)="remove(suitcaseList[i]._id, i)">delete_sweep</mat-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" *ngIf="suitcaseList[i+1]">
+          <div class="overview-card" [ngSwitch]="suitcaseList[i+1].icon">
+            <!--mountain-->
+            <ng-container *ngSwitchCase="'mountain'">
+              <img class="card-img" src="../../../../../assets/img/categories/mountain.gif" alt="">
+            </ng-container>
+
+            <!--beach-->
+            <ng-container *ngSwitchCase="'beach'">
+              <img class="card-img" src="../../../../../assets/img/categories/beach.gif" alt="">
+            </ng-container>
+
+            <!--baby-->
+            <ng-container *ngSwitchCase="'baby'">
+              <img class="card-img" src="../../../../../assets/img/categories/baby2.gif" alt="">
+            </ng-container>
+
+            <!--pet-->
+            <ng-container *ngSwitchCase="'pet'">
+              <img class="card-img" src="../../../../../assets/img/categories/pet.jpeg" alt="">
+            </ng-container>
+
+            <!--sport-->
+            <ng-container *ngSwitchCase="'sport'">
+              <img class="card-img" src="../../../../../assets/img/categories/sport.gif" alt="">
+            </ng-container>
+
+            <!--others-->
+            <ng-container *ngSwitchDefault>
+              <img class="card-img" src="../../../../../assets/img/blog/blog-3.png" alt="">
+            </ng-container>
+
+            <div class="overview-card-overlay">
+              <h4 class="overview-title">{{suitcaseList[i+1].name}}</h4>
+              <div class="media">
+                <div class="media-body">
+                  <div class="overview-date">
+                    <mat-icon matSuffix class="icon">date_range</mat-icon>
+                    <span class="align-middle">{{suitcaseList[i+1].getPrintDate()}}</span>
+                  </div>
+                  <div class="overview-place">
+                    <mat-icon matSuffix class="icon">public</mat-icon>
+                    <span class="align-middle">{{suitcaseList[i+1].getPrintPlace()}}</span>
+                  </div>
+                  <div class="overview-categories">
+                    <mat-icon matSuffix class="icon" *ngIf="suitcaseList[i+1].type.beach.selected">beach_access</mat-icon>
+                    <mat-icon matSuffix class="icon" *ngIf="suitcaseList[i+1].type.mountain.selected">filter_hdr</mat-icon>
+                    <mat-icon matSuffix class="icon" *ngIf="suitcaseList[i+1].type.sport.selected">sports_soccer</mat-icon>
+                    <!--<mat-icon matSuffix class="icon" *ngIf="suitcaseList[i+1].type.sport.selected">pedal_bike</mat-icon>-->
+                    <mat-icon matSuffix class="icon" *ngIf="suitcaseList[i+1].type.pet.selected">pets</mat-icon>
+                    <mat-icon matSuffix class="icon" *ngIf="suitcaseList[i+1].type.baby.selected">baby_changing_station</mat-icon>
+                  </div>
+                </div>
+                <div class="overview-actions">
+                  <mat-icon matSuffix class="icon clickable-icon link-icon" (click)="edit(suitcaseList[i+1])">create</mat-icon>
+                  <mat-icon matSuffix class="icon clickable-icon link-icon" (click)="remove(suitcaseList[i+1]._id, i+1)">delete_sweep</mat-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

@@ -3,14 +3,17 @@ import {Directive} from '@angular/core';
 import {TripLocation, TripType} from './trip';
 
 export interface ISuitcase {
+  _id?: string;
   name: string;
+  icon?: string;
+  items: any[];
   date: {
     from: Date;
     to: Date;
   };
   place: TripLocation;
   type: TripType;
-  isInProgress: boolean;
+  isInProgress?: boolean;
 }
 
 @Directive()
@@ -19,39 +22,46 @@ export class Suitcase {
   public date: {from: Date, to: Date};
   public place: TripLocation;
   public type: TripType;
-  private _isInProgress: boolean;
-  private _items: any;
+  public icon?: string;
+  public isInProgress?: boolean;
+  public items: any;
+  public _id?: string;
 
-  constructor(name: string, date: {from: Date, to: Date}, place: TripLocation, type: TripType, isInProgress: boolean) {
-    this.name = name;
-    this.date = date;
-    this.place = place;
-    this.type = type;
-    this._isInProgress = isInProgress;
-    this._items = {};
-  }
+  private _dateOptions = {
+    year: 'numeric', month: 'long', day: 'numeric'
+  };
 
-  // we use get and set because this can be assign later on the creation
-  get inProgress() {
-    return this._isInProgress;
-  }
-
-  set inProgress(isInProgress: boolean) {
-    this._isInProgress = isInProgress;
-  }
-
-  // we use get and set because this can be assign later on the creation
-  get items() {
-    return this._items;
-  }
-
-  set items(items: any) {
-    this._items = items;
+  // constructor(name: string, date: {from: Date, to: Date}, place: TripLocation, type: TripType, isInProgress: boolean) {
+  constructor(suitcase: ISuitcase) {
+    this._id = suitcase._id;
+    this.name = suitcase.name;
+    this.icon = suitcase.icon;
+    this.date = suitcase.date;
+    this.place = suitcase.place;
+    this.type = suitcase.type;
+    this.isInProgress = !!suitcase.isInProgress;
+    this.items = suitcase.items || [];
   }
 
   isNorthHemisphere(): boolean { return this.place.coordinates.lat > 0; }
 
   isSouthHemisphere(): boolean { return this.place.coordinates.lat < 0; }
 
-  print() { console.log(`${this.name} / ${this.date.from} - ${this.date.to} / ${this.place} - ${this.type} - ${this._isInProgress} - `); }
+  print() { console.log(`${this.name} / ${this.date.from} - ${this.date.to} / ${this.place} - ${this.type} - ${this.isInProgress} - `); }
+
+  getPrintDate(): string {
+    // currently only in ES format
+    return new Date(this.date.from).toLocaleString('es-ES', this._dateOptions)  + ' - ' + new Date(this.date.to).toLocaleString('es-ES', this._dateOptions)
+  }
+
+  getPrintPlace(): string {
+    return this.place.city + ', ' + this.place.country;
+  }
+}
+
+export interface SuitcaseOverviewInput {
+}
+
+export interface SuitcaseOverviewOutput {
+  list: Suitcase[];
 }

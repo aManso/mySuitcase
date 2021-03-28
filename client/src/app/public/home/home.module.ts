@@ -13,6 +13,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { OverviewComponent } from './containers/overview/overview.component';
+import { RemoveDialogComponent } from "./containers/overview/dialog/remove-dialog.component";
 
 @NgModule({
 
@@ -28,11 +31,14 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatDatepickerModule,
     ReactiveFormsModule,
     MatCheckboxModule,
+    MatDialogModule,
     MatNativeDateModule,
   ],
   declarations: [
     HomeComponent,
     CreateSuitcaseFormComponent,
+    OverviewComponent,
+    RemoveDialogComponent,
   ],
   exports: [],
   providers: [],

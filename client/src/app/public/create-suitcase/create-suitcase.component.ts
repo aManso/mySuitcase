@@ -9,6 +9,7 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { SuitcaseService } from '../services/suitcase.service';
 import { Suitcase } from '../../core/models/suitcase';
 import {TripItem, TripType} from '../../core/models/trip';
@@ -69,29 +70,35 @@ export class CreateSuitcaseComponent implements OnInit {
 
   // headers of the subcategories
   public subsubheaders = {
+    // common items
     tech: [],
     cleanliness: [],
     clothes: [],
     medicines: [],
     documents: [],
     others: [],
-    beach: [],
-    sport: [],
-    pet: [],
+    // other categories
     baby: [],
+    beach: [],
+    mountain: [],
+    pet: [],
+    sport: [],
   };
   // suitcase shown in template
   public suitcaseList = {
+    // common items
     tech: [],
     cleanliness: [],
     clothes: [],
     medicines: [],
     documents: [],
     others: [],
-    beach: [],
-    sport: [],
-    pet: [],
+    // other categories
     baby: [],
+    beach: [],
+    mountain: [],
+    pet: [],
+    sport: [],
   };
 
   constructor(
@@ -100,6 +107,7 @@ export class CreateSuitcaseComponent implements OnInit {
     private _elementRef: ElementRef,
     private _renderer: Renderer2,
     private _dialog: MatDialog,
+    private _router: Router,
   ) {
   }
 
@@ -217,7 +225,7 @@ export class CreateSuitcaseComponent implements OnInit {
   private _addItem(item: TripItem, index?:number, suggestionList?: TripItem[], listName?: string) {
     // by def the type is the main category, except for beach, mountain and sport where the type is the subcategory and
     // otherwise consider the item in the 'other' category.
-    const type = item.type ? listName === 'beach' || listName === 'mountain' || listName === 'sport' ? listName : item.type : 'others';
+    const type = listName === 'beach' || listName === 'mountain' || listName === 'sport' ? listName : item.type ? item.type : 'others';
     item.quantity = 1;
     // add the item to the list to be shown in the provisional list and in the list to be saved
     this.suitcaseList[type].push(item);
@@ -275,8 +283,12 @@ export class CreateSuitcaseComponent implements OnInit {
         if (confirm || confirm === undefined) {
           this.suitcase.items = this.suitcaseList;
           this._suitcaseService.saveSuitcase(this.suitcase, true);
+          // TODO show successful message
+          this._router.navigate(['public/home']);
         }
         dialogRef.close();
+      }, (error: any) => {
+        // TODO show general dialog error
       });
     }
   }

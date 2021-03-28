@@ -7,5 +7,7 @@ const commonService = require('./common');
 router.post('/save', commonService.verifyToken, suitcaseCtrl.save);
 router.post('/update', commonService.verifyToken, suitcaseCtrl.update);
 router.post('/recommendations', commonService.verifyToken, suitcaseCtrl.fetchRecommendations);
+router.post('/overview', commonService.verifyToken, suitcaseCtrl.overview);
+router.post('/remove', commonService.verifyToken, suitcaseCtrl.remove);
 
 module.exports = router;

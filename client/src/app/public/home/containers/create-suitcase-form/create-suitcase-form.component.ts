@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressBarMode } from '@angular/material/progress-bar';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreateSuitcaseFormSteps } from './create-suitcase-form.interfaces';
 import {TripLocation, TripType} from '../../../../core/models/trip';
@@ -22,6 +22,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
   public color: ThemePalette = 'primary';
   public mode: ProgressBarMode = 'determinate';
   public createSuitcaseForm: FormGroup;
+  public sportForm: FormGroup;
   public currentDate = new Date();
   public steps: CreateSuitcaseFormSteps[] = [
     {
@@ -78,17 +79,27 @@ export class CreateSuitcaseFormComponent implements OnInit {
   // **** GENERIC METHODS *****
 
   private _createForm() {
+    this.sportForm = new FormGroup({
+      'cycling': new FormControl(false),
+      'diving': new FormControl(false),
+    });
+
     this.createSuitcaseForm = this._formBuilder.group({
       name: [null, [Validators.required, Validators.maxLength(suitcaseNameMaxLength)],],
       from: [null, [Validators.required]],
       to: [null, [Validators.required]],
       place: [null, [Validators.required, Validators.maxLength(suitcaseNameMaxLength)],],
       type: this._buildOptionList(),
-      sports: new FormGroup({
-        'cycling': new FormControl(false),
-        'diving': new FormControl(false),
-      }),
+      sports: this.sportForm,
     });
+  }
+
+  public getTypeControls(typeControl: any): FormControl[] {
+    return typeControl.controls as FormControl[];
+  }
+
+  public isSportsSelected(): boolean {
+    return (this.createSuitcaseForm.controls.type as FormArray).controls[2].value.selected;
   }
 
   private _updateProgressBar() {
@@ -142,16 +153,17 @@ export class CreateSuitcaseFormComponent implements OnInit {
 
   public saveSuitcase(): void {
     if (this.createSuitcaseForm.valid) {
-      const suitcase = new Suitcase(
-        this.createSuitcaseForm.value.name,
-        {
+      const suitcase = new Suitcase({
+        name: this.createSuitcaseForm.value.name,
+        date: {
           from: this.createSuitcaseForm.value.from,
           to: this.createSuitcaseForm.value.to,
         },
-        this.createSuitcaseForm.value.place,
-        this._transformListToObject(this.createSuitcaseForm.value.type, this._getSelectedSports(this.createSuitcaseForm.value.sports)),
-        true,
-      );
+        place: this.createSuitcaseForm.value.place,
+        type: this._transformListToObject(this.createSuitcaseForm.value.type, this._getSelectedSports(this.createSuitcaseForm.value.sports)),
+        items: [],
+        isInProgress: true,
+    });
       this._suitcaseService.saveSuitcase(suitcase).subscribe(() => {
         this._goToCreateSuitcase();
       });

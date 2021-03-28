@@ -69,4 +69,22 @@ suitcaseCtrl.fetchRecommendations = async (req, res) => {
     res.json(recommendations);
 };
 
+suitcaseCtrl.overview = async (req, res) => {
+    console.log('overview data: ', req.body);
+    console.log('suitcaseName: ', req.userId);
+    const suitcaseModel = require('../models/suitcase')(req.userId);
+    const overviewOutput = await suitcaseModel.find({ });
+    console.log('overview data: ', overviewOutput);
+    res.json({list: overviewOutput});
+};
+
+suitcaseCtrl.remove = async (req, res) => {
+    console.log('removing suitcase: ', req.userId);
+    const suitcaseModel = require('../models/suitcase')(req.userId);
+    const collectionId  = req.body.id;
+    const overviewOutput = await suitcaseModel.findByIdAndRemove(collectionId);
+    console.log('suitcase removed: ', overviewOutput);
+    res.json({success: true});
+};
+
 module.exports = suitcaseCtrl;
