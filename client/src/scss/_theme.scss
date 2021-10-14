@@ -1,6 +1,6 @@
-@import '~@angular/material/theming';
+@use '~@angular/material' as mat;
 @import 'variables';
-@include mat-core();
+@include mat.core();
 
 $mat-suitcase-secondary: (
   100: #c1c8d7,
@@ -8,17 +8,17 @@ $mat-suitcase-secondary: (
   500: $tertiary-color,
   700: #1e232f,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
     500: white,
     600: white,
     700: white,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
+    800: rgba(white, 0.87),
+    900: rgba(white, 0.87),
+    A100: rgba(black, 0.87),
     A200: white,
     A400: white,
     A700: white,
@@ -40,26 +40,26 @@ $mat-suitcase-primary: (
   A400: #ce6d64,
   A700: #742b25,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
     500: white,
     600: white,
     700: white,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
+    800: rgba(white, 0.87),
+    900: rgba(white, 0.87),
+    A100: rgba(black, 0.87),
     A200: white,
     A400: white,
     A700: white,
   )
 );
 
-$my-app-primary: mat-palette($mat-suitcase-primary, 400);
-$my-app-accent:  mat-palette($mat-suitcase-secondary);
-$my-app-warn:    mat-palette($mat-red, 700);
-$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
-@include angular-material-theme($my-app-theme);
+$my-app-primary: mat.define-palette($mat-suitcase-primary, 400);
+$my-app-accent:  mat.define-palette($mat-suitcase-secondary);
+$my-app-warn:    mat.define-palette(mat.$red-palette, 700);
+$my-app-theme: mat.define-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+@include mat.all-component-themes($my-app-theme);
 
