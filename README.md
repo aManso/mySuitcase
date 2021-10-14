@@ -25,8 +25,11 @@ THIS A TESTING TEXT.
 ## Setup
 npm install 
 
-## Deploy
+## Deploy Client
 npm start (with proxy.conf to distinguish PROD vs DEV - https://medium.com/@asfo/creando-un-proxy-en-angular-para-conectarte-a-un-api-local-y-de-producci%C3%B3n-106c34cd9815)
+
+## Deploy Server
+node
 
 ## Features
 List of features ready and TODOs for future development
@@ -39,4 +42,4 @@ To-do list:
  Visit the wiki [here](https://github.com/aguadotzn/mySuitcase/wiki). 
 
 ## Contact
-Created by [@aManso](https://www.linkedin.com/in/alejandro-manso-026a2a2b/) & [@aguadotzn](https://twitter.com/aguadotzn) - feel free to contact us!
+Created by [@aManso](https://www.linkedin.com/in/alejandro-manso-026a2a2b/) - feel free to contact me!

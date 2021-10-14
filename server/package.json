@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "mongodb": "^3.5.7",
-    "mongoose": "^5.9.14",
+    "mongoose": "6.0.10",
     "nodemon": "^2.0.4"
   }
 }
