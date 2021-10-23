@@ -82,8 +82,8 @@ export class OverviewComponent implements OnInit {
       width: '400px',
       hasBackdrop: true,
     });
-    dialogRef.afterClosed().subscribe((confirm: boolean) => {
-      if (confirm || confirm === undefined) {
+    dialogRef.afterClosed().subscribe((confirm: string) => {
+      if (confirm === 'true') {
         this._suitcaseService.removeSuitcase(id).subscribe((response: SimpleOutput) => {
           this.suitcaseList.splice(index, 1);
           this._changeDetector.detectChanges();

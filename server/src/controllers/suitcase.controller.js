@@ -73,7 +73,7 @@ suitcaseCtrl.overview = async (req, res) => {
     console.log('overview data: ', req.body);
     console.log('suitcaseName: ', req.userId);
     const suitcaseModel = require('../models/suitcase')(req.userId);
-    const overviewOutput = await suitcaseModel.find({ });
+    const overviewOutput = await suitcaseModel.find({ }).limit( 11 );
     console.log('overview data: ', overviewOutput);
     res.json({list: overviewOutput});
 };

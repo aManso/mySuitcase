@@ -11,6 +11,7 @@ import {SimpleOutput} from "../../core/models/shared";
 })
 export class SuitcaseService {
   private _currentSuitcase: Suitcase;
+  public totalSuitcases: number;
   private readonly SAVE_SUITCASE_API = environment.apiUrl + 'suitcase/save';
   private readonly UPDATE_SUITCASE_API = environment.apiUrl + 'suitcase/update';
   private readonly RECOMMENDATIONS_SUITCASE_API = environment.apiUrl + 'suitcase/recommendations';
@@ -57,6 +58,7 @@ export class SuitcaseService {
     const $overviewResponse = new Subject<SuitcaseOverviewOutput>();
     this._http.post(this.SUITCASE_OVERVIEW_API, input).subscribe((response: SuitcaseOverviewOutput) => {
       console.log('Suitcase overview retrieved', response);
+      this.totalSuitcases = response.list.length;
       $overviewResponse.next(response);
     }, (error: any) => {
       console.log('There was a problem at retrieving the overview: ', error);

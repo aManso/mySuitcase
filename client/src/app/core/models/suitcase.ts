@@ -29,7 +29,7 @@ export class Suitcase {
 
   private _dateOptions = {
     year: 'numeric', month: 'long', day: 'numeric'
-  };
+  } as const;
 
   // constructor(name: string, date: {from: Date, to: Date}, place: TripLocation, type: TripType, isInProgress: boolean) {
   constructor(suitcase: ISuitcase) {

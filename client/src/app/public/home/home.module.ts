@@ -16,6 +16,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { OverviewComponent } from './containers/overview/overview.component';
 import { RemoveDialogComponent } from "./containers/overview/dialog/remove-dialog.component";
+import { MaxSuitcasesReachedDialogComponent } from "./containers/home/max-suitcases-reached-dialog/max-suitcases-reached-dialog.component";
 
 @NgModule({
 
@@ -39,6 +40,7 @@ import { RemoveDialogComponent } from "./containers/overview/dialog/remove-dialo
     CreateSuitcaseFormComponent,
     OverviewComponent,
     RemoveDialogComponent,
+    MaxSuitcasesReachedDialogComponent,
   ],
   exports: [],
   providers: [],

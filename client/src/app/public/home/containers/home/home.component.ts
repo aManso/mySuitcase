@@ -10,6 +10,10 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { MatDialog } from '@angular/material/dialog';
+import {SuitcaseService} from "../../../services/suitcase.service";
+import {MAX_ALLOWED_SUITCASES} from "../../../../core/config/config";
+import {MaxSuitcasesReachedDialogComponent} from "./max-suitcases-reached-dialog/max-suitcases-reached-dialog.component";
 
 const FULL_SCREEN_ANIMATION_TIME = 1000;
 const DISAPPEAR_ANIMATION_TIME = 1000; // in sync with animation made by keyFrames in scss file
@@ -44,7 +48,9 @@ export class HomeComponent implements OnInit {
   constructor(
     private _loginService: LoginService,
     private _router: Router,
+    private _dialog: MatDialog,
     private _sessionService: SessionService,
+    private _suitcaseService: SuitcaseService,
   ) { }
 
   ngOnInit() {
@@ -66,20 +72,35 @@ export class HomeComponent implements OnInit {
   }
 
   public createSuitcase() {
-    this.isCreating = true;
-    // step 1: animation made with angular animation to make disappear the rest of the screen except for the creation section (1sec)
-    // step 2: add full-screen class for the form of the creation of the suitcase
-    // step 3: add class to run animations made with keyFrames in scss file to disappear some areas and show questions (1sec)
-    // step 4: after the time of the animation, delete the not shown areas
+    if (this._suitcaseService.totalSuitcases < MAX_ALLOWED_SUITCASES) {
+      this.isCreating = true;
+      // step 1: animation made with angular animation to make disappear the rest of the screen except for the creation section (1sec)
+      // step 2: add full-screen class for the form of the creation of the suitcase
+      // step 3: add class to run animations made with keyFrames in scss file to disappear some areas and show questions (1sec)
+      // step 4: after the time of the animation, delete the not shown areas
 
-    setTimeout(() => {
-      document.getElementById('sections-container').classList.add('full-screen');
-      document.getElementById('buttons-area').classList.add('disappearToTop');
-      document.getElementById('image-area').classList.add('disappearToTop');
-      document.getElementById('questions-area').classList.add('appearFromBottom');
-      this._removeElementById('buttons-area', DISAPPEAR_ANIMATION_TIME);
-      this._removeElementById('image-area', DISAPPEAR_ANIMATION_TIME);
-    }, FULL_SCREEN_ANIMATION_TIME);
+      setTimeout(() => {
+        document.getElementById('sections-container').classList.add('full-screen');
+        document.getElementById('buttons-area').classList.add('disappearToTop');
+        document.getElementById('image-area').classList.add('disappearToTop');
+        document.getElementById('questions-area').classList.add('appearFromBottom');
+        this._removeElementById('buttons-area', DISAPPEAR_ANIMATION_TIME);
+        this._removeElementById('image-area', DISAPPEAR_ANIMATION_TIME);
+      }, FULL_SCREEN_ANIMATION_TIME);
+    } else {
+      // TODO check after implementing i18n if better having a single dialog passing the text
+      const dialogRef = this._dialog.open(MaxSuitcasesReachedDialogComponent, {
+        height: '200px',
+        width: '400px',
+        hasBackdrop: true,
+        data: {
+          title: "Numero de listas maximo alcanzado",
+          content: "Has alcanzado el numero maximo de maletas, por favor borra alguna antes de crear otra.",
+          confirmButton: "OK"
+        }
+      });
+      dialogRef.afterClosed().subscribe();
+    }
   }
 
   private _removeElementById(id: string, delay: number) {

@@ -22,6 +22,7 @@ import {
   transition,
 } from '@angular/animations';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { SaveDialogComponent } from "./components/dialog/save-dialog.component";
 
 @Component({
@@ -108,6 +109,7 @@ export class CreateSuitcaseComponent implements OnInit {
     private _renderer: Renderer2,
     private _dialog: MatDialog,
     private _router: Router,
+    private _snackBar: MatSnackBar,
   ) {
   }
 
@@ -282,13 +284,17 @@ export class CreateSuitcaseComponent implements OnInit {
       dialogRef.afterClosed().subscribe((confirm: boolean) => {
         if (confirm || confirm === undefined) {
           this.suitcase.items = this.suitcaseList;
-          this._suitcaseService.saveSuitcase(this.suitcase, true);
-          // TODO show successful message
-          this._router.navigate(['public/home']);
+          this._suitcaseService.saveSuitcase(this.suitcase, true).subscribe(()=> {
+            this._snackBar.open("The suitcase has been saved!!", '', {duration: 3000});
+            this._router.navigate(['public/home']);
+          });
         }
         dialogRef.close();
       }, (error: any) => {
-        // TODO show general dialog error
+        let snackBarRef = this._snackBar.open("There has been an error. The suitcase has not been saved yet, please try it again in a while or contact us", 'close');
+        snackBarRef.onAction().subscribe(() => {
+          snackBarRef.dismiss();
+        });
       });
     }
   }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { User, UserLogin} from '../../core/models/user';
-import { Subject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { SessionService } from '../../core/services/session.service';
@@ -14,7 +14,7 @@ export class LoginService {
   private readonly URL_API = environment.apiUrl + 'users/';
   private readonly URL_CHECK_EXISTING_USER = environment.apiUrl + 'login/';
   private _selectedUser: User;
-  public logged$: Subject<User|boolean>;
+  public logged$: BehaviorSubject<User|boolean>;
   private _storageMethod: any;
 
   public constructor(
@@ -22,14 +22,13 @@ export class LoginService {
     private _router: Router,
     private _sessionService: SessionService,
   ) {
-    this.logged$ = new Subject<User|boolean>();
+    this.logged$ = new BehaviorSubject<User|boolean>(false);
     this._sessionService.logout$.subscribe(() => {
       this.logout();
     });
   }
 
-  public login(form: {email: string, password: string, keepSession: boolean}): Observable<User|boolean> {
-    const $loginResponse = new Subject<User|boolean>();
+  public login(form: {email: string, password: string, keepSession: boolean}): void {
     (this._http.post(this.URL_CHECK_EXISTING_USER, form) as Observable<UserLogin>).subscribe((response: UserLogin|boolean) => {
       if (typeof response === 'object') {
         console.log('user logged', response.user);
@@ -37,16 +36,13 @@ export class LoginService {
         this._storageMethod = form.keepSession ? localStorage : sessionStorage;
         this._sessionService.setStorageMethod(this._storageMethod);
         this._sessionService.startSession(response.token);
-        $loginResponse.next(response.user);
         this.logged$.next(response.user)
       } else {
-        $loginResponse.next(response);
         this.logged$.next(response)
       }
     }, (error: any) => {
-      $loginResponse.error(error);
+      this.logged$.error(error);
     });
-    return $loginResponse;
   }
 
   public setActiveUser(user: User) {

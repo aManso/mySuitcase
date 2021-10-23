@@ -11,8 +11,9 @@
 
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
           <ul class="nav navbar-nav menu_nav justify-content-end">
-            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item active"><a class="nav-link" href="public/contact">Contact</a></li>
+            <li class="nav-item active"><a class="nav-link" href="public/home#misMaletas">Mis Maletas</a></li>
+            <li class="nav-item active"><a class="nav-link" href="public/contact">Contacto</a></li>
+            <li *ngIf="(loginService.logged$ | async)" class="nav-item active" (click)="logout()"><a class="nav-link" href="#">Salir</a></li>
           </ul>
         </div>
       </div>
