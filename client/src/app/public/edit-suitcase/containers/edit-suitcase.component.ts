@@ -1,13 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import {Suitcase} from "../../../core/models/suitcase";
+import {SuitcaseService} from "../../services/suitcase.service";
 
 @Component({
   selector: 'app-home',
-  templateUrl: './contact.component.html',
+  templateUrl: './edit-suitcase.component.html',
 })
-export class ContactComponent implements OnInit {
+export class EditSuitcaseComponent implements OnInit {
+  public suitcase: Suitcase;
+
   constructor(
+    private _suitcaseService: SuitcaseService,
   ) { }
 
-  ngOnInit() {
+  public ngOnInit() {
+    this.suitcase = this._suitcaseService.getCurrentSuitcase();
   }
 }

@@ -1,10 +1,11 @@
 import { ChangeDetectorRef, ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SuitcaseService } from "../../../services/suitcase.service";
 import { Suitcase, SuitcaseOverviewOutput } from "../../../../core/models/suitcase";
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { RemoveDialogComponent } from "./dialog/remove-dialog.component";
-import {SimpleOutput} from "../../../../core/models/shared";
+import { SimpleOutput } from "../../../../core/models/shared";
 
 @Component({
   selector: 'my-suitcase-overview',
@@ -21,6 +22,7 @@ export class OverviewComponent implements OnInit {
     private readonly _suitcaseService: SuitcaseService,
     private _dialog: MatDialog,
     private readonly _changeDetector: ChangeDetectorRef,
+    private _router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -72,7 +74,8 @@ export class OverviewComponent implements OnInit {
   }
 
   public edit(suitcase: Suitcase) {
-    // TODO
+    this._suitcaseService.setCurrentSuitcase(suitcase);
+    this._router.navigate(["public/edit-suitcase"]);
   }
 
   public remove(id: string, index: number) {

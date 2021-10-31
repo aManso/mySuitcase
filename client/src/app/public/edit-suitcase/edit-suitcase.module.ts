@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../core/shared/shared.module';
-import { ContactComponent } from './containers/contact.component';
-import { ContactRoutingModule } from './contact-routing.module';
+import { EditSuitcaseComponent } from './containers/edit-suitcase.component';
+import { EditSuitcaseRoutingModule } from './edit-suitcase-routing.module';
 
 @NgModule({
 
   imports: [
     CommonModule,
     SharedModule,
-    ContactRoutingModule,
+    EditSuitcaseRoutingModule,
   ],
   declarations: [
-    ContactComponent
+    EditSuitcaseComponent
   ],
   exports: [],
   providers: [],
 })
-export class ContactModule {
+export class EditSuitcaseModule {
   constructor() { }
 }

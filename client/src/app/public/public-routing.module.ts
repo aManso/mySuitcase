@@ -7,7 +7,8 @@ const routes: Routes = [
   // This module has its own children. Be careful with redirection.
     { path: '', component: PublicComponent, children: [
       { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-      { path: 'create-suitcase', loadChildren: () => import('./create-suitcase/create-suitcase.module').then(m => m.CreateSuitcaseModule) },
+        { path: 'create-suitcase', loadChildren: () => import('./create-suitcase/create-suitcase.module').then(m => m.CreateSuitcaseModule) },
+        { path: 'edit-suitcase', loadChildren: () => import('./edit-suitcase/edit-suitcase.module').then(m => m.EditSuitcaseModule) },
       { path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
     ]},

@@ -37,6 +37,10 @@ export class SuitcaseService {
     return $saveResponse;
   }
 
+  public setCurrentSuitcase(suitcase: Suitcase): void  {
+    this._currentSuitcase = suitcase;
+  }
+
   public getCurrentSuitcase(): Suitcase {
     return this._currentSuitcase;
   }
