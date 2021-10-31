@@ -14,8 +14,6 @@ import {NavBarModule} from './navbar/navbar.module';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-
-
   ],
   exports: [
     FormsModule,

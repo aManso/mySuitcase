@@ -16,8 +16,8 @@ export class NavBarComponent{
     public loginService: LoginService,
   ) {}
 
-  public goTo(path: string) {
-    this._router.navigate([path]);
+  public goTo(path: string, data?: any) {
+    this._router.navigate([path, data]);
   }
 
   public logout(): void {

@@ -48,7 +48,6 @@ export class SessionService {
     }, 1000);
   }
 
-
   public reset(): void {
     this.sessionSeconds = MINUTES_TO_SHOW_COUNTDOWN * 60;
   }
