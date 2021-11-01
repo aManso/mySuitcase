@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit{
 
   public submit() {
     if (this.loginForm.valid) {
-      this._loginService.logged$.subscribe((user: User|boolean) => {
+      this._loginService.login(this.loginForm.value).subscribe((user: User|boolean) => {
         if (user) {
           const targetUrl = this._authenticationGuard.lastIntendedTargetRoute ? this._authenticationGuard.lastIntendedTargetRoute : this.baseRoute;
           this._router.navigate([targetUrl]);
@@ -73,7 +73,6 @@ export class LoginComponent implements OnInit{
         (error: any) => {
         // TODO show an error message when there was a problem
         });
-      this._loginService.login(this.loginForm.value);
     }
   }
 }

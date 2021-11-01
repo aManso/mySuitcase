@@ -33,6 +33,17 @@ export class SessionService {
     return this._storageMethod.getItem('activeUserToken');
   }
 
+  public getIdToken(): string {
+    const idToken =  this._storageMethod.getItem('activeUserToken');
+    var base64Url = idToken.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var rawPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    const payload = JSON.parse(rawPayload);
+    return payload ? payload.subject : payload;
+  }
+
   private _initInterval() {
     this._interval = setInterval(() => {
       --this.sessionSeconds;

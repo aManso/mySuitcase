@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { User, UserLogin} from '../../core/models/user';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { SessionService } from '../../core/services/session.service';
@@ -28,7 +28,8 @@ export class LoginService {
     });
   }
 
-  public login(form: {email: string, password: string, keepSession: boolean}): void {
+  public login(form: {email: string, password: string, keepSession: boolean}): Observable<User|boolean> {
+    const $loginResponse = new Subject<User|boolean>();
     (this._http.post(this.URL_CHECK_EXISTING_USER, form) as Observable<UserLogin>).subscribe((response: UserLogin|boolean) => {
       if (typeof response === 'object') {
         console.log('user logged', response.user);
@@ -36,17 +37,21 @@ export class LoginService {
         this._storageMethod = form.keepSession ? localStorage : sessionStorage;
         this._sessionService.setStorageMethod(this._storageMethod);
         this._sessionService.startSession(response.token);
+        $loginResponse.next(response.user);
         this.logged$.next(response.user)
       } else {
+        $loginResponse.next(response);
         this.logged$.next(response)
       }
     }, (error: any) => {
-      this.logged$.error(error);
+      $loginResponse.error(error);
     });
+    return $loginResponse;
   }
 
   public setActiveUser(user: User) {
     this._selectedUser = user;
+    this.logged$.next(user)
   }
 
   public getActiveUser(): User {

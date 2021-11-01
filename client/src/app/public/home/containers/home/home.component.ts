@@ -54,8 +54,19 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // we check if there should be a logged user
     this.isLogged = !!this._loginService.isLoggedIn();
-    const user = this._loginService.getActiveUser();
+    // if so, we get it, either from the service (in case of coming from a different screen)
+    let user;
+    if (this.isLogged) {
+      user = this._loginService.getActiveUser();
+      // or from the BE using the token in the sessionStorage
+      if (!user) {
+        this._loginService.getUser(this._sessionService.getIdToken()).subscribe((user: User) => {
+          this._loginService.setActiveUser(user);
+        });
+      }
+    }
     this.isAdmin = this.isLogged && user && user.admin;
     this._loginService.logged$.subscribe((loggedUser: User | boolean) => {
       this.isLogged = !!loggedUser;

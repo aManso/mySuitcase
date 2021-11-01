@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 
 // verify the tokens to valid http request
 function verifyToken(req, res, next) {
+    console.log('******** verifying token ********');
     if (!req.headers.authorization) {
         console.log(req.headers);
         return res.status(401).send('Unauthorized request')
