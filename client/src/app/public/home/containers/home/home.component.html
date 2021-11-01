@@ -180,8 +180,8 @@
 
 
     <!--================Overview created suitcases section Start =================-->
-    <section class="section-margin" [@isCreatingSuitcase]="isCreating ? 'hidden' : 'show'">
-      <my-suitcase-overview></my-suitcase-overview>
+    <section class="section-margin" [@isCreatingSuitcase]="isCreating ? 'hidden' : 'show'" #overview id="mySuitcases">
+      <my-suitcase-overview (dataLoaded)="onOverviewLoaded()"></my-suitcase-overview>
     </section>
     <!--================Overview created suitcases section End =================-->
   </div>

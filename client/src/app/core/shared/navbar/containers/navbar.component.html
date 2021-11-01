@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
           <ul class="nav navbar-nav menu_nav justify-content-end">
 <!--            <li class="nav-item active" (click)="goTo('public/home', true)"><a class="nav-link">Mis Maletas</a></li>-->
-            <li class="nav-item active" [routerLink]="['/public/home']" [queryParams]="{scroll: true}" [fragment]="(loginService.logged$ | async) ? 'misMaletas' : ''"><a class="nav-link">Mis Maletas</a></li>
+            <li class="nav-item active" [routerLink]="['/public/home']" [queryParams]="{}" [fragment]="(loginService.logged$ | async) ? 'mySuitcases' : ''"><a class="nav-link">Mis Maletas</a></li>
             <li class="nav-item active"><a class="nav-link" [routerLink]="['/public/contact']">Contacto</a></li>
             <li *ngIf="(loginService.logged$ | async)" class="nav-item active" (click)="logout()"><a class="nav-link">Salir</a></li>
           </ul>

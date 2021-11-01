@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../../../login/login.service';
 import { User } from '../../../../core/models/user';
 import { SessionService } from '../../../../core/services/session.service';
@@ -44,10 +44,12 @@ export class HomeComponent implements OnInit {
   public isAdmin: boolean;
   public isLogged = false;
   public isCreating = false;
+  @ViewChild('overview') private overviewContainer: ElementRef;
 
   constructor(
     private _loginService: LoginService,
     private _router: Router,
+    private _activatedRoute: ActivatedRoute,
     private _dialog: MatDialog,
     private _sessionService: SessionService,
     private _suitcaseService: SuitcaseService,
@@ -71,6 +73,12 @@ export class HomeComponent implements OnInit {
     this._loginService.logged$.subscribe((loggedUser: User | boolean) => {
       this.isLogged = !!loggedUser;
     });
+  }
+
+  public onOverviewLoaded(): void {
+    this._activatedRoute.fragment.subscribe((fragment: string) => {
+      this._scrollTo(fragment);
+    })
   }
 
   public goTo(path: string) {
@@ -112,6 +120,14 @@ export class HomeComponent implements OnInit {
       });
       dialogRef.afterClosed().subscribe();
     }
+  }
+
+  private _scrollTo(target: string): void {
+    try {
+      // we can scroll using the HTMLElement or selecting the item in the dom and triggering scroll
+      // document.querySelector('#' + target).scrollIntoView();
+      (this.overviewContainer.nativeElement as HTMLElement).scrollIntoView();
+    } catch(err) { }
   }
 
   private _removeElementById(id: string, delay: number) {

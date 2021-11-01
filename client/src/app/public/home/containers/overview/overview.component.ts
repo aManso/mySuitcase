@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { SuitcaseService } from "../../../services/suitcase.service";
 import { Suitcase, SuitcaseOverviewOutput } from "../../../../core/models/suitcase";
@@ -17,6 +17,9 @@ export class OverviewComponent implements OnInit {
   public suitcaseList: Suitcase[];
   public suitcaseListTotal: number;
   public dataReady = false;
+
+  @Output()
+  public dataLoaded: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
     private readonly _suitcaseService: SuitcaseService,
@@ -70,7 +73,8 @@ export class OverviewComponent implements OnInit {
         this.suitcaseListTotal = suitcaseList.length;
         this.dataReady = true;
         this._changeDetector.detectChanges();
-    })
+        this.dataLoaded.emit();
+      })
   }
 
   public edit(suitcase: Suitcase) {
