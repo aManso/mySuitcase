@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { OverviewComponent } from './containers/overview/overview.component';
 import { RemoveDialogComponent } from "./containers/overview/dialog/remove-dialog.component";
 import { MaxSuitcasesReachedDialogComponent } from "./containers/home/max-suitcases-reached-dialog/max-suitcases-reached-dialog.component";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
 
@@ -34,6 +35,7 @@ import { MaxSuitcasesReachedDialogComponent } from "./containers/home/max-suitca
     MatCheckboxModule,
     MatDialogModule,
     MatNativeDateModule,
+    MatSnackBarModule,
   ],
   declarations: [
     HomeComponent,

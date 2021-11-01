@@ -6,6 +6,8 @@ import { map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { RemoveDialogComponent } from "./dialog/remove-dialog.component";
 import { SimpleOutput } from "../../../../core/models/shared";
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME} from "../../../../core/config/config";
 
 @Component({
   selector: 'my-suitcase-overview',
@@ -26,6 +28,7 @@ export class OverviewComponent implements OnInit {
     private _dialog: MatDialog,
     private readonly _changeDetector: ChangeDetectorRef,
     private _router: Router,
+    private _snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
@@ -94,8 +97,9 @@ export class OverviewComponent implements OnInit {
         this._suitcaseService.removeSuitcase(id).subscribe((response: SimpleOutput) => {
           this.suitcaseList.splice(index, 1);
           this._changeDetector.detectChanges();
+          this._snackBar.open("Una maleta menos...", '', {duration: GENERAL_SNACKBAR_TIME});
         }, (error: any) => {
-          // TODO show general dialog error
+          this._snackBar.open("Vaya, ha habido un problema y no se ha podido eliminar la maleta, si el problema persiste por favor contactanos", '', {duration: EXTENDED_SNACKBAR_TIME});
         });
       }
       dialogRef.close();
