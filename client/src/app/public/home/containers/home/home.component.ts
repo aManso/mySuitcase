@@ -77,7 +77,9 @@ export class HomeComponent implements OnInit {
 
   public onOverviewLoaded(): void {
     this._activatedRoute.fragment.subscribe((fragment: string) => {
-      this._scrollTo(fragment);
+      if (fragment) {
+        this._scrollTo(fragment);
+      }
     })
   }
 
