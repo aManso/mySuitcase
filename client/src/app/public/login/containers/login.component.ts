@@ -6,6 +6,8 @@ import { User } from '../../../core/models/user';
 import { AuthenticationGuard } from '../../../core/guards/authentication.guard';
 // TODO use it when launching to PROD
 import { passwordValidator } from '../../../core/validators/validators';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME} from "../../../core/config/config";
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 
@@ -23,7 +25,8 @@ export class LoginComponent implements OnInit{
     public _authenticationGuard: AuthenticationGuard,
     private _router: Router,
     @Inject(BASE_ROUTE) private baseRoute: string[],
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _snackBar: MatSnackBar,
   ) {
   }
 
@@ -67,11 +70,11 @@ export class LoginComponent implements OnInit{
           this._router.navigate([targetUrl]);
         } else {
           console.error('The user or the password is wrong');
-          // TODO show an error message when there email or the password was wrong
+          this._snackBar.open("The user or the password is wrong", '', {duration: GENERAL_SNACKBAR_TIME});
         }
       },
         (error: any) => {
-        // TODO show an error message when there was a problem
+          this._snackBar.open("There has been a problem, please try again and if the problem persist contact us", '', {duration: EXTENDED_SNACKBAR_TIME});
         });
     }
   }

@@ -24,6 +24,7 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SaveDialogComponent } from "./components/dialog/save-dialog.component";
+import {GENERAL_SNACKBAR_TIME} from "../../core/config/config";
 
 @Component({
   selector: 'app-create-suitcase',
@@ -285,7 +286,7 @@ export class CreateSuitcaseComponent implements OnInit {
         if (confirm || confirm === undefined) {
           this.suitcase.items = this.suitcaseList;
           this._suitcaseService.saveSuitcase(this.suitcase, true).subscribe(()=> {
-            this._snackBar.open("The suitcase has been saved!!", '', {duration: 3000});
+            this._snackBar.open("The suitcase has been saved!!", '', {duration: GENERAL_SNACKBAR_TIME});
             this._router.navigate(['public/home']);
           });
         }

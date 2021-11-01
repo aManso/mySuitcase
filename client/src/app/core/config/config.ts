@@ -1,2 +1,4 @@
 
 export const MAX_ALLOWED_SUITCASES = 10;
+export const GENERAL_SNACKBAR_TIME = 3000;
+export const EXTENDED_SNACKBAR_TIME = 5000;

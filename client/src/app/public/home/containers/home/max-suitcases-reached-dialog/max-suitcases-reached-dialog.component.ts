@@ -7,7 +7,7 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class MaxSuitcasesReachedDialogComponent {
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: {title: string, confirmButton: string, content: string}
+    @Inject(MAT_DIALOG_DATA) public data: {title: string, content: string, confirmButton?: string, errorButton?: string}
   ) {
   }
 }

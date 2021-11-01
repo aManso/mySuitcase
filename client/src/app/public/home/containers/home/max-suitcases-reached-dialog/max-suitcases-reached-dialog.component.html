@@ -3,5 +3,6 @@
   <p>{{data.content}}</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close="false" color="basic">{{data.confirmButton}}</button>
+  <button *ngIf="data.confirmButton" mat-button mat-dialog-close="false" color="basic">{{data.confirmButton}}</button>
+  <button *ngIf="data.confirmButton" type="reset" mat-button mat-dialog-close="false" color="basic">{{data.errorButton}}</button>
 </mat-dialog-actions>
