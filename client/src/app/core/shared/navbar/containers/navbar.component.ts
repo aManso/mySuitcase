@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { SessionService } from "../../../services/session.service";
-import { LoginService } from "../../../../public/login/login.service";
+import { SessionService } from '../../../session/session.service';
+import {LoginService} from '../../../login/login.service';
 
 @Component({
   selector: 'navbar-component',

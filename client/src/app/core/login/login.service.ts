@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { User, UserLogin} from '../../core/models/user';
+import { User, UserLogin} from '../models/user';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { SessionService } from '../../core/services/session.service';
+import { SessionService } from '../session/session.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class LoginService {
   private readonly URL_API = environment.apiUrl + 'users/';
   private readonly URL_CHECK_EXISTING_USER = environment.apiUrl + 'login/';
@@ -54,8 +52,27 @@ export class LoginService {
     this.logged$.next(user)
   }
 
-  public getActiveUser(): User {
-    return this._selectedUser;
+  public getActiveUser(): Observable<User|undefined> {
+    const $userResponse = new Subject<User|undefined>();
+    // If user is cached in the service we return it (in case of coming from a different screen)
+    if (this._selectedUser) {
+      $userResponse.next(this._selectedUser);
+    }
+    // if not, we make sure user should have an open session:
+    //    we check if there should be a logged user
+    const isLogged = !!this.isLoggedIn();
+    if (isLogged) {
+      // if so, we get it from the BE using the token in the sessionStorage
+      this.getUser(this._sessionService.getIdToken()).subscribe((user: User) => {
+        this.setActiveUser(user);
+        $userResponse.next(this._selectedUser);
+      }, (error)=> {
+        console.log(error);
+      });
+    } else {
+      $userResponse.next();
+    }
+    return $userResponse;
   }
 
   public isLoggedIn(): boolean {

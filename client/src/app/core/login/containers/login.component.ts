@@ -7,7 +7,7 @@ import { AuthenticationGuard } from '../../../core/guards/authentication.guard';
 // TODO use it when launching to PROD
 import { passwordValidator } from '../../../core/validators/validators';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME} from "../../../core/config/config";
+import {EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME} from '../../../core/config/config';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 
@@ -70,11 +70,11 @@ export class LoginComponent implements OnInit{
           this._router.navigate([targetUrl]);
         } else {
           console.error('The user or the password is wrong');
-          this._snackBar.open("The user or the password is wrong", '', {duration: GENERAL_SNACKBAR_TIME});
+          this._snackBar.open('The user or the password is wrong', '', {duration: GENERAL_SNACKBAR_TIME});
         }
       },
         (error: any) => {
-          this._snackBar.open("There has been a problem, please try again and if the problem persist contact us", '', {duration: EXTENDED_SNACKBAR_TIME});
+          this._snackBar.open('There has been a problem, please try again and if the problem persist contact us', '', {duration: EXTENDED_SNACKBAR_TIME});
         });
     }
   }

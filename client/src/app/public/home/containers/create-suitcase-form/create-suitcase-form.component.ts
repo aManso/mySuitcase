@@ -1,10 +1,10 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressBarMode } from '@angular/material/progress-bar';
 import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreateSuitcaseFormSteps } from './create-suitcase-form.interfaces';
-import {TripLocation, TripType} from '../../../../core/models/trip';
+import { TripLocation, TripType } from '../../../../core/models/trip';
 import { Suitcase } from '../../../../core/models/suitcase';
 import { SuitcaseService } from '../../../services/suitcase.service';
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
-import {LoginService} from '../../public/login/login.service';
-
+import {LoginService} from '../login/login.service';
+import {User} from "../models/user";
 
 @Injectable()
 export class AuthorizationGuard implements CanActivate, CanActivateChild {
@@ -14,16 +14,24 @@ export class AuthorizationGuard implements CanActivate, CanActivateChild {
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     this.lastIntendedTargetRoute = state.url;
-    if (!this._loginService.isLoggedIn() || !this._loginService.getActiveUser().admin) {
-      this._router.navigate(['/login']);
-    }
+    // we get the logged user if exists
+    this._loginService.getActiveUser().subscribe((user: User|undefined)=> {
+      // if there is not an active user or it has not admin rights, we redirect to login
+      if (!user || !user.admin) {
+        this._router.navigate(['/login']);
+      }
+    });
     return true;
   }
 
   public canActivateChild(): boolean {
-    if (!this._loginService.isLoggedIn() || !this._loginService.getActiveUser().admin) {
-      this._router.navigate(['/login']);
-    }
+    // we get the logged user if exists
+    this._loginService.getActiveUser().subscribe((user: User|undefined)=> {
+      // if there is not an active user or it has not admin rights, we redirect to login
+      if (!user || !user.admin) {
+        this._router.navigate(['/login']);
+      }
+    });
     return true;
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {SessionService} from '../core/services/session.service';
+import {SessionService} from '../session.service';
 
 @Component({
   selector: 'my-suitcase-timeout-dialog',
@@ -8,7 +8,7 @@ import {SessionService} from '../core/services/session.service';
 export class TimeoutDialogComponent {
 
   constructor(
-    public sessionService: SessionService,
+    public readonly sessionService: SessionService,
   ) {
   }
 }

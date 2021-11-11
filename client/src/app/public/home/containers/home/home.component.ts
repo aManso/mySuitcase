@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../../../login/login.service';
+import { LoginService } from '../../../../core/login/login.service';
 import { User } from '../../../../core/models/user';
-import { SessionService } from '../../../../core/services/session.service';
+import { SessionService } from '../../../../core/session/session.service';
 import {
   trigger,
   state,
@@ -11,9 +11,9 @@ import {
   transition,
 } from '@angular/animations';
 import { MatDialog } from '@angular/material/dialog';
-import {SuitcaseService} from "../../../services/suitcase.service";
-import {MAX_ALLOWED_SUITCASES} from "../../../../core/config/config";
-import {MaxSuitcasesReachedDialogComponent} from "./max-suitcases-reached-dialog/max-suitcases-reached-dialog.component";
+import {SuitcaseService} from '../../../services/suitcase.service';
+import {MAX_ALLOWED_SUITCASES} from '../../../../core/config/config';
+import {MaxSuitcasesReachedDialogComponent} from './max-suitcases-reached-dialog/max-suitcases-reached-dialog.component';
 
 const FULL_SCREEN_ANIMATION_TIME = 1000;
 const DISAPPEAR_ANIMATION_TIME = 1000; // in sync with animation made by keyFrames in scss file
@@ -56,20 +56,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // we check if there should be a logged user
-    this.isLogged = !!this._loginService.isLoggedIn();
-    // if so, we get it, either from the service (in case of coming from a different screen)
-    let user;
-    if (this.isLogged) {
-      user = this._loginService.getActiveUser();
-      // or from the BE using the token in the sessionStorage
-      if (!user) {
-        this._loginService.getUser(this._sessionService.getIdToken()).subscribe((user: User) => {
-          this._loginService.setActiveUser(user);
-        });
-      }
-    }
-    this.isAdmin = this.isLogged && user && user.admin;
+    // we get the logged user if exists
+    this._loginService.getActiveUser().subscribe((user: User|undefined)=> {
+      this.isAdmin = this.isLogged && user && user.admin;
+    });
     this._loginService.logged$.subscribe((loggedUser: User | boolean) => {
       this.isLogged = !!loggedUser;
     });
@@ -115,9 +105,9 @@ export class HomeComponent implements OnInit {
         width: '400px',
         hasBackdrop: true,
         data: {
-          title: "Numero de listas maximo alcanzado",
-          content: "Has alcanzado el numero maximo de maletas, por favor borra alguna antes de crear otra.",
-          confirmButton: "OK"
+          title: 'Numero de listas maximo alcanzado',
+          content: 'Has alcanzado el numero maximo de maletas, por favor borra alguna antes de crear otra.',
+          confirmButton: 'OK'
         }
       });
       dialogRef.afterClosed().subscribe();

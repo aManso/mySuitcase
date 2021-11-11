@@ -1,7 +1,9 @@
-import { Injectable, Injector } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-const MINUTES_TO_SHOW_COUNTDOWN = 10;
+export class SessionServiceConfig {
+  MINUTES_TO_SHOW_COUNTDOWN: number;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -9,12 +11,15 @@ const MINUTES_TO_SHOW_COUNTDOWN = 10;
 export class SessionService {
   private _interval: any;
   private secondsCountDown = 10;
-  public sessionSeconds = MINUTES_TO_SHOW_COUNTDOWN * 60;
+  public sessionSeconds: number;
   public showTimeOutPopUp$: Subject<number> = new Subject<number>();
   public logout$: Subject<void> = new Subject<void>();
   private _storageMethod = sessionStorage;
 
-  public constructor() {}
+  public constructor(private _config: SessionServiceConfig) {
+    this.sessionSeconds = this._config.MINUTES_TO_SHOW_COUNTDOWN ? this._config.MINUTES_TO_SHOW_COUNTDOWN * 60: undefined;
+    console.log(this.sessionSeconds + ' seconds of session');
+  }
 
   public setStorageMethod(storageMethod: any): void {
     this._storageMethod = storageMethod;
@@ -60,7 +65,7 @@ export class SessionService {
   }
 
   public reset(): void {
-    this.sessionSeconds = MINUTES_TO_SHOW_COUNTDOWN * 60;
+    this.sessionSeconds = this._config ? this._config.MINUTES_TO_SHOW_COUNTDOWN * 60 : undefined;
   }
 
   public stopInterval(): void {

@@ -14,14 +14,23 @@ function verifyToken(req, res, next) {
         console.log(2);
         return res.status(401).send('Unauthorized request')
     }
-    let payload = jwt.verify(token, 'secretKey');
-    if (!payload) {
-        console.log(3);
-        return res.status(401).send('Unauthorized request')
+    try {
+        let payload = jwt.verify(token, 'secretKey');
+        if (!payload) {
+            console.log(3);
+            return res.status(401).send('Unauthorized request')
+        }
+        console.log('token validated');
+        req.userId = payload.subject;
+        next();
+    } catch (e) {
+        console.log('error while validating the token' + e);
+        if (e.name === 'TokenExpiredError') {
+            return res.status(401).send(e.message + ' at ' + e.expiredAt)
+        } else {
+            return res.status(401).send(e.message);
+        }
     }
-    console.log('token validated');
-    req.userId = payload.subject;
-    next();
 }
 
 module.exports.verifyToken = verifyToken;

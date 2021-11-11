@@ -1,7 +1,7 @@
 import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from '../../../../core/models/user';
-import { LoginService } from '../../../../public/login/login.service';
+import {LoginService} from '../../../../core/login/login.service';
 
 @Component({
   selector: 'app-users-list',
