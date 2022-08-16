@@ -84,6 +84,10 @@ export class CreateSuitcaseFormComponent implements OnInit {
       to: [null, [Validators.required]],
       place: [null, [Validators.required, Validators.maxLength(suitcaseNameMaxLength)],],
       type: this._buildOptionList(),
+      sports: new FormGroup({
+        'cycling': new FormControl(false),
+        'diving': new FormControl(false),
+      }),
     });
   }
 
@@ -102,23 +106,22 @@ export class CreateSuitcaseFormComponent implements OnInit {
         selected: false,
       },
       {
-        name: 'cultural',
+        name: 'sport',
         selected: false,
       },
       {
-        name: 'sport',
+        name: 'pet',
+        selected: false,
+      },
+      {
+        name: 'baby',
         selected: false,
       },
     ];
     const arr = list.map(option => {
       return this._formBuilder.group(option);
-      // return this._formBuilder.control(option.selected);
     });
     return this._formBuilder.array(arr);
-  }
-
-  public getName(option: any) {
-    return option.value.name;
   }
 
   private _updateHeader(questionNr: number) {
@@ -146,7 +149,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
           to: this.createSuitcaseForm.value.to,
         },
         this.createSuitcaseForm.value.place,
-        this._transformListToObject(this.createSuitcaseForm.value.type),
+        this._transformListToObject(this.createSuitcaseForm.value.type, this._getSelectedSports(this.createSuitcaseForm.value.sports)),
         true,
       );
       this._suitcaseService.saveSuitcase(suitcase).subscribe(() => {
@@ -155,22 +158,30 @@ export class CreateSuitcaseFormComponent implements OnInit {
     }
   }
 
-  private _transformListToObject(optionList: any[]): TripType {
+  private _getSelectedSports(sports): string[] {
+    return Object.keys(sports).filter((key: string) => {
+      return sports[key];
+    });
+  }
+
+  private _transformListToObject(optionList: any[], sports?: string[]): TripType {
     const tripType = {
       common : {
         selected: true,
         currentPriority: 1,
+        currentPage: 1,
       }
     };
     optionList.forEach((option) => {
       tripType[option.name] = {
         selected: option.selected,
         currentPriority: 1,
+        currentPage: 1,
+        sports: option.name === 'sport' ? sports : undefined,
       }
     });
     return tripType;
   }
-
 
 
 
@@ -214,7 +225,6 @@ export class CreateSuitcaseFormComponent implements OnInit {
       this._router.navigate(['/public/create-suitcase']);
     }, 1000);
   }
-
 
 
 

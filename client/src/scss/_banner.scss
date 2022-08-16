@@ -73,7 +73,7 @@
     background-size: cover;
     z-index: -1;
 
-    @media(max-width: 620px){
+    @media(max-width: 768px){
       display: none;
     }
   }
@@ -92,9 +92,9 @@
     background-size: cover;
     z-index: -1;
 
-    @media(max-width: 620px){
-      display: none;
-    }
+    //@media(max-width: 620px){
+    //  display: none;
+    //}
   }
 }
 

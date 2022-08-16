@@ -15,14 +15,14 @@ export class AppComponent implements AfterViewInit {
     private _loginService: LoginService,
     private _elementRef: ElementRef,
     public sessionService: SessionService,
-    public dialog: MatDialog,
+    private _dialog: MatDialog,
   ) {}
 
   public ngAfterViewInit() {
     let timeoutOpened = false;
     this.sessionService.showTimeOutPopUp$.subscribe(() => {
       timeoutOpened = true;
-      const dialogRef = this.dialog.open(TimeoutDialogComponent, {
+      const dialogRef = this._dialog.open(TimeoutDialogComponent, {
         height: '200px',
         width: '400px',
         hasBackdrop: true,
@@ -39,7 +39,7 @@ export class AppComponent implements AfterViewInit {
       });
     });
     this.sessionService.logout$.subscribe(() => {
-      this.dialog.closeAll();
+      this._dialog.closeAll();
     });
 
     // It is not available until view is loaded

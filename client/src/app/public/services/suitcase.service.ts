@@ -11,6 +11,7 @@ import { TripType } from '../../core/models/trip';
 export class SuitcaseService {
   private _currentSuitcase: Suitcase;
   private readonly SAVE_SUITCASE_API = environment.apiUrl + 'suitcase/save';
+  private readonly UPDATE_SUITCASE_API = environment.apiUrl + 'suitcase/update';
   private readonly RECOMMENDATIONS_SUITCASE_API = environment.apiUrl + 'suitcase/recommendations';
 
   public constructor(
@@ -18,11 +19,12 @@ export class SuitcaseService {
   ) {
   }
 
-  public saveSuitcase(suitcase: Suitcase): Observable<void> {
+  public saveSuitcase(suitcase: Suitcase, existing = false): Observable<void> {
     const $saveResponse = new Subject<void>();
-    this._currentSuitcase = suitcase;
-    this._http.post(this.SAVE_SUITCASE_API, {suitcase}).subscribe((response: null) => {
-      console.log('Suitcase saved! ', response);
+    const url = existing ? this.UPDATE_SUITCASE_API : this.SAVE_SUITCASE_API;
+    this._http.post(url, {suitcase}).subscribe((data: any) => {
+      this._currentSuitcase = data.response;
+      console.log('Suitcase saved! ', data.response);
       $saveResponse.next();
     }, (error: any) => {
       console.log('There was a problem at saving the suitcase: ', error);

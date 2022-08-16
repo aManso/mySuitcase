@@ -1,0 +1,91 @@
+<ng-container *ngIf="itemList" [ngSwitch]="listName">
+
+  <ng-container *ngSwitchCase="'common'">
+    <div class="card-header card-subheader" *ngIf="itemList.length > 0">Elementos comunes</div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'beach'">
+    <div class="card-header card-subheader" *ngIf="itemList.length > 0">
+      <mat-icon matSuffix matTooltip="Playa" [matTooltipPosition]="'below'">beach_access</mat-icon>
+      <span>Playa</span>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'mountain'">
+    <div class="card-header card-subheader" *ngIf="itemList.length > 0">
+      <mat-icon matSuffix matTooltip="Montaña" [matTooltipPosition]="'below'">filter_hdr</mat-icon>
+      <span>Montaña</span>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'sport'">
+    <div class="card-header card-subheader" *ngIf="itemList.length > 0">
+      <mat-icon matSuffix matTooltip="Deporte" [matTooltipPosition]="'below'">sports_soccer</mat-icon>
+      <span>Deporte</span>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'pet'">
+    <div class="card-header card-subheader" *ngIf="itemList.length > 0">
+      <mat-icon matSuffix matTooltip="Mascota" [matTooltipPosition]="'below'">pets</mat-icon>
+      <span>Mascota</span>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'baby'">
+    <div class="card-header card-subheader" *ngIf="itemList.length > 0">
+      <mat-icon matSuffix matTooltip="Bebé" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
+      <span>Bebé</span>
+    </div>
+  </ng-container>
+  <div *ngFor="let item of itemList | slice:0:5; let i=index" class="common-card-body" [ngSwitch]="item.type">
+    <ng-container *ngSwitchCase="'tech'">
+      <div class="card-header card-subsubheader" *ngIf="showSubsubheader('tech', item.name)">
+        <mat-icon matSuffix matTooltip="Tecnología" [matTooltipPosition]="'below'">photo_camera</mat-icon>
+        <span>Tecnología</span>
+      </div>
+      <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'cleanliness'">
+      <div class="card-header card-subsubheader" *ngIf="showSubsubheader('cleanliness', item.name)">
+        <mat-icon matSuffix matTooltip="Aseo" [matTooltipPosition]="'below'">clean_hands</mat-icon>
+        <span>Aseo personal</span>
+      </div>
+      <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'clothes'">
+      <div class="card-header card-subsubheader" *ngIf="showSubsubheader('clothes', item.name)">
+        <mat-icon matSuffix matTooltip="Ropa" [matTooltipPosition]="'below'">checkroom</mat-icon>
+        <span>Ropa</span>
+      </div>
+      <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'medicines'">
+      <div class="card-header card-subsubheader" *ngIf="showSubsubheader('medicines', item.name)">
+        <mat-icon matSuffix matTooltip="Medicinas" [matTooltipPosition]="'below'">medical_services</mat-icon>
+        <span>Medicinas</span>
+      </div>
+      <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i };"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'documents'">
+      <div class="card-header card-subsubheader" *ngIf="showSubsubheader('documents', item.name)">
+        <mat-icon matSuffix matTooltip="Documentos" [matTooltipPosition]="'below'">description</mat-icon>
+        <span>Documentación</span>
+      </div>
+      <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <div class="card-header card-subsubheader" *ngIf="showSubsubheader('others', item.name)">Otros</div>
+      <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+    </ng-container>
+  </div>
+</ng-container>
+
+<ng-template #cardBody let-item let-i="i">
+  <div class="card-body">
+    <div class="item" #item [@showHiddenItem]="item.showInSuggestion ? 'show' : 'hidden'">
+      <div class="item-data">
+        <span class="item-name">{{item.name}}</span>
+      </div>
+      <div class="item-actions">
+        <mat-icon aria-hidden="false" aria-label="Discard item" (click)="removeItem(itemList, i)">delete_sweep</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="Discard item" (click)="addItem(item, i, itemList)">add_circle</mat-icon>
+      </div>
+    </div>
+  </div>
+</ng-template>

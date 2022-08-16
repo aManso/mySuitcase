@@ -1,6 +1,6 @@
 <div id="create-form-header">
   <span id="create-form-header__text">Empecemos</span>
-  <button mat-mini-fab (click)="goPreviousQuestion()" *ngIf="currentQuestion > 1" color="primary" aria-label="Go back to previous question">
+  <button mat-mini-fab (click)="goPreviousQuestion()" *ngIf="currentQuestion > 1" color="primary" aria-label="Go back to previous question" class="button">
     <mat-icon>arrow_back</mat-icon>
   </button>
 </div>
@@ -10,7 +10,7 @@
       <mat-form-field class="question" appearance="outline">
         <mat-label>Nombre de tu maleta</mat-label>
         <input matInput placeholder="Nombre" formControlName="name" required>
-        <mat-icon matSuffix>create</mat-icon>
+        <mat-icon matSuffix class="icon">create</mat-icon>
         <mat-hint>Max 20 caracteres</mat-hint>
         <mat-error *ngIf="createSuitcaseForm.controls.name.invalid">El nombre de la maleta excede los 20 caracteres</mat-error>
       </mat-form-field>
@@ -21,19 +21,21 @@
         <input matInput [matDatepicker]="pickerFrom" [min]="currentDate" formControlName="from">
         <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
         <mat-datepicker #pickerFrom></mat-datepicker>
+        <mat-error *ngIf="createSuitcaseForm.controls.from.errors">El formato de fecha es erroneo</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Hasta</mat-label>
         <input matInput [matDatepicker]="pickerTo" [min]="createSuitcaseForm.controls.from.value ? createSuitcaseForm.controls.from.value : currentDate" formControlName="to">
         <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
         <mat-datepicker #pickerTo></mat-datepicker>
+        <mat-error *ngIf="createSuitcaseForm.controls.to.errors">El formato de fecha es erroneo</mat-error>
       </mat-form-field>
     </div>
     <div id="{{steps[2].id}}">
       <mat-form-field class="question pac-card" appearance="outline" id="pac-card">
         <mat-label>Donde te vas?</mat-label>
         <input id="pac-input" matInput placeholder="Elige una ciudad" required>
-        <mat-icon matSuffix>public</mat-icon>
+        <mat-icon matSuffix class="icon">public</mat-icon>
       </mat-form-field>
 
       <div #mapContainer id='map'></div>
@@ -44,18 +46,24 @@
         <span id="place-address"></span>
       </div>
     </div>
-    <div id="{{steps[3].id}}" formArrayName="type">
-      <mat-label>Que tipo de viaje vas a realizar?</mat-label>
-      <div id="type_options">
-        <ng-container *ngFor="let option of createSuitcaseForm.controls.type.controls; let i=index" [formGroupName]="i">
-          <mat-checkbox class="" formControlName="selected">{{getName(option)}}</mat-checkbox>
-        </ng-container>
+    <div id="{{steps[3].id}}">
+      <div formArrayName="type">
+        <mat-label>Que tipo de viaje vas a realizar?</mat-label>
+        <div id="type_options">
+          <ng-container *ngFor="let option of createSuitcaseForm.controls.type.controls; let i=index" [formGroupName]="i">
+            <mat-checkbox class="" formControlName="selected">{{option.value.name}}</mat-checkbox>
+          </ng-container>
+        </div>
+      </div>
+      <div *ngIf="createSuitcaseForm.controls.type.controls[2].controls.selected.value === true" [formGroup]="createSuitcaseForm.controls.sports">
+        <mat-checkbox class="" formControlName="diving">Buceo</mat-checkbox>
+        <mat-checkbox class="" formControlName="cycling">Ciclismo</mat-checkbox>
       </div>
     </div>
 
     <div id="button-wrapper">
-      <button mat-raised-button *ngIf="currentQuestion !== steps.length" [disabled]="isDisabled()" (click)="nextQuestion()" color="primary">Continuar</button>
-      <button mat-raised-button *ngIf="currentQuestion === steps.length" [disabled]="isDisabled()" (click)="saveSuitcase()" color="primary">Hacer la lista</button>
+      <button mat-raised-button *ngIf="currentQuestion !== steps.length" [disabled]="isDisabled()" (click)="nextQuestion()" color="primary" class="button">Continuar</button>
+      <button mat-raised-button *ngIf="currentQuestion === steps.length" [disabled]="isDisabled()" (click)="saveSuitcase()" color="primary" class="button">Hacer la lista</button>
     </div>
   </form>
 </div>
