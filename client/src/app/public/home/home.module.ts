@@ -13,6 +13,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { OverviewComponent } from './containers/overview/overview.component';
+import { RemoveDialogComponent } from "./containers/overview/dialog/remove-dialog.component";
+import { MaxSuitcasesReachedDialogComponent } from "./containers/home/max-suitcases-reached-dialog/max-suitcases-reached-dialog.component";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
 
@@ -28,11 +33,17 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatDatepickerModule,
     ReactiveFormsModule,
     MatCheckboxModule,
+    MatDialogModule,
     MatNativeDateModule,
+    MatSnackBarModule,
+    SharedModule,
   ],
   declarations: [
     HomeComponent,
     CreateSuitcaseFormComponent,
+    OverviewComponent,
+    RemoveDialogComponent,
+    MaxSuitcasesReachedDialogComponent,
   ],
   exports: [],
   providers: [],

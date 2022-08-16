@@ -1,6 +1,6 @@
 import { Inject, Component, OnInit, InjectionToken } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { User } from '../../../core/models/user';
 import { RegisterService } from '../register.service';
 import { passwordMatchingValidator, passwordValidator } from '../../../core/validators/validators';
@@ -13,14 +13,14 @@ export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit{
-  public registerForm: FormGroup;
-  public passwordForm: FormGroup;
+  public registerForm: UntypedFormGroup;
+  public passwordForm: UntypedFormGroup;
 
   public constructor(
     private _registerService: RegisterService,
     private _router: Router,
     @Inject(BASE_ROUTE) private baseRoute: string[],
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
   ) {
   }
 
@@ -39,15 +39,15 @@ export class RegisterComponent implements OnInit{
     });
   }
 
-  private _setPasswordForm(): FormGroup {
-    return new FormGroup({
-      password: new FormControl(null, [
+  private _setPasswordForm(): UntypedFormGroup {
+    return new UntypedFormGroup({
+      password: new UntypedFormControl(null, [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(20),
         passwordValidator(),
       ]),
-      passwordConfirmation: new FormControl(null, [
+      passwordConfirmation: new UntypedFormControl(null, [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(20),
@@ -66,10 +66,11 @@ export class RegisterComponent implements OnInit{
 
   public submit() {
     if (this.isValidForm()) {
-      this._registerService.register(this.registerForm.value).subscribe((user: User|boolean) => {
+      this._registerService.register(this.registerForm.value).subscribe((user: User) => {
         if (user) {
           this.goTo(this.baseRoute.toString());
         } else {
+          // TODO use a dialog
           console.error('An user already exist with this email');
         }
       },

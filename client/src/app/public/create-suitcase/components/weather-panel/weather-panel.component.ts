@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { SuitcaseService } from '../../../services/suitcase.service';
+import { SuitcaseService } from '../../../../core/services/suitcase.service';
 import { Coordinates } from '../../../../core/models/trip';
 
 @Component({

@@ -16,6 +16,7 @@ $text-color: #888888;
 $primary-color: #D88A83;
 $secondary-color: #BA6C65;
 $tertiary-color: #394359;
+$link-color-secondary: #007bff;
 
 
 $black: #242429;
@@ -38,6 +39,7 @@ $white: #fff;
 // Shared styles
 .nav-link{
   color: unset;
+  cursor: pointer;
 }
 
 $max-footer-height: 175px;

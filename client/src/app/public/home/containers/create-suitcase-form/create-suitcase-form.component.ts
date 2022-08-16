@@ -1,12 +1,15 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressBarMode } from '@angular/material/progress-bar';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreateSuitcaseFormSteps } from './create-suitcase-form.interfaces';
-import {TripLocation, TripType} from '../../../../core/models/trip';
+import { TripLocation, TripType } from '../../../../core/models/trip';
 import { Suitcase } from '../../../../core/models/suitcase';
-import { SuitcaseService } from '../../../services/suitcase.service';
+import { SuitcaseService } from '../../../../core/services/suitcase.service';
+import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from 'src/app/core/const/backend-errors';
+import { ErrorDialogComponent } from 'src/app/core/shared/error-dialog/error-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 const suitcaseNameMaxLength = 20;
 
@@ -21,7 +24,8 @@ export class CreateSuitcaseFormComponent implements OnInit {
   public percentagePerQuestion: number;
   public color: ThemePalette = 'primary';
   public mode: ProgressBarMode = 'determinate';
-  public createSuitcaseForm: FormGroup;
+  public createSuitcaseForm: UntypedFormGroup;
+  public sportForm: UntypedFormGroup;
   public currentDate = new Date();
   public steps: CreateSuitcaseFormSteps[] = [
     {
@@ -63,9 +67,10 @@ export class CreateSuitcaseFormComponent implements OnInit {
   // });
 
   constructor(
-    private readonly _formBuilder: FormBuilder,
+    private readonly _formBuilder: UntypedFormBuilder,
     private readonly _router: Router,
     private readonly _suitcaseService: SuitcaseService,
+    private _dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -78,17 +83,27 @@ export class CreateSuitcaseFormComponent implements OnInit {
   // **** GENERIC METHODS *****
 
   private _createForm() {
+    this.sportForm = new UntypedFormGroup({
+      'cycling': new UntypedFormControl(false),
+      'diving': new UntypedFormControl(false),
+    });
+
     this.createSuitcaseForm = this._formBuilder.group({
       name: [null, [Validators.required, Validators.maxLength(suitcaseNameMaxLength)],],
       from: [null, [Validators.required]],
       to: [null, [Validators.required]],
       place: [null, [Validators.required, Validators.maxLength(suitcaseNameMaxLength)],],
       type: this._buildOptionList(),
-      sports: new FormGroup({
-        'cycling': new FormControl(false),
-        'diving': new FormControl(false),
-      }),
+      sports: this.sportForm,
     });
+  }
+
+  public getTypeControls(typeControl: any): UntypedFormControl[] {
+    return typeControl.controls as UntypedFormControl[];
+  }
+
+  public isSportsSelected(): boolean {
+    return (this.createSuitcaseForm.controls.type as UntypedFormArray).controls[2].value.selected;
   }
 
   private _updateProgressBar() {
@@ -142,19 +157,35 @@ export class CreateSuitcaseFormComponent implements OnInit {
 
   public saveSuitcase(): void {
     if (this.createSuitcaseForm.valid) {
-      const suitcase = new Suitcase(
-        this.createSuitcaseForm.value.name,
-        {
+      const suitcase = new Suitcase({
+        name: this.createSuitcaseForm.value.name,
+        date: {
           from: this.createSuitcaseForm.value.from,
           to: this.createSuitcaseForm.value.to,
         },
-        this.createSuitcaseForm.value.place,
-        this._transformListToObject(this.createSuitcaseForm.value.type, this._getSelectedSports(this.createSuitcaseForm.value.sports)),
-        true,
+        place: this.createSuitcaseForm.value.place,
+        type: this._transformListToObject(this.createSuitcaseForm.value.type, this._getSelectedSports(this.createSuitcaseForm.value.sports)),
+        items: [],
+        isInProgress: true,
+    });
+      this._suitcaseService.saveSuitcase(suitcase).subscribe(
+        { next: ()=> this._goToCreateSuitcase(),
+          error: (error)=> {
+            if (error.error === BACKEND_ERROR_TYPES.MAX_SUITCASES_REACHED) {
+              const dialogRef = this._dialog.open(ErrorDialogComponent, {
+                height: '200px',
+                width: '400px',
+                hasBackdrop: true,
+                data: BACKEND_ERRORS.MAX_SUITCASES_REACHED
+              });
+              dialogRef.afterClosed().subscribe((confirm: string) => {
+                this._router.navigate(['home']);
+                // TODO quitar formulario de creacion
+              });
+            }
+          }
+        }
       );
-      this._suitcaseService.saveSuitcase(suitcase).subscribe(() => {
-        this._goToCreateSuitcase();
-      });
     }
   }
 
@@ -222,7 +253,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
   private _goToCreateSuitcase() {
     document.getElementById(this.steps[this.currentQuestion - 1].id).classList.add('disappearToTop');
     setTimeout(() => {
-      this._router.navigate(['/public/create-suitcase']);
+      this._router.navigate(['/create-suitcase']);
     }, 1000);
   }
 

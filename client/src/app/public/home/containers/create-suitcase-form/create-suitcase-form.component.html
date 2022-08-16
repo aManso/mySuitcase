@@ -50,12 +50,12 @@
       <div formArrayName="type">
         <mat-label>Que tipo de viaje vas a realizar?</mat-label>
         <div id="type_options">
-          <ng-container *ngFor="let option of createSuitcaseForm.controls.type.controls; let i=index" [formGroupName]="i">
+          <ng-container *ngFor="let option of getTypeControls(createSuitcaseForm.controls.type); let i=index" [formGroupName]="i">
             <mat-checkbox class="" formControlName="selected">{{option.value.name}}</mat-checkbox>
           </ng-container>
         </div>
       </div>
-      <div *ngIf="createSuitcaseForm.controls.type.controls[2].controls.selected.value === true" [formGroup]="createSuitcaseForm.controls.sports">
+      <div *ngIf="isSportsSelected()" [formGroup]="sportForm">
         <mat-checkbox class="" formControlName="diving">Buceo</mat-checkbox>
         <mat-checkbox class="" formControlName="cycling">Ciclismo</mat-checkbox>
       </div>

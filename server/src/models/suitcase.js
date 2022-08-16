@@ -2,11 +2,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const ItemSchema = new Schema({
+    male: {type: Boolean, required: false},
     name: {type: String, required: true},
     priority: {type: Number, required: false},
+    quantity: {type: Number, required: true},
     type: {type: String, required: false},
     weather: {type: String, required: false},
-    male: {type: Boolean, required: false},
 });
 
 const SuitcaseSchema = new Schema({

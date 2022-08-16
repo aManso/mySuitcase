@@ -9,7 +9,8 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
-import { SuitcaseService } from '../services/suitcase.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SuitcaseService } from '../../core/services/suitcase.service';
 import { Suitcase } from '../../core/models/suitcase';
 import {TripItem, TripType} from '../../core/models/trip';
 import { Observable } from 'rxjs';
@@ -21,7 +22,9 @@ import {
   transition,
 } from '@angular/animations';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { SaveDialogComponent } from "./components/dialog/save-dialog.component";
+import {GENERAL_SNACKBAR_TIME} from "../../core/config/config";
 
 @Component({
   selector: 'app-create-suitcase',
@@ -56,6 +59,7 @@ export class CreateSuitcaseComponent implements OnInit {
   public counter = 1;
   public selectedCategory?: string;
   public totalItemsInList = 0;
+  public createMode = true;
   public dataReady = false;
 
   // Each of the categories in the suggestion column
@@ -69,29 +73,35 @@ export class CreateSuitcaseComponent implements OnInit {
 
   // headers of the subcategories
   public subsubheaders = {
+    // common items
     tech: [],
     cleanliness: [],
     clothes: [],
     medicines: [],
     documents: [],
     others: [],
-    beach: [],
-    sport: [],
-    pet: [],
+    // other categories
     baby: [],
+    beach: [],
+    mountain: [],
+    pet: [],
+    sport: [],
   };
   // suitcase shown in template
   public suitcaseList = {
-    tech: [],
-    cleanliness: [],
-    clothes: [],
-    medicines: [],
-    documents: [],
-    others: [],
-    beach: [],
-    sport: [],
-    pet: [],
-    baby: [],
+    // common items
+    tech: [] as TripItem[],
+    cleanliness: [] as TripItem[],
+    clothes: [] as TripItem[],
+    medicines: [] as TripItem[],
+    documents: [] as TripItem[],
+    others: [] as TripItem[],
+    // other categories
+    baby: [] as TripItem[],
+    beach: [] as TripItem[],
+    mountain: [] as TripItem[],
+    pet: [] as TripItem[],
+    sport: [] as TripItem[],
   };
 
   constructor(
@@ -100,6 +110,9 @@ export class CreateSuitcaseComponent implements OnInit {
     private _elementRef: ElementRef,
     private _renderer: Renderer2,
     private _dialog: MatDialog,
+    private _router: Router,
+    private _snackBar: MatSnackBar,
+    private _activatedRoute: ActivatedRoute,
   ) {
   }
 
@@ -109,6 +122,21 @@ export class CreateSuitcaseComponent implements OnInit {
     this._sevenDaysDateInMillis = sevenDaysDate.getTime();
     // Fetch the suitcase created in the previous steps with the basic information
     this.suitcase = this._suitcaseService.getCurrentSuitcase();
+
+    this._activatedRoute.data.subscribe(data => {
+      this.createMode = data.createMode;
+      if (!this.createMode) {
+        // If coming to edit, there should be already a list of items, so we continue from there
+        this.suitcaseList = this.suitcase.items;
+        // and we show them
+        Object.keys(this.suitcaseList).forEach((key: string) => {
+          this.suitcaseList[key].forEach((item: TripItem) => {
+            item.showInSuitcase = true;
+          })
+        })
+      }
+    });
+
     // Fetch suggestions
     this._fetchSuggestionList(this.suitcase.type, 1).subscribe((response: TripType) => {
       this.suggestionList = this._convertToModel(response);
@@ -217,7 +245,7 @@ export class CreateSuitcaseComponent implements OnInit {
   private _addItem(item: TripItem, index?:number, suggestionList?: TripItem[], listName?: string) {
     // by def the type is the main category, except for beach, mountain and sport where the type is the subcategory and
     // otherwise consider the item in the 'other' category.
-    const type = item.type ? listName === 'beach' || listName === 'mountain' || listName === 'sport' ? listName : item.type : 'others';
+    const type = listName === 'beach' || listName === 'mountain' || listName === 'sport' ? listName : item.type ? item.type : 'others';
     item.quantity = 1;
     // add the item to the list to be shown in the provisional list and in the list to be saved
     this.suitcaseList[type].push(item);
@@ -274,9 +302,17 @@ export class CreateSuitcaseComponent implements OnInit {
       dialogRef.afterClosed().subscribe((confirm: boolean) => {
         if (confirm || confirm === undefined) {
           this.suitcase.items = this.suitcaseList;
-          this._suitcaseService.saveSuitcase(this.suitcase, true);
+          this._suitcaseService.saveSuitcase(this.suitcase, true).subscribe(()=> {
+            this._snackBar.open("The suitcase has been saved!!", '', {duration: GENERAL_SNACKBAR_TIME});
+            this._router.navigate(['home']);
+          });
         }
         dialogRef.close();
+      }, (error: any) => {
+        let snackBarRef = this._snackBar.open("There has been an error. The suitcase has not been saved yet, please try it again in a while or contact us", 'close');
+        snackBarRef.onAction().subscribe(() => {
+          snackBarRef.dismiss();
+        });
       });
     }
   }

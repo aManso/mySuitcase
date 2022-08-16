@@ -1,5 +1,6 @@
 /*=================== custom button rule start ====================*/
 .button{
+  cursor: pointer;
   display: inline-block;
   background-color: $primary-color;
   color: $white!important;
@@ -15,6 +16,16 @@
 
   &:hover{
     background-color: $secondary-color;
+    color: $white;
+  }
+}
+
+.disabled-button {
+  filter: brightness(85%);
+  cursor: default;
+
+  &:hover{
+    background-color: $primary-color;
     color: $white;
   }
 }

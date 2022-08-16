@@ -1,7 +1,7 @@
 import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { User } from '../../../../core/models/user';
-import { LoginService } from '../../../../public/login/login.service';
+import { AdminUserService } from '../../admin-user.service';
 
 @Component({
   selector: 'app-users-list',
@@ -9,12 +9,12 @@ import { LoginService } from '../../../../public/login/login.service';
 })
 export class UsersListComponent implements OnInit {
   public result: any;
-  public usersForm: FormGroup;
+  public usersForm: UntypedFormGroup;
 
   constructor(
-    private _loginService: LoginService,
+    private _userService: AdminUserService,
     private readonly _changeDetector: ChangeDetectorRef,
-    private _fb: FormBuilder,
+    private _fb: UntypedFormBuilder,
   ) {}
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class UsersListComponent implements OnInit {
 
   // **************** Just for testing *************
   public getUsers() {
-    this._loginService.getUsers().subscribe((userList: User[]) => {
+    this._userService.getUsers().subscribe((userList: User[]) => {
       this.result = JSON.stringify(userList);
       this._changeDetector.detectChanges();
     }, (error) => {
@@ -35,7 +35,7 @@ export class UsersListComponent implements OnInit {
   }
 
   public getUser() {
-    this._loginService.getUser(this.usersForm.controls.userId.value).subscribe((user: User) => {
+    this._userService.getUser(this.usersForm.controls.userId.value).subscribe((user: User) => {
       this.result = JSON.stringify(user);
       this._changeDetector.detectChanges();
     }, (error) => {
@@ -45,7 +45,7 @@ export class UsersListComponent implements OnInit {
   }
 
   public addUser() {
-    this._loginService.addUser({
+    this._userService.addUser({
       address: {
         country: undefined,
         city: undefined,
@@ -70,7 +70,7 @@ export class UsersListComponent implements OnInit {
   }
 
   public updateUser() {
-    this._loginService.getUser(this.usersForm.controls.userId.value).subscribe((user: User) => {
+    this._userService.getUser(this.usersForm.controls.userId.value).subscribe((user: User) => {
       this.result = JSON.stringify(user);
       this._changeDetector.detectChanges();
     }, (error) => {
@@ -80,7 +80,7 @@ export class UsersListComponent implements OnInit {
   }
 
   public deleteUser() {
-    this._loginService.deleteUser(this.usersForm.controls.userId.value).subscribe((response: any) => {
+    this._userService.deleteUser(this.usersForm.controls.userId.value).subscribe((response: any) => {
       this.result = JSON.stringify(response);
       this.getUsers();
     }, (error) => {

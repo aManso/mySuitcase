@@ -11,6 +11,7 @@ import { SaveDialogComponent } from "./components/dialog/save-dialog.component";
 import { ItemListComponent } from "./components/item-list/item-list.component";
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatDialogModule,
     MatTooltipModule,
+    MatSnackBarModule,
   ],
   declarations: [
     CreateSuitcaseComponent,

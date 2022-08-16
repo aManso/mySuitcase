@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SessionService } from '../../../session/session.service';
+import {LoginService} from '../../../login/login.service';
 
 @Component({
   selector: 'navbar-component',
@@ -10,9 +12,16 @@ export class NavBarComponent{
 
   public constructor(
     private _router: Router,
+    private sessionService: SessionService,
+    public loginService: LoginService,
   ) {}
 
-  public goTo(path: string) {
-    this._router.navigate([path]);
+  public goTo(path: string, data?: any) {
+    this._router.navigate([path, data]);
+  }
+
+  public logout(): void {
+    this.sessionService.stopInterval();
+    this.loginService.logout();
   }
 }

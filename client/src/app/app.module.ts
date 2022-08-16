@@ -5,26 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './core/shared/shared.module';
 import { NotFoundModule } from './not-found/not-found.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthenticationGuard } from './core/guards/authentication.guard';
-import { AuthorizationGuard } from './core/guards/authorization.guard';
-import { TokenInterceptorService } from './core/interceptor/token-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
-import { TimeoutDialogComponent } from './timeout-dialog/timeout-dialog.component';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from "@angular/common/http";
+import { MYSUITCASE_CONFIG, MYSUITCASE_CONFIG_TOKEN } from './app.config';
+import { LoginService } from './core/login/login.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TimeoutDialogComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     NotFoundModule,
     SharedModule,
-    HttpClientModule,
     // Material
     MatButtonModule,
     MatDialogModule,
@@ -32,17 +29,8 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
   ],
   providers: [
-    AuthenticationGuard,
-    AuthorizationGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true
-    },
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
-  ],
-  entryComponents: [
-    TimeoutDialogComponent,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
+    { provide: MYSUITCASE_CONFIG_TOKEN, useValue: MYSUITCASE_CONFIG }
   ],
   bootstrap: [AppComponent]
 })
