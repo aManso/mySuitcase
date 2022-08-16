@@ -8,13 +8,10 @@ import { TimeoutDialogComponent } from './timeout-dialog/timeout-dialog.componen
 import {SessionService, SessionServiceConfig} from './session.service';
 
 @NgModule({
-  imports:      [ CommonModule, MatDialogModule ],
-  declarations: [ TimeoutDialogComponent ],
-  exports:      [ TimeoutDialogComponent ],
-  entryComponents: [
-    TimeoutDialogComponent,
-  ],
-  providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}]
+    imports: [CommonModule, MatDialogModule],
+    declarations: [TimeoutDialogComponent],
+    exports: [TimeoutDialogComponent],
+    providers: [{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } }]
 })
 export class SessionModule {
   constructor(@Optional() @SkipSelf() parentModule?: SessionModule) {

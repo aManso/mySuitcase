@@ -8,7 +8,9 @@ import { NotFoundModule } from './not-found/not-found.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { PathResolver } from './core/resolvers/path-resolver';
+import { HttpClientModule } from "@angular/common/http";
+import { MYSUITCASE_CONFIG, MYSUITCASE_CONFIG_TOKEN } from './app.config';
+import { LoginService } from './core/login/login.service';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { PathResolver } from './core/resolvers/path-resolver';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     NotFoundModule,
     SharedModule,
@@ -26,8 +29,8 @@ import { PathResolver } from './core/resolvers/path-resolver';
     AppRoutingModule,
   ],
   providers: [
-    PathResolver,
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
+    { provide: MYSUITCASE_CONFIG_TOKEN, useValue: MYSUITCASE_CONFIG }
   ],
   bootstrap: [AppComponent]
 })

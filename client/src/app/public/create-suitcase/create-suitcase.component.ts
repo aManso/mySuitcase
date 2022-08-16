@@ -9,8 +9,8 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
-import { Router } from '@angular/router';
-import { SuitcaseService } from '../services/suitcase.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SuitcaseService } from '../../core/services/suitcase.service';
 import { Suitcase } from '../../core/models/suitcase';
 import {TripItem, TripType} from '../../core/models/trip';
 import { Observable } from 'rxjs';
@@ -59,6 +59,7 @@ export class CreateSuitcaseComponent implements OnInit {
   public counter = 1;
   public selectedCategory?: string;
   public totalItemsInList = 0;
+  public createMode = true;
   public dataReady = false;
 
   // Each of the categories in the suggestion column
@@ -89,18 +90,18 @@ export class CreateSuitcaseComponent implements OnInit {
   // suitcase shown in template
   public suitcaseList = {
     // common items
-    tech: [],
-    cleanliness: [],
-    clothes: [],
-    medicines: [],
-    documents: [],
-    others: [],
+    tech: [] as TripItem[],
+    cleanliness: [] as TripItem[],
+    clothes: [] as TripItem[],
+    medicines: [] as TripItem[],
+    documents: [] as TripItem[],
+    others: [] as TripItem[],
     // other categories
-    baby: [],
-    beach: [],
-    mountain: [],
-    pet: [],
-    sport: [],
+    baby: [] as TripItem[],
+    beach: [] as TripItem[],
+    mountain: [] as TripItem[],
+    pet: [] as TripItem[],
+    sport: [] as TripItem[],
   };
 
   constructor(
@@ -111,6 +112,7 @@ export class CreateSuitcaseComponent implements OnInit {
     private _dialog: MatDialog,
     private _router: Router,
     private _snackBar: MatSnackBar,
+    private _activatedRoute: ActivatedRoute,
   ) {
   }
 
@@ -120,6 +122,21 @@ export class CreateSuitcaseComponent implements OnInit {
     this._sevenDaysDateInMillis = sevenDaysDate.getTime();
     // Fetch the suitcase created in the previous steps with the basic information
     this.suitcase = this._suitcaseService.getCurrentSuitcase();
+
+    this._activatedRoute.data.subscribe(data => {
+      this.createMode = data.createMode;
+      if (!this.createMode) {
+        // If coming to edit, there should be already a list of items, so we continue from there
+        this.suitcaseList = this.suitcase.items;
+        // and we show them
+        Object.keys(this.suitcaseList).forEach((key: string) => {
+          this.suitcaseList[key].forEach((item: TripItem) => {
+            item.showInSuitcase = true;
+          })
+        })
+      }
+    });
+
     // Fetch suggestions
     this._fetchSuggestionList(this.suitcase.type, 1).subscribe((response: TripType) => {
       this.suggestionList = this._convertToModel(response);
@@ -287,7 +304,7 @@ export class CreateSuitcaseComponent implements OnInit {
           this.suitcase.items = this.suitcaseList;
           this._suitcaseService.saveSuitcase(this.suitcase, true).subscribe(()=> {
             this._snackBar.open("The suitcase has been saved!!", '', {duration: GENERAL_SNACKBAR_TIME});
-            this._router.navigate(['public/home']);
+            this._router.navigate(['home']);
           });
         }
         dialogRef.close();

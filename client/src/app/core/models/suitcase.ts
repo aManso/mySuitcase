@@ -65,3 +65,10 @@ export interface SuitcaseOverviewInput {
 export interface SuitcaseOverviewOutput {
   list: Suitcase[];
 }
+
+export interface SuitcaseDetailInput {
+  id?: string;
+  name: string;
+}
+
+export interface SuitcaseDetailOutput extends Suitcase {}

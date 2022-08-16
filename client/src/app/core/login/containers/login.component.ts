@@ -1,7 +1,7 @@
 import { Inject, Component, OnInit, InjectionToken } from '@angular/core';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { User } from '../../../core/models/user';
 import { AuthenticationGuard } from '../../../core/guards/authentication.guard';
 // TODO use it when launching to PROD
@@ -17,7 +17,7 @@ export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
-  public loginForm: FormGroup;
+  public loginForm: UntypedFormGroup;
   public loginMode = true;
 
   public constructor(
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit{
     public _authenticationGuard: AuthenticationGuard,
     private _router: Router,
     @Inject(BASE_ROUTE) private baseRoute: string[],
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private _snackBar: MatSnackBar,
   ) {
   }
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit{
     return this.fb.group({
       keepSession: [null],
       email: [null, Validators.compose([Validators.required, Validators.email])],
-      password: new FormControl(null, [
+      password: new UntypedFormControl(null, [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(20),

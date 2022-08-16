@@ -8,6 +8,8 @@ import { AuthenticationGuard } from '../core/guards/authentication.guard';
 import { AuthorizationGuard } from '../core/guards/authorization.guard';
 import { TokenInterceptorService } from '../core/interceptor/token-interceptor.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Logger } from '../core/services/logger.service';
+import { AdminLogger } from './services/admin-logger.service';
 
 @NgModule({
   imports: [
@@ -27,6 +29,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
       useClass: TokenInterceptorService,
       multi: true
     },
+    [{ provide: Logger, useClass: AdminLogger }]
   ],
 })
 export class AdminModule {

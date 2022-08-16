@@ -2,18 +2,21 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-// import { FooterComponent } from './footer/containers/footer.component';
-
-import {FooterModule} from './footer/footer.module';
-import {NavBarModule} from './navbar/navbar.module';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FooterModule } from './footer/footer.module';
+import { NavBarModule } from './navbar/navbar.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ErrorDialogComponent,
+  ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    MatDialogModule,
   ],
   exports: [
     FormsModule,

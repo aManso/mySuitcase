@@ -5,6 +5,7 @@ import { BASE_ROUTE, LoginComponent} from './containers/login.component';
 import { LoginRoutingModule } from './login-routing.module';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule} from '@angular/material/input';
 import { LoginService } from './login.service';
 import { AuthenticationGuard } from '../guards/authentication.guard';
 import { AuthorizationGuard } from '../guards/authorization.guard';
@@ -20,6 +21,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     LoginRoutingModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    MatInputModule,
     HttpClientModule,
   ],
   declarations: [

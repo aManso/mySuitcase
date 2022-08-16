@@ -16,7 +16,8 @@ userCtrl.login = async (req, res) => {
         let token = jwt.sign(payload, 'secretKey', {expiresIn: '1h'});
         return res.json({user, token});
     }
-    return res.json(false);
+    // If not user is found, we return undefined
+    return res.json();
 };
 
 module.exports = userCtrl;

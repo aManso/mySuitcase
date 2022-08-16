@@ -10,6 +10,7 @@ export interface User {
     coordinates: string,
   };
   admin: boolean;
+  isPremium?: boolean;
   age: number;
   email: string;
   joiningDate: Date;

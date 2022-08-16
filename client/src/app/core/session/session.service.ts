@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { Subject } from 'rxjs';
 
 export class SessionServiceConfig {
@@ -14,15 +14,23 @@ export class SessionService {
   public sessionSeconds: number;
   public showTimeOutPopUp$: Subject<number> = new Subject<number>();
   public logout$: Subject<void> = new Subject<void>();
-  private _storageMethod = sessionStorage;
+  private _storageMethod: Storage;
 
-  public constructor(private _config: SessionServiceConfig) {
-    this.sessionSeconds = this._config.MINUTES_TO_SHOW_COUNTDOWN ? this._config.MINUTES_TO_SHOW_COUNTDOWN * 60: undefined;
+  public constructor(@Optional() private _config: SessionServiceConfig) {
+    this.sessionSeconds = this._config && this._config.MINUTES_TO_SHOW_COUNTDOWN ? this._config.MINUTES_TO_SHOW_COUNTDOWN * 60: undefined;
     console.log(this.sessionSeconds + ' seconds of session');
   }
 
-  public setStorageMethod(storageMethod: any): void {
+  public setStorageMethod(storageMethod: Storage): void {
     this._storageMethod = storageMethod;
+  }
+
+  public _isThereActiveUser():boolean {
+    return this._storageMethod ? !!this._storageMethod.getItem('activeUserToken') : !!sessionStorage.getItem('activeUserToken') || !!localStorage.getItem('activeUserToken');
+  }
+
+  private _findStorageMethod(): Storage {
+    return sessionStorage.getItem('activeUserToken') ? sessionStorage : localStorage;
   }
 
   public getStorageMethod() {
@@ -30,15 +38,30 @@ export class SessionService {
   }
 
   public startSession(token: string, ) {
+    // In case of first loading the app but having the user in the localStorage or sessionStorage
+    if (!this._storageMethod && this._isThereActiveUser()) {
+      this._storageMethod = this._findStorageMethod()
+    }
     this._storageMethod.setItem('activeUserToken', token);
     this._initInterval();
   }
 
   public getToken(): string {
-    return this._storageMethod.getItem('activeUserToken');
+    // In case of first loading the app but having the user in the localStorage or sessionStorage
+    if (!this._storageMethod && this._isThereActiveUser()) {
+      this._storageMethod = this._findStorageMethod();
+      return this._storageMethod.getItem('activeUserToken');
+    } else if (this._storageMethod) {
+      return this._storageMethod.getItem('activeUserToken');
+    }
+    return '';
   }
 
   public getIdToken(): string {
+    // In case of first loading the app but having the user in the localStorage or sessionStorage
+    if (!this._storageMethod && this._isThereActiveUser()) {
+      this._storageMethod = this._findStorageMethod()
+    }
     const idToken =  this._storageMethod.getItem('activeUserToken');
     var base64Url = idToken.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');

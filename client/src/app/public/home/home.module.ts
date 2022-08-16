@@ -36,6 +36,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDialogModule,
     MatNativeDateModule,
     MatSnackBarModule,
+    SharedModule,
   ],
   declarations: [
     HomeComponent,

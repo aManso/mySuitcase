@@ -65,8 +65,9 @@ $margin: 15px;
 }
 
 .item-actions {
-  width: calc(#{$actions-size} + #{$actions-size});
+  display: none;
   margin-left: $margin;
+  width: calc(#{$actions-size} + #{$actions-size});
 }
 
 .card-header {
@@ -92,15 +93,23 @@ $margin: 15px;
 
 .card-body {
   padding: 0;
-
-  .item:nth-child(odd) {
-    background: map_get($mat-suitcase-primary, 50);
+  transition: box-shadow .3s;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    .item-actions {
+      display: block;
+    }
   }
+  // in case of stripped list, uncomment these lines
+  //.item:nth-child(odd) {
+  //  background: map_get($mat-suitcase-primary, 50);
+  //}
 }
 
-.common-card-body:nth-child(odd) .card-body .item {
-  background: map_get($mat-suitcase-primary, 50);
-}
+// in case of stripped list, uncomment these lines
+//.common-card-body:nth-child(odd) .card-body .item {
+//  background: map_get($mat-suitcase-primary, 50);
+//}
 
 .common-card-body:nth-child(even) .card-body .item {
   background: $white;

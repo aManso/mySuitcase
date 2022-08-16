@@ -2,18 +2,19 @@ import { NgModule } from '@angular/core';
 import { PublicComponent } from './public.component';
 import { SharedModule } from '../core/shared/shared.module';
 import { PublicRoutingModule } from './public-routing.module';
-import { SuitcaseService } from './services/suitcase.service';
+import { SuitcaseService } from '../core/services/suitcase.service';
 import { SessionModule } from '../core/session/session.module';
-import { LoginService } from '../core/login/login.service';
 import { AuthenticationGuard } from "../core/guards/authentication.guard";
 import { AuthorizationGuard } from "../core/guards/authorization.guard";
 import { TokenInterceptorService } from "../core/interceptor/token-interceptor.service";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginService } from '../core/login/login.service';
+import { DetailResolver } from '../core/resolvers/detail-resolver';
 
 @NgModule({
   imports: [
     SharedModule,
-    SessionModule.forChild({MINUTES_TO_SHOW_COUNTDOWN: 10}),
+    SessionModule.forRoot({MINUTES_TO_SHOW_COUNTDOWN: 10}),
     HttpClientModule,
     PublicRoutingModule,
   ],
@@ -24,6 +25,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   providers: [
     LoginService,
     SuitcaseService,
+    DetailResolver,
     AuthenticationGuard,
     AuthorizationGuard,
     {

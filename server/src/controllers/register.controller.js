@@ -6,8 +6,9 @@ userCtrl.register = async (req, res) => {
     console.log('user required to be registered', req.body);
     const user = await userModel.findOne({ email: req.body.email });
     if (user) {
+        // TODO replace for an handled error
         console.log('There is already an user with this email', req.body.email);
-        return res.json(false);
+        return res.json();
     } else {
         let user = userCtrl.setUpUserToBeRegistered(req.body);
         user = new userModel(user);

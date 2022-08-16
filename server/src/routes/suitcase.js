@@ -9,5 +9,6 @@ router.post('/update', commonService.verifyToken, suitcaseCtrl.update);
 router.post('/recommendations', commonService.verifyToken, suitcaseCtrl.fetchRecommendations);
 router.post('/overview', commonService.verifyToken, suitcaseCtrl.overview);
 router.post('/remove', commonService.verifyToken, suitcaseCtrl.remove);
+router.get('/detail/:name', commonService.verifyToken, suitcaseCtrl.getSuitcase);
 
 module.exports = router;

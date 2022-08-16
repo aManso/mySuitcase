@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { SuitcaseService } from "../../../services/suitcase.service";
+import { SuitcaseService } from "../../../../core/services/suitcase.service";
 import { Suitcase, SuitcaseOverviewOutput } from "../../../../core/models/suitcase";
 import { map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
@@ -23,7 +23,7 @@ export class OverviewComponent implements OnInit {
   @Output()
   public dataLoaded: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(
+  public constructor(
     private readonly _suitcaseService: SuitcaseService,
     private _dialog: MatDialog,
     private readonly _changeDetector: ChangeDetectorRef,
@@ -31,17 +31,13 @@ export class OverviewComponent implements OnInit {
     private _snackBar: MatSnackBar,
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const input = {};
     this._suitcaseService.retrieveSuitcaseOverview(input)
       .pipe(
         map((output: SuitcaseOverviewOutput) => output.list),
       )
       .subscribe((suitcaseList: Suitcase[]) => {
-        // remove the suitcase without items
-        suitcaseList = suitcaseList.filter((suitcase: Suitcase)=> {
-          return Object.values(suitcase.items).some((item: any[])=> {return item.length > 0})
-        });
         let otherIcon = 0;
         let mountainIcon = 0;
         let beachIcon = 0;
@@ -82,7 +78,7 @@ export class OverviewComponent implements OnInit {
 
   public edit(suitcase: Suitcase) {
     this._suitcaseService.setCurrentSuitcase(suitcase);
-    this._router.navigate(["public/edit-suitcase"]);
+    this._router.navigate(['edit-suitcase', suitcase.name], { state: { id: suitcase._id }});
   }
 
   public remove(id: string, index: number) {

@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { SessionService } from '../core/session/session.service';
 import { TimeoutDialogComponent } from '../core/session/timeout-dialog/timeout-dialog.component';
 import {LoginService} from '../core/login/login.service';
+import { Logger } from '../core/services/logger.service';
 
 @Component({
   selector: 'app-admin',
@@ -16,7 +17,9 @@ export class AdminComponent implements AfterViewInit {
     private _sessionService: SessionService,
     private _elementRef: ElementRef,
     private _dialog: MatDialog,
+    private _logger: Logger,
   ) {
+    this._logger.log('AdminComponent')
   }
 
   public ngAfterViewInit() {
