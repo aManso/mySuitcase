@@ -10,7 +10,8 @@ import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/di
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from "@angular/common/http";
 import { MYSUITCASE_CONFIG, MYSUITCASE_CONFIG_TOKEN } from './app.config';
-import { LoginService } from './core/login/login.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,12 @@ import { LoginService } from './core/login/login.service';
     MatDialogModule,
     // Tip: The routing module must be the last to import. Why? It is possible that a series of modules will not be loaded when routing.
     AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
