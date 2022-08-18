@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
+    "start-prod": "ng build --configuration production && http-server -c-1 -p 8080 dist/my-suitcase/",
     "build": "ng build",
     "test": "ng test",
     "posttest": "node -e 'console.log(\"Testing done!\")'",

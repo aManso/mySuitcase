@@ -1,5 +1,7 @@
 <navbar-component></navbar-component>
 
+<pwa-installer></pwa-installer>
+
 <ng-container *ngIf="!isLogged; else logged">
   <section class="hero-banner magic-ball">
     <div class="container">
@@ -178,7 +180,6 @@
       </div>
     </section>
     <!--================Create new suitcase section End =================-->
-
 
     <!--================Overview created suitcases section Start =================-->
     <section class="section-margin" [@showOverview]="showOverview ? 'show' : 'hide'" #overview id="mySuitcases">

@@ -20,11 +20,21 @@ export class AppComponent implements OnInit {
   public ngOnInit(): void {
 
     if (this.swUpdate.isEnabled) {
-      this.swUpdate.versionUpdates.subscribe((response: any)=> {
-        if (response.type === 'VERSION_DETECTED') {
-          if (confirm("Una nueva versión está disponible, ¿Desea cargar la nueva versión?")) {
-            window.location.reload();
-          }
+      this.swUpdate.versionUpdates.subscribe((evt: any)=> {
+        switch (evt.type) {
+          case 'VERSION_DETECTED':
+            console.log(`Downloading new app version: ${evt.version.hash}`);
+            break;
+          case 'VERSION_READY':
+            console.log(`Current app version: ${evt.currentVersion.hash}`);
+            console.log(`New app version ready for use: ${evt.latestVersion.hash}`);
+            if (confirm("Una nueva versión está disponible, ¿Desea cargar la nueva versión?")) {
+              window.location.reload();
+            }
+            break;
+          case 'VERSION_INSTALLATION_FAILED':
+            console.log(`Failed to install app version '${evt.version.hash}': ${evt.error}`);
+            break;
         }
       })
     }

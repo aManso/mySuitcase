@@ -36,6 +36,7 @@
               "src/assets",
               "src/sw-register.js",
               "src/sw.js",
+              "src/pwa-installer.js",
               "src/manifest.webmanifest"
             ],
             "styles": [
@@ -54,7 +55,7 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "serviceWorker": false,
+            "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
@@ -110,7 +111,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest",
               "src/manifest.webmanifest"
             ],
             "styles": [
