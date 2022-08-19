@@ -26,14 +26,15 @@ import { environment } from '../environments/environment';
     // Material
     MatButtonModule,
     MatDialogModule,
-    // Tip: The routing module must be the last to import. Why? It is possible that a series of modules will not be loaded when routing.
-    AppRoutingModule,
+    // we register the service worker module and the file that is generated in the dist folder for prod build to cache all the static main files
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    // Tip: The routing module must be the last to import. Why? It is possible that a series of modules will not be loaded when routing.
+    AppRoutingModule,
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},

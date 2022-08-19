@@ -1,6 +1,6 @@
 <navbar-component></navbar-component>
 
-<pwa-installer></pwa-installer>
+<web-notification-suscriber></web-notification-suscriber>
 
 <ng-container *ngIf="!isLogged; else logged">
   <section class="hero-banner magic-ball">
@@ -106,7 +106,7 @@
     </div>
   </section>
 
-  <section class="bg-gray section-padding magic-ball magic-ball-about">
+  <section class="bg-gray section-padding pwa-container">
     <div class="container">
       <div class="row">
         <div class="col-lg-7 col-md-6 mb-4 mb-md-0">
@@ -118,7 +118,11 @@
           <h2>Preocúpate tan solo por el destino.</h2>
           <p>Con <i>mySuitcase</i> podrás poner el foco en el sitio que vas a visitar. No volverás a olvidarte nada. Te
             ayudamos a recordar aquelllo que más necesitas para cada uno de tus viajes.</p>
-          <a class="button" href="#">Descubre más</a>
+
+          <div class="pwa-installer__container" hidden >
+            <p>Usala desde cualquier lugar incluso sin conexión! Instala la aplicación para una mayor rapidez y experiencia.</p>
+            <pwa-installer></pwa-installer>
+          </div>
         </div>
       </div>
     </div>

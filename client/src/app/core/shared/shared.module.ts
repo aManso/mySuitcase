@@ -7,11 +7,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FooterModule } from './footer/footer.module';
 import { NavBarModule } from './navbar/navbar.module';
 import { PwaInstallerComponent } from './pwa-installer/pwa-installer.component';
+import { WebNotificationSuscriberComponent } from './web-notification-suscriber/web-notification-suscriber.component';
 
 @NgModule({
   declarations: [
     ErrorDialogComponent,
     PwaInstallerComponent,
+    WebNotificationSuscriberComponent,
   ],
   imports: [
     FormsModule,
@@ -26,6 +28,7 @@ import { PwaInstallerComponent } from './pwa-installer/pwa-installer.component';
     NavBarModule,
     FooterModule,
     PwaInstallerComponent,
+    WebNotificationSuscriberComponent,
   ],
   providers: [],
 })

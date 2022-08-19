@@ -4,6 +4,7 @@ if ('serviceWorker' in navigator) {
 
     window.addEventListener("beforeinstallprompt", e => {
         installButton = document.getElementById("install_button");
+        installContainers = document.getElementsByClassName("pwa-installer__container");
         console.log("beforeinstallprompt fired");
         // Prevent Chrome 76 and earlier from automatically showing a prompt
         e.preventDefault();
@@ -11,6 +12,10 @@ if ('serviceWorker' in navigator) {
         deferredPrompt = e;
         // Show the install button
         installButton.hidden = false;
+        Array.prototype.filter.call(installContainers, function(installContainer){
+          installContainer.hidden = false;
+        });
+        installContainers.hidden = false;
         installButton.addEventListener("click", installApp);
     });
 

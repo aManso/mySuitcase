@@ -12,4 +12,5 @@ export class PWAInstallerService {
         script.defer = true;
         body.appendChild(script);
     }
+
 }

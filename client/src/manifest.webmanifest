@@ -7,8 +7,8 @@
   "id": "./",
   "orientation": "portrait",
   "description": "App to help you when packing for any trip",
-  "scope": "./",
-  "start_url": "./",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
       "src": "assets/icons/logo-72.png",

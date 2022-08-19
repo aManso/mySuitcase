@@ -9,6 +9,6 @@ const db = mongoose.connect(uri)
 const recommendationsDB = mongoose.createConnection('mongodb+srv://amanso:1234@cluster0-k8dok.mongodb.net/suitcase_recomendations?retryWrites=true&w=majority');
 
 console.log('Number of connections: ', mongoose.connections.length);
-console.log('Connections: ', mongoose.connections);
+// console.log('Connections: ', mongoose.connections);
 
 module.exports = mongoose;

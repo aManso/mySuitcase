@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../../../../core/login/login.service';
 import { User } from '../../../../core/models/user';
