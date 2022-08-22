@@ -34,6 +34,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/offline.html",
               "src/sw-register.js",
               "src/sw.js",
               "src/pwa-installer.js",

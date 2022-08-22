@@ -49,7 +49,12 @@ notificationCtrl.send = async (req, res) => {
         Promise.all(subscribers.map((subscriber)=> {
             console.log('subscriber', subscriber);
             webpush.sendNotification(subscriber, JSON.stringify(lastNewsletter))
-        })).then(()=> {res.status(200).json({message: "Newsletter succesfully sent"})})
+        })).then(()=> {
+            res.status(200).json({message: "Newsletter succesfully sent"})
+        }).catch((err)=>{
+            console.log("Error sending notification, reason: ", err);
+            res.sendStatus(500);
+        })
     }
 };
 

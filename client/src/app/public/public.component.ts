@@ -47,13 +47,13 @@ export class PublicComponent implements AfterViewInit {
 
     // It is not available until view is loaded
     this._elementRef.nativeElement.addEventListener('mousemove', e => {
-      console.log('moving');
+      // console.log('moving');
       if (!timeoutOpened) {
         this._sessionService.reset();
       }
     });
     this._elementRef.nativeElement.addEventListener('click', e => {
-      console.log('clicking');
+      // console.log('clicking');
       if (!timeoutOpened) {
         this._sessionService.reset();
       }
