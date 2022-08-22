@@ -15,8 +15,33 @@
   height: 100%;
 }
 
+.notification__container {
+  height: 700px;
+  max-height: 700px;
+  overflow: hidden;
+
+  .notification__img-container {
+    margin-top: -60px;
+  }
+}
+
+.trip-type__container {
+  height: 700px;
+  max-height: 700px;
+  overflow: hidden;
+
+  .row, .container {
+    height: auto;
+  }
+  .col-md-6 {
+    max-height: 400px;
+  }
+}
+
 .pwa-container {
   height: 700px;
+  max-height: 700px;
+  overflow: hidden;
 }
 
 #questions-area {
