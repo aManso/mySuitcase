@@ -10,11 +10,21 @@
         </button>
 
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-          <ul class="nav navbar-nav menu_nav justify-content-end">
-            <li *ngIf="(loginService.logged$ | async) && (loginService.logged$ | async).admin!" class="nav-item active" [routerLink]="['/admin']"><a class="nav-link">Administración</a></li>
-            <li *ngIf="(loginService.logged$ | async)" class="nav-item active" [routerLink]="['/home']" [queryParams]="{}" [fragment]="(loginService.logged$ | async) ? 'mySuitcases' : ''"><a class="nav-link">Mis Maletas</a></li>
-            <li class="nav-item active"><a class="nav-link" [routerLink]="['/contact']">Contacto</a></li>
-            <li *ngIf="(loginService.logged$ | async)" class="nav-item active" (click)="logout()"><a class="nav-link">Salir</a></li>
+          <ul class="nav navbar-nav menu_nav menu_nav--texts justify-content-end">
+            <li *ngIf="(loginService.logged$ | async) && (loginService.logged$ | async).admin!"  matTooltip="Administración area" class="nav-item active" [routerLink]="['/admin']"><a class="nav-link">Administración</a></li>
+            <li *ngIf="(loginService.logged$ | async)" matTooltip="Echa un vistazo a tus maletas ya creadas" class="nav-item active" [routerLink]="['/home']" [queryParams]="{}" [fragment]="(loginService.logged$ | async) ? 'mySuitcases' : ''"><a class="nav-link">Mis Maletas</a></li>
+            <li class="nav-item active"><a matTooltip="Informanos de cualquier incidente o sugerencia" class="nav-link" [routerLink]="['/contact']">Contacto</a></li>
+            <li *ngIf="(loginService.logged$ | async)" class="nav-item active"><a matTooltip="Administra tu perfil y otras configuraciones" class="nav-link" [routerLink]="['/settings']">Settings</a></li>
+            <li class="nav-item active"><a matTooltip="Suscribete para estar al dia de todas las notificaciones" class="nav-link" [routerLink]="['/home']" [queryParams]="{}" [fragment]="'notifications'">Suscribete</a></li>
+            <li *ngIf="(loginService.logged$ | async)" matTooltip="Abandona la sesión" class="nav-item active" (click)="logout()"><a class="nav-link">Salir</a></li>
+          </ul>
+          <ul class="nav navbar-nav menu_nav menu_nav--icons justify-content-end">
+            <li *ngIf="(loginService.logged$ | async) && (loginService.logged$ | async).admin!"  matTooltip="Administración area" class="nav-item active" [routerLink]="['/admin']"><a class="nav-link"><mat-icon>adminpanelsettings</mat-icon></a></li>
+            <li *ngIf="(loginService.logged$ | async)" matTooltip="Echa un vistazo a tus maletas ya creadas" class="nav-item active" [routerLink]="['/home']" [queryParams]="{}" [fragment]="(loginService.logged$ | async) ? 'mySuitcases' : ''"><a class="nav-link"><mat-icon>luggage</mat-icon></a></li>
+            <li class="nav-item active"><a matTooltip="Informanos de cualquier incidente o sugerencia" class="nav-link" [routerLink]="['/contact']"><mat-icon>support</mat-icon></a></li>
+            <li *ngIf="(loginService.logged$ | async)" class="nav-item active"><a matTooltip="Administra tu perfil y otras configuraciones" class="nav-link" [routerLink]="['/settings']"><mat-icon>settings</mat-icon></a></li>
+            <li class="nav-item active"><a matTooltip="Suscribete para estar al dia de todas las notificaciones" class="nav-link" [routerLink]="['/home']" [queryParams]="{}" [fragment]="'notifications'"><mat-icon>notificationsactive</mat-icon></a></li>
+            <li *ngIf="(loginService.logged$ | async)" matTooltip="Abandona la sesión" class="nav-item active" (click)="logout()"><a class="nav-link"><mat-icon>logout</mat-icon></a></li>
           </ul>
         </div>
       </div>
