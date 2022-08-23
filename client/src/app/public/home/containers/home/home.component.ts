@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../../../../core/login/login.service';
 import { User } from '../../../../core/models/user';
@@ -59,10 +59,10 @@ export class HomeComponent implements OnInit {
     private _dialog: MatDialog,
     private _sessionService: SessionService,
     private _suitcaseService: SuitcaseService,
-    private _configService: ConfigService
+    private _configService: ConfigService,
   ) { }
 
-  ngOnInit() {
+  public ngOnInit() {
     this._maximumSuitcases = this._configService.getMaximumSuitcases(false);
     // we get the logged user if exists
     if (this._loginService.isLoggedIn()) {

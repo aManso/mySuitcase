@@ -16,7 +16,8 @@
     "express": "^4.17.1",
     "express-openid-connect": "^2.8.0",
     "jsonwebtoken": "^8.5.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "web-push": "^3.5.0"
   },
   "devDependencies": {
     "mongodb": "^3.5.7",

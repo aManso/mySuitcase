@@ -15,13 +15,16 @@ app.use(morgan('dev'));
 // allow client to send data in JSON format
 app.use(express.json());
 // to enable cors
-app.use(cors({origin: 'http://localhost:4200'}));
+const allowedOrigins = ['http://127.0.0.1:4200', 'http://localhost:4200', 'http://127.0.0.1:8080', 'http://localhost:8080', 'http://mysuitcase.com'];
+
+app.use(cors(allowedOrigins));
 
 // Routes
 app.use('/api/users', require('./routes/users'));
 app.use('/api/login', require('./routes/login'));
 app.use('/api/register', require('./routes/register'));
 app.use('/api/suitcase', require('./routes/suitcase'));
+app.use('/api/notifications', require('./routes/notification'));
 
 // Connecting
 app.listen(app.get('port'), () => {
