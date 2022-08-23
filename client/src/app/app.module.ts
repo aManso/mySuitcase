@@ -27,7 +27,9 @@ import { environment } from '../environments/environment';
     MatButtonModule,
     MatDialogModule,
     // we register the service worker module and the file that is generated in the dist folder for prod build to cache all the static main files
+    // important!! In order to capture the REST calls, only non-mutating requests (GET and HEAD) are cached.
     ServiceWorkerModule.register('ngsw-worker.js', {
+      // we enable it just for prod because the ngsw-worker.js file is a generated file from the .json configuration not available in other than prod
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).

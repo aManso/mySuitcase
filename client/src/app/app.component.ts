@@ -37,6 +37,8 @@ export class AppComponent implements OnInit {
             break;
         }
       })
+    } else {
+      console.log("The current browser does not support service workers or the Angular Service Worker is not up and running");
     }
   }
 }

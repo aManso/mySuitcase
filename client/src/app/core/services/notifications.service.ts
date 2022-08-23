@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
 import { environment } from "src/environments/environment";
 import { SwPush } from '@angular/service-worker';
+import { FRONTEND_ERROR_TYPES } from "../const/frontend-errors";
 
 const PUBLIC_VAPID_KEY= "BN_Vaz62gKS1Mi6YS-6guChhEdg8J14bupDKzgh2rgeIcTwmGiDiblm96Emmkzlbakhk8Cy5sylcII65gVfHD7E";
 
@@ -36,6 +37,8 @@ export class NotificationsService {
             console.error("Could not suscribe to notifications", err);
             $addSubscriberResponse.error(err);
           })
+        } else {
+          $addSubscriberResponse.error(FRONTEND_ERROR_TYPES.NOTIFICATIONS_DISABLED);
         }
         return $addSubscriberResponse;
       }

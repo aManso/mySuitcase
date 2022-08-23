@@ -6,7 +6,7 @@ import { PWAInstallerService } from '../../services/pwa-installer.service';
 
 @Component({
   selector: 'pwa-installer',
-  styles: [``],
+  styles: [`.install-button{ display: flex; align-items: center; width: 160px; justify-content: space-between;}`],
   templateUrl: './pwa-installer.component.html',
 })
 export class PwaInstallerComponent implements AfterViewInit {
