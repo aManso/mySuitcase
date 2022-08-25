@@ -1,0 +1,23 @@
+:host {
+    min-height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+form {
+    margin: auto;
+    min-width: 850px;
+    z-index: 9999018;
+    position: relative;
+}
+
+.settings-img{
+    position: absolute;
+    bottom: 200px;
+    right: 25px;
+    border-radius: 60px;
+    z-index: 0;
+    height: 300px;
+}
+

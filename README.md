@@ -40,6 +40,7 @@ To-do list:
 
 ## Wiki
  Visit the wiki [here](https://github.com/aguadotzn/mySuitcase/wiki). 
+ In order to generate a vapid keys use this command: web-push generate-vapid-keys --json
 
 ## Contact
 Created by [@aManso](https://www.linkedin.com/in/alejandro-manso-026a2a2b/) - feel free to contact me!

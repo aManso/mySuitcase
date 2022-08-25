@@ -39,7 +39,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
   ],
   providers: [
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true} },
     { provide: MYSUITCASE_CONFIG_TOKEN, useValue: MYSUITCASE_CONFIG }
   ],
   bootstrap: [AppComponent]

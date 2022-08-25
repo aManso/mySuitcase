@@ -65,6 +65,7 @@ export class LoginService {
       $userResponse.next(this._userService.activeUser);
     }, (error)=> {
       console.log(error);
+      $userResponse.error(error);
     });
     return $userResponse;
   }

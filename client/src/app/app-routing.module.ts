@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'login', loadChildren: () => import('./core/login/login.module').then(m => m.LoginModule) },
   { path: 'register', loadChildren: () => import('./public/register/register.module').then(m => m.RegisterModule) },
+  { path: 'settings', loadChildren: () => import('./core/settings/settings.module').then(m => m.SettingsModule) },
   { path: '', redirectTo: '', pathMatch: 'full'},
   // Wildcard route for a 404 page
   { path: 'home', redirectTo: '' },
@@ -15,7 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
-  exports: [RouterModule]
+  imports:    [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  exports:    [RouterModule],
 })
 export class AppRoutingModule { }
