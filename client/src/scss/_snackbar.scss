@@ -1,0 +1,16 @@
+@import 'variables';
+
+.success-snackbar {
+    background-color: $success-color;
+}
+
+.error-snackbar {
+    background-color: $error-color;
+}
+
+.error-snackbar, .success-snackbar {
+    color: white;
+    /* position: absolute;
+    top: calc(40px);
+    left: calc(50% - 220px); */
+}

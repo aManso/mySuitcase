@@ -8,5 +8,19 @@
 .logo {
   height: auto;
   width: auto;
-  max-width: 50px;
+  max-width: 100px;
+}
+
+.menu_nav--icons {
+  mat-icon {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.active-link {
+  mat-icon {
+    color: #c2483d;
+  }
 }

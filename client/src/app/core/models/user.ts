@@ -11,7 +11,8 @@ export interface User {
   };
   admin: boolean;
   isPremium?: boolean;
-  age: number;
+  age?: number;
+  gender?: boolean;
   email: string;
   joiningDate: Date;
   name: string;

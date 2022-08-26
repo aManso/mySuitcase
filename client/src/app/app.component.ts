@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { AppConfig, MYSUITCASE_CONFIG, MYSUITCASE_CONFIG_TOKEN } from './app.config';
+import { AppConfig, MYSUITCASE_CONFIG_TOKEN } from './app.config';
 import { SwUpdate } from '@angular/service-worker'
 
 @Component({
