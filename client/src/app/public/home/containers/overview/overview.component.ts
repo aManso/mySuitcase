@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { RemoveDialogComponent } from "./dialog/remove-dialog.component";
 import { SimpleOutput } from "../../../../core/models/shared";
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME} from "../../../../core/config/config";
+import { EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME } from "../../../../core/config/config";
 
 @Component({
   selector: 'my-suitcase-overview',

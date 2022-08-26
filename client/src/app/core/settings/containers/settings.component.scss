@@ -5,11 +5,79 @@
     flex-direction: column;
 }
 
+.scrollable-area {
+    max-height: 350px;
+    overflow-y: scroll;
+}
+
 form {
     margin: auto;
-    min-width: 850px;
-    z-index: 9999018;
+    z-index: 1;
     position: relative;
+
+    .form-group {
+        margin-bottom: 5px;
+
+        .button-in-input {
+            cursor: pointer;
+            position: relative;
+            top: -5px;
+        }
+
+        &.form-group--enabled {
+            background-color: white;
+            padding: 10px;
+        }
+
+        .form-group-error {
+            font-size: 10.5;
+            display: flex;
+            padding-left: 10px;
+            margin-top: -15px;
+        }
+    }
+
+    .radio-group {
+        display: flex;
+        justify-content: space-evenly;
+        margin-left: 5px;
+    }
+
+    .details {
+        position: relative;
+        top: -17px;
+        right: 0;
+        text-align: end;
+        padding: 0 10px;
+    }
+
+    .gender-label {
+        display: flex;
+        font-weight: 300;
+        margin-top: 15px;
+        margin-left: 5px;
+    }
+
+    .small-hint {
+        display: flex;
+        margin-left: 15px;
+        font-size: 10.5px;
+    }
+
+    .mat-error--with-details {
+        display: inline-block;
+        max-width: 80%
+    }
+
+    .extra-fields-explanation {
+        display: flex;
+        justify-content: space-between;
+
+        .nav-link {
+            line-height: 8px;
+            text-decoration: underline;
+        }
+    }    
 }
 
 .settings-img{
@@ -20,4 +88,23 @@ form {
     z-index: 0;
     height: 300px;
 }
+
+.modify-buttons {
+    display: flex;
+    justify-content: end;
+
+    .edit-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        width: 175px;
+
+        mat-icon {
+            margin-left: 5px;
+        }
+    }
+}
+
 

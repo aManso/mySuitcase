@@ -1,0 +1,27 @@
+@import "./../../../../scss/variables";
+
+:host {
+    display: inline-block;
+    width: 100%;
+}
+
+.bottom-sheet-wrapper {
+    min-height: 400px;
+    max-width: 550px;
+
+    .bottom-sheet-content {
+        padding: 40px;
+        font-size: 16px;
+        font-family: cursive;
+        color: darksalmon;
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            font-size: 30px;
+        }
+    }
+    .close  {
+        color: $primary-color;
+    }
+}

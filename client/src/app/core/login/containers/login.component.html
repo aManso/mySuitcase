@@ -16,7 +16,7 @@
       <mat-label>Contraseña</mat-label>
       <input type="password" matInput formControlName="password" placeholder="Introduce la contraseñ">
       <mat-error *ngIf="loginForm.get('password').hasError('required')">
-        El campo Email es <strong>requerido</strong>
+        El campo Contraseña es <strong>requerido</strong>
       </mat-error>
       <mat-hint>La contraseña debe contener entre 6 y 20 caracteres, de los cuales 1 minúscula, 1 mayúscula, 1 número y 1 carácter especial</mat-hint>
     </mat-form-field>
