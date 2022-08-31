@@ -52,6 +52,15 @@
       }
     }
 
+    .overview-date, .overview-place, .overview-categories {
+      display: flex;
+
+      span {
+        line-height: 24px;
+        margin-left: 5px;
+      }
+    }
+
     .overview-actions {
       position: absolute;
       top: 15px;
