@@ -63,7 +63,10 @@ export class LoginService {
     this.getUser(this._sessionService.getIdToken()).subscribe((user: User) => {
       this._userService.activeUser = user;
       $userResponse.next(this._userService.activeUser);
-    }, (error)=> {
+    }, (error: HttpErrorResponse)=> {
+      if (error.status == 401) {
+        this._sessionService.removeToken();
+      }
       console.log(error);
       $userResponse.error(error);
     });
@@ -88,10 +91,9 @@ export class LoginService {
 
   public logout() {
     this._userService.activeUser = undefined;
-    sessionStorage.removeItem('activeUserToken');
-    localStorage.removeItem('activeUserToken');
+    this._sessionService.removeToken(true);
     this._sessionService.stopInterval();
     this.logged$.next(undefined);
-    this._router.navigate(['/']);
+    this._router.navigate(['home']);
   }
 }

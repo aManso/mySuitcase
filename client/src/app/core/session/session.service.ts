@@ -37,6 +37,15 @@ export class SessionService {
     return this._storageMethod;
   }
 
+  public removeToken(removeAll?: boolean) {
+    if (removeAll) {
+      sessionStorage.removeItem('activeUserToken');
+      localStorage.removeItem('activeUserToken');
+    } else {
+      this._storageMethod.removeItem('activeUserToken');
+    }
+  }
+
   public startSession(token: string, ) {
     // In case of first loading the app but having the user in the localStorage or sessionStorage
     if (!this._storageMethod && this._isThereActiveUser()) {
