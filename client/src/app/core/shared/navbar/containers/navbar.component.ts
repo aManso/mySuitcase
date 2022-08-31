@@ -8,7 +8,7 @@ import {LoginService} from '../../../login/login.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavBarComponent{
+export class NavBarComponent {
 
   public constructor(
     private _router: Router,
@@ -17,7 +17,15 @@ export class NavBarComponent{
   ) {}
 
   public goTo(path: string, data?: any) {
-    this._router.navigate([path, data]);
+    this._router.navigate(data ? [path, data] : [path]);
+  }
+
+  public goHome() {
+    if (this._router.url !== '/home') {
+      this.goTo('');
+    } else {
+      window.location.reload();
+    }
   }
 
   public logout(): void {

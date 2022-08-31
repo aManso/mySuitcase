@@ -1,3 +1,5 @@
+<navbar-component></navbar-component>
+
 <div class="container" *ngIf="dataReady">
   <div class="row">
     <form #itemForm="ngForm" class="form" (submit)="addNewItem(newItem, itemForm.controls['newItem'])">
@@ -184,3 +186,5 @@
     </div>
   </div>
 </ng-template>
+
+<footer-component></footer-component>
