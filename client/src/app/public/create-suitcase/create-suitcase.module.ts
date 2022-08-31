@@ -12,14 +12,19 @@ import { ItemListComponent } from "./components/item-list/item-list.component";
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SharedModule } from 'src/app/core/shared/shared.module';
 
 @NgModule({
   imports: [
+    // Angular
     CommonModule,
     FormsModule,
+    // App
+    SharedModule,
     CreateSuitcaseRoutingModule,
     WeatherPanelModule,
     MatInputModule,
+    // Angular Material
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
