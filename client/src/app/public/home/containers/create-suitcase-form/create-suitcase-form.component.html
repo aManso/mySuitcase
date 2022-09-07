@@ -47,18 +47,35 @@
       </div>
     </div>
     <div id="{{steps[3].id}}">
-      <div formArrayName="type">
-        <mat-label>Que tipo de viaje vas a realizar?</mat-label>
-        <div id="type_options">
-          <ng-container *ngFor="let option of getTypeControls(createSuitcaseForm.controls.type); let i=index" [formGroupName]="i">
-            <mat-checkbox class="" formControlName="selected">{{option.value.name}}</mat-checkbox>
-          </ng-container>
+      <mat-card class="type-options__card">
+        <div formArrayName="type">
+          <mat-label>Que tipo de viaje vas a realizar?</mat-label>
+          <div id="type_options">
+            <ng-container *ngFor="let option of getTypeControls(createSuitcaseForm.controls.type); let i=index" [formGroupName]="i">
+              <mat-checkbox formControlName="selected">
+                <div class="category-description__container">
+                  <mat-icon class="icon">{{option.value.icon}}</mat-icon>
+                  <span>{{option.value.name}}</span>
+                </div>
+              </mat-checkbox>
+            </ng-container>
+          </div>
         </div>
-      </div>
-      <div *ngIf="isSportsSelected()" [formGroup]="sportForm">
-        <mat-checkbox class="" formControlName="diving">Buceo</mat-checkbox>
-        <mat-checkbox class="" formControlName="cycling">Ciclismo</mat-checkbox>
-      </div>
+        <div *ngIf="isSportsSelected()" [formGroup]="sportForm" id="type__sub-options">
+          <mat-checkbox class="" formControlName="diving">
+            <div class="category-description__container">
+              <mat-icon class="icon">water</mat-icon>
+              <span>Buceo</span>
+            </div>
+          </mat-checkbox>
+          <mat-checkbox class="" formControlName="cycling">
+            <div class="category-description__container">
+              <mat-icon class="icon">pedal_bike</mat-icon>
+              <span>Ciclismo</span>
+            </div>
+          </mat-checkbox>
+        </div>
+      </mat-card>
     </div>
 
     <div id="button-wrapper">
