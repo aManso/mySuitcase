@@ -10,13 +10,16 @@ import { TokenInterceptorService } from '../core/interceptor/token-interceptor.s
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Logger } from '../core/services/logger.service';
 import { AdminLogger } from './services/admin-logger.service';
+import { AdminNavBarModule } from './components/navbar/admin-navbar.module';
 
 @NgModule({
   imports: [
-    SharedModule,
     HttpClientModule,
+    // App
     SessionModule.forChild({MINUTES_TO_SHOW_COUNTDOWN: 30}),
     AdminRoutingModule,
+    AdminNavBarModule,
+    SharedModule,
   ],
   declarations: [AdminComponent],
   exports: [],

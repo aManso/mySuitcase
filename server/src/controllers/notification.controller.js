@@ -39,30 +39,61 @@ notificationCtrl.subscribe = async (req, res) => {
     res.json(response);
 };
 
-notificationCtrl.send = async (req, res) => {
-    const subscribers = await subscriberModel.find({ });
+notificationCtrl.send = async (req, res) => {    
+    const subscribers = await subscriberModel.find({});
     console.log("The current number of subscribers is ", subscribers.length);
     
-    let lastNewsletter = await newsletterModel.findOne().sort({created_at: -1});
+    console.log("fetching newsletter with id ", req.body.notificationId);
+    let lastNewsletter = await newsletterModel.findOne({_id: req.body.notificationId});
     console.log("Notification to be sent: ", lastNewsletter);
     if (lastNewsletter) {
-        Promise.all(subscribers.map((subscriber)=> {
-            console.log('subscriber', subscriber);
-            webpush.sendNotification(subscriber, JSON.stringify(lastNewsletter))
-        })).then(()=> {
-            res.status(200).json({message: "Newsletter succesfully sent"})
-        }).catch((err)=>{
-            console.log("Error sending notification, reason: ", err);
-            res.sendStatus(500);
-        })
+        try {
+            Promise.all(subscribers.map((subscriber)=> {
+                console.log('subscriber', subscriber);
+                webpush.sendNotification(subscriber, JSON.stringify({notification: lastNewsletter}))            
+            })).then(()=> {
+                res.status(200).json({message: "Newsletter succesfully sent"})
+            }).catch((err)=>{
+                console.log("Error sending notification, reason: ", err);
+                res.sendStatus(500);
+            })
+        } catch(e) {
+            console.log("Error sending notification, reason: ", e);
+            res.sendStatus(e.status);
+        }
     }
 };
 
-notificationCtrl.addNewsletter = async (req, res) => {
-    console.log("adding newsletter in the ddbb ", req.body);
-    const newsletter = new newsletterModel(req.body);
+notificationCtrl.addNotification = async (req, res) => {
+    console.log("retrieved notification: ", req.body.notification);
+    const newsletter = new newsletterModel(notificationCtrl.buildNotification(req.body.notification));
     const response = await newsletter.save();
     res.json(response);
+};
+
+notificationCtrl.fetchNotifications = async (req, res) => {
+    console.log('fetching notifications');
+    const newsletterOutput = await newsletterModel.find({ }).limit( 11 );
+
+    res.json({list: newsletterOutput});
+};
+
+notificationCtrl.buildNotification = function(notification) {
+    notification.data = {
+        dateOfArrival: new Date(),
+        primaryKey: 1
+    };
+    notification.vibrate = [100, 50, 100];
+    console.log("adding notification in the ddbb: ", notification);
+    return notification;
+};
+
+notificationCtrl.deleteNotification = async (req, res) => {
+    const notificationId = req.params.id;
+    console.log('removing notification: ', notificationId);
+    const output = await newsletterModel.findByIdAndRemove(notificationId);
+    console.log('notification removed: ', output);
+    res.json({success: true});
 };
 
 module.exports = notificationCtrl;

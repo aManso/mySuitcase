@@ -18,20 +18,26 @@ import { OverviewComponent } from './containers/overview/overview.component';
 import { RemoveDialogComponent } from "./containers/overview/dialog/remove-dialog.component";
 import { MaxSuitcasesReachedDialogComponent } from "./containers/home/max-suitcases-reached-dialog/max-suitcases-reached-dialog.component";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
 
   imports: [
+    // Angular
     CommonModule,
     SharedModule,
+    ReactiveFormsModule,
+    // App
     HomeRoutingModule,
+    SharedModule,
+    // Angular Material
+    MatCardModule,
     MatProgressBarModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
     MatButtonModule,
     MatDatepickerModule,
-    ReactiveFormsModule,
     MatCheckboxModule,
     MatDialogModule,
     MatNativeDateModule,

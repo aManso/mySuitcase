@@ -1,0 +1,43 @@
+<div class="notifications-wrapper">
+  <div class="header-button">
+    <button class="button button-hero mt-4 subscribe-button" (click)="create()">
+      <span>Nueva notificación</span>
+      <mat-icon aria-hidden="false" aria-label="Discard item">create new notification</mat-icon>
+    </button>
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Fecha de creación </th>
+        <td mat-cell *matCellDef="let element">{{element.data.dateOfArrival}}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Título </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="body">
+        <th mat-header-cell *matHeaderCellDef> Contenido </th>
+        <td mat-cell *matCellDef="let element"> {{element.body}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="icon">
+        <th mat-header-cell *matHeaderCellDef> Icono </th>
+        <td mat-cell *matCellDef="let element"> {{element.icon}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="send">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" class="buttons-cell"> 
+          <web-notification-send [notificationId]="element._id"></web-notification-send>
+          <button class="button button-hero mt-4 delete-button" (click)="deleteNotification(element._id)">
+            <mat-icon aria-hidden="false" aria-label="Discard item">delete</mat-icon>
+        </button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

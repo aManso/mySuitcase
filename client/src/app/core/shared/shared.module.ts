@@ -13,10 +13,12 @@ import { PwaInstallerComponent } from './pwa-installer/pwa-installer.component';
 import { WebNotificationSuscriberComponent } from './web-notification-suscriber/web-notification-suscriber.component';
 import { ExtraFieldsInfoBottomSheetComponent } from './extra-fields-info-bottom-sheet/extra-fields-info-bottom-sheet.component';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 
 @NgModule({
   declarations: [
     ErrorDialogComponent,
+    InfoDialogComponent,
     PwaInstallerComponent,
     WebNotificationSuscriberComponent,
     ExtraFieldsInfoBottomSheetComponent,
@@ -39,6 +41,7 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
     PwaInstallerComponent,
     WebNotificationSuscriberComponent,
     ExtraFieldsInfoBottomSheetComponent,
+    InfoDialogComponent,
   ],
   providers: [],
 })
