@@ -5,6 +5,7 @@ export const BACKEND_ERROR_TYPES = {
     POP_UPS_BLOCKED: 'NotAllowedError',
     WRONG_PASSWORD: 'wrongPassword',
     EXISTING_EMAIL: 'existingEmail',
+    USER_NOT_FOUND: 'userNotFound',
 }
 
 export const BACKEND_ERRORS = {
@@ -23,5 +24,9 @@ export const BACKEND_ERRORS = {
     EXISTING_EMAIL: {
         title: 'El email ya existe',
         message: 'El email que intenta introducir ya existe en nuestra base de datos, por favor si es suyo y no recuerda la contraseña, pulse recordar contraseña en el área de login'
+    },
+    USER_NOT_FOUND: {
+        title: 'El usuario o la contraseña son incorrectos',
+        message: 'El usuario o la contraseña son incorrectos'
     },
 }

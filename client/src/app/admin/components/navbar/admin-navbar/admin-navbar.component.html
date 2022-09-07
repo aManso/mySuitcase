@@ -1,0 +1,27 @@
+<header class="header_area">
+  <div class="main_menu">
+    <nav class="navbar navbar-expand-lg ">
+      <div class="container box_1620">
+        <a class="navbar-brand" (click)="goHome()"><img class ="logo" src="assets/img/logo/logo.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+          <ul class="nav navbar-nav menu_nav menu_nav--texts justify-content-end">
+            <li matTooltip="Home" class="nav-item active" [routerLink]="['/home']"><a class="nav-link">home</a></li>
+            <li class="nav-item active"><a matTooltip="Maneja todas las notificaciones" class="nav-link" [routerLink]="['/admin/notifications']">Notificaciones</a></li>
+            <li matTooltip="Abandona la sesión" class="nav-item active" (click)="logout()"><a class="nav-link">Salir</a></li>
+          </ul>
+          <ul class="nav navbar-nav menu_nav menu_nav--icons justify-content-end">
+            <li matTooltip="Home" class="nav-item active" [routerLink]="['/home']" routerLinkActive="active-link"><a class="nav-link"><mat-icon>home</mat-icon></a></li>
+            <li class="nav-item active"><a matTooltip="Maneja todas las notificaciones" class="nav-link" [routerLink]="['/admin/notifications']"><mat-icon>notificationsactive</mat-icon></a></li>
+            <li matTooltip="Abandona la sesión" class="nav-item active" (click)="logout()"><a class="nav-link"><mat-icon>logout</mat-icon></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

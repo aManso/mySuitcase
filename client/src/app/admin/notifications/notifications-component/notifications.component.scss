@@ -1,0 +1,9 @@
+table {
+  width: 100%;
+
+  .buttons-cell {
+    display: flex;
+    justify-content: space-around;
+    height: 80px;
+  }
+}

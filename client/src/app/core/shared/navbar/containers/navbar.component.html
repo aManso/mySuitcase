@@ -19,7 +19,7 @@
             <li *ngIf="loginService.isLoggedIn()" matTooltip="Abandona la sesión" class="nav-item active" (click)="logout()"><a class="nav-link">Salir</a></li>
           </ul>
           <ul class="nav navbar-nav menu_nav menu_nav--icons justify-content-end">
-            <li *ngIf="(loginService.logged$ | async) && (loginService.logged$ | async).admin!"  matTooltip="Administración area" class="nav-item active" [routerLink]="['/admin']" routerLinkActive="active-link"><a class="nav-link"><mat-icon>adminpanelsettings</mat-icon></a></li>
+            <li *ngIf="(loginService.logged$ | async) && (loginService.logged$ | async).admin!"  matTooltip="Administración area" class="nav-item active" [routerLink]="['/admin']" routerLinkActive="active-link"><a class="nav-link"><mat-icon>admin_panel_settings</mat-icon></a></li>
             <li *ngIf="loginService.isLoggedIn()" matTooltip="Echa un vistazo a tus maletas ya creadas" class="nav-item active" [routerLink]="['/home']" [queryParams]="{}" [fragment]="loginService.isLoggedIn() ? 'mySuitcases' : ''"><a class="nav-link"><mat-icon>luggage</mat-icon></a></li>
             <li class="nav-item active"><a matTooltip="Informanos de cualquier incidente o sugerencia" class="nav-link" [routerLink]="['/contact']" routerLinkActive="active-link"><mat-icon>support</mat-icon></a></li>
             <li *ngIf="loginService.isLoggedIn()" class="nav-item active"><a matTooltip="Administra tu perfil y otras configuraciones" class="nav-link" [routerLink]="['/settings']" routerLinkActive="active-link"><mat-icon>settings</mat-icon></a></li>
