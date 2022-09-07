@@ -7,17 +7,15 @@ const actionSchema = new Schema({
 })
 
 const newsletterSchema = new Schema({
-    notification: {
-        title: {type: String, required: true},
-        body: {type: String, required: true},
-        icon: {type: String, required: true},
-        vibrate: {type: [Number]},
-        data: {
-            primaryKey: {type: Number},
-            dateOfArrival: {type: Date},
-        },
-        actions: [actionSchema],
+    title: {type: String, required: true},
+    body: {type: String, required: true},
+    icon: {type: String, required: true},
+    vibrate: {type: [Number]},
+    data: {
+        primaryKey: {type: Number},
+        dateOfArrival: {type: Date},
     },
+    actions: [actionSchema],
 });
 
 module.exports = mongoose.model('Newsletter', newsletterSchema);

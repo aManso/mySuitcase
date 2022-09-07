@@ -9,6 +9,7 @@ const routes: Routes = [
   {
     path: '', component: AdminComponent, children: [
       { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+      { path: 'notifications', loadChildren: () => import('./notifications/notifications.module').then(m => m.NotificationsModule) },
       { path: '', redirectTo: 'users', pathMatch: 'full' },
     ], canActivate: [AuthenticationGuard, AuthorizationGuard], canActivateChild: [AuthenticationGuard, AuthorizationGuard]
   },

@@ -79,10 +79,50 @@ $header-height: 50px;
 #type-form-field {
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
+  
+  .type-options__card {
+    width: 70%;
+    max-height: 300px;
+    overflow-y: scroll;
+  }
 
-  #type_options {
+  @media(max-width: 768px){
+    mat-card {
+      width: 100%;
+    }
+  }
+
+  #type_options, #type__sub-options {
     display: flex;
     flex-direction: column;
+    padding: 20px 0 0;
+
+    mat-checkbox {
+      display: flex;
+      padding: 0 0.5em;
+      padding-top: 0.5rem;
+
+      label {
+        display: block;
+      }
+
+      &:hover {
+        background-color: lavender;
+      }
+    }
+  }
+
+  #type__sub-options {
+    padding-left: 25px;
+  }
+
+  .category-description__container {
+    display: flex;
+
+    .icon {
+      margin-right: 5px;
+    }
   }
 }
 

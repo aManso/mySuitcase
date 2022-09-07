@@ -8,6 +8,8 @@ import { AuthenticationGuard } from '../../../core/guards/authentication.guard';
 import { passwordValidator } from '../../../core/validators/validators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME} from '../../../core/config/config';
+import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from '../../const/backend-errors';
+import { FRONTEND_ERRORS } from '../../const/frontend-errors';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 
@@ -69,13 +71,20 @@ export class LoginComponent implements OnInit{
           const targetUrl = this._authenticationGuard.lastIntendedTargetRoute ? this._authenticationGuard.lastIntendedTargetRoute : this.baseRoute;
           this._router.navigate([targetUrl]);
         } else {
-          console.error('The user or the password is wrong');
-          this._snackBar.open('The user or the password is wrong', '', {duration: GENERAL_SNACKBAR_TIME});
+          this._showGeneralError();
         }
       },
         (error: any) => {
-          this._snackBar.open('There has been a problem, please try again and if the problem persist contact us', '', {duration: EXTENDED_SNACKBAR_TIME});
+          if (error.error === BACKEND_ERROR_TYPES.USER_NOT_FOUND) {
+            this._snackBar.open(BACKEND_ERRORS.USER_NOT_FOUND.title, '', {duration: GENERAL_SNACKBAR_TIME});
+          } else {
+            this._showGeneralError();
+          }
         });
     }
+  }
+
+  private _showGeneralError() {
+    this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.title, FRONTEND_ERRORS.GENERAL_ERROR.message, {duration: EXTENDED_SNACKBAR_TIME});
   }
 }

@@ -10,6 +10,7 @@ import { TokenInterceptorService } from "../core/interceptor/token-interceptor.s
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginService } from '../core/login/login.service';
 import { DetailResolver } from '../core/resolvers/detail-resolver';
+import { NotificationsService } from './services/notifications.service';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { DetailResolver } from '../core/resolvers/detail-resolver';
     LoginService,
     SuitcaseService,
     DetailResolver,
+    NotificationsService,
     AuthenticationGuard,
     AuthorizationGuard,
     {

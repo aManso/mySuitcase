@@ -114,22 +114,27 @@ export class CreateSuitcaseFormComponent implements OnInit {
     const list = [
       {
         name: 'beach',
+        icon: 'beach_access',
         selected: false,
       },
       {
         name: 'mountain',
+        icon: 'filter_hdr',
         selected: false,
       },
       {
         name: 'sport',
+        icon: 'sports_soccer',
         selected: false,
       },
       {
         name: 'pet',
+        icon: 'pets',
         selected: false,
       },
       {
         name: 'baby',
+        icon: 'baby_changing_station',
         selected: false,
       },
     ];

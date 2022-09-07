@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { LoginService } from '../login/login.service';
 import { User } from "../models/user";
 import { UserService } from '../services/user.service';
 
@@ -9,18 +12,40 @@ export class AuthorizationGuard implements CanActivate, CanActivateChild {
 
   constructor(
     private _userService: UserService,
+    private _loginService: LoginService,
     private _router: Router,
     ) {}
 
-  public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean|Observable<boolean> {
     this.lastIntendedTargetRoute = state.url;
-    // we get the logged user if exists
-    // if there is not an active user or it has not admin rights, we redirect to login
-    if (!this._userService.activeUser || !this._userService.activeUser.admin) {
-      this._router.navigate(['/login']);
-      return false;
+    // if user is logged in because token is stored..
+    if(this._loginService.isLoggedIn()) {
+      // it could be that it tries to access via url, so the service has not stored the user yet, therefore we recover it
+      if (!this._userService.activeUser) {
+        return this._loginService.recoverActiveUser().pipe(
+          map((user:User)=>{
+            if (user) {
+              return this._checkAdminUser(user);
+            } else {
+              this._router.navigate(['/login']);
+              return false;
+            }
+          }),
+          catchError(()=> {
+            this._router.navigate(['/login']);
+            return of(false);
+          })
+        )
+      } else if (this._checkAdminUser(this._userService.activeUser)) {
+        // if there is not an active user or it has not admin rights, we redirect to login
+        return true;
+      }
     }
-    return true;
+    return false;
+  }
+
+  private _checkAdminUser(user: User): boolean {
+    return this._userService.activeUser && this._userService.activeUser.admin;
   }
 
   public canActivateChild(): boolean {
