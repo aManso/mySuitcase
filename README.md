@@ -25,6 +25,10 @@ THIS A TESTING TEXT.
 ## Setup
 npm install 
 
+## i18n
+1. npm run translate => ng extract-i18n --output-path src/locale => generates messages.xlf file with texts to be translated
+2. npm run start-es => ng serve --proxy-config proxy.conf.json --configuration=es => runs the app with the translated for a specific language
+
 ## Deploy Client
 npm start (with proxy.conf to distinguish PROD vs DEV - https://medium.com/@asfo/creando-un-proxy-en-angular-para-conectarte-a-un-api-local-y-de-producci%C3%B3n-106c34cd9815)
 

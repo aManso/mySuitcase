@@ -5,9 +5,9 @@
     <div class="container">
       <div class="row align-items-center text-center text-md-left">
         <div class="col-md-6 col-lg-5 mb-5 mb-md-0">
-          <h1>Olvídate de olvidar cosas en tu próximo destino.</h1>
-          <!-- <p> El hacer maletas siempre fue la parte más tediosa del viaje. Con <i>Mysuitcase</i> te ayudamos a optimizar ese proceso para que no olvides nada en tu próximo viaje. ¿Por qué perder el tiempo con las cosas que no lo requieren? </p> -->
-          <button class="button button-hero mt-4" (click)="goTo('login')">Login/Sign Up</button>
+          <h1 i18n>Forget about missing things for your next trip at home</h1>
+          <p i18n>Packing has always been the most boring part of the trip. With <i>Mysuitcase</i> we help you to optimize this process to not let you forget anything in your next trip. ¿Why loosing time with things that dont require it?</p>
+          <button class="button button-hero mt-4" (click)="goTo('login')" i18n>Login/Sign Up</button>
         </div>
         <div class="col-md-6 col-lg-7 col-xl-6 offset-xl-1">
           <img class="img-fluid" src="../../../../../assets/img/home/undraw_airport.svg" alt="">
@@ -22,7 +22,7 @@
     <div class="container">
       <div class="section-intro text-center pb-90px">
         <!--<img class="section-intro-img" src="../../../../../assets/img/logo/logo.png" alt="">-->
-        <h2>¿Cuál es tu tipo de viaje preferido?</h2>
+        <h2 i18n>What is your favourite trip?</h2>
       </div>
       <div class="row">
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
@@ -44,10 +44,8 @@
               </svg>
             </div>
             <div class="service-card-body">
-              <h3>¿Escapadas, desconexión?</h3>
-              <p>Las escapadas rurales son, generalmente, un tipo de viaje para aquellos que buscan un contacto directo
-                con la naturaleza.
-              </p>
+              <h3 i18n>A break or time to disconnect?</h3>
+              <p i18n>A countryside gateway are, generally, a kind of trip for those who pursue a direct contact with the nature.</p>
             </div>
           </div>
         </div>
@@ -70,8 +68,8 @@
               </svg>
             </div>
             <div class="service-card-body">
-              <h3>¿Sol, Playa?</h3>
-              <p>Unos días de descanso al sol en una playa de ensueño nunca son una mala idea.
+              <h3 i18n>¿Sun, beach?</h3>
+              <p i18n>Some days to rest and to sunbath in a dreamed beach is never a bad idea.
               </p>
             </div>
           </div>
@@ -95,10 +93,8 @@
               </svg>
             </div>
             <div class="service-card-body">
-              <h3>¿Turismo, cultura?</h3>
-              <p>Si te encanta descubrir los centros históricos de las principales ciudades del mundo este es tu tipo de
-                viaje
-              </p>
+              <h3 i18n>¿Turism, culture?</h3>
+              <p i18n>If you love finding out new the historic city centers all around the world, this is your trip</p>
             </div>
           </div>
         </div>
@@ -123,8 +119,8 @@
           </g>
         </g>
       </svg>
-      <h2>Actualmente estamos construyendo esta plataforma.</h2>
-      <p>Déjanos tu e-mail y pronto nos pondremos en contacto contigo.</p>
+      <h2 i18n>Currently we are building this website.</h2>
+      <p i18n>Leave us your e-mail and we will contact you as soon as possible.</p>
       <br>
       <div class="single-footer-widget">
         <div id="mc_embed_signup">
@@ -151,8 +147,8 @@
       <div class="container">
         <div class="row align-items-center text-center text-md-left">
           <div id="buttons-area" class="col-md-6 col-lg-5 mb-5 mb-md-0">
-            <h1>Vámonos de viaje!</h1>
-            <button class="button button-hero mt-4" (click)="createSuitcase()">Crear nueva</button>
+            <h1 i18n>Lets go for a trip!</h1>
+            <button class="button button-hero mt-4" (click)="createSuitcase()" i18n>Create new oe</button>
           </div>
           <div id="image-area" class="col-md-6 col-lg-7 col-xl-6 offset-xl-1">
             <img class="img-fluid" src="../../../../../assets/img/home/undraw_airport.svg" alt="maleta">
@@ -192,12 +188,12 @@
           </div>
         </div>
         <div class="col-lg-5 col-md-6 align-self-center about-content">
-          <h2>Preocúpate tan solo por el destino.</h2>
-          <p>Con <i>mySuitcase</i> podrás poner el foco en el sitio que vas a visitar. No volverás a olvidarte nada. Te
-            ayudamos a recordar aquelllo que más necesitas para cada uno de tus viajes.</p>
+          <h2 i18n>Just be concern about the next destination.</h2>
+          <p i18n>With <i>mySuitcase</i> you will be focus only on the place to visit. You wont forget things at home anymore. We help you
+            to remind all the belongings you will need for each and every of your trips.</p>
 
           <div class="pwa-installer__container" hidden >
-            <p>Usala desde cualquier lugar incluso sin conexión! Instala la aplicación para una mayor rapidez y experiencia.</p>
+            <p i18n>Use <i>mySuitcase</i> from anywhere even without connectivity! Install the app to take advantage of a faster and better experience.</p>
             <pwa-installer></pwa-installer>
           </div>
         </div>
@@ -211,10 +207,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-5 col-md-6 align-self-center about-content">
-          <h2>Estate a la última activando las notificaciones.</h2>
-          <p>Si quieres conocer todas las novedades y funcionalidades que constantemente se incrementan en <i>mySuitcase</i>,
-             tan solo háznoslo saber activando las notificaciones.</p>
-
+          <h2 i18n>Keep toned by using notifications.</h2>
+          <p i18n>If you would like to know all the latest news and features that we are steadily releasing in <i>mySuitcase</i>,
+            just let us know by activating the notifications.</p>
           <web-notification-suscriber></web-notification-suscriber>
         </div>
         <div class="col-lg-7 col-md-6 mb-4 mb-md-0 notification__img-container">

@@ -1,5 +1,5 @@
 <div id="create-form-header">
-  <span id="create-form-header__text">Empecemos</span>
+  <span id="create-form-header__text" i18n>Lets start</span>
   <button mat-mini-fab (click)="goPreviousQuestion()" *ngIf="currentQuestion > 1" color="primary" aria-label="Go back to previous question" class="button">
     <mat-icon>arrow_back</mat-icon>
   </button>
@@ -8,33 +8,33 @@
   <form [formGroup]="createSuitcaseForm" id="createSuitcaseForm">
     <div id="{{steps[0].id}}">
       <mat-form-field class="question" appearance="outline">
-        <mat-label>Nombre de tu maleta</mat-label>
-        <input matInput placeholder="Nombre" formControlName="name" required>
+        <mat-label i18n>Name of the suitcase</mat-label>
+        <input matInput i18n-placeholder placeholder="Name" formControlName="name" required>
         <mat-icon matSuffix class="icon">create</mat-icon>
-        <mat-hint>Max 20 caracteres</mat-hint>
-        <mat-error *ngIf="createSuitcaseForm.controls.name.invalid">El nombre de la maleta excede los 20 caracteres</mat-error>
+        <mat-hint i18n>Max 20 characters</mat-hint>
+        <mat-error *ngIf="createSuitcaseForm.controls.name.invalid" i18n>The name of the suitcase can exceed of 20 characters</mat-error>
       </mat-form-field>
     </div>
     <div id="{{steps[1].id}}">
       <mat-form-field appearance="fill">
-        <mat-label>Desde</mat-label>
+        <mat-label i18n>From</mat-label>
         <input matInput [matDatepicker]="pickerFrom" [min]="currentDate" formControlName="from">
         <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
         <mat-datepicker #pickerFrom></mat-datepicker>
-        <mat-error *ngIf="createSuitcaseForm.controls.from.errors">El formato de fecha es erroneo</mat-error>
+        <mat-error *ngIf="createSuitcaseForm.controls.from.errors" i18n="@@date_format-error">The date format is wrong</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Hasta</mat-label>
+        <mat-label i18n>To</mat-label>
         <input matInput [matDatepicker]="pickerTo" [min]="createSuitcaseForm.controls.from.value ? createSuitcaseForm.controls.from.value : currentDate" formControlName="to">
         <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
         <mat-datepicker #pickerTo></mat-datepicker>
-        <mat-error *ngIf="createSuitcaseForm.controls.to.errors">El formato de fecha es erroneo</mat-error>
+        <mat-error *ngIf="createSuitcaseForm.controls.to.errors" i18n="@@date_format-error">The date format is wrong</mat-error>
       </mat-form-field>
     </div>
     <div id="{{steps[2].id}}">
       <mat-form-field class="question pac-card" appearance="outline" id="pac-card">
-        <mat-label>Donde te vas?</mat-label>
-        <input id="pac-input" matInput placeholder="Elige una ciudad" required>
+        <mat-label i18n>We are you going?</mat-label>
+        <input id="pac-input" matInput i18n-placeholder placeholder="Choose a city" required>
         <mat-icon matSuffix class="icon">public</mat-icon>
       </mat-form-field>
 
@@ -49,7 +49,7 @@
     <div id="{{steps[3].id}}">
       <mat-card class="type-options__card">
         <div formArrayName="type">
-          <mat-label>Que tipo de viaje vas a realizar?</mat-label>
+          <mat-label i18n>What kind of trip are you going to do?</mat-label>
           <div id="type_options">
             <ng-container *ngFor="let option of getTypeControls(createSuitcaseForm.controls.type); let i=index" [formGroupName]="i">
               <mat-checkbox formControlName="selected">
@@ -65,13 +65,13 @@
           <mat-checkbox class="" formControlName="diving">
             <div class="category-description__container">
               <mat-icon class="icon">water</mat-icon>
-              <span>Buceo</span>
+              <span i18n>Diving</span>
             </div>
           </mat-checkbox>
           <mat-checkbox class="" formControlName="cycling">
             <div class="category-description__container">
               <mat-icon class="icon">pedal_bike</mat-icon>
-              <span>Ciclismo</span>
+              <span i18n>Cycling</span>
             </div>
           </mat-checkbox>
         </div>
@@ -79,8 +79,8 @@
     </div>
 
     <div id="button-wrapper">
-      <button mat-raised-button *ngIf="currentQuestion !== steps.length" [disabled]="isDisabled()" (click)="nextQuestion()" color="primary" class="button">Continuar</button>
-      <button mat-raised-button *ngIf="currentQuestion === steps.length" [disabled]="isDisabled()" (click)="saveSuitcase()" color="primary" class="button">Hacer la lista</button>
+      <button mat-raised-button *ngIf="currentQuestion !== steps.length" [disabled]="isDisabled()" (click)="nextQuestion()" color="primary" class="button" i18n="@@continue_button">Continue</button>
+      <button mat-raised-button *ngIf="currentQuestion === steps.length" [disabled]="isDisabled()" (click)="saveSuitcase()" color="primary" class="button" i18n>Make the list</button>
     </div>
   </form>
 </div>

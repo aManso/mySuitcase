@@ -2,15 +2,15 @@
 
 export const FRONTEND_MESSAGES = {
     CONFIRMATION_REMOVE_NOTIFICATION: {
-        title: '¡Atención!',
-        message: '¿Estás seguro que deseas continuar y borrar la notificación?'
+        title: $localize `¡Warning!`,
+        message: $localize `Are you sure that you want to continue and remove the notification?`
     },
     CONFIRMATION_SEND_NOTIFICATION: {
-        title: '¡Atención!',
-        message: '¿Estás seguro que deseas continuar y enviar la notificación a todos los suscriptores?'
+        title: $localize `¡Warning!`,
+        message: $localize `Are you sure that you want to continue and send the notification to all the subscribers?`
     },
     CONFIRMATION_REMOVED_NOTIFICATION: {
-        title: 'La notificación ha sido eliminada satisfactoriamente',
+        title: $localize `The notification has been successfully removed`,
         message: ''
     }
 }

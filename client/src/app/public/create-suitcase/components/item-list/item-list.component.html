@@ -1,76 +1,76 @@
 <ng-container *ngIf="itemList" [ngSwitch]="listName">
 
   <ng-container *ngSwitchCase="'common'">
-    <div class="card-header card-subheader" *ngIf="itemList.length > 0">Elementos comunes</div>
+    <div class="card-header card-subheader" *ngIf="itemList.length > 0" i18n>Common items</div>
   </ng-container>
   <ng-container *ngSwitchCase="'beach'">
     <div class="card-header card-subheader" *ngIf="itemList.length > 0">
-      <mat-icon matSuffix matTooltip="Playa" [matTooltipPosition]="'below'">beach_access</mat-icon>
-      <span>Playa</span>
+      <mat-icon matSuffix i18n-matTooltip matTooltip="Beach" [matTooltipPosition]="'below'">beach_access</mat-icon>
+      <span i18n="@@beach">Beach</span>
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="'mountain'">
     <div class="card-header card-subheader" *ngIf="itemList.length > 0">
-      <mat-icon matSuffix matTooltip="Montaña" [matTooltipPosition]="'below'">filter_hdr</mat-icon>
-      <span>Montaña</span>
+      <mat-icon matSuffix  i18n-matTooltip matTooltip="Mountain" [matTooltipPosition]="'below'">filter_hdr</mat-icon>
+      <span i18n="@@mountain">Mountain</span>
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="'sport'">
     <div class="card-header card-subheader" *ngIf="itemList.length > 0">
-      <mat-icon matSuffix matTooltip="Deporte" [matTooltipPosition]="'below'">sports_soccer</mat-icon>
-      <span>Deporte</span>
+      <mat-icon matSuffix i18n-matTooltip matTooltip="Sport" [matTooltipPosition]="'below'">sports_soccer</mat-icon>
+      <span i18n="@@sport">Sport</span>
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="'pet'">
     <div class="card-header card-subheader" *ngIf="itemList.length > 0">
-      <mat-icon matSuffix matTooltip="Mascota" [matTooltipPosition]="'below'">pets</mat-icon>
-      <span>Mascota</span>
+      <mat-icon matSuffix  i18n-matTooltip matTooltip="Pet" [matTooltipPosition]="'below'">pets</mat-icon>
+      <span i18n="@@pet">Pet</span>
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="'baby'">
     <div class="card-header card-subheader" *ngIf="itemList.length > 0">
-      <mat-icon matSuffix matTooltip="Bebé" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
-      <span>Bebé</span>
+      <mat-icon matSuffix  i18n-matTooltip matTooltip="Beby" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
+      <span i18n="@@baby">Baby</span>
     </div>
   </ng-container>
   <ng-container *ngFor="let item of itemList | slice:0:5; let i=index" [ngSwitch]="item.type">
     <ng-container *ngSwitchCase="'tech'">
       <div class="card-header card-subsubheader" *ngIf="showSubsubheader('tech', item.name)">
-        <mat-icon matSuffix matTooltip="Tecnología" [matTooltipPosition]="'below'">photo_camera</mat-icon>
-        <span>Tecnología</span>
+        <mat-icon matSuffix  i18n-matTooltip matTooltip="Technology" [matTooltipPosition]="'below'">photo_camera</mat-icon>
+        <span i18n="@@technology">Technology</span>
       </div>
       <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
     </ng-container>
     <ng-container *ngSwitchCase="'cleanliness'">
       <div class="card-header card-subsubheader" *ngIf="showSubsubheader('cleanliness', item.name)">
-        <mat-icon matSuffix matTooltip="Aseo" [matTooltipPosition]="'below'">clean_hands</mat-icon>
-        <span>Aseo personal</span>
+        <mat-icon matSuffix  i18n-matTooltip matTooltip="Cleanliness" [matTooltipPosition]="'below'">clean_hands</mat-icon>
+        <span i18n="@@cleanliness">Cleanliness</span>
       </div>
       <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
     </ng-container>
     <ng-container *ngSwitchCase="'clothes'">
       <div class="card-header card-subsubheader" *ngIf="showSubsubheader('clothes', item.name)">
-        <mat-icon matSuffix matTooltip="Ropa" [matTooltipPosition]="'below'">checkroom</mat-icon>
-        <span>Ropa</span>
+        <mat-icon matSuffix  i18n-matTooltip matTooltip="Clothe" [matTooltipPosition]="'below'">checkroom</mat-icon>
+        <span i18n="@@clothe">Clothe</span>
       </div>
       <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
     </ng-container>
     <ng-container *ngSwitchCase="'medicines'">
       <div class="card-header card-subsubheader" *ngIf="showSubsubheader('medicines', item.name)">
-        <mat-icon matSuffix matTooltip="Medicinas" [matTooltipPosition]="'below'">medical_services</mat-icon>
-        <span>Medicinas</span>
+        <mat-icon matSuffix i18n-matTooltip matTooltip="Medicines" [matTooltipPosition]="'below'">medical_services</mat-icon>
+        <span i18n="@@medicines">Medicines</span>
       </div>
       <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i };"></ng-container>
     </ng-container>
     <ng-container *ngSwitchCase="'documents'">
       <div class="card-header card-subsubheader" *ngIf="showSubsubheader('documents', item.name)">
-        <mat-icon matSuffix matTooltip="Documentos" [matTooltipPosition]="'below'">description</mat-icon>
-        <span>Documentación</span>
+        <mat-icon matSuffix i18n-matTooltip matTooltip="Documents" [matTooltipPosition]="'below'">description</mat-icon>
+        <span i18n="@@documents">Documents</span>
       </div>
       <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
     </ng-container>
     <ng-container *ngSwitchDefault>
-      <div class="card-header card-subsubheader" *ngIf="showSubsubheader('others', item.name)">Otros</div>
+      <div class="card-header card-subsubheader" *ngIf="showSubsubheader('others', item.name)" i18n>Others</div>
       <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
     </ng-container>
   </ng-container>

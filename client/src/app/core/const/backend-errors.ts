@@ -11,22 +11,22 @@ export const BACKEND_ERROR_TYPES = {
 export const BACKEND_ERRORS = {
     MAX_SUITCASES_REACHED: {
         title: 'Error',
-        message: 'Se ha alcanzado el numero máximo de maletas'
+        message: $localize `You have reached the maximum number of suitcases`
     },
     POP_UPS_BLOCKED: {
         title: 'Error',
-        message: 'Por favor, revisa que no tienes bloqueados los popups en el navegador. Podrás verlo tanto en la barra de navegación como en la configuración de tu navegador'
+        message: $localize `:@@popupsBlockedError:Please, make sure that you have enabled pop ups in your browser. You could check it in both the navigation bar and the browser configuration`
     },
     WRONG_PASSWORD: {
-        title: 'Usuario o Contraseña incorrecta',
-        message: 'El usuario,  la contraseña o ambas son incorrectas, por favor verifica que los datos estén correctos'
+        title: $localize `Wrong username or password`,
+        message: $localize `The username, the password or both are wrong. Please make sure that both fields are right`
     },
     EXISTING_EMAIL: {
-        title: 'El email ya existe',
-        message: 'El email que intenta introducir ya existe en nuestra base de datos, por favor si es suyo y no recuerda la contraseña, pulse recordar contraseña en el área de login'
+        title: $localize `The email already exists`,
+        message: $localize `The email that you are trying to introduce already exists in our database, please if its yours and you dont remember the password, click into the remember password button in the login area`
     },
     USER_NOT_FOUND: {
-        title: 'El usuario o la contraseña son incorrectos',
-        message: 'El usuario o la contraseña son incorrectos'
+        title: $localize `The username or the password are wrong`,
+        message: $localize `The username or the password are wrong`
     },
 }

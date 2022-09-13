@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
-    "start-prod": "ng build --configuration production && http-server -c-1 -p 8080 dist/my-suitcase/",
     "build": "ng build",
+    "translate": "ng extract-i18n --output-path src/locale",
+    "start": "ng serve --proxy-config proxy.conf.json",
+    "start-prod": "ng build --configuration=production,es && http-server -c-1 -p 8080 dist/my-suitcase/",
+    "start-es": "ng serve --proxy-config proxy.conf.json --configuration=es",    
     "test": "ng test",
     "posttest": "node -e 'console.log(\"Testing done!\")'",
     "lint": "ng lint",
