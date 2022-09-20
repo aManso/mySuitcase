@@ -1150,9 +1150,9 @@
           <context context-type="linenumber">150</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="881520fc927fe1390d4b38fd6b01329570dc61d6" datatype="html">
-        <source>Create new oe</source>
-        <target>Crear nueva</target>
+      <trans-unit id="06f901a716508105f8b062ae22f8c6faeb672ae3" datatype="html">
+        <source>Create new suitcase</source>
+        <target>Crear nueva maleta</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
           <context context-type="linenumber">151</context>

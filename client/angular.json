@@ -24,7 +24,6 @@
       "prefix": "my-suitcase",
       "i18n": {
         "locales": {
-          "en-US": "src/locale/messages.en.xlf",
           "es-ES": "src/locale/messages.es.xlf"
         }
       },
@@ -87,9 +86,6 @@
                   "maximumError": "5mb"
                 }
               ]
-            },
-            "en": {
-              "localize": ["en-US"]
             },
             "es": {
               "localize": ["es-ES"]
