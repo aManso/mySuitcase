@@ -126,6 +126,17 @@
           <context context-type="linenumber">11,12</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="df2ebc334ecf2252686644042ddade27cee3e3d0" datatype="html">
         <source>Introduce your password</source>
         <context-group purpose="location">
@@ -180,6 +191,20 @@
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="ea9777126c0d1176490d7967410a62aca96c75f7" datatype="html">
+        <source>Did you forget the password?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ee4caaab1683dd5dc85b93e5c83078d2a508ac2c" datatype="html">
+        <source>I already remember the passoword :)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="ba4aa6fe9ef811050ef8c5e82871a100e651a991" datatype="html">
         <source>The session is about to expire</source>
         <context-group purpose="location">
@@ -206,6 +231,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/session/timeout-dialog/timeout-dialog.component.html</context>
           <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">19,21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c7244373b4e597e9c88e4bc9f345086c67a7902c" datatype="html">
@@ -468,6 +497,17 @@
           <context context-type="linenumber">23,24</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="20e6397af2875eae30e7048026c8beeae5845bb5" datatype="html">
+        <source>My suitcases</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/overview/overview.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="cad3fe66c0a1d4f9cc19865175bfd1710ff1f1c7" datatype="html">
         <source>Inform us regarding any incident or suggestion</source>
         <context-group purpose="location">
@@ -477,6 +517,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
           <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="34746fb1c7f3d2194d99652bdff89e6e14c9c4f4" datatype="html">
+        <source>Contact</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">16,17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9e0296904e0d4044af817747c5a950ee2b33ef69" datatype="html">
@@ -490,8 +537,15 @@
           <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="b927389d8918bf1bedab46e6e3c3307750cac994" datatype="html">
-        <source>Suscribe to be up to date by retriving all the notifications</source>
+      <trans-unit id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8" datatype="html">
+        <source>Profile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="938e098241c5ab7a46aa2a4315573e646b2790c2" datatype="html">
+        <source>Subscribe to be up to date by retriving all the notifications</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
           <context context-type="linenumber">18</context>
@@ -499,6 +553,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
           <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d0336848b0c375a1c25ba369b3481ee383217a4f" datatype="html">
+        <source>Subscribe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">18,19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3fdc751b264ca9998e1542fcf5794e274cd56344" datatype="html">
@@ -513,16 +574,16 @@
         </context-group>
       </trans-unit>
       <trans-unit id="install_button" datatype="html">
-        <source>Install </source>
+        <source>Install</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/pwa-installer/pwa-installer.component.html</context>
           <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="suscribe_button" datatype="html">
-        <source>Suscribe </source>
+      <trans-unit id="subscribe_button" datatype="html">
+        <source>Subscribe</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/web-notification-suscriber/web-notification-suscriber.component.html</context>
+          <context context-type="sourcefile">src/app/core/shared/web-notification-subscriber/web-notification-subscriber.component.html</context>
           <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
@@ -824,6 +885,62 @@
           <context context-type="linenumber">83</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="5340475093705470306" datatype="html">
+        <source>Name of the suitcase</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7236289518700817629" datatype="html">
+        <source>Dates of the trip</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3841120733064423622" datatype="html">
+        <source>Place of the trip</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="category_beach" datatype="html">
+        <source>beach</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="category_mountain" datatype="html">
+        <source>mountain</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="category_sport" datatype="html">
+        <source>sport</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">126</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="category_pet" datatype="html">
+        <source>pet</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">131</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="category_baby" datatype="html">
+        <source>baby</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">136</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="856408099070f83cf0b14184ae8df46c8c47acae" datatype="html">
         <source>Forget about missing things for your next trip at home</source>
         <context-group purpose="location">
@@ -978,25 +1095,11 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="20e6397af2875eae30e7048026c8beeae5845bb5" datatype="html">
-        <source>My suitcases</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/overview/overview.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="90ea172326e057fa68ebb225c58fb6e413523f92" datatype="html">
         <source>Introduce your username</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
           <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="password" datatype="html">
-        <source>Password</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
-          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="37c15d60d7c22d3688c885aa5a810a72a5932cb7" datatype="html">

@@ -114,6 +114,8 @@
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
+
+      
       <trans-unit id="87d43df9f989773147beece1718fadd9e32167fd" datatype="html">
         <source>Introduce your email</source>
         <target>Introduce tu email</target>
@@ -136,6 +138,18 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
           <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <target>Contraseña</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="df2ebc334ecf2252686644042ddade27cee3e3d0" datatype="html">
@@ -194,6 +208,23 @@
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="ea9777126c0d1176490d7967410a62aca96c75f7" datatype="html">
+        <source>Did you forget the password?</source>
+        <target>¿Olvidaste la contraseña?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ee4caaab1683dd5dc85b93e5c83078d2a508ac2c" datatype="html">
+        <source>I already remember the passoword :)</source>
+        <target>Ya me acuerdo de la contraseña :-)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+
       <trans-unit id="ba4aa6fe9ef811050ef8c5e82871a100e651a991" datatype="html">
         <source>The session is about to expire</source>
         <target>La sesión está a punto de expirar</target>
@@ -216,6 +247,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/session/timeout-dialog/timeout-dialog.component.html</context>
           <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">19,21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c7244373b4e597e9c88e4bc9f345086c67a7902c" datatype="html">
@@ -500,7 +535,7 @@
       </trans-unit>
       <trans-unit id="33fb7a0b7a82e4185b22b1e6a7fc73d44ee734d7" datatype="html">
         <source>Have a look to the list of your already created suitcases</source>
-        <target>Echa un oko a la lista de tus maletas ya creadas</target>
+        <target>Echa un ojo a la lista de tus maletas ya creadas</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
           <context context-type="linenumber">15,16</context>
@@ -508,6 +543,17 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
           <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="20e6397af2875eae30e7048026c8beeae5845bb5" datatype="html">
+        <source>My suitcases</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/overview/overview.component.html</context>
+          <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cad3fe66c0a1d4f9cc19865175bfd1710ff1f1c7" datatype="html">
@@ -522,6 +568,14 @@
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="34746fb1c7f3d2194d99652bdff89e6e14c9c4f4" datatype="html">
+        <source>Contact</source>
+        <target>Contacto</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="9e0296904e0d4044af817747c5a950ee2b33ef69" datatype="html">
         <source>Manage your profile and other settings</source>
         <target>Gestiona tu perfil y otras configuraciones</target>
@@ -534,8 +588,15 @@
           <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="b927389d8918bf1bedab46e6e3c3307750cac994" datatype="html">
-        <source>Suscribe to be up to date by retriving all the notifications</source>
+      <trans-unit id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8" datatype="html">
+        <source>Profile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="938e098241c5ab7a46aa2a4315573e646b2790c2" datatype="html">
+        <source>Subscribe to be up to date by retriving all the notifications</source>
         <target>Suscribete para estar al dia con nuestras notificaciones</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
@@ -544,6 +605,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
           <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d0336848b0c375a1c25ba369b3481ee383217a4f" datatype="html">
+        <source>Subscribe</source>
+        <target>Suscribirme</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">18,19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3fdc751b264ca9998e1542fcf5794e274cd56344" datatype="html">
@@ -558,24 +627,14 @@
           <context context-type="linenumber">27,29</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7e3d27e0e90e7d0bc46bc15efdef43ae4072eb45" datatype="html">
-        <source>Install </source>
-        <target>Instalar </target>
+      <trans-unit id="install_button" datatype="html">
+        <source>Install</source>
+        <target>Instalar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/pwa-installer/pwa-installer.component.html</context>
           <context context-type="linenumber">2</context>
         </context-group>
         <note priority="1" from="description">install</note>
-        <note priority="1" from="meaning">button</note>
-      </trans-unit>
-      <trans-unit id="bd46757086233b8b737db9e91f3680291c5f3cee" datatype="html">
-        <source>Suscribe </source>
-        <target>Suscríbeme</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/web-notification-suscriber/web-notification-suscriber.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-        <note priority="1" from="description">suscribe</note>
         <note priority="1" from="meaning">button</note>
       </trans-unit>
 
@@ -796,6 +855,8 @@
           <context context-type="linenumber">73,74</context>
         </context-group>
       </trans-unit>
+      
+
       <trans-unit id="8c4f177cdc222e765cce298020f5ec719f789c19" datatype="html">
         <source>Lets start</source>
         <target>Comenzemos</target>
@@ -920,7 +981,70 @@
           <context context-type="linenumber">83</context>
         </context-group>
       </trans-unit>
-
+      <trans-unit id="5340475093705470306" datatype="html">
+        <source>Name of the suitcase</source>
+        <target>Nombre de la maleta</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7236289518700817629" datatype="html">
+        <source>Dates of the trip</source>
+        <target>Fechas del viaje</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3841120733064423622" datatype="html">
+        <source>Place of the trip</source>
+        <target>Destino del viaje</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="category_beach" datatype="html">
+        <source>beach</source>
+        <target>Playa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="category_mountain" datatype="html">
+        <source>mountain</source>
+        <target>Montaña</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="category_sport" datatype="html">
+        <source>sport</source>
+        <target>Deporte</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">126</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="category_pet" datatype="html">
+        <source>pet</source>
+        <target>Mascota</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">131</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="category_baby" datatype="html">
+        <source>baby</source>
+        <target>Bebé</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
+          <context context-type="linenumber">136</context>
+        </context-group>
+      </trans-unit>
 
       <trans-unit id="856408099070f83cf0b14184ae8df46c8c47acae" datatype="html">
         <source>Forget about missing things for your next trip at home</source>
@@ -1034,7 +1158,7 @@
           <context context-type="linenumber">151</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="bfe453a47f31efa2743da236455a361e12a1a182" datatype="html">
+      <trans-unit id="1b5f0378bf141163358c547b10cf3bef3ef94662" datatype="html">
         <source>Just be concern about the next destination.</source>
         <target>Solo preocupate de tu próximo destino.</target>
         <context-group purpose="location">
@@ -1044,6 +1168,7 @@
       </trans-unit>
       <trans-unit id="ccbe6cfd32bf087231b448ea2f507b1a87ce84fb" datatype="html">
         <source>With <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> you will be focus only on the place to visit. You wont forget things at home anymore. We help you to remind all the belongings you will need for each and every of your trips.</source>
+        <target>Con <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> te centrarás solamente en el lugar a visitar. No volverás a olvidar cosas en casa nunca más. Te ayudamos a recordar todas tus pertenencias que necesitarás para cada viaje.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
           <context context-type="linenumber">192,193</context>
@@ -1067,7 +1192,7 @@
       </trans-unit>
       <trans-unit id="33eaa5537b1f4127515959baad6bb4705b7a5b81" datatype="html">
         <source>If you would like to know all the latest news and features that we are steadily releasing in <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>, just let us know by activating the notifications.</source>
-        <target>Si quieres conocer todas las novedades y funcionalidades que constantemente se incrementan en <i>mySuitcase</i>, tan solo háznoslo saber activando las notificaciones.</target>
+        <target>Si quieres conocer todas las novedades y funcionalidades que constantemente se incrementan en <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>, tan solo háznoslo saber activando las notificaciones.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
           <context context-type="linenumber">211,212</context>
@@ -1108,15 +1233,7 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-
-      <trans-unit id="20e6397af2875eae30e7048026c8beeae5845bb5" datatype="html">
-        <source>My suitcases</source>
-        <target>Mis maletas</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/overview/overview.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit>
+      
 
       <trans-unit id="90ea172326e057fa68ebb225c58fb6e413523f92" datatype="html">
         <source>Introduce your username</source>
@@ -1124,14 +1241,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
           <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="password" datatype="html">
-        <source>Password</source>
-        <target>Contraseña</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
-          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="92901aa36532ff9b0be8d438d82e12e898c9f4d2" datatype="html">

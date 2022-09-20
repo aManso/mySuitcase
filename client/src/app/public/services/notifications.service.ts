@@ -17,7 +17,7 @@ export class NotificationsService {
         private _swPush: SwPush,
     ) {}
 
-    public suscribeNotifications():Observable<any> {
+    public subscribeNotifications():Observable<any> {
         const $addSubscriberResponse = new Subject<void>();
         if (this._swPush.isEnabled) {
           this._swPush.requestSubscription({
@@ -34,7 +34,7 @@ export class NotificationsService {
                 }
                 )
           }).catch((err) => {
-            console.error("Could not suscribe to notifications", err);
+            console.error("Could not subscribe to notifications", err);
             $addSubscriberResponse.error(err);
           })
         } else {
