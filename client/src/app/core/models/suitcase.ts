@@ -49,9 +49,8 @@ export class Suitcase {
 
   print() { console.log(`${this.name} / ${this.date.from} - ${this.date.to} / ${this.place} - ${this.type} - ${this.isInProgress} - `); }
 
-  getPrintDate(): string {
-    // currently only in ES format
-    return new Date(this.date.from).toLocaleString('es-ES', this._dateOptions)  + ' - ' + new Date(this.date.to).toLocaleString('es-ES', this._dateOptions)
+  getPrintDate(localeId: string): string {
+    return new Date(this.date.from).toLocaleString(localeId, this._dateOptions)  + ' - ' + new Date(this.date.to).toLocaleString(localeId, this._dateOptions)
   }
 
   getPrintPlace(): string {

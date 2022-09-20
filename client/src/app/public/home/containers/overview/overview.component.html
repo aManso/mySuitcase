@@ -41,7 +41,7 @@
                 <div class="media-body">
                   <div class="overview-date">
                     <mat-icon matSuffix class="icon">date_range</mat-icon>
-                    <span class="align-middle">{{suitcaseList[i].getPrintDate()}}</span>
+                    <span class="align-middle">{{suitcaseList[i].getPrintDate(localeId)}}</span>
                   </div>
                   <div class="overview-place">
                     <mat-icon matSuffix class="icon">public</mat-icon>
@@ -102,7 +102,7 @@
                 <div class="media-body">
                   <div class="overview-date">
                     <mat-icon matSuffix class="icon">date_range</mat-icon>
-                    <span class="align-middle">{{suitcaseList[i+1].getPrintDate()}}</span>
+                    <span class="align-middle">{{suitcaseList[i+1].getPrintDate(localeId)}}</span>
                   </div>
                   <div class="overview-place">
                     <mat-icon matSuffix class="icon">public</mat-icon>
