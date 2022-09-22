@@ -5,1323 +5,600 @@
       <trans-unit id="5780453321491708967" datatype="html">
         <source>You have reached the maximum number of suitcases</source>
         <target>Has alcanzado el numero maximo de maletas</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/backend-errors.ts</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="popupsBlockedError" datatype="html">
         <source>Please, make sure that you have enabled pop ups in your browser. You could check it in both the navigation bar and the browser configuration</source>
         <target>Por favor, revisa que no tienes bloqueados los popups en el navegador. Podrás verlo tanto en la barra de navegación como en la configuración de tu navegador</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/backend-errors.ts</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="7527980706824212298" datatype="html">
         <source>Wrong username or password</source>
         <target>Nombre de usuario o contraseña incorreta</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/backend-errors.ts</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="333768593308235153" datatype="html">
         <source>The username, the password or both are wrong. Please make sure that both fields are right</source>
         <target>El nombre de usuario, la contraseña o ambos son erroneos. Por favor, asegurate que ambos campos son correctos</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/backend-errors.ts</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="2768429103403819759" datatype="html">
         <source>The email already exists</source>
         <target>El email ya existe</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/backend-errors.ts</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="1459855967387548725" datatype="html">
         <source>The email that you are trying to introduce already exists in our database, please if its yours and you dont remember the password, click into the remember password button in the login area</source>
         <target>El email que intenta introducir ya existe en nuestra base de datos, por favor si es suyo y no recuerda la contraseña, pulse recordar contraseña en el área de login</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/backend-errors.ts</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="2205135423735679329" datatype="html">
         <source>The username or the password are wrong</source>
         <target>El usuario o la contraseña son incorrectos</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/backend-errors.ts</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/backend-errors.ts</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="14538843060764517" datatype="html">
         <source>There has been a problem, please try again and if the problem persist contact us</source>
         <target>Ha habido un problema, por favor intentalo de nuevo y si el problema persiste contactanos</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/frontend-errors.ts</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="2633772940379156076" datatype="html">
         <source>Notifications are not enabled for this device</source>
         <target>Las notificaciones no están disponibles para este dispositivo</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/frontend-errors.ts</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="4735662025046300823" datatype="html">
         <source>¡Warning!</source>
         <target>¡Alerta!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/frontend-messages.ts</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/frontend-messages.ts</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="856874282816321364" datatype="html">
         <source>Are you sure that you want to continue and remove the notification?</source>
         <target>¿Estás seguro que deseas continuar y borrar la notificación?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/frontend-messages.ts</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="1634540976915061112" datatype="html">
         <source>Are you sure that you want to continue and send the notification to all the subscribers?</source>
         <target>¿Estás seguro que deseas continuar y enviar la notificación a todos los suscriptores?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/frontend-messages.ts</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="2527123170132148402" datatype="html">
         <source>The notification has been successfully removed</source>
         <target>La notificación ha sido eliminada satisfactoriamente</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/const/frontend-messages.ts</context>
-          <context context-type="linenumber">13</context>
-        </context-group>
       </trans-unit>
-
-      
       <trans-unit id="87d43df9f989773147beece1718fadd9e32167fd" datatype="html">
         <source>Introduce your email</source>
         <target>Introduce tu email</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="cde9db13a7846e5aebee03adc0f22f4ca217a140" datatype="html">
         <source> the e-mail format is not valid </source>
         <target>el formato del email no es válido</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
-          <context context-type="linenumber">8,10</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="1a40cd9cdb3da1af9a21b8c83b906c86774b2f38" datatype="html">
         <source> The field Email is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requered<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <target>El campo email es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
-          <context context-type="linenumber">11,12</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="password" datatype="html">
         <source>Password</source>
         <target>Contraseña</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="df2ebc334ecf2252686644042ddade27cee3e3d0" datatype="html">
         <source>Introduce your password</source>
         <target>Introduce tu contraseña</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="d9f7f70c6ad29cee7d98800afd6126f8ccdebb40" datatype="html">
         <source> The field password is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requered<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <source> El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
-          <context context-type="linenumber">18,19</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="pass_requirements" datatype="html">
         <source>The password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</source>
         <target>La contraseña debe contener entre 6 y 20 caracteres e incluir al menos 1 minúscula, 1 mayúscula, 1 número y 1 carácter especial</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">57,59</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="af3f7d5887abc4d1e4f11fcac61b7a4f12b7cfe9" datatype="html">
         <source>Rememberme</source>
         <target>Recuerdame</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="dead4eb38a801bf6380c1586a0265284228162bf" datatype="html">
         <source>Go ahead!</source>
         <target>Adelante!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="14fedea5a910bf44566298f9811b1542a6ab3989" datatype="html">
         <source>I am new, I want to start!</source>
         <target>Soy nuevo, quiero empezar!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="ea9777126c0d1176490d7967410a62aca96c75f7" datatype="html">
         <source>Did you forget the password?</source>
         <target>¿Olvidaste la contraseña?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
-          <context context-type="linenumber">34</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="ee4caaab1683dd5dc85b93e5c83078d2a508ac2c" datatype="html">
         <source>I already remember the passoword :)</source>
         <target>Ya me acuerdo de la contraseña :-)</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/login/containers/login.component.html</context>
-          <context context-type="linenumber">36</context>
-        </context-group>
       </trans-unit>
-
       <trans-unit id="ba4aa6fe9ef811050ef8c5e82871a100e651a991" datatype="html">
         <source>The session is about to expire</source>
         <target>La sesión está a punto de expirar</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/session/timeout-dialog/timeout-dialog.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="80d8ea8d311e728d4113eb2ffee5f0666100f276" datatype="html">
         <source>The session is going to expire in </source>
         <target>La sesión está a punto de expirar en </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/session/timeout-dialog/timeout-dialog.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="38bd5794dbe84081cfa7867e876245e1ddae93e7" datatype="html">
         <source>seconds</source>
         <target>segundos</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/session/timeout-dialog/timeout-dialog.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-      </trans-unit>      
+      </trans-unit>
       <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
         <source>Logout</source>
         <target>Salir</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/session/timeout-dialog/timeout-dialog.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">19,20</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="c7244373b4e597e9c88e4bc9f345086c67a7902c" datatype="html">
         <source>Stay</source>
         <target>Permanecer</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/session/timeout-dialog/timeout-dialog.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
       </trans-unit>
-
       <trans-unit id="see_button" datatype="html">
         <source>See</source>
         <target>Ver</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">8</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="edit_button" datatype="html">
         <source>Edit</source>
         <target>Editar</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="save_button" datatype="html">
         <source>Save</source>
         <target>Guardar</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/dialog/save-dialog.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="name" datatype="html">
         <source>Name</source>
         <target>Nombre</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">24</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="3dd984fbcc3f5648878294b217dcc561a276915a" datatype="html">
         <source> The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <target> El campo nombre es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">26,27</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="email" datatype="html">
         <source>Email</source>
         <target>Email</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">33</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="a8f3f64b6bb3d430ff34aee268276500a0e066fb" datatype="html">
         <source> The email format is not valid </source>
         <target> El formato de email no es válido </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">35,37</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="b7fdc80a3a81472ab6beab055b2d591da6f4a561" datatype="html">
         <source> The field email <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <target> El campo email es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">38,39</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="4ec731ab596dbd3d8f3d0e58fbf717dc4d134540" datatype="html">
         <source>I want to change the password</source>
         <target>Quiero cambiar la contraseña</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">48</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="3d89cd5cc4704d55c2bdecdf80778b4bfd39a026" datatype="html">
         <source> The field pasword is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <target>El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">49,50</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="pass_requirements-error" datatype="html">
         <source> The field password <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>does not match the requirements<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. You can check this requirements in the detail´s dropdown. </source>
         <target>El campo contraseña <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>no cumple con los requisitos<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Puedes comprobar estos requisitos en el desplegable de detalle.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">52,54</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">66,68</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="18c96743c3835e5d3d8af54cac565ca6376798e9" datatype="html">
         <source>Introduce the new password</source>
         <target>Introduce tu contraseña</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">61</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="080ef2fac50eb09fa8ab5ea6e33483a39bf6dedf" datatype="html">
         <source> The field pasword is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. If you do not wish the password change, please desactive this option </source>
         <target>El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Si no deseas un cambio de contraseña, por favor desativa esta opción</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">63,65</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="c3f0b4b1ab9b6623222a03602042d3a4b5c0f4a5" datatype="html">
         <source>Other data</source>
         <target>Otros datos</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">73</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="c980d848a375e5604d1eee3ccd556db082ed9e2f" datatype="html">
         <source>I want to know why these extra data is needed to make a list to pack a suitcase.</source>
         <target>Quiero saber por qué es necesario datos extra para hacer una maleta.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">75</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="2e6be334a2152f179a557167f98ce4459ff9a2f9" datatype="html">
         <source>Age</source>
         <target>Edad</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">80</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="06b7084268bc31b02b5c00476f2f877253307717" datatype="html">
         <source>Introduce your age</source>
         <target>Introduce tu edad</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">81</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="optional" datatype="html">
         <source>Optional</source>
         <target>Opcional</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">82</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">92</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="003d4f5e4909ccf01b6a204c688fd6dab15c20bd" datatype="html">
         <source>Gender</source>
         <target>Género</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">87</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="097b5dfee5665aa0f7daba8b696acecde6445474" datatype="html">
         <source>Male</source>
         <target>Hombre</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">89</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="18f3bafdc69b800737e303bc1cb0753bd9dd3f32" datatype="html">
         <source>Female</source>
         <target>Mujer</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/settings/containers/settings.component.html</context>
-          <context context-type="linenumber">90</context>
-        </context-group>
       </trans-unit>
-
       <trans-unit id="ok_button" datatype="html">
-        <source>ok</source>
-        <target>Ok</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/error-dialog/error-dialog.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
+        <source>Ok</source>
+        <target state="new">Ok</target>
         <note priority="1" from="description">ok</note>
         <note priority="1" from="meaning">button</note>
       </trans-unit>
       <trans-unit id="802f5800e4abf10a8986e01d094730f9bd1a65e3" datatype="html">
         <source>In <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> we help you to pack your suitcase for your trip according to the options your configure while you create your suitcase, providing suggestions of items that might be useful for a trip of those characteristics. </source>
-        <target>En  <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> te ayudamos a hacer la maleta para tu viaje según las opciones que configures mientras estás creando tu maleta, aportando recomendaciones de elementos que podrían ser útiles en un viaje de esas características. </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/extra-fields-info-bottom-sheet/extra-fields-info-bottom-sheet.component.html</context>
-          <context context-type="linenumber">5,7</context>
-        </context-group>
+        <target>En <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> te ayudamos a hacer la maleta para tu viaje según las opciones que configures mientras estás creando tu maleta, aportando recomendaciones de elementos que podrían ser útiles en un viaje de esas características. </target>
       </trans-unit>
       <trans-unit id="612c01fc906626a58ec7e0c9baea0c33d316e9e9" datatype="html">
         <source>Another thing that help us to make right suggestions is some personal data as the age or the gender</source>
         <target>Otra cosa que nos ayuda a realizar recomendaciones de elementos acertadas es otros datos como la edad y/o el género</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/extra-fields-info-bottom-sheet/extra-fields-info-bottom-sheet.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="2a3f0c731919c44e4eb62edb4b3963657c08ae02" datatype="html">
         <source>For instance, if you are 40 years old man, its possible that you could need a shave machine, or if your are 80 years old you could use a walking stick, so that you will find it as suggested item when making up your list.<x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon class=&quot;icon&quot;&gt;"/>elderly_woman<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon class=&quot;icon&quot;&gt;"/>elderly<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/></source>
         <target>Por ejemplo, si eres un hombre adulto de 40 años, es posible que puedas necesitar una maquinilla de afeitar, o si tienes 80 años podrías usar bastón, por lo que en tus listas te lo sugeriremos.<x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon class=&quot;icon&quot;&gt;"/>elderly_woman<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon class=&quot;icon&quot;&gt;"/>elderly<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/extra-fields-info-bottom-sheet/extra-fields-info-bottom-sheet.component.html</context>
-          <context context-type="linenumber">11,12</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="7bfcc571a1d74f738e47667407a25ef8a185cc8f" datatype="html">
         <source>Nevertheless, you will always be able to discard such a suggestions or to add any new item that does not appear as suggestion.</source>
         <target>Sin embargo, siempre podrás desechar tales sugerencias o añadir cualquier elemento que no conste como sugerencia.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/extra-fields-info-bottom-sheet/extra-fields-info-bottom-sheet.component.html</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="79b75a6be5480e449a02eb76a8f3724784881f7d" datatype="html">
         <source>Little by little we will improve our suggestions, so if you would like to enjoy of <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>more precise suggestions<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> add some more extra fields!</source>
         <target>Poco a poco iremos mejorando nuestras recomendaciones, por lo que si deseas <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>recomendaciones mas precisas<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> añade algún campo extra más!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/extra-fields-info-bottom-sheet/extra-fields-info-bottom-sheet.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="cancel_button" datatype="html">
         <source>Cancel</source>
         <source>Cancelar</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/info-dialog/info-dialog.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/dialog/save-dialog.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/overview/dialog/remove-dialog.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="bceb1370cd6010bedaa6f50894b9f61317c3ac7b" datatype="html">
         <source>Admin area</source>
         <target>Administración</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">14,15</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">28,29</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="408cb6073e60c5d966296a3207fc596adca75e01" datatype="html">
         <source>Admin</source>
         <target>Admin</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">14,15</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="33fb7a0b7a82e4185b22b1e6a7fc73d44ee734d7" datatype="html">
         <source>Have a look to the list of your already created suitcases</source>
         <target>Echa un ojo a la lista de tus maletas ya creadas</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">15,16</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">29,30</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="20e6397af2875eae30e7048026c8beeae5845bb5" datatype="html">
         <source>My suitcases</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">15,16</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/overview/overview.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="cad3fe66c0a1d4f9cc19865175bfd1710ff1f1c7" datatype="html">
         <source>Inform us regarding any incident or suggestion</source>
         <target>Infórmanos de cualquier incidente o sugerencia</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">16,17</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="34746fb1c7f3d2194d99652bdff89e6e14c9c4f4" datatype="html">
         <source>Contact</source>
         <target>Contacto</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">16,17</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="9e0296904e0d4044af817747c5a950ee2b33ef69" datatype="html">
         <source>Manage your profile and other settings</source>
         <target>Gestiona tu perfil y otras configuraciones</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">17,18</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">31</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8" datatype="html">
         <source>Profile</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">17,18</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="938e098241c5ab7a46aa2a4315573e646b2790c2" datatype="html">
         <source>Subscribe to be up to date by retriving all the notifications</source>
         <target>Suscribete para estar al dia con nuestras notificaciones</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="d0336848b0c375a1c25ba369b3481ee383217a4f" datatype="html">
         <source>Subscribe</source>
         <target>Suscribirme</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">18,19</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="3fdc751b264ca9998e1542fcf5794e274cd56344" datatype="html">
         <source>Log out</source>
         <target>Salir</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">19,21</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">19,20</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">33,34</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="a0843de0a64adcc7ee6a946408b6876cd8abdcae" datatype="html">
-        <source>English</source>
-        <target>Inglés</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">20,22</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1b2fa65763b744291e832a3c5fa0ce8641da2911" datatype="html">
-        <source>Spanish</source>
-        <target>Español</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">23,25</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">40,41</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="fe46ccaae902ce974e2441abe752399288298619" datatype="html">
         <source>Language</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">35</context>
-        </context-group>
       </trans-unit>
-      
       <trans-unit id="install_button" datatype="html">
         <source>Install</source>
         <target>Instalar</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/shared/pwa-installer/pwa-installer.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
         <note priority="1" from="description">install</note>
         <note priority="1" from="meaning">button</note>
       </trans-unit>
-
       <trans-unit id="28f45eab1d55b8ba4415fde26e300b1ee5a2dea2" datatype="html">
         <source>404: Page not found</source>
         <target>404: Page not found</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/not-found/not-found.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="58a064fe18b7f1cd11fa700cc9c445b5beee9895" datatype="html">
         <source> Oooops, It looks like you made a wrong suitcase. Go back to the main screen to start again.</source>
         <target>Oooops, parece que hiciste una maleta equivocada. Vuelve al menú principal para empezar de nuevo</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/not-found/not-found.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="back_button" datatype="html">
         <source>Go back</source>
         <target>Volver</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/not-found/not-found.component.html</context>
-          <context context-type="linenumber">19</context>
-        </context-group>
       </trans-unit>
-
       <trans-unit id="25400db298aa9e2aad12a9aa0c73b4404aff6752" datatype="html">
         <source>Save the suitcase</source>
         <target>Guardar la maleta</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/dialog/save-dialog.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="ca502a737da4a390f0b3cb4f9bca5b978ff8d460" datatype="html">
         <source>Are you sure that you want to save and finish the suitcase?</source>
         <target>¿Estás seguro que quieres guardar y finalizar la maleta?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/dialog/save-dialog.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="a5a0af89a66cb7397f18d60047d55ab98f29ea14" datatype="html">
         <source>Common items</source>
         <target>Elementos comunes</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">4,7</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="01a39a9fb06e195b5e4fa1660ecbb80688889900" datatype="html">
         <source>Beach</source>
         <target>Playa</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">8,9</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="beach" datatype="html">
         <source>Beach</source>
         <target>Playa</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">9,12</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="8210ae02a8c6175dd5b3de0f49482a03c2b7d6ea" datatype="html">
         <source>Mountain</source>
         <target>Montaña</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">14,15</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="mountain" datatype="html">
         <source>Mountain</source>
         <target>Montaña</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">15,19</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="b672b311199643fb80c4db973fceb27a336f876e" datatype="html">
         <source>Sport</source>
         <target>Deporte</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">20,21</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="sport" datatype="html">
         <source>Sport</source>
         <target>Deporte</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">21,25</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="441ba31f53ff0cda8be4cbfa164c00ae36a2116b" datatype="html">
         <source>Pet</source>
         <target>Mascota</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">26,27</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="pet" datatype="html">
         <source>Pet</source>
         <target>Mascota</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">27,30</context>
-        </context-group>
       </trans-unit>
-      <trans-unit id="2e79a19e8209038ea1fa6348b95f6b033c1efb02" datatype="html">
-        <source>Beby</source>
-        <target></target>Bebé
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">32,33</context>
-        </context-group>
-      </trans-unit>
+      <trans-unit id="acb92fd9031543d9b8ff174d45ed723be39cb01e" datatype="html"> <source>Baby</source> <target state="new"/>Bebé </trans-unit>
       <trans-unit id="baby" datatype="html">
         <source>Baby</source>
         <target>Bebé</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">33,36</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="05c9ac9298da9032c2316ef2330431f21a1aa255" datatype="html">
         <source>Technology</source>
         <target>Tecnología</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">39,40</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="technology" datatype="html">
         <source>Technology</source>
         <target>Tecnología</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">40,42</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="02a7b7f3d5f473612540eaaf071583c075ae99aa" datatype="html">
         <source>Cleanliness</source>
         <target>Aseo personal</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">46,47</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="cleanliness" datatype="html">
         <source>Cleanliness</source>
         <target>Aseo personal</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">47,49</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="4e88cfbdd9cc4e4ad314d83d3561f246455868e0" datatype="html">
         <source>Clothe</source>
         <target>Ropa</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">53,54</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="clothe" datatype="html">
         <source>Clothe</source>
         <target>Ropa</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">54,56</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="7edffe2a2f09a8c2944a475bb5fbd985961ae89c" datatype="html">
         <source>Medicines</source>
         <target>Medicinas</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">60,61</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="medicines" datatype="html">
         <source>Medicines</source>
         <target>Medicinas</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">61,63</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="9d51b3c90afda70700229d1b8a55371c13cb3bce" datatype="html">
         <source>Documents</source>
         <target>Documentos</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">67,68</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="documents" datatype="html">
         <source>Documents</source>
         <target>Documentos</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">68,70</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="2e77ab4db0c90cd71b6a0ef856724b21e4a53218" datatype="html">
         <source>Others</source>
         <target>Otros</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/create-suitcase/components/item-list/item-list.component.html</context>
-          <context context-type="linenumber">73,74</context>
-        </context-group>
       </trans-unit>
-      
-
       <trans-unit id="8c4f177cdc222e765cce298020f5ec719f789c19" datatype="html">
         <source>Lets start</source>
         <target>Comenzemos</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="1ba400d533d0b88a7996158a94f3c2b70fc62978" datatype="html">
         <source>Name of the suitcase</source>
         <target>Nombre de la maleta</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
         <source>Name</source>
         <target>Nombre</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="168c734e43604de4ba27522ac6bc44df109e010f" datatype="html">
         <source>Max 20 characters</source>
         <target>Max 20 caracteres</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="e3934bf67b73a812c8335b38a055c7a43486b1dd" datatype="html">
         <source>The name of the suitcase can exceed of 20 characters</source>
         <target>El nombre de la maleta no puede exceder de 20 caracteres</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="d5e0dbc9fd4651759df915cdc6ba26fe3f17475f" datatype="html">
         <source>From</source>
         <target>Desde</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="date_format-error" datatype="html">
         <source>The date format is wrong</source>
         <target>El formato de fecha es erróneo</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">24</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">31</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="63c9c3aa536dbd11120ae8feab62186c47838028" datatype="html">
         <source>To</source>
         <target>Hasta</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">27</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="2bc0707d5bac822b462921584d62c3ea46d4701c" datatype="html">
         <source>We are you going?</source>
         <target>¿A donde vas?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">36</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="e52c9171ae5c8034ed53e3cd62b95eef010136b2" datatype="html">
         <source>Choose a city</source>
         <target>Elige una ciudad</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="5c0bf703ccbad1fb159c93fa35a1b9ffcd709767" datatype="html">
         <source>What kind of trip are you going to do?</source>
         <target>¿Qué tipo de viaje vas a hacer?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">52</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="f8e34b8db458325fb576e4b56d3336518ec4db2b" datatype="html">
         <source>Diving</source>
         <target>Buceo</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">68</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="04c1c08714400a0e4656056a2ce008cecd52cb6b" datatype="html">
         <source>Cycling</source>
         <target>Ciclismo</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">74</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="continue_button" datatype="html">
         <source>Continue</source>
         <target>Continuar</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">82</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="376a5771abc3b4dce4cdf2e86dca0284d05da5a5" datatype="html">
         <source>Make the list</source>
         <target>Hacer la lista</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.html</context>
-          <context context-type="linenumber">83</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="5340475093705470306" datatype="html">
         <source>Name of the suitcase</source>
         <target>Nombre de la maleta</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
-          <context context-type="linenumber">34</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="7236289518700817629" datatype="html">
         <source>Dates of the trip</source>
         <target>Fechas del viaje</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="3841120733064423622" datatype="html">
         <source>Place of the trip</source>
         <target>Destino del viaje</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
-          <context context-type="linenumber">44</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="category_beach" datatype="html">
         <source>beach</source>
         <target>Playa</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
-          <context context-type="linenumber">116</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="category_mountain" datatype="html">
         <source>mountain</source>
         <target>Montaña</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
-          <context context-type="linenumber">121</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="category_sport" datatype="html">
         <source>sport</source>
         <target>Deporte</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
-          <context context-type="linenumber">126</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="category_pet" datatype="html">
         <source>pet</source>
         <target>Mascota</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
-          <context context-type="linenumber">131</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="category_baby" datatype="html">
         <source>baby</source>
         <target>Bebé</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/create-suitcase-form/create-suitcase-form.component.ts</context>
-          <context context-type="linenumber">136</context>
-        </context-group>
       </trans-unit>
-
       <trans-unit id="856408099070f83cf0b14184ae8df46c8c47acae" datatype="html">
         <source>Forget about missing things for your next trip at home</source>
         <target>Olvídate de olvidar cosas en tu próximo destino</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="973ac42d2ca683d31e841564884c5e9a5c6cea8a" datatype="html">
         <source>Packing has always been the most boring part of the trip. With <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Mysuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> we help you to optimize this process to not let you forget anything in your next trip. ¿Why loosing time with things that dont require it?</source>
         <target>El hacer maletas siempre fue la parte más tediosa del viaje. Con <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Mysuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> te ayudamos a optimizar ese proceso para que no olvides nada en tu próximo viaje. ¿Por qué perder el tiempo con las cosas que no lo requieren?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="6c2e48a2bed359dfc34b2dae4735a392054e8a23" datatype="html">
         <source>Login/Sign Up</source>
         <target>Inicio sesión / Registro</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="c456db791ebb311cdf0a34c46ea96ec0d73fb092" datatype="html">
         <source>What is your favourite trip?</source>
         <target>¿Cual es tu viaje favorito?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="31bc30f47db2e76ae12193ffd89f633f9771a6ba" datatype="html">
         <source>A break or time to disconnect?</source>
         <target>¿Escapadas, desconexión?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">47</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="56259db7a64e1a056e364dd172c4bd2f3bd24ec6" datatype="html">
         <source>A countryside gateway are, generally, a kind of trip for those who pursue a direct contact with the nature.</source>
         <target>Las escapadas rurales son, generalmente, un tipo de viaje para aquellos que buscan un contacto directo con la naturaleza.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">48</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="4e360c6a8e905743a34f17bf271cf2d4fb2f5d76" datatype="html">
-        <source>Sun, beach?</source>
-        <target>¿Sol, playa?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">71</context>
-        </context-group>
+        <source>¿Sun, beach?</source>
+        <target state="new">¿Sol, playa?</target>
       </trans-unit>
       <trans-unit id="457462efa9dd3323a65ff5b7fe2c5d3b429b9032" datatype="html">
         <source>Some days to rest and to sunbath in a dreamed beach is never a bad idea. </source>
         <target>Unos dias para descansar y tomar el sol en una playa de ensueño no es nunca una mala idea.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">72,73</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="70f01136cd9bfd6983b8461a7d37cdd111928826" datatype="html">
-        <source>Turism, culture?</source>
-        <target>¿Turismo, cultura?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
+        <source>¿Turism, culture?</source>
+        <target state="new">¿Turismo, cultura?</target>
       </trans-unit>
       <trans-unit id="51a93b3ed727457cdd06dc2ecdd8abdc9b300651" datatype="html">
         <source>If you love finding out new the historic city centers all around the world, this is your trip</source>
         <target>Si te encanta descubrir nuevos centros históricos alrededor del mundo, este es tu viaje</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">97</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="30670184cdbdf5a22bc9432f10b7ce0e6b18fb42" datatype="html">
         <source>Currently we are building this website.</source>
         <target>Actualmente estamos construyendo esta web.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">122</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="3a2d90df8a166c6501ef6aad3e06ed979912cef6" datatype="html">
         <source>Leave us your e-mail and we will contact you as soon as possible.</source>
         <target>Dejanos tu email y te contactaremos lo más pronto posible</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">123</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="6be5a85d0426c32591fd4f3b0ca67c34030a66e1" datatype="html">
         <source>Lets go for a trip!</source>
         <target>Vámonos de viaje!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">150</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="06f901a716508105f8b062ae22f8c6faeb672ae3" datatype="html">
         <source>Create new suitcase</source>
         <target>Crear nueva maleta</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">151</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="1b5f0378bf141163358c547b10cf3bef3ef94662" datatype="html">
         <source>Just be concern about the next destination.</source>
         <target>Solo preocupate de tu próximo destino.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">191</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="ccbe6cfd32bf087231b448ea2f507b1a87ce84fb" datatype="html">
         <source>With <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> you will be focus only on the place to visit. You wont forget things at home anymore. We help you to remind all the belongings you will need for each and every of your trips.</source>
         <target>Con <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> te centrarás solamente en el lugar a visitar. No volverás a olvidar cosas en casa nunca más. Te ayudamos a recordar todas tus pertenencias que necesitarás para cada viaje.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">192,193</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="a0d516cf523ffdceb12ba845ebcf759496a5aa68" datatype="html">
         <source>Use <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> from anywhere even without connectivity! Install the app to take advantage of a faster and better experience.</source>
         <target>Usa <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> desde cualquier lugar incluso sin conexión! Instala la aplicación para una mayor rapidez y experiencia.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">196</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="a37329770996a196e1dc4e31e507c3f41b0b4e18" datatype="html">
         <source>Keep toned by using notifications.</source>
         <target>Estate a la última activando las notificaciones.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">210</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="33eaa5537b1f4127515959baad6bb4705b7a5b81" datatype="html">
         <source>If you would like to know all the latest news and features that we are steadily releasing in <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>, just let us know by activating the notifications.</source>
         <target>Si quieres conocer todas las novedades y funcionalidades que constantemente se incrementan en <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>, tan solo háznoslo saber activando las notificaciones.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">211,212</context>
-        </context-group>
       </trans-unit>
-      <trans-unit id="2077201021623808633" datatype="html">
-        <source>Hello i18n!</source>
-        <target>Hola i18n</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/home/home.component.ts</context>
-          <context context-type="linenumber">53</context>
-        </context-group>
-        <note priority="1" from="description">An introduction header for this sample</note>
-        <note priority="1" from="meaning">site header</note>
-      </trans-unit>
-
       <trans-unit id="f1e72e97a7d31b20e9d61acfeeb8e9aa114c025b" datatype="html">
         <source>Remove suitcase</source>
         <target>Eliminar maleta</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/overview/dialog/remove-dialog.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="fc57bc86c58ddb009861ef9b07f26a9b36690948" datatype="html">
         <source>Are you sure that you wish to remove this suitcase?</source>
         <target>¿Estás seguro que deseas eliminar esta maleta?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/overview/dialog/remove-dialog.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="remove_button" datatype="html">
         <source>Remove</source>
         <target>Remove</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/home/containers/overview/dialog/remove-dialog.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
       </trans-unit>
-      
-
       <trans-unit id="90ea172326e057fa68ebb225c58fb6e413523f92" datatype="html">
         <source>Introduce your username</source>
         <target>Introduce tu nombre de usuario</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="92901aa36532ff9b0be8d438d82e12e898c9f4d2" datatype="html">
-        <source>Introduce your contraseña</source>
-        <target>Mis maletas</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="37c15d60d7c22d3688c885aa5a810a72a5932cb7" datatype="html">
         <source>Repit the password</source>
         <target>Repite la contraseña</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="03804d32af967323b80f9ab0ab431899c9749d02" datatype="html">
         <source>Start!</source>
         <target>¡Comenzar!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
-          <context context-type="linenumber">42</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="3df1ed65c6790c3e752a7b1767a8916b3d09de0f" datatype="html">
         <source>I am already registered, I want going back.</source>
         <target>Ya estoy registrado, quiero volver.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/public/register/containers/register.component.html</context>
-          <context context-type="linenumber">45</context>
-        </context-group>
+      </trans-unit>
+      <trans-unit id="English" datatype="html">
+        <source>English</source>
+        <target>Inglés</target>
+      </trans-unit>
+      <trans-unit id="Spanish" datatype="html">
+        <source>Spanish</source>
+        <target>Español</target>
+      </trans-unit>
+      <trans-unit id="subscribe_button" datatype="html">
+        <source>Subscribe</source>
+        <target>Suscribete</target>
       </trans-unit>
     </body>
   </file>
