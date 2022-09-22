@@ -41,6 +41,7 @@ export interface TripType {
 
 export interface TripItem {
   name: string,
+  es_name?: string, // just used when fetching, after that value is set in name prop depending on the selected language
   type?: string,
   priority: number,
   isNew?: boolean,

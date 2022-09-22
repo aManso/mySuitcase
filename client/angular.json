@@ -94,9 +94,6 @@
                 }
               ]
             },
-            "all": {
-              "localize": ["es", "fr"]
-            },
             "es": {
               "localize": ["es"]
             }

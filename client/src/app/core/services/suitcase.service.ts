@@ -1,6 +1,8 @@
-import { Optional, Injectable } from '@angular/core';
+import { Optional, Injectable, Inject, LOCALE_ID } from '@angular/core';
 import { HttpClient, HttpEvent, HttpEventType, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
+import { last, map, tap } from 'rxjs/operators';
+
 import {
   Suitcase,
   SuitcaseDetailOutput,
@@ -8,10 +10,10 @@ import {
   SuitcaseOverviewOutput
 } from '../models/suitcase';
 import { environment } from '../../../environments/environment';
-import { TripType } from '../models/trip';
-import {SimpleOutput} from "../models/shared";
-import {SessionService} from "../session/session.service";
-import { catchError, last, map, tap } from 'rxjs/operators';
+import { TripItem, TripType } from '../models/trip';
+import { SimpleOutput } from "../models/shared";
+import { SessionService } from "../session/session.service";
+import { Languages } from '../const/languages';
 
 @Injectable()
 export class SuitcaseService {
@@ -26,6 +28,7 @@ export class SuitcaseService {
 
   public constructor(
     private _http: HttpClient,
+    @Inject(LOCALE_ID) public localeId: string,
     @Optional() private _sessionService?: SessionService,
   ) {
   }
@@ -88,14 +91,46 @@ export class SuitcaseService {
 
   public fetchRecommendations(options: TripType, pageNumber: number, limit?: number): Observable<TripType> {
     const $saveResponse = new Subject<TripType>();
-    this._http.post(this.RECOMMENDATIONS_SUITCASE_API, {options, pageNumber, limit}).subscribe((response: TripType) => {
-      console.log('Recommendations retrieved', response);
-      $saveResponse.next(response);
+    this._http.post(this.RECOMMENDATIONS_SUITCASE_API, {options, pageNumber, limit})
+    .pipe(
+      map((trip: TripType)=> {
+        if (trip.baby) {
+          trip.baby.items = this._getTranslatedItems(trip.baby.items);
+        }
+        if (trip.beach) {
+          trip.beach.items = this._getTranslatedItems(trip.beach.items);
+        }
+        if (trip.common) {
+          trip.common.items = this._getTranslatedItems(trip.common.items);
+        }
+        if (trip.mountain) {
+          trip.mountain.items = this._getTranslatedItems(trip.mountain.items);
+        }
+        if (trip.pet) {
+          trip.pet.items = this._getTranslatedItems(trip.pet.items);
+        }
+        if (trip.sport) {
+          trip.sport.items = this._getTranslatedItems(trip.sport.items);
+        }        
+        return trip;
+      })
+    )
+    .subscribe((trip: TripType) => {
+      console.log('Recommendations retrieved', trip);
+      $saveResponse.next(trip);
     }, (error: any) => {
       console.log('There was a problem at retrieving the recommendations: ', error);
       $saveResponse.error(error);
     });
     return $saveResponse;
+  }
+
+  private _getTranslatedItems(items: TripItem[]): TripItem[] {
+    // If current app language is not EN get the translated name
+    return Languages.en != this.localeId ? items.map((item: TripItem)=> {
+      item.name = item[this.localeId + '_name'] || item.name;
+      return item
+    }) : items;
   }
 
   // *********************** OVERVIEW ************************
