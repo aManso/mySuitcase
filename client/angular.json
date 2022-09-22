@@ -23,14 +23,21 @@
       "sourceRoot": "src",
       "prefix": "my-suitcase",
       "i18n": {
+        "sourceLocale": "en-US",
         "locales": {
-          "es-ES": "src/locale/messages.es.xlf"
+          "es": {
+            "translation": "src/locale/messages.es.xlf"
+          },
+          "fr": {
+            "translation": "src/locale/messages.fr.xlf"
+          }
         }
       },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/my-suitcase",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -87,8 +94,11 @@
                 }
               ]
             },
+            "all": {
+              "localize": ["es", "fr"]
+            },
             "es": {
-              "localize": ["es-ES"]
+              "localize": ["es"]
             }
           },
           "defaultConfiguration": ""
@@ -101,9 +111,6 @@
           "configurations": {
             "production": {
               "browserTarget": "my-suitcase:build:production"
-            },
-            "en": {
-              "browserTarget": "my-suitcase:build:en"
             },
             "es": {
               "browserTarget": "my-suitcase:build:es"

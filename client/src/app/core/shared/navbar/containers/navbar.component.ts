@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionService } from '../../../session/session.service';
-import {LoginService} from '../../../login/login.service';
+import { LoginService } from '../../../login/login.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'navbar-component',
@@ -9,6 +10,7 @@ import {LoginService} from '../../../login/login.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavBarComponent {
+  public showLanguages = false;
 
   public constructor(
     private _router: Router,
@@ -26,6 +28,10 @@ export class NavBarComponent {
     } else {
       window.location.reload();
     }
+  }
+
+  public isProdMode(): boolean {
+    return environment.production;
   }
 
   public logout(): void {

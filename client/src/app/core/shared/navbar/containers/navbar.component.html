@@ -17,6 +17,12 @@
             <li *ngIf="loginService.isLoggedIn()" class="nav-item active"><a i18n-matTooltip matTooltip="Manage your profile and other settings" class="nav-link" [routerLink]="['/settings']" i18n>Profile</a></li>
             <li class="nav-item active"><a i18n-matTooltip matTooltip="Subscribe to be up to date by retriving all the notifications" class="nav-link" [routerLink]="['/home']" [queryParams]="{}" [fragment]="'notifications'" i18n>Subscribe</a></li>
             <li *ngIf="loginService.isLoggedIn()" class="nav-item active" (click)="logout()"><a i18n-matTooltip matTooltip="Log out" class="nav-link" i18n>Logout</a></li>
+            <li><a i18n-matTooltip matTooltip="English" class="nav-link" href="/">
+              English
+            </a></li>
+            <li><a i18n-matTooltip matTooltip="Spanish" class="nav-link" href="/es">
+              Spanish
+            </a></li>
           </ul>
           <ul class="nav navbar-nav menu_nav menu_nav--icons justify-content-end">
             <li *ngIf="(loginService.logged$ | async) && (loginService.logged$ | async).admin!" class="nav-item active" [routerLink]="['/admin']" routerLinkActive="active-link"><a i18n-matTooltip matTooltip="Admin area" class="nav-link"><mat-icon>admin_panel_settings</mat-icon></a></li>
@@ -25,6 +31,18 @@
             <li *ngIf="loginService.isLoggedIn()" class="nav-item active"><a i18n-matTooltip matTooltip="Manage your profile and other settings" class="nav-link" [routerLink]="['/settings']" routerLinkActive="active-link"><mat-icon>settings</mat-icon></a></li>
             <li class="nav-item active"><a i18n-matTooltip matTooltip="Subscribe to be up to date by retriving all the notifications" class="nav-link" [routerLink]="['/home']" [queryParams]="{}" [fragment]="'notifications'"><mat-icon>notificationsactive</mat-icon></a></li>
             <li *ngIf="loginService.isLoggedIn()" class="nav-item active" (click)="logout()"><a i18n-matTooltip matTooltip="Log out" class="nav-link"><mat-icon>logout</mat-icon></a></li>
+            <li class="nav-item active language-container" *ngIf="isProdMode()">
+              <a i18n-matTooltip matTooltip="Language" class="nav-link" (click)="showLanguages = !showLanguages"><mat-icon>flag</mat-icon></a>
+              <div class="language-flags" *ngIf="showLanguages">
+                <a i18n-matTooltip matTooltip="English" matTooltipPosition="left" class="nav-link" href="/en-US/" mat-menu-item>
+                  <img class="lang-img" alt="UK flag" src="assets/img/lang/uk-flag-icon.png">
+                </a>
+                <a i18n-matTooltip matTooltip="Spanish" matTooltipPosition="left" class="nav-link" href="/es/" mat-menu-item>
+                  <img class="lang-img" alt="Spain flag" src="assets/img/lang/spain-flag-icon.png">
+                </a>
+              </div>
+            </li>
+            
           </ul>
         </div>
       </div>

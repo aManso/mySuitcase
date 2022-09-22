@@ -24,3 +24,22 @@
     color: #c2483d;
   }
 }
+
+.header_area .navbar .nav .nav-item:last-child {
+  margin-right: 0px;
+}
+
+.language-container {
+  position: relative;
+
+  .language-flags {
+    position: absolute;
+    top: 50px;
+    right: 0;
+  }
+}
+
+.lang-img {
+  width: 40px;
+  height: 40px;
+}

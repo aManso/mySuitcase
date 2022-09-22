@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template" target-language="es">
     <body>
       <trans-unit id="5780453321491708967" datatype="html">
         <source>You have reached the maximum number of suitcases</source>
@@ -241,6 +241,14 @@
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="38bd5794dbe84081cfa7867e876245e1ddae93e7" datatype="html">
+        <source>seconds</source>
+        <target>segundos</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/session/timeout-dialog/timeout-dialog.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>      
       <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
         <source>Logout</source>
         <target>Salir</target>
@@ -250,7 +258,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">19,21</context>
+          <context context-type="linenumber">19,20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c7244373b4e597e9c88e4bc9f345086c67a7902c" datatype="html">
@@ -522,7 +530,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">22,23</context>
+          <context context-type="linenumber">28,29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="408cb6073e60c5d966296a3207fc596adca75e01" datatype="html">
@@ -542,7 +550,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">23,24</context>
+          <context context-type="linenumber">29,30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="20e6397af2875eae30e7048026c8beeae5845bb5" datatype="html">
@@ -565,7 +573,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="34746fb1c7f3d2194d99652bdff89e6e14c9c4f4" datatype="html">
@@ -585,7 +593,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8" datatype="html">
@@ -604,7 +612,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d0336848b0c375a1c25ba369b3481ee383217a4f" datatype="html">
@@ -624,7 +632,35 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
-          <context context-type="linenumber">27,29</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a0843de0a64adcc7ee6a946408b6876cd8abdcae" datatype="html">
+        <source>English</source>
+        <target>Inglés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">20,22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1b2fa65763b744291e832a3c5fa0ce8641da2911" datatype="html">
+        <source>Spanish</source>
+        <target>Español</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/shared/navbar/containers/navbar.component.html</context>
+          <context context-type="linenumber">37,38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="install_button" datatype="html">
@@ -1067,7 +1103,7 @@
         <target>Inicio sesión / Registro</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/public/home/containers/home/home.component.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c456db791ebb311cdf0a34c46ea96ec0d73fb092" datatype="html">
