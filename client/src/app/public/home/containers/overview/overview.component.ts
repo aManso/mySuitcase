@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, LOCALE_ID, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { SuitcaseService } from "../../../../core/services/suitcase.service";
 import { Suitcase, SuitcaseOverviewOutput } from "../../../../core/models/suitcase";
@@ -29,6 +29,7 @@ export class OverviewComponent implements OnInit {
     private readonly _changeDetector: ChangeDetectorRef,
     private _router: Router,
     private _snackBar: MatSnackBar,
+    @Inject(LOCALE_ID) public localeId: string,
   ) { }
 
   public ngOnInit(): void {

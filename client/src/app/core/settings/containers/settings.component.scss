@@ -47,7 +47,7 @@ form {
         position: relative;
         top: -17px;
         right: 0;
-        text-align: end;
+        text-align: flex-end;
         padding: 0 10px;
     }
 
@@ -91,7 +91,7 @@ form {
 
 .modify-buttons {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 
     .edit-button {
         display: flex;

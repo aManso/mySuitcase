@@ -4,93 +4,92 @@
     <div class="search-wrapper">
         <div class="modify-buttons">
             <button class="button edit-button" (click)="toggleEditMode()">
-                <ng-container *ngIf="editMode; else viewMode">
-                    <span>Ver</span>
-                    <mat-icon aria-hidden="false" aria-label="Edit data">visibility</mat-icon>
-                </ng-container>
-                <ng-template #viewMode>
-                    <span>Modificar</span>
-                    <mat-icon aria-hidden="false" aria-label="Edit data">edit</mat-icon>
-                </ng-template>
+              <ng-container *ngIf="editMode; else viewMode">
+                  <span i18n="@@see_button">See</span>
+                  <mat-icon aria-hidden="false" aria-label="Edit data">visibility</mat-icon>
+              </ng-container>
+              <ng-template #viewMode>
+                  <span i18n="@@edit_button">Edit</span>
+                  <mat-icon aria-hidden="false" aria-label="Edit data">edit</mat-icon>
+              </ng-template>
             </button>
             <button *ngIf="editMode && settingsForm.valid" class="button edit-button" (click)="saveChanges()">
-                <span>Guardar</span>
+                <span i18n="@@save_button">Save</span>
                 <mat-icon aria-hidden="false" aria-label="Edit data">save</mat-icon>
           </button>
         </div>
         <div class="scrollable-area">
           <div class="form-group">
             <mat-form-field class="full-width" [appearance]="settingsForm.enabled ? 'fill' : 'outline'">
-              <mat-label>Nombre</mat-label>
+              <mat-label i18n="@@name">Name</mat-label>
               <input type="text" matInput formControlName="name" placeholder="Introduce tu nombre de usuario">
-              <mat-error *ngIf="settingsForm.get('name').hasError('required')">
-                El campo Nombre es <strong>requerido</strong>
+              <mat-error *ngIf="settingsForm.get('name').hasError('required')" i18n>
+                The field name is <strong>required</strong>
               </mat-error>
             </mat-form-field>
           </div>
           <div class="form-group">
             <mat-form-field class="full-width" [appearance]="settingsForm.enabled ? 'fill' : 'outline'">
-              <mat-label>Email</mat-label>
+              <mat-label i18n="@@email">Email</mat-label>
               <input type="email" matInput formControlName="email" placeholder="Introduce email">
-              <mat-error *ngIf="settingsForm.get('email').hasError('email') && !settingsForm.get('email').hasError('required')">
-                El formato de email no es válido
+              <mat-error *ngIf="settingsForm.get('email').hasError('email') && !settingsForm.get('email').hasError('required')" i18n>
+                The email format is not valid
               </mat-error>
-              <mat-error *ngIf="settingsForm.get('email').hasError('required')">
-                El campo Email es <strong>requerido</strong>
+              <mat-error *ngIf="settingsForm.get('email').hasError('required')" i18n>
+                The field email <strong>required</strong>
               </mat-error>
             </mat-form-field>
           </div>
             
           <div class="form-group" [formGroup]="passwordForm">
             <mat-form-field class="full-width" [appearance]="settingsForm.enabled ? 'fill' : 'outline'">
-              <mat-label>Contraseña actual</mat-label>
+              <mat-label i81n>Current password</mat-label>
               <input type="password" matInput formControlName="password" placeholder="*******">
-              <mat-icon *ngIf="settingsForm.enabled" (click)="enableChangePassword()" class="button-in-input" matSuffix matTooltip="Quiero cambiar la contraseña">mode_edit</mat-icon>
-              <mat-error *ngIf="passwordForm.get('password').hasError('required')" class="mat-error--with-details">
-                El campo Contraseña es <strong>requerido</strong>
+              <mat-icon *ngIf="settingsForm.enabled" (click)="enableChangePassword()" class="button-in-input" matSuffix i18n-matTooltip matTooltip="I want to change the password">mode_edit</mat-icon>
+              <mat-error *ngIf="passwordForm.get('password').hasError('required')" class="mat-error--with-details"- i18n>
+                The field pasword is <strong>required</strong>
               </mat-error>
-              <mat-error *ngIf="!passwordForm.get('password').hasError('required') && passwordForm.get('password').hasError('forbiddenPassword')" class="mat-error--with-details">
-                El campo Contraseña <strong>no cumple los requisitos</strong>. Puede ver estos requisitos en el desplegable de detalles.
+              <mat-error *ngIf="!passwordForm.get('password').hasError('required') && passwordForm.get('password').hasError('forbiddenPassword')" class="mat-error--with-details" i18n="@@pass_requirements-error">
+                The field password <strong>does not match the requirements</strong>. You can check this requirements in the detail´s dropdown.
               </mat-error>
             </mat-form-field>
             <details class="details">
-              <small id="passwordHelp" class="form-text text-muted">La contraseña debe contener entre 6 y 20 caracteres, de
-                los cuales 1 minúscula, 1 mayúscula, 1 número y 1 carácter especial</small>
+              <small id="passwordHelp" class="form-text text-muted" i18n="@@pass_requirements">The password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</small>
             </details>
 
             <mat-form-field *ngIf="showPasswordChange" class="full-width" [appearance]="settingsForm.enabled ? 'fill' : 'outline'">
-              <mat-label>Introduce la nueva contraseña</mat-label>
+              <mat-label i18n>Introduce the new password</mat-label>
               <input type="password" matInput formControlName="newPassword" placeholder="*******">  
-              <mat-error *ngIf="passwordForm.get('newPassword').hasError('required')">
-                El campo Cambio de contraseña es <strong>requerido</strong> si ha activado el cambio, si no desea el cambio de contraseña desactive esta opción
+              <mat-error *ngIf="passwordForm.get('newPassword').hasError('required')" i18n>
+                The field pasword is <strong>required</strong>. If you do not wish the password change, please desactive this option
               </mat-error>
-              <mat-error *ngIf="passwordForm.get('newPassword').hasError('forbiddenPassword')">
-                El campo Contraseña <strong>no cumple los requisitos</strong>. Puede ver estos requisitos en el desplegable de detalles.
+              <mat-error *ngIf="passwordForm.get('newPassword').hasError('forbiddenPassword')" i18n="@@pass_requirements-error">
+                The field password <strong>does not match the requirements</strong>. You can check this requirements in the detail´s dropdown.
               </mat-error>
             </mat-form-field>
           </div>
 
           <div *ngIf="settingsForm.enabled" class="extra-fields-explanation">
-            <h4>Otros datos</h4>
+            <h4 i18n>Other data</h4>
             <small><a href="javascript:void(0)" (click)="openExtraDataExp()" class="nav-link" role="button" aria-haspopup="true"
-              aria-expanded="false">Quiero saber por qué se necesitan estos datos extra para hacer una maleta.</a></small>
+              aria-expanded="false" i18n>I want to know why these extra data is needed to make a list to pack a suitcase.</a></small>
           </div>
 
           <div class="form-group">
             <mat-form-field class="full-width" [appearance]="settingsForm.enabled ? 'fill' : 'outline'">
-              <mat-label>Edad</mat-label>
-              <input type="number" matInput formControlName="age" placeholder="Introduce tu edad">
-              <mat-hint>Opcional</mat-hint>
+              <mat-label i18n>Age</mat-label>
+              <input type="number" matInput formControlName="age" i18n-placeholder placeholder="Introduce your age">
+              <mat-hint i18n="@@optional">Optional</mat-hint>
             </mat-form-field>
           </div>
 
           <div class="form-group" [ngClass]="{'form-group--enabled': settingsForm.enabled}">
-            <mat-label class="gender-label">Sexo</mat-label>
+            <mat-label class="gender-label" i18n>Gender</mat-label>
             <mat-radio-group formControlName="gender" class="radio-group" aria-label="Gender">
-              <mat-radio-button value="true">Hombre</mat-radio-button>
-              <mat-radio-button value="false">Mujer</mat-radio-button>
+              <mat-radio-button value="true" i18n>Male</mat-radio-button>
+              <mat-radio-button value="false" i18n>Female</mat-radio-button>
             </mat-radio-group>
-            <small class="small-hint">Opcional</small>
+            <small class="small-hint" i18n="@@optional">Optional</small>
           </div>
         </div>      
     </div>

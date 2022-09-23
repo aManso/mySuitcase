@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="5780453321491708967" datatype="html">
+        <source>You have reached the maximum number of suitcases</source>
+      </trans-unit>
+      <trans-unit id="popupsBlockedError" datatype="html">
+        <source>Please, make sure that you have enabled pop ups in your browser. You could check it in both the navigation bar and the browser configuration</source>
+      </trans-unit>
+      <trans-unit id="7527980706824212298" datatype="html">
+        <source>Wrong username or password</source>
+      </trans-unit>
+      <trans-unit id="333768593308235153" datatype="html">
+        <source>The username, the password or both are wrong. Please make sure that both fields are right</source>
+      </trans-unit>
+      <trans-unit id="2768429103403819759" datatype="html">
+        <source>The email already exists</source>
+      </trans-unit>
+      <trans-unit id="1459855967387548725" datatype="html">
+        <source>The email that you are trying to introduce already exists in our database, please if its yours and you dont remember the password, click into the remember password button in the login area</source>
+      </trans-unit>
+      <trans-unit id="2205135423735679329" datatype="html">
+        <source>The username or the password are wrong</source>
+      </trans-unit>
+      <trans-unit id="14538843060764517" datatype="html">
+        <source>There has been a problem, please try again and if the problem persist contact us</source>
+      </trans-unit>
+      <trans-unit id="2633772940379156076" datatype="html">
+        <source>Notifications are not enabled for this device</source>
+      </trans-unit>
+      <trans-unit id="4735662025046300823" datatype="html">
+        <source>¡Warning!</source>
+      </trans-unit>
+      <trans-unit id="856874282816321364" datatype="html">
+        <source>Are you sure that you want to continue and remove the notification?</source>
+      </trans-unit>
+      <trans-unit id="1634540976915061112" datatype="html">
+        <source>Are you sure that you want to continue and send the notification to all the subscribers?</source>
+      </trans-unit>
+      <trans-unit id="2527123170132148402" datatype="html">
+        <source>The notification has been successfully removed</source>
+      </trans-unit>
+      <trans-unit id="87d43df9f989773147beece1718fadd9e32167fd" datatype="html">
+        <source>Introduce your email</source>
+      </trans-unit>
+      <trans-unit id="cde9db13a7846e5aebee03adc0f22f4ca217a140" datatype="html">
+        <source> the e-mail format is not valid </source>
+      </trans-unit>
+      <trans-unit id="1a40cd9cdb3da1af9a21b8c83b906c86774b2f38" datatype="html">
+        <source> The field Email is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requered<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+      </trans-unit>
+      <trans-unit id="df2ebc334ecf2252686644042ddade27cee3e3d0" datatype="html">
+        <source>Introduce your password</source>
+      </trans-unit>
+      <trans-unit id="d9f7f70c6ad29cee7d98800afd6126f8ccdebb40" datatype="html">
+        <source> The field password is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requered<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+      </trans-unit>
+      <trans-unit id="pass_requirements" datatype="html">
+        <source>The password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</source>
+      </trans-unit>
+      <trans-unit id="af3f7d5887abc4d1e4f11fcac61b7a4f12b7cfe9" datatype="html">
+        <source>Rememberme</source>
+      </trans-unit>
+      <trans-unit id="dead4eb38a801bf6380c1586a0265284228162bf" datatype="html">
+        <source>Go ahead!</source>
+      </trans-unit>
+      <trans-unit id="14fedea5a910bf44566298f9811b1542a6ab3989" datatype="html">
+        <source>I am new, I want to start!</source>
+      </trans-unit>
+      <trans-unit id="ea9777126c0d1176490d7967410a62aca96c75f7" datatype="html">
+        <source>Did you forget the password?</source>
+      </trans-unit>
+      <trans-unit id="ee4caaab1683dd5dc85b93e5c83078d2a508ac2c" datatype="html">
+        <source>I already remember the passoword :)</source>
+      </trans-unit>
+      <trans-unit id="ba4aa6fe9ef811050ef8c5e82871a100e651a991" datatype="html">
+        <source>The session is about to expire</source>
+      </trans-unit>
+      <trans-unit id="80d8ea8d311e728d4113eb2ffee5f0666100f276" datatype="html">
+        <source>The session is going to expire in </source>
+      </trans-unit>
+      <trans-unit id="38bd5794dbe84081cfa7867e876245e1ddae93e7" datatype="html">
+        <source>seconds</source>
+      </trans-unit>
+      <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
+        <source>Logout</source>
+      </trans-unit>
+      <trans-unit id="c7244373b4e597e9c88e4bc9f345086c67a7902c" datatype="html">
+        <source>Stay</source>
+      </trans-unit>
+      <trans-unit id="see_button" datatype="html">
+        <source>See</source>
+      </trans-unit>
+      <trans-unit id="edit_button" datatype="html">
+        <source>Edit</source>
+      </trans-unit>
+      <trans-unit id="save_button" datatype="html">
+        <source>Save</source>
+      </trans-unit>
+      <trans-unit id="name" datatype="html">
+        <source>Name</source>
+      </trans-unit>
+      <trans-unit id="3dd984fbcc3f5648878294b217dcc561a276915a" datatype="html">
+        <source> The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+      </trans-unit>
+      <trans-unit id="email" datatype="html">
+        <source>Email</source>
+      </trans-unit>
+      <trans-unit id="a8f3f64b6bb3d430ff34aee268276500a0e066fb" datatype="html">
+        <source> The email format is not valid </source>
+      </trans-unit>
+      <trans-unit id="b7fdc80a3a81472ab6beab055b2d591da6f4a561" datatype="html">
+        <source> The field email <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+      </trans-unit>
+      <trans-unit id="4ec731ab596dbd3d8f3d0e58fbf717dc4d134540" datatype="html">
+        <source>I want to change the password</source>
+      </trans-unit>
+      <trans-unit id="3d89cd5cc4704d55c2bdecdf80778b4bfd39a026" datatype="html">
+        <source> The field pasword is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+      </trans-unit>
+      <trans-unit id="pass_requirements-error" datatype="html">
+        <source> The field password <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>does not match the requirements<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. You can check this requirements in the detail´s dropdown. </source>
+      </trans-unit>
+      <trans-unit id="18c96743c3835e5d3d8af54cac565ca6376798e9" datatype="html">
+        <source>Introduce the new password</source>
+      </trans-unit>
+      <trans-unit id="080ef2fac50eb09fa8ab5ea6e33483a39bf6dedf" datatype="html">
+        <source> The field pasword is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. If you do not wish the password change, please desactive this option </source>
+      </trans-unit>
+      <trans-unit id="c3f0b4b1ab9b6623222a03602042d3a4b5c0f4a5" datatype="html">
+        <source>Other data</source>
+      </trans-unit>
+      <trans-unit id="c980d848a375e5604d1eee3ccd556db082ed9e2f" datatype="html">
+        <source>I want to know why these extra data is needed to make a list to pack a suitcase.</source>
+      </trans-unit>
+      <trans-unit id="2e6be334a2152f179a557167f98ce4459ff9a2f9" datatype="html">
+        <source>Age</source>
+      </trans-unit>
+      <trans-unit id="06b7084268bc31b02b5c00476f2f877253307717" datatype="html">
+        <source>Introduce your age</source>
+      </trans-unit>
+      <trans-unit id="optional" datatype="html">
+        <source>Optional</source>
+      </trans-unit>
+      <trans-unit id="003d4f5e4909ccf01b6a204c688fd6dab15c20bd" datatype="html">
+        <source>Gender</source>
+      </trans-unit>
+      <trans-unit id="097b5dfee5665aa0f7daba8b696acecde6445474" datatype="html">
+        <source>Male</source>
+      </trans-unit>
+      <trans-unit id="18f3bafdc69b800737e303bc1cb0753bd9dd3f32" datatype="html">
+        <source>Female</source>
+      </trans-unit>
+      <trans-unit id="ok_button" datatype="html">
+        <source>Ok</source>
+      </trans-unit>
+      <trans-unit id="802f5800e4abf10a8986e01d094730f9bd1a65e3" datatype="html">
+        <source>In <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> we help you to pack your suitcase for your trip according to the options your configure while you create your suitcase, providing suggestions of items that might be useful for a trip of those characteristics. </source>
+      </trans-unit>
+      <trans-unit id="612c01fc906626a58ec7e0c9baea0c33d316e9e9" datatype="html">
+        <source>Another thing that help us to make right suggestions is some personal data as the age or the gender</source>
+      </trans-unit>
+      <trans-unit id="2a3f0c731919c44e4eb62edb4b3963657c08ae02" datatype="html">
+        <source>For instance, if you are 40 years old man, its possible that you could need a shave machine, or if your are 80 years old you could use a walking stick, so that you will find it as suggested item when making up your list.<x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon class=&quot;icon&quot;&gt;"/>elderly_woman<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon class=&quot;icon&quot;&gt;"/>elderly<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/></source>
+      </trans-unit>
+      <trans-unit id="7bfcc571a1d74f738e47667407a25ef8a185cc8f" datatype="html">
+        <source>Nevertheless, you will always be able to discard such a suggestions or to add any new item that does not appear as suggestion.</source>
+      </trans-unit>
+      <trans-unit id="79b75a6be5480e449a02eb76a8f3724784881f7d" datatype="html">
+        <source>Little by little we will improve our suggestions, so if you would like to enjoy of <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>more precise suggestions<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> add some more extra fields!</source>
+      </trans-unit>
+      <trans-unit id="cancel_button" datatype="html">
+        <source>Cancel</source>
+      </trans-unit>
+      <trans-unit id="bceb1370cd6010bedaa6f50894b9f61317c3ac7b" datatype="html">
+        <source>Admin area</source>
+      </trans-unit>
+      <trans-unit id="408cb6073e60c5d966296a3207fc596adca75e01" datatype="html">
+        <source>Admin</source>
+      </trans-unit>
+      <trans-unit id="33fb7a0b7a82e4185b22b1e6a7fc73d44ee734d7" datatype="html">
+        <source>Have a look to the list of your already created suitcases</source>
+      </trans-unit>
+      <trans-unit id="20e6397af2875eae30e7048026c8beeae5845bb5" datatype="html">
+        <source>My suitcases</source>
+      </trans-unit>
+      <trans-unit id="cad3fe66c0a1d4f9cc19865175bfd1710ff1f1c7" datatype="html">
+        <source>Inform us regarding any incident or suggestion</source>
+      </trans-unit>
+      <trans-unit id="34746fb1c7f3d2194d99652bdff89e6e14c9c4f4" datatype="html">
+        <source>Contact</source>
+      </trans-unit>
+      <trans-unit id="9e0296904e0d4044af817747c5a950ee2b33ef69" datatype="html">
+        <source>Manage your profile and other settings</source>
+      </trans-unit>
+      <trans-unit id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8" datatype="html">
+        <source>Profile</source>
+      </trans-unit>
+      <trans-unit id="938e098241c5ab7a46aa2a4315573e646b2790c2" datatype="html">
+        <source>Subscribe to be up to date by retriving all the notifications</source>
+      </trans-unit>
+      <trans-unit id="d0336848b0c375a1c25ba369b3481ee383217a4f" datatype="html">
+        <source>Subscribe</source>
+      </trans-unit>
+      <trans-unit id="3fdc751b264ca9998e1542fcf5794e274cd56344" datatype="html">
+        <source>Log out</source>
+      </trans-unit>
+      <trans-unit id="English" datatype="html">
+        <source>English</source>
+      </trans-unit>
+      <trans-unit id="Spanish" datatype="html">
+        <source>Spanish</source>
+      </trans-unit>
+      <trans-unit id="fe46ccaae902ce974e2441abe752399288298619" datatype="html">
+        <source>Language</source>
+      </trans-unit>
+      <trans-unit id="install_button" datatype="html">
+        <source>Install</source>
+      </trans-unit>
+      <trans-unit id="subscribe_button" datatype="html">
+        <source>Subscribe</source>
+      </trans-unit>
+      <trans-unit id="28f45eab1d55b8ba4415fde26e300b1ee5a2dea2" datatype="html">
+        <source>404: Page not found</source>
+      </trans-unit>
+      <trans-unit id="58a064fe18b7f1cd11fa700cc9c445b5beee9895" datatype="html">
+        <source> Oooops, It looks like you made a wrong suitcase. Go back to the main screen to start again.</source>
+      </trans-unit>
+      <trans-unit id="back_button" datatype="html">
+        <source>Go back</source>
+      </trans-unit>
+      <trans-unit id="25400db298aa9e2aad12a9aa0c73b4404aff6752" datatype="html">
+        <source>Save the suitcase</source>
+      </trans-unit>
+      <trans-unit id="ca502a737da4a390f0b3cb4f9bca5b978ff8d460" datatype="html">
+        <source>Are you sure that you want to save and finish the suitcase?</source>
+      </trans-unit>
+      <trans-unit id="a5a0af89a66cb7397f18d60047d55ab98f29ea14" datatype="html">
+        <source>Common items</source>
+      </trans-unit>
+      <trans-unit id="01a39a9fb06e195b5e4fa1660ecbb80688889900" datatype="html">
+        <source>Beach</source>
+      </trans-unit>
+      <trans-unit id="beach" datatype="html">
+        <source>Beach</source>
+      </trans-unit>
+      <trans-unit id="8210ae02a8c6175dd5b3de0f49482a03c2b7d6ea" datatype="html">
+        <source>Mountain</source>
+      </trans-unit>
+      <trans-unit id="mountain" datatype="html">
+        <source>Mountain</source>
+      </trans-unit>
+      <trans-unit id="b672b311199643fb80c4db973fceb27a336f876e" datatype="html">
+        <source>Sport</source>
+      </trans-unit>
+      <trans-unit id="sport" datatype="html">
+        <source>Sport</source>
+      </trans-unit>
+      <trans-unit id="441ba31f53ff0cda8be4cbfa164c00ae36a2116b" datatype="html">
+        <source>Pet</source>
+      </trans-unit>
+      <trans-unit id="pet" datatype="html">
+        <source>Pet</source>
+      </trans-unit>
+      <trans-unit id="acb92fd9031543d9b8ff174d45ed723be39cb01e" datatype="html">
+        <source>Baby</source>
+      </trans-unit>
+      <trans-unit id="baby" datatype="html">
+        <source>Baby</source>
+      </trans-unit>
+      <trans-unit id="05c9ac9298da9032c2316ef2330431f21a1aa255" datatype="html">
+        <source>Technology</source>
+      </trans-unit>
+      <trans-unit id="technology" datatype="html">
+        <source>Technology</source>
+      </trans-unit>
+      <trans-unit id="02a7b7f3d5f473612540eaaf071583c075ae99aa" datatype="html">
+        <source>Cleanliness</source>
+      </trans-unit>
+      <trans-unit id="cleanliness" datatype="html">
+        <source>Cleanliness</source>
+      </trans-unit>
+      <trans-unit id="4e88cfbdd9cc4e4ad314d83d3561f246455868e0" datatype="html">
+        <source>Clothe</source>
+      </trans-unit>
+      <trans-unit id="clothe" datatype="html">
+        <source>Clothe</source>
+      </trans-unit>
+      <trans-unit id="7edffe2a2f09a8c2944a475bb5fbd985961ae89c" datatype="html">
+        <source>Medicines</source>
+      </trans-unit>
+      <trans-unit id="medicines" datatype="html">
+        <source>Medicines</source>
+      </trans-unit>
+      <trans-unit id="9d51b3c90afda70700229d1b8a55371c13cb3bce" datatype="html">
+        <source>Documents</source>
+      </trans-unit>
+      <trans-unit id="documents" datatype="html">
+        <source>Documents</source>
+      </trans-unit>
+      <trans-unit id="2e77ab4db0c90cd71b6a0ef856724b21e4a53218" datatype="html">
+        <source>Others</source>
+      </trans-unit>
+      <trans-unit id="8c4f177cdc222e765cce298020f5ec719f789c19" datatype="html">
+        <source>Lets start</source>
+      </trans-unit>
+      <trans-unit id="1ba400d533d0b88a7996158a94f3c2b70fc62978" datatype="html">
+        <source>Name of the suitcase</source>
+      </trans-unit>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
+      </trans-unit>
+      <trans-unit id="168c734e43604de4ba27522ac6bc44df109e010f" datatype="html">
+        <source>Max 20 characters</source>
+      </trans-unit>
+      <trans-unit id="e3934bf67b73a812c8335b38a055c7a43486b1dd" datatype="html">
+        <source>The name of the suitcase can exceed of 20 characters</source>
+      </trans-unit>
+      <trans-unit id="d5e0dbc9fd4651759df915cdc6ba26fe3f17475f" datatype="html">
+        <source>From</source>
+      </trans-unit>
+      <trans-unit id="date_format-error" datatype="html">
+        <source>The date format is wrong</source>
+      </trans-unit>
+      <trans-unit id="63c9c3aa536dbd11120ae8feab62186c47838028" datatype="html">
+        <source>To</source>
+      </trans-unit>
+      <trans-unit id="2bc0707d5bac822b462921584d62c3ea46d4701c" datatype="html">
+        <source>We are you going?</source>
+      </trans-unit>
+      <trans-unit id="e52c9171ae5c8034ed53e3cd62b95eef010136b2" datatype="html">
+        <source>Choose a city</source>
+      </trans-unit>
+      <trans-unit id="5c0bf703ccbad1fb159c93fa35a1b9ffcd709767" datatype="html">
+        <source>What kind of trip are you going to do?</source>
+      </trans-unit>
+      <trans-unit id="f8e34b8db458325fb576e4b56d3336518ec4db2b" datatype="html">
+        <source>Diving</source>
+      </trans-unit>
+      <trans-unit id="04c1c08714400a0e4656056a2ce008cecd52cb6b" datatype="html">
+        <source>Cycling</source>
+      </trans-unit>
+      <trans-unit id="continue_button" datatype="html">
+        <source>Continue</source>
+      </trans-unit>
+      <trans-unit id="376a5771abc3b4dce4cdf2e86dca0284d05da5a5" datatype="html">
+        <source>Make the list</source>
+      </trans-unit>
+      <trans-unit id="5340475093705470306" datatype="html">
+        <source>Name of the suitcase</source>
+      </trans-unit>
+      <trans-unit id="7236289518700817629" datatype="html">
+        <source>Dates of the trip</source>
+      </trans-unit>
+      <trans-unit id="3841120733064423622" datatype="html">
+        <source>Place of the trip</source>
+      </trans-unit>
+      <trans-unit id="category_beach" datatype="html">
+        <source>beach</source>
+      </trans-unit>
+      <trans-unit id="category_mountain" datatype="html">
+        <source>mountain</source>
+      </trans-unit>
+      <trans-unit id="category_sport" datatype="html">
+        <source>sport</source>
+      </trans-unit>
+      <trans-unit id="category_pet" datatype="html">
+        <source>pet</source>
+      </trans-unit>
+      <trans-unit id="category_baby" datatype="html">
+        <source>baby</source>
+      </trans-unit>
+      <trans-unit id="856408099070f83cf0b14184ae8df46c8c47acae" datatype="html">
+        <source>Forget about missing things for your next trip at home</source>
+      </trans-unit>
+      <trans-unit id="973ac42d2ca683d31e841564884c5e9a5c6cea8a" datatype="html">
+        <source>Packing has always been the most boring part of the trip. With <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Mysuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> we help you to optimize this process to not let you forget anything in your next trip. ¿Why loosing time with things that dont require it?</source>
+      </trans-unit>
+      <trans-unit id="6c2e48a2bed359dfc34b2dae4735a392054e8a23" datatype="html">
+        <source>Login/Sign Up</source>
+      </trans-unit>
+      <trans-unit id="c456db791ebb311cdf0a34c46ea96ec0d73fb092" datatype="html">
+        <source>What is your favourite trip?</source>
+      </trans-unit>
+      <trans-unit id="31bc30f47db2e76ae12193ffd89f633f9771a6ba" datatype="html">
+        <source>A break or time to disconnect?</source>
+      </trans-unit>
+      <trans-unit id="56259db7a64e1a056e364dd172c4bd2f3bd24ec6" datatype="html">
+        <source>A countryside gateway are, generally, a kind of trip for those who pursue a direct contact with the nature.</source>
+      </trans-unit>
+      <trans-unit id="4e360c6a8e905743a34f17bf271cf2d4fb2f5d76" datatype="html">
+        <source>¿Sun, beach?</source>
+      </trans-unit>
+      <trans-unit id="457462efa9dd3323a65ff5b7fe2c5d3b429b9032" datatype="html">
+        <source>Some days to rest and to sunbath in a dreamed beach is never a bad idea. </source>
+      </trans-unit>
+      <trans-unit id="70f01136cd9bfd6983b8461a7d37cdd111928826" datatype="html">
+        <source>¿Turism, culture?</source>
+      </trans-unit>
+      <trans-unit id="51a93b3ed727457cdd06dc2ecdd8abdc9b300651" datatype="html">
+        <source>If you love finding out new the historic city centers all around the world, this is your trip</source>
+      </trans-unit>
+      <trans-unit id="30670184cdbdf5a22bc9432f10b7ce0e6b18fb42" datatype="html">
+        <source>Currently we are building this website.</source>
+      </trans-unit>
+      <trans-unit id="3a2d90df8a166c6501ef6aad3e06ed979912cef6" datatype="html">
+        <source>Leave us your e-mail and we will contact you as soon as possible.</source>
+      </trans-unit>
+      <trans-unit id="6be5a85d0426c32591fd4f3b0ca67c34030a66e1" datatype="html">
+        <source>Lets go for a trip!</source>
+      </trans-unit>
+      <trans-unit id="06f901a716508105f8b062ae22f8c6faeb672ae3" datatype="html">
+        <source>Create new suitcase</source>
+      </trans-unit>
+      <trans-unit id="1b5f0378bf141163358c547b10cf3bef3ef94662" datatype="html">
+        <source>Just be concern about the next destination.</source>
+      </trans-unit>
+      <trans-unit id="ccbe6cfd32bf087231b448ea2f507b1a87ce84fb" datatype="html">
+        <source>With <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> you will be focus only on the place to visit. You wont forget things at home anymore. We help you to remind all the belongings you will need for each and every of your trips.</source>
+      </trans-unit>
+      <trans-unit id="a0d516cf523ffdceb12ba845ebcf759496a5aa68" datatype="html">
+        <source>Use <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> from anywhere even without connectivity! Install the app to take advantage of a faster and better experience.</source>
+      </trans-unit>
+      <trans-unit id="a37329770996a196e1dc4e31e507c3f41b0b4e18" datatype="html">
+        <source>Keep toned by using notifications.</source>
+      </trans-unit>
+      <trans-unit id="33eaa5537b1f4127515959baad6bb4705b7a5b81" datatype="html">
+        <source>If you would like to know all the latest news and features that we are steadily releasing in <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>, just let us know by activating the notifications.</source>
+      </trans-unit>
+      <trans-unit id="f1e72e97a7d31b20e9d61acfeeb8e9aa114c025b" datatype="html">
+        <source>Remove suitcase</source>
+      </trans-unit>
+      <trans-unit id="fc57bc86c58ddb009861ef9b07f26a9b36690948" datatype="html">
+        <source>Are you sure that you wish to remove this suitcase?</source>
+      </trans-unit>
+      <trans-unit id="remove_button" datatype="html">
+        <source>Remove</source>
+      </trans-unit>
+      <trans-unit id="90ea172326e057fa68ebb225c58fb6e413523f92" datatype="html">
+        <source>Introduce your username</source>
+      </trans-unit>
+      <trans-unit id="37c15d60d7c22d3688c885aa5a810a72a5932cb7" datatype="html">
+        <source>Repit the password</source>
+      </trans-unit>
+      <trans-unit id="03804d32af967323b80f9ab0ab431899c9749d02" datatype="html">
+        <source>Start!</source>
+      </trans-unit>
+      <trans-unit id="3df1ed65c6790c3e752a7b1767a8916b3d09de0f" datatype="html">
+        <source>I am already registered, I want going back.</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

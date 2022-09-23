@@ -4,33 +4,38 @@
   <div class="search-wrapper">
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Email</mat-label>
-      <input type="email" matInput formControlName="email" placeholder="Introduce email">
-      <mat-error *ngIf="loginForm.get('email').hasError('email') && !loginForm.get('email').hasError('required')">
-        El formato de email no es válido
+      <input type="email" matInput formControlName="email" i18n-placeholder placeholder="Introduce your email">
+      <mat-error *ngIf="loginForm.get('email').hasError('email') && !loginForm.get('email').hasError('required')" i18n>
+        the e-mail format is not valid
       </mat-error>
-      <mat-error *ngIf="loginForm.get('email').hasError('required')">
-        El campo Email es <strong>requerido</strong>
+      <mat-error *ngIf="loginForm.get('email').hasError('required')" i18n>
+        The field Email is <strong>requered</strong>
       </mat-error>
     </mat-form-field>
     <mat-form-field *ngIf="loginMode" class="full-width" appearance="outline">
-      <mat-label>Contraseña</mat-label>
-      <input type="password" matInput formControlName="password" placeholder="Introduce la contraseña">
-      <mat-error *ngIf="loginForm.get('password').hasError('required')">
-        El campo Contraseña es <strong>requerido</strong>
+      <mat-label i18n="@@password">Password</mat-label>
+      <input type="password" matInput formControlName="password" i18n-placeholder placeholder="Introduce your password">
+      <mat-error *ngIf="loginForm.get('password').hasError('required')" i18n>
+        The field password is <strong>requered</strong>
       </mat-error>
-      <mat-hint>La contraseña debe contener entre 6 y 20 caracteres, de los cuales 1 minúscula, 1 mayúscula, 1 número y 1 carácter especial</mat-hint>
+      <mat-hint i18n="@@pass_requirements">The password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</mat-hint>
     </mat-form-field>
     <div class="form-check" *ngIf="loginMode">
       <input type="checkbox" class="form-check-input" id="rememberme" formControlName="keepSession">
-      <label class="form-check-label" for="rememberme">Recuérdame</label>
+      <label class="form-check-label" for="rememberme" i18n>Rememberme</label>
     </div>
     <div class="button-block">
       <button type="submit" class="button border-1 mt-3" [disabled]="!loginForm.valid" [ngClass]="{'disabled-button': !loginForm.valid}"
-        (click)="submit()">Adelante!</button>
-      <button type="submit" class="button border-1 mt-3" (click)="goTo('register')">Soy nuevo, quiero empezar!</button>
+        (click)="submit()" i18n>Go ahead!</button>
+      <button type="submit" class="button border-1 mt-3" (click)="goTo('register')" i18n>I am new, I want to start!</button>
     </div>
-    <small><a href="javascript:void(0)" (click)="toggleMode()" class="nav-link" role="button" aria-haspopup="true"
-      aria-expanded="false">{{loginMode ? '¿Olvidaste la contraseña?' : 'Ya me acuerdo de la contraseña :)'}}</a></small>
+    <small>
+      <a href="javascript:void(0)" (click)="toggleMode()" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false" 
+      *ngIf="loginMode; else registerMode" i18n>Did you forget the password?</a>
+      <ng-template #registerMode>
+        <a href="javascript:void(0)" (click)="toggleMode()" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false" i18n>I already remember the passoword :)</a>
+      </ng-template>
+    </small>
   </div>
   <img class="login-img" alt="login image" src="../../../../assets/img/login/undraw_travelers.svg">
 </form>

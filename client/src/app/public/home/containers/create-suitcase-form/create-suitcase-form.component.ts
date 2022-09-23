@@ -31,17 +31,17 @@ export class CreateSuitcaseFormComponent implements OnInit {
     {
       id: 'name-form-field',
       stepNr: 1,
-      headerText: 'Nombre de la maleta'
+      headerText: $localize `Name of the suitcase`
     },
     {
       id: 'date-form-field',
       stepNr: 2,
-      headerText: 'Fechas del viaje'
+      headerText: $localize `Dates of the trip`
     },
     {
       id: 'place-form-field',
       stepNr: 3,
-      headerText: 'Lugar del viaje'
+      headerText: $localize `Place of the trip`
     },
     {
       id: 'type-form-field',
@@ -113,27 +113,27 @@ export class CreateSuitcaseFormComponent implements OnInit {
   private _buildOptionList() {
     const list = [
       {
-        name: 'beach',
+        name: $localize `:@@category_beach:beach`,
         icon: 'beach_access',
         selected: false,
       },
       {
-        name: 'mountain',
+        name: $localize `:@@category_mountain:mountain`,
         icon: 'filter_hdr',
         selected: false,
       },
       {
-        name: 'sport',
+        name: $localize `:@@category_sport:sport`,
         icon: 'sports_soccer',
         selected: false,
       },
       {
-        name: 'pet',
+        name: $localize `:@@category_pet:pet`,
         icon: 'pets',
         selected: false,
       },
       {
-        name: 'baby',
+        name: $localize `:@@category_baby:baby`,
         icon: 'baby_changing_station',
         selected: false,
       },

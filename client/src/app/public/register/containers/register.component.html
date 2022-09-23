@@ -2,25 +2,24 @@
 <form class="form-contact col-lg-6 col-xl-6 offset-xl-1" [formGroup]="registerForm">
   <div class="search-wrapper">
     <div class="form-group">
-      <label for="name">Nombre</label>
-      <input type="text" class="form-control" id="name" aria-describedby="name"
-        placeholder="Introduce tu nombre de usuario" formControlName="name">
+      <label for="name" i18n="@@name">Name</label>
+      <input type="text" class="form-control" id="name" aria-describedby="name" i18n-placeholder
+        placeholder="Introduce your username" formControlName="name">
 
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Introduce email"
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" i18n-placeholder placeholder="Introduce your email"
         formControlName="email">
       <!-- <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con nadie</small> -->
 
       <div [formGroup]="passwordForm">
-        <label for="password">Contraseña</label>
-        <input type="password" class="form-control" id="password" placeholder="Introduce la contraseña"
+        <label for="password" i18n="@@password">Password</label>
+        <input type="password" class="form-control" id="password" i18n-placeholder placeholder="Introduce your password"
           formControlName="password">
         <details class="details">
-          <small id="passwordHelp" class="form-text text-muted">La contraseña debe contener entre 6 y 20 caracteres, de
-            los cuales 1 minúscula, 1 mayúscula, 1 número y 1 carácter especial</small>
+          <small id="passwordHelp" class="form-text text-muted" i18n="@@pass_requirements">The password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</small>
         </details>
-        <label for="passwordConfirmation">Repite la contraseña</label>
-        <input type="password" class="form-control" id="passwordConfirmation" placeholder="Repite la contraseña"
+        <label for="passwordConfirmation" i18n>Repit the password</label>
+        <input type="password" class="form-control" id="passwordConfirmation" i18n-placeholder placeholder="Repit the password"
           formControlName="passwordConfirmation">
       </div>
 
@@ -40,13 +39,13 @@
     </div>
     <div class="button-block">
       <button type="submit" [disabled]="!isValidForm()" class="button border-1 mt-3"
-        (click)="submit()">Empezar!</button>
+        (click)="submit()" i18n>Start!</button>
     </div>
     <small><a href="javascript:void(0)" (click)="goTo('login')" class="nav-link" role="button" aria-haspopup="true"
-      aria-expanded="false">Ya estoy registrado, volver.</a></small>
+      aria-expanded="false" i18n>I am already registered, I want going back.</a></small>
   </div>
 
-  <img class="register-img" alt="login image" src="../../../../assets/img/login/undraw_travelers.svg">
+  <img class="register-img" alt="login image" src="assets/img/login/undraw_travelers.svg">
 </form>
 
 <footer-component></footer-component>

@@ -15,11 +15,11 @@ import { FRONTEND_MESSAGES } from '../../const/frontend-messages';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 
 @Component({
-  selector: 'web-notification-suscriber',
+  selector: 'web-notification-subscriber',
   styles: [`.subscribe-button{ display: flex; align-items: center; width: 200px; justify-content: space-between;}`],
-  templateUrl: './web-notification-suscriber.component.html',
+  templateUrl: './web-notification-subscriber.component.html',
 })
-export class WebNotificationSuscriberComponent {
+export class WebNotificationSubscriberComponent {
 
   constructor(
     private _notificationsService: NotificationsService,
@@ -28,7 +28,7 @@ export class WebNotificationSuscriberComponent {
   ) {
   }
 
-  public suscribeNotifications() {
+  public subscribeNotifications() {
     const dialogRef = this._dialog.open(InfoDialogComponent, {
       height: '240px',
       width: '460px',
@@ -36,7 +36,7 @@ export class WebNotificationSuscriberComponent {
       data: FRONTEND_MESSAGES.CONFIRMATION_SEND_NOTIFICATION
     });
     dialogRef.afterClosed().subscribe((confirm: boolean) => {
-      this._notificationsService.suscribeNotifications().subscribe(()=> {
+      this._notificationsService.subscribeNotifications().subscribe(()=> {
         this._snackBar.open('La suscripción ha sido activada satisfactoriamente', '', {duration: EXTENDED_SNACKBAR_TIME});
       }, ((error)=> {
         if (error && (error.name === BACKEND_ERROR_TYPES.POP_UPS_BLOCKED || error.name === FRONTEND_ERROR_TYPES.NOTIFICATIONS_DISABLED)) {
