@@ -8,6 +8,7 @@ import {
   ViewChildren,
   QueryList,
   ViewEncapsulation,
+  HostBinding,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SuitcaseService } from '../../core/services/suitcase.service';
@@ -60,6 +61,8 @@ export class CreateSuitcaseComponent implements OnInit {
   public selectedCategory?: string;
   public totalItemsInList = 0;
   public createMode = true;
+  @HostBinding('class.print-mode') public printMode = false;
+
   public dataReady = false;
 
   // Each of the categories in the suggestion column
@@ -131,6 +134,7 @@ export class CreateSuitcaseComponent implements OnInit {
         // and we show them
         Object.keys(this.suitcaseList).forEach((key: string) => {
           this.suitcaseList[key].forEach((item: TripItem) => {
+            this.totalItemsInList++;
             item.showInSuitcase = true;
           })
         })
@@ -290,8 +294,18 @@ export class CreateSuitcaseComponent implements OnInit {
     }, 1000)
   }
 
+  public printSuitcase(): void {
+    window.onafterprint = (event) => {
+      console.log('After print');
+      this.printMode = false;
+    };
+
+    this.printMode = true;
+    window.setTimeout(()=> { window.print()}, 0)
+  }
+
   // SUBMIT
-  public submitSuitcase() {
+  public submitSuitcase(): void {
     if (this.totalItemsInList > 0) {
       // confirm it the user is sure he/she wants to save
       const dialogRef = this._dialog.open(SaveDialogComponent, {
