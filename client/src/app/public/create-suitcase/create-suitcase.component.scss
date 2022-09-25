@@ -140,34 +140,6 @@ $margin: 15px;
   animation-timing-function: linear;
 }
 
-@-webkit-keyframes flip-out-ver-right{0%{-webkit-transform:rotateY(0);transform:rotateY(0);opacity:1}100%{-webkit-transform:rotateY(70deg);transform:rotateY(70deg);opacity:0}}@keyframes flip-out-ver-right{0%{-webkit-transform:rotateY(0);transform:rotateY(0);opacity:1}100%{-webkit-transform:rotateY(70deg);transform:rotateY(70deg);opacity:0}}
-.flip-out-ver-right{-webkit-animation:flip-out-ver-right .5s ease-in-out forwards;animation:flip-out-ver-right .5s ease-in-out forwards}
-
-#add-icon {
-  width: 30px;
-  height: 30px;
-  font-size: 30px;
-}
-
-#save-icon {
-  width: 60px;
-  height: 60px;
-  font-size: 40px;
-  position: absolute;
-  top: -25px;
-  right: -25px;
-  background: $secondary-color;
-  color: white;
-  border-radius: 50px;
-  cursor: pointer;
-  padding: 10px;
-
-  &.disabled {
-    background-color: lightgrey;
-    cursor: none;
-  }
-}
-
 .suitcase-card {
   .item-data {
     display: flex;
@@ -195,6 +167,57 @@ $margin: 15px;
     width: calc(#{$actions-size} + #{$margin});
   }
 }
+
+// PRINT MODE
+.print-mode {
+  .col-lg-4:not(.suitcase-column), .form, #save-icon, #print-icon, .item-actions, .footer {
+    display: none;
+  }
+  .suitcase-column {
+    max-width: 100%;
+    flex: 0 0 50%;
+    margin: auto;
+
+    .item-data {
+      justify-content: space-between;
+    }
+  }
+}
+
+// ICONS
+#add-icon {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+}
+
+#save-icon, #print-icon {
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  background: $secondary-color;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 10px;
+
+  &.disabled {
+    background-color: lightgrey;
+    cursor: none;
+  }
+}
+
+#print-icon {
+  top: 30px;
+}
+
+// KEYFRAMES
+@-webkit-keyframes flip-out-ver-right{0%{-webkit-transform:rotateY(0);transform:rotateY(0);opacity:1}100%{-webkit-transform:rotateY(70deg);transform:rotateY(70deg);opacity:0}}@keyframes flip-out-ver-right{0%{-webkit-transform:rotateY(0);transform:rotateY(0);opacity:1}100%{-webkit-transform:rotateY(70deg);transform:rotateY(70deg);opacity:0}}
+.flip-out-ver-right{-webkit-animation:flip-out-ver-right .5s ease-in-out forwards;animation:flip-out-ver-right .5s ease-in-out forwards}
+
 
 // MEDIAQUERYS
 @media (max-width: 992px){

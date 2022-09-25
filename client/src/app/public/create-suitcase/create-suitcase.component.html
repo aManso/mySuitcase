@@ -87,6 +87,7 @@
           <mat-icon matSuffix matTooltip="Suggestions" [matTooltipPosition]="'below'">backpack</mat-icon>
           <span>Elementos de mi maleta</span>
           <mat-icon aria-hidden="false" aria-label="Save the suitcase" id="save-icon" class="icon" [ngClass]="totalItemsInList > 0 ? '': 'disabled'" (click)="submitSuitcase()">save</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Print the list" id="print-icon" class="icon" [ngClass]="totalItemsInList > 0 ? '': 'disabled'" (click)="printSuitcase()">print</mat-icon>
         </div>
         <div *ngFor="let item of suitcaseList['tech']; let i=index" class="common-card-body">
           <div class="card-header card-subsubheader" *ngIf="showSubsubheader('tech', item.name)">
@@ -187,4 +188,4 @@
   </div>
 </ng-template>
 
-<footer-component></footer-component>
+<footer-component class="footer"></footer-component>
