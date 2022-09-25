@@ -600,6 +600,42 @@
         <source>Subscribe</source>
         <target>Suscribete</target>
       </trans-unit>
+      <trans-unit id="33f46beae629773ad255e544725fff33320bd732" datatype="html">
+        <source>Get in Touch</source>
+        <target>Ponte en contacto</target>
+      </trans-unit>
+      <trans-unit id="9780fc3d4a4f60a27b2644620704fb48cb9cdb86" datatype="html">
+        <source>Enter Message</source>
+        <target>Introduce tu mensaje</target>
+      </trans-unit>
+      <trans-unit id="620ba8f74432771cec99850c63742aa11e19be33" datatype="html">
+        <source>Enter your name</source>
+        <target>introduce tu nombre</target>
+      </trans-unit>
+      <trans-unit id="573aa2d5e345bba90280c79969dc0e9a781a26bc" datatype="html">
+        <source>Enter email address</source>
+        <target>Introduce tu email</target>
+      </trans-unit>
+      <trans-unit id="91943b47b5359a9ab3e474ee0443817378100cc4" datatype="html">
+        <source>Enter Subject</source>
+        <target>Introduce el asunto</target>
+      </trans-unit>
+      <trans-unit id="7d175f1b7310aecce08c1141c9ba8588b8642a99" datatype="html">
+        <source>Send Message</source>
+        <target>Enviar mensaje</target>
+      </trans-unit>
+      <trans-unit id="d6bbf648820068c3a29583083524d7c848aa5773" datatype="html">
+        <source>📍 Spain.</source>
+        <target>📍 España.</target>
+      </trans-unit>
+      <trans-unit id="79808490a9d863954a8070d377d889fc0963515c" datatype="html">
+        <source>Not available yet</source>
+        <target>No disponible aun</target>
+      </trans-unit>
+      <trans-unit id="180cbbc855314cc56905b57ad77d981d70ff5c52" datatype="html">
+        <source>Send us your query anytime!</source>
+        <target>Envíanos tu mensaje en cualquier momento</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
