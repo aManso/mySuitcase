@@ -1,7 +1,7 @@
 import {
   Component, Input,
 } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { EXTENDED_SNACKBAR_TIME } from 'src/app/core/config/config';
 import { Notification } from 'src/app/core/models/notification';
 

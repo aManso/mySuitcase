@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { GENERAL_SNACKBAR_TIME } from 'src/app/core/config/config';
 import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
 import { Notification } from 'src/app/core/models/notification';

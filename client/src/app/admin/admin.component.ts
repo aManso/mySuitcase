@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 
 import { SessionService } from '../core/session/session.service';
 import { TimeoutDialogComponent } from '../core/session/timeout-dialog/timeout-dialog.component';
