@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-import { ProgressBarMode } from '@angular/material/progress-bar';
+import { LegacyProgressBarMode as ProgressBarMode } from '@angular/material/legacy-progress-bar';
 import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreateSuitcaseFormSteps } from './create-suitcase-form.interfaces';
@@ -9,7 +9,7 @@ import { Suitcase } from '../../../../core/models/suitcase';
 import { SuitcaseService } from '../../../../core/services/suitcase.service';
 import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from 'src/app/core/const/backend-errors';
 import { ErrorDialogComponent } from 'src/app/core/shared/error-dialog/error-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 
 const suitcaseNameMaxLength = 20;
 

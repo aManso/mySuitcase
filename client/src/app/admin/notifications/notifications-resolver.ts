@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of as _of } from 'rxjs';
 import { Notification } from 'src/app/core/models/notification';
 import { AdminNotificationsService } from './notifications.service';
 
 @Injectable()
-export class NotificationsResolver implements Resolve<Observable<Notification[]>> {
+export class NotificationsResolver  {
   constructor(
     private _notificationService: AdminNotificationsService,
   ) {

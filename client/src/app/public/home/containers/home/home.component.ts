@@ -10,7 +10,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import {SuitcaseService} from '../../../../core/services/suitcase.service';
 import {MaxSuitcasesReachedDialogComponent} from './max-suitcases-reached-dialog/max-suitcases-reached-dialog.component';
 import { ConfigService, configServiceFactory } from 'src/app/core/services/config.service';
