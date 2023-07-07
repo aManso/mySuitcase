@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { SuitcaseService } from "../../../../core/services/suitcase.service";
 import { Suitcase, SuitcaseOverviewOutput } from "../../../../core/models/suitcase";
 import { map } from 'rxjs/operators';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { RemoveDialogComponent } from "./dialog/remove-dialog.component";
 import { SimpleOutput } from "../../../../core/models/shared";
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME } from "../../../../core/config/config";
 
 @Component({
