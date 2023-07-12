@@ -1,8 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../../../../core/login/login.service';
-import { User } from '../../../../core/models/user';
-import { SessionService } from '../../../../core/session/session.service';
 import {
   trigger,
   state,
@@ -10,9 +7,14 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
-import {SuitcaseService} from '../../../../core/services/suitcase.service';
-import {MaxSuitcasesReachedDialogComponent} from './max-suitcases-reached-dialog/max-suitcases-reached-dialog.component';
+
+import { MatDialog } from '@angular/material/dialog';
+
+import { LoginService } from '../../../../core/login/login.service';
+import { User } from '../../../../core/models/user';
+import { SessionService } from '../../../../core/session/session.service';
+import { SuitcaseService} from '../../../../core/services/suitcase.service';
+import { MaxSuitcasesReachedDialogComponent} from './max-suitcases-reached-dialog/max-suitcases-reached-dialog.component';
 import { ConfigService, configServiceFactory } from 'src/app/core/services/config.service';
 import { UserService } from 'src/app/core/services/user.service';
 

@@ -22,10 +22,10 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { SaveDialogComponent } from "./components/dialog/save-dialog.component";
-import {GENERAL_SNACKBAR_TIME} from "../../core/config/config";
+import { GENERAL_SNACKBAR_TIME } from "../../core/config/config";
 
 @Component({
   selector: 'app-create-suitcase',

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { NavBarComponent } from './containers/navbar.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({

@@ -1,11 +1,10 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-
 import { CommonModule } from '@angular/common';
 
-import { MatLegacyDialogModule as MatDialogModule, MAT_LEGACY_DIALOG_DEFAULT_OPTIONS as MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/legacy-dialog';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS as MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 
 import { TimeoutDialogComponent } from './timeout-dialog/timeout-dialog.component';
-import {SessionService, SessionServiceConfig} from './session.service';
+import { SessionService, SessionServiceConfig } from './session.service';
 
 @NgModule({
     imports: [CommonModule, MatDialogModule],

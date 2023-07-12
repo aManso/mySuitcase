@@ -6,7 +6,7 @@ import { User } from '../../../core/models/user';
 import { AuthenticationGuard } from '../../../core/guards/authentication.guard';
 // TODO use it when launching to PROD
 import { passwordValidator } from '../../../core/validators/validators';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME} from '../../../core/config/config';
 import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from '../../const/backend-errors';
 import { FRONTEND_ERRORS } from '../../const/frontend-errors';

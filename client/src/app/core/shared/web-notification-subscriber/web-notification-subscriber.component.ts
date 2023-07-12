@@ -2,8 +2,8 @@ import {
   AfterViewInit,
   Component,
 } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { EXTENDED_SNACKBAR_TIME } from '../../config/config';
 import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from '../../const/backend-errors';
 import { FRONTEND_ERRORS, FRONTEND_ERROR_TYPES } from '../../const/frontend-errors';
