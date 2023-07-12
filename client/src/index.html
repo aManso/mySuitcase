@@ -15,7 +15,15 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSR6NTAYFIgtqSBc37HDAvBEulaHHgh4M&amp;libraries=places" type="text/javascript" defer=""></script>
+  <script>
+    // Callback is needed to avoid warnings
+    // https://developers.google.com/maps/documentation/javascript/load-maps-js-api?hl=es-419
+    // https://developers.google.com/maps/documentation/javascript/overview?hl=es-419#bootstrap_loader
+    function mapsCallback()  {
+      console.log('Google Maps is loaded');
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSR6NTAYFIgtqSBc37HDAvBEulaHHgh4M&amp;libraries=places&callback=mapsCallback" type="text/javascript" defer=""></script>
   
 <body class="bg-shape mat-typography">
   <app-root></app-root>
