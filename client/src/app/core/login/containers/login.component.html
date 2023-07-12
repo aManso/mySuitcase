@@ -18,7 +18,7 @@
       <mat-error *ngIf="loginForm.get('password').hasError('required')" i18n>
         The field password is <strong>requered</strong>
       </mat-error>
-      <mat-hint i18n="@@pass_requirements">The password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</mat-hint>
+      <mat-hint class="hint-password" i18n="@@pass_requirements">Password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</mat-hint>
     </mat-form-field>
     <div class="form-check" *ngIf="loginMode">
       <input type="checkbox" class="form-check-input" id="rememberme" formControlName="keepSession">
@@ -27,7 +27,7 @@
     <div class="button-block">
       <button type="submit" class="button border-1 mt-3" [disabled]="!loginForm.valid" [ngClass]="{'disabled-button': !loginForm.valid}"
         (click)="submit()" i18n>Go ahead!</button>
-      <button type="submit" class="button border-1 mt-3" (click)="goTo('register')" i18n>I am new, I want to start!</button>
+      <button type="submit" class="button border-1 mt-3" (click)="goTo('register')" i18n>I am new, Let's start!</button>
     </div>
     <small>
       <a href="javascript:void(0)" (click)="toggleMode()" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false" 

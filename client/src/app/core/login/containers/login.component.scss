@@ -12,10 +12,13 @@
   }
 }
 
+.hint-password {
+  margin-top: 10px;
+}
+
 .form-check {
-  margin: 20px;
+  margin-top: 50px;
   display: flex;
-  justify-content: center;
   padding: 0;
   align-items: center;
 
@@ -27,6 +30,5 @@
     margin-right: 7px;
     position: relative;
   }
-
 
 }
