@@ -7,13 +7,13 @@
         <mat-label>Nuevo item</mat-label>
         <input matInput [(ngModel)]="newItem" name="newItem">
         <div id="selection-categories-wrapper">
-          <mat-icon matSuffix [ngClass]="selectedCategory === 'tech'? '': 'disabled-icon'" class="selection-icon" (click)="selectedCategory = 'tech'" matTooltip="Tecnología" [matTooltipPosition]="'below'">photo_camera</mat-icon>
-          <mat-icon matSuffix [ngClass]="selectedCategory === 'clothes' ? '': 'disabled-icon'" class="selection-icon" (click)="selectedCategory = 'clothes'" matTooltip="Ropa" [matTooltipPosition]="'below'">checkroom</mat-icon>
-          <mat-icon matSuffix [ngClass]="selectedCategory === 'cleanliness' ? '': 'disabled-icon'" class="selection-icon" (click)="selectedCategory = 'cleanliness'" matTooltip="Aseo" [matTooltipPosition]="'below'">clean_hands</mat-icon>
-          <mat-icon matSuffix [ngClass]="selectedCategory === 'medicines' ? '': 'disabled-icon'" class="selection-icon" (click)="selectedCategory = 'medicines'" matTooltip="Medicinas" [matTooltipPosition]="'below'">medical_services</mat-icon>
-          <mat-icon matSuffix [ngClass]="selectedCategory === 'documents' ? '': 'disabled-icon'" class="selection-icon" (click)="selectedCategory = 'documents'" matTooltip="Documentos" [matTooltipPosition]="'below'">description</mat-icon>
-          <mat-icon matSuffix [ngClass]="selectedCategory === 'pet' ? '': 'disabled-icon'" class="selection-icon" (click)="selectedCategory = 'pet'" matTooltip="Mascota" [matTooltipPosition]="'below'">pets</mat-icon>
-          <mat-icon matSuffix [ngClass]="selectedCategory === 'baby' ? '': 'disabled-icon'" class="selection-icon" (click)="selectedCategory = 'baby'" matTooltip="Bebé" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
+          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'tech'? 'selected': '']" class="selection-icon" (click)="selectedCategory = 'tech'" matTooltip="Tecnología" [matTooltipPosition]="'below'">photo_camera</mat-icon>
+          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'clothes' ? '': '']" class="selection-icon" (click)="selectedCategory = 'clothes'" matTooltip="Ropa" [matTooltipPosition]="'below'">checkroom</mat-icon>
+          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'cleanliness' ? '': '']" class="selection-icon" (click)="selectedCategory = 'cleanliness'" matTooltip="Aseo" [matTooltipPosition]="'below'">clean_hands</mat-icon>
+          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'medicines' ? '': '']" class="selection-icon" (click)="selectedCategory = 'medicines'" matTooltip="Medicinas" [matTooltipPosition]="'below'">medical_services</mat-icon>
+          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'documents' ? '': '']" class="selection-icon" (click)="selectedCategory = 'documents'" matTooltip="Documentos" [matTooltipPosition]="'below'">description</mat-icon>
+          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'pet' ? '': '']" class="selection-icon" (click)="selectedCategory = 'pet'" matTooltip="Mascota" [matTooltipPosition]="'below'">pets</mat-icon>
+          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'baby' ? '': '']" class="selection-icon" (click)="selectedCategory = 'baby'" matTooltip="Bebé" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
         </div>
         <mat-icon matSuffix [ngClass]="newItem ? '': 'disabled-icon'" class="clickable-icon" id="add-icon" (click)="addNewItem(newItem, itemForm.controls['newItem'])">add</mat-icon>
         <mat-error *ngIf="itemForm.controls['newItem']?.errors?.duplicated">El elemento ya se encuentra en la lista</mat-error>

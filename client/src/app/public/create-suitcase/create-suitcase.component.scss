@@ -38,10 +38,6 @@ $margin: 15px;
   }
 }
 
-.container {
-  margin-top: 40px;
-}
-
 .form, .form-field {
   width: 100%;
 }
@@ -212,6 +208,14 @@ $margin: 15px;
 
 #print-icon {
   top: 30px;
+}
+
+#selection-categories-wrapper .selection-icon.selectable {
+  color: $primary-color;
+}
+
+#selection-categories-wrapper .selection-icon.selected {
+  color: $secondary-color;
 }
 
 // KEYFRAMES

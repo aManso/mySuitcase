@@ -95,7 +95,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
   }
 
   private _updateProgressBar() {
-    this.progressBarValue = this.percentagePerQuestion * this.currentQuestion;
+    this.progressBarValue = this.percentagePerQuestion * (this.currentQuestion);
   }
 
   private _buildOptionList() {
