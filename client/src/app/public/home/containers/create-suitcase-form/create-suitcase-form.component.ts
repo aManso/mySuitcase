@@ -51,22 +51,8 @@ export class CreateSuitcaseFormComponent implements OnInit {
       headerText: '-'
     },
   ];
-  // public myLatLng;
-  // @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
   lat = 41.646961;
   lng = -4.745940;
-  coordinates = new google.maps.LatLng(this.lat, this.lng);
-  // public map = new google.maps.Map(
-  //   document.getElementById("lol") as HTMLElement,
-  //   {
-  //     zoom: 4,
-  //     center: this.coordinates,
-  //   }
-  // );
-  // marker = new google.maps.Marker({
-  //   position: this.coordinates,
-  //   map: this.map,
-  // });
 
   constructor(
     private readonly _formBuilder: UntypedFormBuilder,
@@ -109,7 +95,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
   }
 
   private _updateProgressBar() {
-    this.progressBarValue = this.percentagePerQuestion * this.currentQuestion;
+    this.progressBarValue = this.percentagePerQuestion * (this.currentQuestion);
   }
 
   private _buildOptionList() {
@@ -269,11 +255,12 @@ export class CreateSuitcaseFormComponent implements OnInit {
 
   // ******* MAP **********
 
-  private _mapInitializer(): void {
-    const map = new google.maps.Map(
+  private async _mapInitializer(): Promise<void> {
+    const coordinates = await new google.maps.LatLng(this.lat, this.lng);
+    const map = await new google.maps.Map(
       document.getElementById('map') as HTMLElement,
       {
-        center: this.coordinates,
+        center: coordinates,
         zoom: 6
       }
     );

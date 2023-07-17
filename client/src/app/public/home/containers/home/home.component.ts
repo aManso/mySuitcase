@@ -30,7 +30,6 @@ const DISAPPEAR_ANIMATION_TIME = 1000; // in sync with animation made by keyFram
       state('hide', style({
         opacity: 0,
         height: '0',
-        overflow: 'hidden',
       })),
       state('show', style({
         opacity: 1,
