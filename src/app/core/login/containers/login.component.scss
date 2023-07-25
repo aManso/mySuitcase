@@ -12,6 +12,10 @@
   }
 }
 
+.login-field:not(:first-child) {
+  margin-top: 20px;
+}
+
 .hint-password {
   margin-top: 20px;
 }

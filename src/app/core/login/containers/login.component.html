@@ -2,9 +2,9 @@
 
 <form class="form-contact col-lg-6 col-xl-6 offset-xl-1" [formGroup]="loginForm">
   <div class="search-wrapper">
-    <mat-form-field class="full-width" appearance="outline">
+    <mat-form-field class="full-width login-field" appearance="outline">
       <mat-label>Email</mat-label>
-      <input type="email" matInput formControlName="email" i18n-placeholder placeholder="Introduce your email">
+      <input type="email" matInput autocomplete="off" formControlName="email" i18n-placeholder placeholder="Introduce your email">
       <mat-error *ngIf="loginForm.get('email').hasError('email') && !loginForm.get('email').hasError('required')" i18n>
         the e-mail format is not valid
       </mat-error>
@@ -12,9 +12,9 @@
         The field Email is <strong>requered</strong>
       </mat-error>
     </mat-form-field>
-    <mat-form-field *ngIf="loginMode" class="full-width" appearance="outline">
+    <mat-form-field *ngIf="loginMode" class="full-width login-field" appearance="outline">
       <mat-label i18n="@@password">Password</mat-label>
-      <input type="password" matInput formControlName="password" i18n-placeholder placeholder="Introduce your password">
+      <input type="password" matInput autocomplete="off" formControlName="password" i18n-placeholder placeholder="Introduce your password">
       <mat-error *ngIf="loginForm.get('password').hasError('required')" i18n>
         The field password is <strong>requered</strong>
       </mat-error>
