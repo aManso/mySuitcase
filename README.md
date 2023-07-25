@@ -8,8 +8,9 @@
   - [Screenshots](#screenshots)
   - [Technologies](#technologies)
   - [Setup](#setup)
+  - [i18n](#i18n)
+  - [Deploy](#deploy)
   - [Features](#features)
-  - [Wiki](#wiki)
   - [Contact](#contact)
 
 ## General info 
@@ -20,7 +21,9 @@ THIS A TESTING TEXT.
 ![Example screenshot](./img/screenshot.png)
 
 ## Technologies
-* Tech 1 - version 1.0
+* Angular v16 (updated in July 2023)
+* node v16.20.1
+* npm v8.19.4
 
 ## Setup
 npm install 
@@ -33,22 +36,17 @@ For the translations we use angular i18n architecture (following https://medium.
 2. npm run start-es => ng serve --proxy-config proxy.conf.json --configuration=es => runs the app with the translated for a specific language in DEV
 3. npm run start-prod => ng build --configuration=production --localize => it makes new builds for production with the default locale (en-US) and the different languages (es so far)
 
-## Deploy Client
+## Deploy
 npm start (with proxy.conf to distinguish PROD vs DEV - https://medium.com/@asfo/creando-un-proxy-en-angular-para-conectarte-a-un-api-local-y-de-producci%C3%B3n-106c34cd9815)
-
-## Deploy Server
-node
 
 ## Features
 List of features ready and TODOs for future development
-* Awesome feature 1
-
-To-do list:
-* Visit the [issues](https://github.com/aguadotzn/mySuitcase/issues) page. 
-
-## Wiki
- Visit the wiki [here](https://github.com/aguadotzn/mySuitcase/wiki). 
- In order to generate a vapid keys use this command: web-push generate-vapid-keys --json
+* Login user by using JWT
+* Get an overview of all user´s suitcase
+* Create/update/remove/see a suitcase
+* Get recommendations items when making a suitcase based on the kind of trip
+* Get weather forecast for the dates when the user is going to do the trip
+* Suscribe to new updates of the app
 
 ## Contact
 Created by [@aManso](https://www.linkedin.com/in/alejandro-manso-026a2a2b/) - feel free to contact me!
