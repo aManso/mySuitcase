@@ -1,6 +1,7 @@
 <navbar-component></navbar-component>
 
 <ng-container *ngIf="!isLogged; else logged">
+  <!--================Login section Start =================-->
   <section class="hero-banner magic-ball">
     <div class="container">
       <div class="row align-items-center text-center text-md-left">
@@ -15,8 +16,11 @@
       </div>
     </div>
   </section>
+  <!--================Login section End =================-->
 
+  <!--================Notifications section Start =================-->
   <ng-container *ngTemplateOutlet="notifications"></ng-container>
+  <!--================Notifications section End =================-->
 
   <section class="section-margin generic-margin trip-type__container">
     <div class="container">
@@ -102,7 +106,9 @@
     </div>
   </section>
 
+  <!--================PWA section Start =================-->
   <ng-container *ngTemplateOutlet="pwa"></ng-container>
+  <!--================PWA section End =================-->
 
   <section class="section-margin">
     <div class="section-intro text-center pb-90px">
