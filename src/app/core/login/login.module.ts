@@ -10,8 +10,6 @@ import { LoginService } from './login.service';
 import { AuthenticationGuard } from '../guards/authentication.guard';
 import { AuthorizationGuard } from '../guards/authorization.guard';
 import { SessionModule } from '../session/session.module';
-import { TokenInterceptorService } from '../interceptor/token-interceptor.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -22,7 +20,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatInputModule,
-    HttpClientModule,
   ],
   declarations: [
     LoginComponent,
@@ -33,11 +30,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AuthenticationGuard,
     AuthorizationGuard,
     {provide: BASE_ROUTE, useValue: '/'},
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true
-    },
   ],
 })
 export class LoginModule {
