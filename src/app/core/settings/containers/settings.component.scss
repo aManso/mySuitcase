@@ -8,6 +8,7 @@
 .scrollable-area {
     max-height: 350px;
     overflow-y: scroll;
+    padding: 20px 0;
 }
 
 form {
@@ -25,7 +26,7 @@ form {
         }
 
         &.form-group--enabled {
-            background-color: white;
+            background-color: whitesmoke;
             padding: 10px;
         }
 
@@ -47,8 +48,8 @@ form {
         position: relative;
         top: -17px;
         right: 0;
-        text-align: flex-end;
-        padding: 0 10px;
+        text-align: end;
+        padding: 10px;
     }
 
     .gender-label {
@@ -70,8 +71,7 @@ form {
     }
 
     .extra-fields-explanation {
-        display: flex;
-        justify-content: space-between;
+        margin: 20px 0;
 
         .nav-link {
             line-height: 8px;

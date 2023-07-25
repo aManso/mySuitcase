@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME } from '../../config/config';
 import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from '../../const/backend-errors';
+import { LoginService } from '../../login/login.service';
 import { User } from '../../models/user';
 import { ExtraFieldsInfoBottomSheetComponent } from '../../shared/extra-fields-info-bottom-sheet/extra-fields-info-bottom-sheet.component';
 import { passwordValidator } from '../../validators/validators';
@@ -25,6 +26,7 @@ export class SettingsComponent{
   public constructor(
     private _fb: FormBuilder,
     private _settingsService: SettingsService,
+    private _loginService: LoginService,
     private _activatedRoute: ActivatedRoute,
     private _snackBar: MatSnackBar,
     private _bottomSheet: MatBottomSheet,
@@ -33,6 +35,8 @@ export class SettingsComponent{
 
   public ngOnInit() {
     this._user = this._activatedRoute.snapshot.data.user;
+    // We set the logged user into the login service because this loginService has multiple instances (public/admin...) and it is needed for intance to show the admin icon
+    this._loginService.logged$.next(this._user);
     this.settingsForm = this._setSettingsForm();
     this.settingsForm.disable();
   }
@@ -89,7 +93,6 @@ export class SettingsComponent{
 
   public saveChanges() {
     this._settingsService.update({...this.settingsForm.value, _id: this._user._id}).subscribe((response)=> {
-      console.log('bien', response);
       this._snackBar.open('Usuario actualizado!', '', {duration: GENERAL_SNACKBAR_TIME, panelClass: ['success-snackbar'], horizontalPosition: 'center', verticalPosition: 'top'});
     }, (error)=> {
       if (error && (error.error === BACKEND_ERROR_TYPES.WRONG_PASSWORD || error.error === BACKEND_ERROR_TYPES.EXISTING_EMAIL)) {
