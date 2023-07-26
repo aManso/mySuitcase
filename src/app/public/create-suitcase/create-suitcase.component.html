@@ -1,6 +1,6 @@
 <navbar-component></navbar-component>
 
-<div class="container" *ngIf="dataReady">
+<div class="container full-screen" *ngIf="dataReady">
   <div class="row">
     <form #itemForm="ngForm" class="form" (submit)="addNewItem(newItem, itemForm.controls['newItem'])">
       <mat-form-field id="new-item-field" class="form-field" appearance="fill" color="primary">
