@@ -75,27 +75,15 @@
 }
 
 @keyframes disappearToTop {
-  /* You could think of as "step 1" */
-  0% {
-    bottom: 0;
-    display: flex;
-  }
-  /* You could think of as "step 2" */
-  100% {
-    bottom: 50%;
-    display: none;
-  }
+    0%   {position: relative;top:0px;opacity:1;}
+    50%  {position: relative;top:-550px;opacity:0.5;}
+    100% {position: relative;top:-1100px;opacity:0;}
 }
 
 @keyframes appearFromBottom {
-  /* You could think of as "step 1" */
-  0% {
-    top: 50%;
-  }
-  /* You could think of as "step 2" */
-  100% {
-    top: 0;
-  }
+  0%   {position: relative;top:1100px;opacity:0;}
+  50%  {position: relative;top:550px;opacity:0.5;}
+  100% {position: relative;top:0px;opacity:1;}
 }
 
 @media (min-width: 992px){
