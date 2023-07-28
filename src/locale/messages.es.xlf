@@ -79,8 +79,8 @@
         <source> El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
       </trans-unit>
       <trans-unit id="pass_requirements" datatype="html">
-        <source>The password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</source>
-        <target>La contraseña debe contener entre 6 y 20 caracteres e incluir al menos 1 minúscula, 1 mayúscula, 1 número y 1 carácter especial</target>
+        <source>Password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</source>
+        <target state="new">La contraseña debe contener entre 6 y 20 caracteres e incluir al menos 1 minúscula, 1 mayúscula, 1 número y 1 carácter especial</target>
       </trans-unit>
       <trans-unit id="af3f7d5887abc4d1e4f11fcac61b7a4f12b7cfe9" datatype="html">
         <source>Rememberme</source>
@@ -89,10 +89,6 @@
       <trans-unit id="dead4eb38a801bf6380c1586a0265284228162bf" datatype="html">
         <source>Go ahead!</source>
         <target>Adelante!</target>
-      </trans-unit>
-      <trans-unit id="14fedea5a910bf44566298f9811b1542a6ab3989" datatype="html">
-        <source>I am new, I want to start!</source>
-        <target>Soy nuevo, quiero empezar!</target>
       </trans-unit>
       <trans-unit id="ea9777126c0d1176490d7967410a62aca96c75f7" datatype="html">
         <source>Did you forget the password?</source>
@@ -163,16 +159,12 @@
         <target>El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
       </trans-unit>
       <trans-unit id="pass_requirements-error" datatype="html">
-        <source> The field password <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>does not match the requirements<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. You can check this requirements in the detail´s dropdown. </source>
-        <target>El campo contraseña <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>no cumple con los requisitos<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Puedes comprobar estos requisitos en el desplegable de detalle.</target>
+        <source> The field password <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>does not match the requirements<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
+        <target state="new">El campo contraseña <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>no cumple con los requisitos<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Puedes comprobar estos requisitos en el desplegable de detalle.</target>
       </trans-unit>
       <trans-unit id="18c96743c3835e5d3d8af54cac565ca6376798e9" datatype="html">
         <source>Introduce the new password</source>
         <target>Introduce tu contraseña</target>
-      </trans-unit>
-      <trans-unit id="080ef2fac50eb09fa8ab5ea6e33483a39bf6dedf" datatype="html">
-        <source> The field pasword is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. If you do not wish the password change, please desactive this option </source>
-        <target>El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Si no deseas un cambio de contraseña, por favor desativa esta opción</target>
       </trans-unit>
       <trans-unit id="c3f0b4b1ab9b6623222a03602042d3a4b5c0f4a5" datatype="html">
         <source>Other data</source>
@@ -182,21 +174,13 @@
         <source>I want to know why these extra data is needed to make a list to pack a suitcase.</source>
         <target>Quiero saber por qué es necesario datos extra para hacer una maleta.</target>
       </trans-unit>
-      <trans-unit id="2e6be334a2152f179a557167f98ce4459ff9a2f9" datatype="html">
-        <source>Age</source>
-        <target>Edad</target>
-      </trans-unit>
       <trans-unit id="06b7084268bc31b02b5c00476f2f877253307717" datatype="html">
         <source>Introduce your age</source>
         <target>Introduce tu edad</target>
       </trans-unit>
-      <trans-unit id="optional" datatype="html">
-        <source>Optional</source>
-        <target>Opcional</target>
-      </trans-unit>
-      <trans-unit id="003d4f5e4909ccf01b6a204c688fd6dab15c20bd" datatype="html">
-        <source>Gender</source>
-        <target>Género</target>
+      <trans-unit id="9e03bfc24d17138553609ba241e614647e1cd2ff" datatype="html">
+        <source>Age (Optional)</source>
+        <target state="new">Edad (Opcional)</target>
       </trans-unit>
       <trans-unit id="097b5dfee5665aa0f7daba8b696acecde6445474" datatype="html">
         <source>Male</source>
@@ -209,8 +193,6 @@
       <trans-unit id="ok_button" datatype="html">
         <source>Ok</source>
         <target state="new">Ok</target>
-        <note priority="1" from="description">ok</note>
-        <note priority="1" from="meaning">button</note>
       </trans-unit>
       <trans-unit id="802f5800e4abf10a8986e01d094730f9bd1a65e3" datatype="html">
         <source>In <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> we help you to pack your suitcase for your trip according to the options your configure while you create your suitcase, providing suggestions of items that might be useful for a trip of those characteristics. </source>
@@ -284,8 +266,6 @@
       <trans-unit id="install_button" datatype="html">
         <source>Install</source>
         <target>Instalar</target>
-        <note priority="1" from="description">install</note>
-        <note priority="1" from="meaning">button</note>
       </trans-unit>
       <trans-unit id="28f45eab1d55b8ba4415fde26e300b1ee5a2dea2" datatype="html">
         <source>404: Page not found</source>
@@ -635,6 +615,18 @@
       <trans-unit id="180cbbc855314cc56905b57ad77d981d70ff5c52" datatype="html">
         <source>Send us your query anytime!</source>
         <target>Envíanos tu mensaje en cualquier momento</target>
+      </trans-unit>
+      <trans-unit id="e366b542b9627d8379cd034b6358fbec27b6ce57" datatype="html">
+        <source>I am new, Let&apos;s start!</source>
+        <target state="new">Soy nuevo aquí, ¡Empecemos!</target>
+      </trans-unit>
+      <trans-unit id="783f63fff2215fba2767e31a03173f7e5935ea62" datatype="html">
+        <source> The field pasword is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
+        <target state="new"> El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>necesario<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </target>
+      </trans-unit>
+      <trans-unit id="25d84f777c27d2f75c151b1ba693c1a3409fcb2a" datatype="html">
+        <source>Gender (Optional)</source>
+        <target state="new">Sexo (Optional)</target>
       </trans-unit>
     </body>
   </file>

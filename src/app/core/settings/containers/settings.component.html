@@ -54,7 +54,7 @@
               </mat-error>
             </mat-form-field>
             <details class="details">
-              <small id="passwordHelp" class="form-text text-muted" i18n="@@pass_requirements">The password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</small>
+              <small id="passwordHelp" class="form-text text-muted" i18n="@@pass_requirements">Password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</small>
             </details>
 
             <mat-form-field *ngIf="showPasswordChange" class="full-width" [appearance]="settingsForm.enabled ? 'fill' : 'outline'">
@@ -64,7 +64,7 @@
                 The field pasword is <strong>required</strong>.
               </mat-error>
               <mat-error *ngIf="!passwordForm.get('newPassword').hasError('required') && passwordForm.get('newPassword').hasError('forbiddenPassword')" i18n="@@pass_requirements-error">
-                The field password <strong>does not match the requirements</strong>. You can check this requirements in the detail´s dropdown.
+                The field password <strong>does not match the requirements</strong>.
               </mat-error>
             </mat-form-field>
           </div>
