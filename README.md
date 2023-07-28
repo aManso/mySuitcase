@@ -47,6 +47,10 @@ List of features ready and TODOs for future development
 * Get recommendations items when making a suitcase based on the kind of trip
 * Get weather forecast for the dates when the user is going to do the trip
 * Suscribe to new updates of the app
+* Get it locally installed as PWA - https://medium.com/ngconf/angular-pwa-install-and-configure-858dd8e9fb07 - https://web.dev/customize-install/
+        * 1. ng add @angular/pwa - creates manifest, ngsw-config.json and icons and Also, it modifies angular.json, package.json, index.html and app.module.ts .
+        * 2. configure the cache files in manifest
+        + 3. We add pwa-installer.js and its component and service to show an installer button into the html and trigger the same behaviour to install the pwa
 
 ## Contact
 Created by [@aManso](https://www.linkedin.com/in/alejandro-manso-026a2a2b/) - feel free to contact me!

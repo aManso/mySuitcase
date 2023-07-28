@@ -29,6 +29,7 @@ import { TokenInterceptorService } from './core/interceptor/token-interceptor.se
     MatDialogModule,
     // we register the service worker module and the file that is generated in the dist folder for prod build to cache all the static main files
     // important!! In order to capture the REST calls, only non-mutating requests (GET and HEAD) are cached.
+    // Code created by @angular/pwa 
     ServiceWorkerModule.register('ngsw-worker.js', {
       // we enable it just for prod because the ngsw-worker.js file is a generated file from the .json configuration not available in other than prod
       enabled: environment.production,

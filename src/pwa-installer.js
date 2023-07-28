@@ -1,4 +1,5 @@
 
+// File to show install button in html and install app when app is not already installed
 // we check if there is browser support for service workers
 if ('serviceWorker' in navigator) {
 
@@ -35,6 +36,14 @@ if ('serviceWorker' in navigator) {
         installButton.disabled = false;
         deferredPrompt = null;
       });
+    }
+
+    function hideInstallPromotion() {
+      installContainers = document.getElementsByClassName("pwa-installer__container");
+      Array.prototype.filter.call(installContainers, function(installContainer){
+        installContainer.hidden = true;
+      });
+      installContainers.hidden = true;
     }
 
     window.addEventListener("appinstalled", evt => {
