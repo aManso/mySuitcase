@@ -16,12 +16,17 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     // however this way is better because it waits until the app is stable and that way the user experience turns better.
     // we check if there is browser support for service workers
     if ('serviceWorker' in navigator) {
-
-      navigator.serviceWorker.register('/sw.js', {
-          scope: '/'
+      const language = getLocale();
+      const filePath = language + '/sw.js';
+      navigator.serviceWorker.register(filePath, {
+          scope: language + '/'
       }).then((registration)=> {
           console.log('registration of service worker success');
       })
     }
   })
   .catch(err => console.error(err));
+
+  function getLocale() {
+    return window.location.pathname.substring(window.location.pathname.indexOf('/'), window.location.pathname.lastIndexOf('/'));
+  }
