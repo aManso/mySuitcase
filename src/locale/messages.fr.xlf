@@ -82,9 +82,9 @@
         <source>Password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</source>
         <target state="new">La contraseña debe contener entre 6 y 20 caracteres e incluir al menos 1 minúscula, 1 mayúscula, 1 número y 1 carácter especial</target>
       </trans-unit>
-      <trans-unit id="af3f7d5887abc4d1e4f11fcac61b7a4f12b7cfe9" datatype="html">
-        <source>Rememberme</source>
-        <target>Recuerdame</target>
+      <trans-unit id="3eb49d60bd859eb2d9d3a6d380cdf4e0b8252333" datatype="html">
+        <source>Remember me</source>
+        <target state="new">Recuerdame</target>
       </trans-unit>
       <trans-unit id="dead4eb38a801bf6380c1586a0265284228162bf" datatype="html">
         <source>Go ahead!</source>
@@ -461,13 +461,13 @@
         <source>baby</source>
         <target>Bebé</target>
       </trans-unit>
-      <trans-unit id="856408099070f83cf0b14184ae8df46c8c47acae" datatype="html">
-        <source>Forget about missing things for your next trip at home</source>
-        <target>Olvídate de olvidar cosas en tu próximo destino</target>
+      <trans-unit id="3852e8fc8feeb63e34dfc36515e74c7c5863f8b0" datatype="html">
+        <source>Forget about missing things for your next trip</source>
+        <target state="new">Olvídate de olvidar cosas en tu próximo destino</target>
       </trans-unit>
-      <trans-unit id="973ac42d2ca683d31e841564884c5e9a5c6cea8a" datatype="html">
-        <source>Packing has always been the most boring part of the trip. With <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Mysuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> we help you to optimize this process to not let you forget anything in your next trip. ¿Why loosing time with things that dont require it?</source>
-        <target>El hacer maletas siempre fue la parte más tediosa del viaje. Con <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Mysuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> te ayudamos a optimizar ese proceso para que no olvides nada en tu próximo viaje. ¿Por qué perder el tiempo con las cosas que no lo requieren?</target>
+      <trans-unit id="47f2ee6d73ef1554e15d7c5ea84e31d2f91cb358" datatype="html">
+        <source>Packing has always been the most boring part of the trip. With <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Mysuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> we help you to optimize this process to not let you forget anything in your next trip. Why loosing time with things that dont require it?</source>
+        <target state="new">El hacer maletas siempre fue la parte más tediosa del viaje. Con <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Mysuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> te ayudamos a optimizar ese proceso para que no olvides nada en tu próximo viaje. ¿Por qué perder el tiempo con las cosas que no lo requieren?</target>
       </trans-unit>
       <trans-unit id="6c2e48a2bed359dfc34b2dae4735a392054e8a23" datatype="html">
         <source>Login/Sign Up</source>
@@ -485,16 +485,16 @@
         <source>A countryside gateway are, generally, a kind of trip for those who pursue a direct contact with the nature.</source>
         <target>Las escapadas rurales son, generalmente, un tipo de viaje para aquellos que buscan un contacto directo con la naturaleza.</target>
       </trans-unit>
-      <trans-unit id="4e360c6a8e905743a34f17bf271cf2d4fb2f5d76" datatype="html">
-        <source>¿Sun, beach?</source>
+      <trans-unit id="3bb0327f1088e4ac339996399ca151cd626e2f91" datatype="html">
+        <source>Sun, beach?</source>
         <target state="new">¿Sol, playa?</target>
       </trans-unit>
       <trans-unit id="457462efa9dd3323a65ff5b7fe2c5d3b429b9032" datatype="html">
         <source>Some days to rest and to sunbath in a dreamed beach is never a bad idea. </source>
         <target>Unos dias para descansar y tomar el sol en una playa de ensueño no es nunca una mala idea.</target>
       </trans-unit>
-      <trans-unit id="70f01136cd9bfd6983b8461a7d37cdd111928826" datatype="html">
-        <source>¿Turism, culture?</source>
+      <trans-unit id="e99d7ae1515c88ff4e9a7c4f42953e494d833e73" datatype="html">
+        <source>Turism, culture?</source>
         <target state="new">¿Turismo, cultura?</target>
       </trans-unit>
       <trans-unit id="51a93b3ed727457cdd06dc2ecdd8abdc9b300651" datatype="html">
