@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1690710498350,
+  "timestamp": 1690734993196,
   "index": "/mySuitcase/fr/index.html",
   "assetGroups": [
     {
@@ -11,7 +11,7 @@
         "ignoreVary": true
       },
       "urls": [
-        "/mySuitcase/fr/120.c66dc5c5443ae9fa.js",
+        "/mySuitcase/fr/120.19892500e3a9daf5.js",
         "/mySuitcase/fr/130.379043e3b7b8331c.js",
         "/mySuitcase/fr/144.836369484d2d6de3.js",
         "/mySuitcase/fr/195.95d6ed80158898a9.js",
@@ -26,12 +26,12 @@
         "/mySuitcase/fr/common.64173e4f78b74219.js",
         "/mySuitcase/fr/favicon.ico",
         "/mySuitcase/fr/index.html",
-        "/mySuitcase/fr/main.f46e00b2898608e9.js",
+        "/mySuitcase/fr/main.a734c5f642221f86.js",
         "/mySuitcase/fr/manifest.webmanifest",
         "/mySuitcase/fr/offline.html",
         "/mySuitcase/fr/polyfills.25f803bd2b7815a0.js",
         "/mySuitcase/fr/pwa-installer.js",
-        "/mySuitcase/fr/runtime.9458b05a8547db72.js",
+        "/mySuitcase/fr/runtime.2193e675fca324d4.js",
         "/mySuitcase/fr/scripts.9fc6c9a4c915a6d8.js",
         "/mySuitcase/fr/styles.1855f07d84eb5d88.css",
         "/mySuitcase/fr/sw-register.js",
@@ -117,7 +117,7 @@
     }
   ],
   "hashTable": {
-    "/mySuitcase/fr/120.c66dc5c5443ae9fa.js": "f8cae665b2defe6c2caf943ba797976f9e1b39df",
+    "/mySuitcase/fr/120.19892500e3a9daf5.js": "8a602233e606164f2074bbedd0c6a0b4dcf48025",
     "/mySuitcase/fr/130.379043e3b7b8331c.js": "951662fed6240386468c94eb2e00291c7ee5121d",
     "/mySuitcase/fr/144.836369484d2d6de3.js": "9f738a03af91b71ae48ccd28f7ef2be2bdf1ab57",
     "/mySuitcase/fr/195.95d6ed80158898a9.js": "58d693279db726c169eb9bd7c88c6f0fdd43c218",
@@ -180,13 +180,13 @@
     "/mySuitcase/fr/bg-shape-right.a408cba19ba4d145.png": "e37d76fd19d4aa5d8547e1131b4fa1d9e980dd25",
     "/mySuitcase/fr/common.64173e4f78b74219.js": "8bbdc1dbc0b8b16ca4fd5f5fddac5a195a18104e",
     "/mySuitcase/fr/favicon.ico": "dccf8a9bfde7b76b96e2d677cb5b94c1390e3bae",
-    "/mySuitcase/fr/index.html": "bba6a900559a8946b0dd02303cac7c605a17b0e7",
-    "/mySuitcase/fr/main.f46e00b2898608e9.js": "69393959741c2bf201a3704fc6195d822fc4e3ef",
+    "/mySuitcase/fr/index.html": "23c8a8bc0b47f011bc52a78677c0b1abefe5e7eb",
+    "/mySuitcase/fr/main.a734c5f642221f86.js": "4e8e40575452f08ff6081666cf766d69fd347da6",
     "/mySuitcase/fr/manifest.webmanifest": "8b9e29d00a73b31693a9833dbcbef5c4256cd7f9",
     "/mySuitcase/fr/offline.html": "edcaeb2dc6923a42d01092ce5960201eb1cb3488",
     "/mySuitcase/fr/polyfills.25f803bd2b7815a0.js": "08219d9d6e8c499f5860fc2bbf0a57fef1ae7485",
     "/mySuitcase/fr/pwa-installer.js": "d014344ce69b90f3c48942c488cb8641dda70d55",
-    "/mySuitcase/fr/runtime.9458b05a8547db72.js": "9f49f644cb914d2275bb253cd8c4c59b38dba680",
+    "/mySuitcase/fr/runtime.2193e675fca324d4.js": "a3b91dc1f76953c9671289bf35bb684b5b22a874",
     "/mySuitcase/fr/scripts.9fc6c9a4c915a6d8.js": "1a6786f29790e59a3a547bf15e5b8c242a8e06dd",
     "/mySuitcase/fr/styles.1855f07d84eb5d88.css": "ba62fbe1266e9191848c9c0be814bdc17567bc69",
     "/mySuitcase/fr/sw-register.js": "6d72371983a4622e40add9a76f5818cb5335f280",
