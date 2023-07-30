@@ -80,11 +80,11 @@
       </trans-unit>
       <trans-unit id="pass_requirements" datatype="html">
         <source>Password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</source>
-        <target state="new">La contraseña debe contener entre 6 y 20 caracteres e incluir al menos 1 minúscula, 1 mayúscula, 1 número y 1 carácter especial</target>
+        <target>La contraseña debe contener entre 6 y 20 caracteres e incluir al menos 1 minúscula, 1 mayúscula, 1 número y 1 carácter especial</target>
       </trans-unit>
-      <trans-unit id="af3f7d5887abc4d1e4f11fcac61b7a4f12b7cfe9" datatype="html">
-        <source>Rememberme</source>
-        <target>Recuerdame</target>
+      <trans-unit id="3eb49d60bd859eb2d9d3a6d380cdf4e0b8252333" datatype="html">
+        <source>Remember me</source>
+        <target>Recuérdame</target>
       </trans-unit>
       <trans-unit id="dead4eb38a801bf6380c1586a0265284228162bf" datatype="html">
         <source>Go ahead!</source>
@@ -160,7 +160,7 @@
       </trans-unit>
       <trans-unit id="pass_requirements-error" datatype="html">
         <source> The field password <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>does not match the requirements<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
-        <target state="new">El campo contraseña <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>no cumple con los requisitos<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Puedes comprobar estos requisitos en el desplegable de detalle.</target>
+        <target>El campo contraseña <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>no cumple con los requisitos<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Puedes comprobar estos requisitos en el desplegable de detalle.</target>
       </trans-unit>
       <trans-unit id="18c96743c3835e5d3d8af54cac565ca6376798e9" datatype="html">
         <source>Introduce the new password</source>
@@ -180,7 +180,7 @@
       </trans-unit>
       <trans-unit id="9e03bfc24d17138553609ba241e614647e1cd2ff" datatype="html">
         <source>Age (Optional)</source>
-        <target state="new">Edad (Opcional)</target>
+        <target>Edad (Opcional)</target>
       </trans-unit>
       <trans-unit id="097b5dfee5665aa0f7daba8b696acecde6445474" datatype="html">
         <source>Male</source>
@@ -192,7 +192,7 @@
       </trans-unit>
       <trans-unit id="ok_button" datatype="html">
         <source>Ok</source>
-        <target state="new">Ok</target>
+        <target>Ok</target>
       </trans-unit>
       <trans-unit id="802f5800e4abf10a8986e01d094730f9bd1a65e3" datatype="html">
         <source>In <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> we help you to pack your suitcase for your trip according to the options your configure while you create your suitcase, providing suggestions of items that might be useful for a trip of those characteristics. </source>
@@ -323,7 +323,7 @@
         <source>Pet</source>
         <target>Mascota</target>
       </trans-unit>
-      <trans-unit id="acb92fd9031543d9b8ff174d45ed723be39cb01e" datatype="html"> <source>Baby</source> <target state="new"/>Bebé </trans-unit>
+      <trans-unit id="acb92fd9031543d9b8ff174d45ed723be39cb01e" datatype="html"> <source>Baby</source> <target>Bebé</target> </trans-unit>
       <trans-unit id="baby" datatype="html">
         <source>Baby</source>
         <target>Bebé</target>
@@ -464,12 +464,12 @@
         <source>baby</source>
         <target>Bebé</target>
       </trans-unit>
-      <trans-unit id="856408099070f83cf0b14184ae8df46c8c47acae" datatype="html">
-        <source>Forget about missing things for your next trip at home</source>
+      <trans-unit id="3852e8fc8feeb63e34dfc36515e74c7c5863f8b0" datatype="html">
+        <source>Forget about missing things for your next trip</source>
         <target>Olvídate de olvidar cosas en tu próximo destino</target>
       </trans-unit>
-      <trans-unit id="973ac42d2ca683d31e841564884c5e9a5c6cea8a" datatype="html">
-        <source>Packing has always been the most boring part of the trip. With <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Mysuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> we help you to optimize this process to not let you forget anything in your next trip. ¿Why loosing time with things that dont require it?</source>
+      <trans-unit id="47f2ee6d73ef1554e15d7c5ea84e31d2f91cb358" datatype="html">
+        <source>Packing has always been the most boring part of the trip. With <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Mysuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> we help you to optimize this process to not let you forget anything in your next trip. Why loosing time with things that dont require it?</source>
         <target>El hacer maletas siempre fue la parte más tediosa del viaje. Con <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Mysuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> te ayudamos a optimizar ese proceso para que no olvides nada en tu próximo viaje. ¿Por qué perder el tiempo con las cosas que no lo requieren?</target>
       </trans-unit>
       <trans-unit id="6c2e48a2bed359dfc34b2dae4735a392054e8a23" datatype="html">
@@ -488,17 +488,17 @@
         <source>A countryside gateway are, generally, a kind of trip for those who pursue a direct contact with the nature.</source>
         <target>Las escapadas rurales son, generalmente, un tipo de viaje para aquellos que buscan un contacto directo con la naturaleza.</target>
       </trans-unit>
-      <trans-unit id="4e360c6a8e905743a34f17bf271cf2d4fb2f5d76" datatype="html">
-        <source>¿Sun, beach?</source>
-        <target state="new">¿Sol, playa?</target>
+      <trans-unit id="3bb0327f1088e4ac339996399ca151cd626e2f91" datatype="html">
+        <source>Sun, beach?</source>
+        <target>¿Sol, playa?</target>
       </trans-unit>
       <trans-unit id="457462efa9dd3323a65ff5b7fe2c5d3b429b9032" datatype="html">
         <source>Some days to rest and to sunbath in a dreamed beach is never a bad idea. </source>
         <target>Unos dias para descansar y tomar el sol en una playa de ensueño no es nunca una mala idea.</target>
       </trans-unit>
-      <trans-unit id="70f01136cd9bfd6983b8461a7d37cdd111928826" datatype="html">
-        <source>¿Turism, culture?</source>
-        <target state="new">¿Turismo, cultura?</target>
+      <trans-unit id="e99d7ae1515c88ff4e9a7c4f42953e494d833e73" datatype="html">
+        <source>Turism, culture?</source>
+        <target>¿Turismo, cultura?</target>
       </trans-unit>
       <trans-unit id="51a93b3ed727457cdd06dc2ecdd8abdc9b300651" datatype="html">
         <source>If you love finding out new the historic city centers all around the world, this is your trip</source>
@@ -618,15 +618,15 @@
       </trans-unit>
       <trans-unit id="e366b542b9627d8379cd034b6358fbec27b6ce57" datatype="html">
         <source>I am new, Let&apos;s start!</source>
-        <target state="new">Soy nuevo aquí, ¡Empecemos!</target>
+        <target>Soy nuevo aquí, ¡Empecemos!</target>
       </trans-unit>
       <trans-unit id="783f63fff2215fba2767e31a03173f7e5935ea62" datatype="html">
         <source> The field pasword is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
-        <target state="new"> El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>necesario<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </target>
+        <target> El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>necesario<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </target>
       </trans-unit>
       <trans-unit id="25d84f777c27d2f75c151b1ba693c1a3409fcb2a" datatype="html">
         <source>Gender (Optional)</source>
-        <target state="new">Sexo (Optional)</target>
+        <target>Sexo (Optional)</target>
       </trans-unit>
     </body>
   </file>
