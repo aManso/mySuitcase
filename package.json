@@ -8,6 +8,7 @@
     "start": "ng serve --proxy-config proxy.conf.json",
     "start-es": "ng serve --proxy-config proxy.conf.json --configuration=es",
     "start-prod": "ng build --configuration=production --localize && http-server -c-1 -p 8080 dist/my-suitcase/",
+    "start-github-pages": "ng build --configuration=production --localize --output-path docs --base-href /mySuitcase/",
     "test": "ng test",
     "posttest": "node -e 'console.log(\"Testing done!\")'",
     "lint": "ng lint",
