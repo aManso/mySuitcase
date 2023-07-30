@@ -306,10 +306,10 @@ LoginComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_7__["
       /**
        * @suppress {msgDescriptions}
        */
-      const MSG_EXTERNAL_1690094634653519321$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_CORE_LOGIN_CONTAINERS_LOGIN_COMPONENT_TS__19 = goog.getMsg("Rememberme");
-      i18n_18 = MSG_EXTERNAL_1690094634653519321$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_CORE_LOGIN_CONTAINERS_LOGIN_COMPONENT_TS__19;
+      const MSG_EXTERNAL_931252989873527145$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_CORE_LOGIN_CONTAINERS_LOGIN_COMPONENT_TS__19 = goog.getMsg("Remember me");
+      i18n_18 = MSG_EXTERNAL_931252989873527145$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_CORE_LOGIN_CONTAINERS_LOGIN_COMPONENT_TS__19;
     } else {
-      i18n_18 = $localize`:␟af3f7d5887abc4d1e4f11fcac61b7a4f12b7cfe9␟1690094634653519321:Rememberme`;
+      i18n_18 = $localize`:␟3eb49d60bd859eb2d9d3a6d380cdf4e0b8252333␟931252989873527145:Remember me`;
     }
     let i18n_20;
     if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {

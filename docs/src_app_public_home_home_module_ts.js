@@ -1170,17 +1170,17 @@ HomeComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_12__["
       /**
        * @suppress {msgDescriptions}
        */
-      const MSG_EXTERNAL_115465839878127475$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__2 = goog.getMsg("Forget about missing things for your next trip at home");
-      i18n_1 = MSG_EXTERNAL_115465839878127475$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__2;
+      const MSG_EXTERNAL_7317199193486631897$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__2 = goog.getMsg("Forget about missing things for your next trip");
+      i18n_1 = MSG_EXTERNAL_7317199193486631897$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__2;
     } else {
-      i18n_1 = $localize`:␟856408099070f83cf0b14184ae8df46c8c47acae␟115465839878127475:Forget about missing things for your next trip at home`;
+      i18n_1 = $localize`:␟3852e8fc8feeb63e34dfc36515e74c7c5863f8b0␟7317199193486631897:Forget about missing things for your next trip`;
     }
     let i18n_3;
     if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
       /**
        * @suppress {msgDescriptions}
        */
-      const MSG_EXTERNAL_6735670978821641909$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__4 = goog.getMsg("Packing has always been the most boring part of the trip. With {$startItalicText}Mysuitcase{$closeItalicText} we help you to optimize this process to not let you forget anything in your next trip. \u00BFWhy loosing time with things that dont require it?", {
+      const MSG_EXTERNAL_8759071585599043602$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__4 = goog.getMsg("Packing has always been the most boring part of the trip. With {$startItalicText}Mysuitcase{$closeItalicText} we help you to optimize this process to not let you forget anything in your next trip. Why loosing time with things that dont require it?", {
         "startItalicText": "\uFFFD#9\uFFFD",
         "closeItalicText": "\uFFFD/#9\uFFFD"
       }, {
@@ -1189,9 +1189,9 @@ HomeComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_12__["
           "closeItalicText": "</i>"
         }
       });
-      i18n_3 = MSG_EXTERNAL_6735670978821641909$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__4;
+      i18n_3 = MSG_EXTERNAL_8759071585599043602$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__4;
     } else {
-      i18n_3 = $localize`:␟973ac42d2ca683d31e841564884c5e9a5c6cea8a␟6735670978821641909:Packing has always been the most boring part of the trip. With ${"\uFFFD#9\uFFFD"}:START_ITALIC_TEXT:Mysuitcase${"\uFFFD/#9\uFFFD"}:CLOSE_ITALIC_TEXT: we help you to optimize this process to not let you forget anything in your next trip. ¿Why loosing time with things that dont require it?`;
+      i18n_3 = $localize`:␟47f2ee6d73ef1554e15d7c5ea84e31d2f91cb358␟8759071585599043602:Packing has always been the most boring part of the trip. With ${"\uFFFD#9\uFFFD"}:START_ITALIC_TEXT:Mysuitcase${"\uFFFD/#9\uFFFD"}:CLOSE_ITALIC_TEXT: we help you to optimize this process to not let you forget anything in your next trip. Why loosing time with things that dont require it?`;
     }
     let i18n_5;
     if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
@@ -1238,10 +1238,10 @@ HomeComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_12__["
       /**
        * @suppress {msgDescriptions}
        */
-      const MSG_EXTERNAL_4952850024847725496$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__14 = goog.getMsg("\u00BFSun, beach?");
-      i18n_13 = MSG_EXTERNAL_4952850024847725496$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__14;
+      const MSG_EXTERNAL_7265174266659860248$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__14 = goog.getMsg("Sun, beach?");
+      i18n_13 = MSG_EXTERNAL_7265174266659860248$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__14;
     } else {
-      i18n_13 = $localize`:␟4e360c6a8e905743a34f17bf271cf2d4fb2f5d76␟4952850024847725496:¿Sun, beach?`;
+      i18n_13 = $localize`:␟3bb0327f1088e4ac339996399ca151cd626e2f91␟7265174266659860248:Sun, beach?`;
     }
     let i18n_15;
     if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
@@ -1258,10 +1258,10 @@ HomeComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_12__["
       /**
        * @suppress {msgDescriptions}
        */
-      const MSG_EXTERNAL_5878722812969331197$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__18 = goog.getMsg("\u00BFTurism, culture?");
-      i18n_17 = MSG_EXTERNAL_5878722812969331197$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__18;
+      const MSG_EXTERNAL_2647937398395486521$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__18 = goog.getMsg("Turism, culture?");
+      i18n_17 = MSG_EXTERNAL_2647937398395486521$$____________USERS_AMANSO_GIT_MYSUITCASE_SRC_APP_PUBLIC_HOME_CONTAINERS_HOME_HOME_COMPONENT_TS__18;
     } else {
-      i18n_17 = $localize`:␟70f01136cd9bfd6983b8461a7d37cdd111928826␟5878722812969331197:¿Turism, culture?`;
+      i18n_17 = $localize`:␟e99d7ae1515c88ff4e9a7c4f42953e494d833e73␟2647937398395486521:Turism, culture?`;
     }
     let i18n_19;
     if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {

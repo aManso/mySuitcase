@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1690706339959,
+  "timestamp": 1690707688560,
   "index": "/mySuitcase/index.html",
   "assetGroups": [
     {
@@ -170,7 +170,7 @@
     "/mySuitcase/default-node_modules_angular_material_fesm2022_input_mjs.js": "eb19447eb074c9297f588c08ba1eddefacc86c49",
     "/mySuitcase/favicon.ico": "dccf8a9bfde7b76b96e2d677cb5b94c1390e3bae",
     "/mySuitcase/index.html": "285e7e2fb40ac1a5bc6eb37b8c96bbff784e6821",
-    "/mySuitcase/main.js": "9fe1093443d2ebdbcbb1bca37f9cac069607f872",
+    "/mySuitcase/main.js": "a983de3407329eeaedfea87d553aaf662a027c6e",
     "/mySuitcase/manifest.webmanifest": "8b9e29d00a73b31693a9833dbcbef5c4256cd7f9",
     "/mySuitcase/offline.html": "edcaeb2dc6923a42d01092ce5960201eb1cb3488",
     "/mySuitcase/polyfills.js": "72a616bd40e4a124a2b5fc7fd3a4e206d9ce737c",
@@ -180,11 +180,11 @@
     "/mySuitcase/src_app_admin_admin_module_ts.js": "4cdc42c6fddae9c77893dcc4d7a1bbabf267593e",
     "/mySuitcase/src_app_admin_notifications_notifications_module_ts.js": "e75e4f8c9e1a59bba7a28226e6b8c93e67069d29",
     "/mySuitcase/src_app_admin_users_users_module_ts.js": "eca02fbe5e7dab182f83effc6935d768b2b21ef6",
-    "/mySuitcase/src_app_core_login_login_module_ts.js": "3b95ab834c749b3275e9a3f09263d4d590f9b2d3",
+    "/mySuitcase/src_app_core_login_login_module_ts.js": "8a9cd0b17ae2c0fee5c363d054b4dceafa98a48e",
     "/mySuitcase/src_app_core_settings_settings_module_ts.js": "c6822344773f428fe72084634a5c9ef426139e3c",
     "/mySuitcase/src_app_public_contact_contact_module_ts.js": "3034189d09c8d91f2c12cf82d81fd2e2ad0ec102",
     "/mySuitcase/src_app_public_create-suitcase_create-suitcase_module_ts.js": "26f6a4f5d8788799f6e6c208bc2dc828447c38d1",
-    "/mySuitcase/src_app_public_home_home_module_ts.js": "5ac66711a109a91f8ad652d12690f701b8c750b2",
+    "/mySuitcase/src_app_public_home_home_module_ts.js": "36eef134b4dd2ac10f733f8ca19a09381673a133",
     "/mySuitcase/src_app_public_public_module_ts.js": "7d051b3adda9d609c3870f2f23b935be5e65c788",
     "/mySuitcase/src_app_public_register_register_module_ts.js": "ceb24a3c520605b0d3cb718ad2f8969c85b1a8ab",
     "/mySuitcase/styles.css": "e03816efba30521aa5c25b81d796b5033bc34307",
