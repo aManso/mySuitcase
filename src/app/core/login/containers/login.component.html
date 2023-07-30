@@ -22,7 +22,7 @@
     </mat-form-field>
     <div class="form-check" *ngIf="loginMode">
       <input type="checkbox" class="form-check-input" id="rememberme" formControlName="keepSession">
-      <label class="form-check-label" for="rememberme" i18n>Rememberme</label>
+      <label class="form-check-label" for="rememberme" i18n>Remember me</label>
     </div>
     <div class="button-block">
       <button type="submit" class="button border-1 mt-3" [disabled]="!loginForm.valid" [ngClass]="{'disabled-button': !loginForm.valid}"
