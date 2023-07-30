@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="styles.css"><!doctype html>
+<html lang="en">
+<head>
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
+  <meta charset="utf-8">
+  <title>MySuitcase</title>
+  <base href="/mySuitcase/">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script>
+    // Callback is needed to avoid warnings
+    // https://developers.google.com/maps/documentation/javascript/load-maps-js-api?hl=es-419
+    // https://developers.google.com/maps/documentation/javascript/overview?hl=es-419#bootstrap_loader
+    function mapsCallback()  {
+      console.log('Google Maps is loaded');
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSR6NTAYFIgtqSBc37HDAvBEulaHHgh4M&amp;libraries=places&amp;callback=mapsCallback" type="text/javascript" defer=""></script>
+  
+<body class="bg-shape mat-typography">
+  <app-root></app-root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+<script src="runtime.js" type="module"></script><script src="polyfills.js" type="module"></script><script src="scripts.js" defer></script><script src="vendor.js" type="module"></script><script src="main.js" type="module"></script></body>
+</html>
