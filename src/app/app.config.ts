@@ -8,6 +8,6 @@ export interface AppConfig {
 export const MYSUITCASE_CONFIG_TOKEN = new InjectionToken<AppConfig>('config');
 
 export const MYSUITCASE_CONFIG: AppConfig = {
-    apiUrl: 'mysuitcase.com',
+    apiUrl: 'mysuitcase.net',
     title: 'My Suitcase'
   };
