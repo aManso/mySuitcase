@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { SuitcaseService } from '../../../../core/services/suitcase.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Coordinates } from '../../../../core/models/trip';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'my-suitcase-weather-panel',
@@ -15,27 +15,18 @@ export class WeatherPanelComponent implements OnInit {
 
   public weatherIsReady: boolean;
   public weatherData: any;
-  // It retrieves the daily forecast for the next 7 days
-  private _weatherApiUrl = 'data/2.5/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly&APPID=196a1bbd3530f9a1bfe6b1d93626f518';
+  // It retrieves the daily forecast for the next 5 days
+  private readonly URL_WEATHER_API = environment.apiUrl + 'weather';
 
   constructor(
     private _http: HttpClient,
-    private _suitcaseService: SuitcaseService,
     private readonly _changeDetector: ChangeDetectorRef,
   ) {
   }
 
   public ngOnInit() {
-    const headers= new HttpHeaders()
-      .set('content-type', 'application/json')
-      .set('Access-Control-Allow-Headers', 'Content-Type')
-      .set('Access-Control-Allow-Origin', '*')
-      .set('Access-Control-Allow-Methods', 'GET');
-
-    let url = this._weatherApiUrl.replace('{lat}', this.coordinates.lat.toString());
-    url = url.replace('{lon}', this.coordinates.lng.toString());
-    this._http.get(url, {headers}).subscribe((response: any) => {
-      // TODO not working due to CORS, it should work from a server
+    const url = this.URL_WEATHER_API + '?lat='+this.coordinates.lat.toString()+'&lon='+this.coordinates.lng.toString();
+    this._http.get(url).subscribe((response: any) => {
       this._parseData(response);
     }, (error) => {
       console.log(error);

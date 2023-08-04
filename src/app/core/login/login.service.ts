@@ -10,7 +10,6 @@ import { UserService } from '../services/user.service';
 
 @Injectable()
 export class LoginService {
-  // TODO replace for config const
   private readonly URL_API = environment.apiUrl + 'users/';
   private readonly URL_CHECK_EXISTING_USER = environment.apiUrl + 'login/';
   public logged$: BehaviorSubject<User|undefined>;
