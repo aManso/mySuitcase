@@ -6,7 +6,7 @@
     "build": "ng build",
     "translate": "ng extract-i18n",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "start-es": "ng serve --proxy-config proxy.conf.json --configuration=es",
+    "start-es": "ng serve --proxy-config proxy.conf.json --configuration=es-ES",
     "start-prod": "ng build --configuration=production --localize",
     "start-prod-local": "ng build --configuration=production --localize && http-server -c-1 -p 8080 dist/my-suitcase/",
     "start-github-pages": "ng build --configuration=production --localize --output-path docs --base-href /mySuitcase/",

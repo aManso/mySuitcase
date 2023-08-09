@@ -1,0 +1,18 @@
+<html>
+<head>
+    <script>
+        const LOCALE_KEY = 'locale';
+        (function load() {
+            const locale = getLocale();
+            sessionStorage.setItem(LOCALE_KEY, locale)
+            document.location.href=document.location.href + locale + "/"
+        })()
+
+        function getLocale() {
+            return sessionStorage.getItem(LOCALE_KEY) || window.navigator.language;
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

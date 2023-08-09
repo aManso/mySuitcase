@@ -16,8 +16,8 @@
             <li class="nav-item active"><a i18n-matTooltip matTooltip="Inform us regarding any incident or suggestion" class="nav-link" [routerLink]="['/contact']" i18n>Contact</a></li>
             <li *ngIf="loginService.isLoggedIn()" class="nav-item active"><a i18n-matTooltip matTooltip="Manage your profile and other settings" class="nav-link" [routerLink]="['/settings']" i18n>Profile</a></li>
             <li class="nav-item active"><a i18n-matTooltip matTooltip="Subscribe to be up to date by retriving all the notifications" class="nav-link" [routerLink]="['/home']" [queryParams]="{}" [fragment]="'notifications'" i18n>Subscribe</a></li>
-            <li class="nav-item active"><a i18n-matTooltip="@@English" matTooltip="English" class="nav-link" href="/" i18n="@@English">English <img class="lang-img lang-img--small" alt="UK flag" src="assets/img/lang/uk-flag-icon.png"></a></li>
-            <li class="nav-item active"><a i18n-matTooltip="@@Spanish" matTooltip="Spanish" matTooltipPosition="below" class="nav-link" href="/es" i18n="@@Spanish">Spanish <img class="lang-img lang-img--small" alt="Spain flag" src="assets/img/lang/spain-flag-icon.png"></a></li>
+            <li class="nav-item active"><a i18n-matTooltip="@@English" matTooltip="English" class="nav-link" href="#" (click)="changeLanguage(languages.en)" i18n="@@English">English <img class="lang-img lang-img--small" alt="UK flag" src="assets/img/lang/uk-flag-icon.png"></a></li>
+            <li class="nav-item active"><a i18n-matTooltip="@@Spanish" matTooltip="Spanish" matTooltipPosition="below" class="nav-link" href="#" (click)="changeLanguage(languages.es)" i18n="@@Spanish">Spanish <img class="lang-img lang-img--small" alt="Spain flag" src="assets/img/lang/spain-flag-icon.png"></a></li>
             <li *ngIf="loginService.isLoggedIn()" class="nav-item active" (click)="logout()"><a i18n-matTooltip matTooltip="Log out" class="nav-link" i18n>Logout</a></li>
           </ul>
           <ul class="nav navbar-nav menu_nav menu_nav--icons justify-content-end">
@@ -30,10 +30,10 @@
             <li class="nav-item active language-container" *ngIf="isProdMode()">
               <a i18n-matTooltip matTooltip="Language" class="nav-link" (click)="showLanguages = !showLanguages"><mat-icon>flag</mat-icon></a>
               <div class="language-flags" *ngIf="showLanguages">
-                <a i18n-matTooltip="@@English" matTooltip="English" matTooltipPosition="left" class="nav-link" href="/en-US/" mat-menu-item>
+                <a i18n-matTooltip="@@English" matTooltip="English" matTooltipPosition="left" class="nav-link" href="#" (click)="changeLanguage(languages.en)" mat-menu-item>
                   <img class="lang-img" alt="UK flag" src="assets/img/lang/uk-flag-icon.png">
                 </a>
-                <a i18n-matTooltip="@@Spanish" matTooltip="Spanish" matTooltipPosition="left" class="nav-link" href="/es/" mat-menu-item>
+                <a i18n-matTooltip="@@Spanish" matTooltip="Spanish" matTooltipPosition="left" class="nav-link" href="#" (click)="changeLanguage(languages.es)" mat-menu-item>
                   <img class="lang-img" alt="Spain flag" src="assets/img/lang/spain-flag-icon.png">
                 </a>
               </div>

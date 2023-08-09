@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AppConfig, MYSUITCASE_CONFIG_TOKEN } from './app.config';
 import { SwUpdate } from '@angular/service-worker'
+import { ConfigService } from './core/services/config.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit {
   constructor(
     @Inject(MYSUITCASE_CONFIG_TOKEN) config: AppConfig,
     private swUpdate: SwUpdate ,
+    private readonly configService: ConfigService,
   ) {
     this.config = config;
   }
@@ -40,5 +42,9 @@ export class AppComponent implements OnInit {
     } else {
       console.log("The current browser does not support service workers or the Angular Service Worker is not up and running");
     }
+    if (!this.configService.getLocale()) {
+      this.configService.setLocale(window.navigator.language);
+    }
+    
   }
 }

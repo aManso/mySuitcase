@@ -13,6 +13,7 @@ import { MYSUITCASE_CONFIG, MYSUITCASE_CONFIG_TOKEN } from './app.config';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TokenInterceptorService } from './core/interceptor/token-interceptor.service';
+import { ConfigService } from './core/services/config.service';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { TokenInterceptorService } from './core/interceptor/token-interceptor.se
     AppRoutingModule,
   ],
   providers: [
+    ConfigService,
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true} },
     { provide: MYSUITCASE_CONFIG_TOKEN, useValue: MYSUITCASE_CONFIG },
     {
