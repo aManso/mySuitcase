@@ -4,12 +4,12 @@
         const LOCALE_KEY = 'locale';
         (function load() {
             const locale = getLocale();
-            sessionStorage.setItem(LOCALE_KEY, locale)
+            localStorage.setItem(LOCALE_KEY, locale)
             document.location.href=document.location.href + locale + "/"
         })()
 
         function getLocale() {
-            return sessionStorage.getItem(LOCALE_KEY) || window.navigator.language;
+            return localStorage.getItem(LOCALE_KEY) || window.navigator.language;
         }
     </script>
 </head>

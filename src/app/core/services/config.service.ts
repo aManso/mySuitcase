@@ -9,11 +9,11 @@ export class ConfigService {
   }
 
   setLocale(locale: string) {
-    sessionStorage.setItem(LOCALE_KEY, locale); 
+    localStorage.setItem(LOCALE_KEY, locale); 
   }
 
   getLocale() {
-    return sessionStorage.getItem(LOCALE_KEY); 
+    return localStorage.getItem(LOCALE_KEY); 
   }
 }
 
