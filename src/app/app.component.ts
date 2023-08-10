@@ -42,6 +42,8 @@ export class AppComponent implements OnInit {
     } else {
       console.log("The current browser does not support service workers or the Angular Service Worker is not up and running");
     }
+    // If there is not a locale set in the localStorage, we set as default the one of the navigator
+    // This is also done in the main index but it could be possible that the user get access straight to a particular locale
     if (!this.configService.getLocale()) {
       this.configService.setLocale(window.navigator.language);
     }
