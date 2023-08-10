@@ -78,7 +78,8 @@ export class SessionService {
       return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
     const payload = JSON.parse(rawPayload);
-    return payload ? payload.subject : payload;
+    // TODO check why from register it comes userId and from refreshing after login it comes as subject
+    return payload ? payload.subject ? payload.subject : payload.userId : payload;
   }
 
   private _initInterval() {

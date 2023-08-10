@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit{
 
   public submit() {
     if (this.isValidForm()) {
-      this._registerService.register(this.registerForm.value).subscribe((user: User) => {
+      this._registerService.register(this.adaptUser(this.registerForm.value)).subscribe((user: User) => {
         if (user) {
           this.goTo(this.baseRoute.toString());
         } else {
@@ -78,5 +78,14 @@ export class RegisterComponent implements OnInit{
           console.error('Error in the transaction');
         });
     }
+  }
+
+  public adaptUser(form: any): User {
+    return {...form,
+      password: form.passwords.password,
+      passwordConfirmation: form.passwords.passwordConfirmation,
+      passwords: undefined
+    };
+
   }
 }

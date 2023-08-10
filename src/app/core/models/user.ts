@@ -17,6 +17,7 @@ export interface User {
   joiningDate: Date;
   name: string;
   password: string;
+  passwordConfirmation?: string;
 }
 
 export interface UserLogin {
