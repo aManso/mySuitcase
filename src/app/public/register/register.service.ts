@@ -21,8 +21,6 @@ export class RegisterService {
     const $registerResponse = new Subject<User>();
     (this.http.post(this.URL_REGISTER, user) as Observable<UserRegister>).subscribe((response: UserRegister) => {
       if (typeof response === 'object') {
-        console.log('user registered', response);
-        this._sessionService.startSession(response.token);
         $registerResponse.next(response.user);
       } else {
         $registerResponse.next(response);
