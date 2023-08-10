@@ -1,19 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './core/shared/shared.module';
 import { NotFoundModule } from './not-found/not-found.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MYSUITCASE_CONFIG, MYSUITCASE_CONFIG_TOKEN } from './app.config';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TokenInterceptorService } from './core/interceptor/token-interceptor.service';
-import { ConfigService } from './core/services/config.service';
+import { configLocaleFactory, ConfigService } from './core/services/config.service';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ConfigService } from './core/services/config.service';
       useClass: TokenInterceptorService,
       multi: true
     },
+    {provide: MAT_DATE_LOCALE, useFactory: configLocaleFactory},
   ],
   bootstrap: [AppComponent]
 })

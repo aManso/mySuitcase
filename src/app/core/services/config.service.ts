@@ -18,5 +18,9 @@ export class ConfigService {
 }
 
 export const configServiceFactory = () => {
-    return new ConfigService();
-  };
+  return new ConfigService();
+};
+
+export const configLocaleFactory = ():string => {
+  return new ConfigService().getLocale();
+};

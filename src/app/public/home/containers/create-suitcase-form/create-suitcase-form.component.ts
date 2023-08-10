@@ -2,9 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 
-import { ThemePalette } from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, ThemePalette } from '@angular/material/core';
 import { ProgressBarMode } from '@angular/material/progress-bar';
 import { MatDialog } from '@angular/material/dialog';
+import {
+  MAT_MOMENT_DATE_FORMATS,
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+} from '@angular/material-moment-adapter';
 
 import { CreateSuitcaseFormSteps } from './create-suitcase-form.interfaces';
 import { TripLocation, TripType } from '../../../../core/models/trip';
@@ -18,7 +23,15 @@ const suitcaseNameMaxLength = 20;
 @Component({
   selector: 'my-suitcase-create-suitcase-form',
   templateUrl: './create-suitcase-form.component.html',
-  styleUrls: ['./create-suitcase-form.component.scss']
+  styleUrls: ['./create-suitcase-form.component.scss'],
+  providers: [
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+  ],
 })
 export class CreateSuitcaseFormComponent implements OnInit {
   public progressBarValue: number;
