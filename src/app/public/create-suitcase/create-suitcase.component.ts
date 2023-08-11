@@ -4,7 +4,6 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Renderer2,
-  ElementRef,
   ViewChildren,
   QueryList,
   ViewEncapsulation,
@@ -26,6 +25,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SaveDialogComponent } from "./components/dialog/save-dialog.component";
 import { GENERAL_SNACKBAR_TIME } from "../../core/config/config";
+import { ConfigService } from 'src/app/core/services/config.service';
 
 @Component({
   selector: 'app-create-suitcase',
@@ -62,6 +62,7 @@ export class CreateSuitcaseComponent implements OnInit {
   public totalItemsInList = 0;
   public createMode = true;
   @HostBinding('class.print-mode') public printMode = false;
+  private _locale: string
 
   public dataReady = false;
 
@@ -110,12 +111,12 @@ export class CreateSuitcaseComponent implements OnInit {
   constructor(
     private _suitcaseService: SuitcaseService,
     private readonly _changeDetector: ChangeDetectorRef,
-    private _elementRef: ElementRef,
     private _renderer: Renderer2,
     private _dialog: MatDialog,
     private _router: Router,
     private _snackBar: MatSnackBar,
     private _activatedRoute: ActivatedRoute,
+    private _configService: ConfigService,
   ) {
   }
 
@@ -125,6 +126,7 @@ export class CreateSuitcaseComponent implements OnInit {
     this._sevenDaysDateInMillis = sevenDaysDate.getTime();
     // Fetch the suitcase created in the previous steps with the basic information
     this.suitcase = this._suitcaseService.getCurrentSuitcase();
+    this._locale = this._configService.getLocale()
 
     this._activatedRoute.data.subscribe(data => {
       this.createMode = data.createMode;
@@ -142,7 +144,7 @@ export class CreateSuitcaseComponent implements OnInit {
     });
 
     // Fetch suggestions
-    this._fetchSuggestionList(this.suitcase.type, 1).subscribe((response: TripType) => {
+    this._fetchSuggestionList(this.suitcase.type, 1, this._locale).subscribe((response: TripType) => {
       this.suggestionList = this._convertToModel(response);
       this.dataReady = true;
       this._changeDetector.detectChanges();
@@ -152,8 +154,8 @@ export class CreateSuitcaseComponent implements OnInit {
     this.weatherDays = this.showWeather ? Math.ceil((this._sevenDaysDateInMillis - new Date(this.suitcase.date.from).getTime()) / (1000*60*60*24)) : 0;
   }
 
-  private _fetchSuggestionList(tripType: TripType, pageNr: number): Observable<TripType> {
-    return this._suitcaseService.fetchRecommendations(tripType, pageNr);
+  private _fetchSuggestionList(tripType: TripType, pageNr: number, lang: string): Observable<TripType> {
+    return this._suitcaseService.fetchRecommendations(tripType, pageNr, lang);
   }
 
   private _convertToModel(tripType: TripType): TripType {
@@ -172,7 +174,7 @@ export class CreateSuitcaseComponent implements OnInit {
       // count the page we request to fetch next page in next iteration
       this.suggestionList[type].currentPage++;
       // Fetch a new list
-      this._fetchSuggestionList(Object.assign({}, {[type]: this.suggestionList[type]}) as TripType, this.suggestionList[type].currentPage).subscribe((response: TripType) => {
+      this._fetchSuggestionList(Object.assign({}, {[type]: this.suggestionList[type]}) as TripType, this.suggestionList[type].currentPage, this._locale).subscribe((response: TripType) => {
         // add the new items of the category to the ones of the same category
         this.suggestionList[type].items = this.suggestionList[type].items.concat(response[type].items);
         // if after the concatenation with the fetched items there are still less than 5 items and the priority of them

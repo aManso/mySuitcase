@@ -89,9 +89,9 @@ export class SuitcaseService {
     return this._currentSuitcase;
   }
 
-  public fetchRecommendations(options: TripType, pageNumber: number, limit?: number): Observable<TripType> {
+  public fetchRecommendations(options: TripType, pageNumber: number, lang: string, limit?: number): Observable<TripType> {
     const $saveResponse = new Subject<TripType>();
-    this._http.post(this.RECOMMENDATIONS_SUITCASE_API, {options, pageNumber, limit})
+    this._http.post(this.RECOMMENDATIONS_SUITCASE_API, {options, pageNumber, lang, limit})
     .pipe(
       map((trip: TripType)=> {
         if (trip.baby) {
