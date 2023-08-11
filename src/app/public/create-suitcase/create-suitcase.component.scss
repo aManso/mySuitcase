@@ -9,6 +9,19 @@ $margin: 15px;
   margin-bottom: 20px;
 }
 
+.columns-row {
+  height: 70%;
+
+  .suggestion-column {
+    height: 100%;
+
+    .card {
+      height: 100%;
+      overflow-y: scroll;
+    }
+  }
+}
+
 .full-screen {
   height: calc(100% - #{$max-footer-height} - #{$min-header-height});
 }
