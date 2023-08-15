@@ -572,10 +572,18 @@
         <target>Ya estoy registrado, quiero volver.</target>
       </trans-unit>
       <trans-unit id="English" datatype="html">
-        <source>English</source>
+        <source>English <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;UK flag&quot; src=&quot;assets/img/lang/uk-flag-icon.png&quot;&gt;"/></source>
         <target>Inglés</target>
       </trans-unit>
       <trans-unit id="Spanish" datatype="html">
+        <source>Spanish <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;Spain flag&quot; src=&quot;assets/img/lang/spain-flag-icon.png&quot;&gt;"/></source>
+        <target>Español</target>
+      </trans-unit>
+      <trans-unit id="English-tooltip" datatype="html">
+        <source>English</source>
+        <target>Inglés</target>
+      </trans-unit>
+      <trans-unit id="Spanish-tooltip" datatype="html">
         <source>Spanish</source>
         <target>Español</target>
       </trans-unit>

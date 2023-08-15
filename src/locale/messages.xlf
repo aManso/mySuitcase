@@ -198,10 +198,10 @@
         <source>Log out</source>
       </trans-unit>
       <trans-unit id="English" datatype="html">
-        <source>English</source>
+        <source>English <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;UK flag&quot; src=&quot;assets/img/lang/uk-flag-icon.png&quot;&gt;"/></source>
       </trans-unit>
       <trans-unit id="Spanish" datatype="html">
-        <source>Spanish</source>
+        <source>Spanish <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;Spain flag&quot; src=&quot;assets/img/lang/spain-flag-icon.png&quot;&gt;"/></source>
       </trans-unit>
       <trans-unit id="fe46ccaae902ce974e2441abe752399288298619" datatype="html">
         <source>Language</source>
@@ -493,6 +493,12 @@
       </trans-unit>
       <trans-unit id="916fa1b6137bcfdeb4cb2d1da23de5f25a628993" datatype="html">
         <source>Invalid password, check the details</source>
+      </trans-unit>
+      <trans-unit id="English-tooltip" datatype="html">
+        <source>English</source>
+      </trans-unit>
+      <trans-unit id="Spanish-tooltip" datatype="html">
+        <source>Spanish</source>
       </trans-unit>
     </body>
   </file>
