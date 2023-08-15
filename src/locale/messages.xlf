@@ -500,6 +500,12 @@
       <trans-unit id="Spanish-tooltip" datatype="html">
         <source>Spanish</source>
       </trans-unit>
+      <trans-unit id="01ab0c6ecc20d99d424f9a618c51e1afcb570568" datatype="html">
+        <source>Website made by </source>
+      </trans-unit>
+      <trans-unit id="7371a1fd2da4a67a285dca20fa05b57e0e494896" datatype="html">
+        <source>All rights reserved</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
