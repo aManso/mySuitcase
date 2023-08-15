@@ -15,7 +15,7 @@ export class TokenInterceptorService implements HttpInterceptor {
     const sessionService = this._injector.get(SessionService);
 
     // We can pass the token as parameter or otherwise, as general purpose, we understand is the session token
-    const token = req.body.authorizationToken || sessionService.getToken();
+    const token = req.body?.authorizationToken || sessionService.getToken();
 
     // we add the token that it was created in BE to be retrieved again and valid the request
     const tokenizedReq = req.clone({
