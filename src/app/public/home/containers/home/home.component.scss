@@ -20,8 +20,14 @@
   max-height: 700px;
   overflow: hidden;
 
+  .notification__button-container {
+    display: flex;
+    justify-content: center;
+  }
+
   .notification__img-container {
-    margin-top: -60px;
+    margin: auto;
+    margin-top: -10px;
   }
 }
 
