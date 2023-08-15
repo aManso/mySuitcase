@@ -88,7 +88,7 @@
       </trans-unit>
       <trans-unit id="dead4eb38a801bf6380c1586a0265284228162bf" datatype="html">
         <source>Go ahead!</source>
-        <target>Adelante!</target>
+        <target>¡Adelante!</target>
       </trans-unit>
       <trans-unit id="ea9777126c0d1176490d7967410a62aca96c75f7" datatype="html">
         <source>Did you forget the password?</source>
@@ -212,7 +212,7 @@
       </trans-unit>
       <trans-unit id="79b75a6be5480e449a02eb76a8f3724784881f7d" datatype="html">
         <source>Little by little we will improve our suggestions, so if you would like to enjoy of <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>more precise suggestions<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> add some more extra fields!</source>
-        <target>Poco a poco iremos mejorando nuestras recomendaciones, por lo que si deseas <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>recomendaciones mas precisas<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> añade algún campo extra más!</target>
+        <target>Poco a poco iremos mejorando nuestras recomendaciones, por lo que si deseas <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>recomendaciones mas precisas<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> ¡añade algún campo extra más!</target>
       </trans-unit>
       <trans-unit id="cancel_button" datatype="html">
         <source>Cancel</source>
@@ -517,7 +517,7 @@
       </trans-unit>
       <trans-unit id="6be5a85d0426c32591fd4f3b0ca67c34030a66e1" datatype="html">
         <source>Lets go for a trip!</source>
-        <target>Vámonos de viaje!</target>
+        <target>¡Vámonos de viaje!</target>
       </trans-unit>
       <trans-unit id="06f901a716508105f8b062ae22f8c6faeb672ae3" datatype="html">
         <source>Create new suitcase</source>
@@ -533,7 +533,7 @@
       </trans-unit>
       <trans-unit id="a0d516cf523ffdceb12ba845ebcf759496a5aa68" datatype="html">
         <source>Use <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> from anywhere even without connectivity! Install the app to take advantage of a faster and better experience.</source>
-        <target>Usa <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> desde cualquier lugar incluso sin conexión! Instala la aplicación para una mayor rapidez y experiencia.</target>
+        <target>Usa <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>mySuitcase<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> desde cualquier lugar ¡incluso sin conexión! Instala la aplicación para una mayor rapidez y experiencia.</target>
       </trans-unit>
       <trans-unit id="a37329770996a196e1dc4e31e507c3f41b0b4e18" datatype="html">
         <source>Keep toned by using notifications.</source>
