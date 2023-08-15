@@ -1,4 +1,4 @@
-import { AbstractControl, UntypedFormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 // The passwordValidator factory returns the configured validator function.
 // That function takes an Angular control object and returns either null if the control value is valid or a validation error object.
@@ -20,7 +20,7 @@ export function passwordValidator(): ValidatorFn {
 // The passwordMatchingValidator is a cross-validation function to check that the formControl 'password' of a formGroup and
 // its confirmation formControl 'passwordConfinmation' matches.
 // It returns null if both matches, making the formGroup valid, or add a field 'notMatchingPasswords' that is added as error
-export const passwordMatchingValidator: ValidatorFn = (control: UntypedFormGroup): ValidationErrors | null => {
+export const passwordMatchingValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
   const password = control.get('password');
   const passwordConfirmation = control.get('passwordConfirmation');
 
