@@ -629,6 +629,30 @@
         <source>Gender (Optional)</source>
         <target state="new">Gender (Optional)</target>
       </trans-unit>
+      <trans-unit id="7496106783763114485" datatype="html">
+        <source>If the user exists in our data base, an email has successfully been sent to update your password, check your email even in the junk folder</source>
+        <target state="new">If the user exists in our data base, an email has successfully been sent to update your password, check your email even in the junk folder</target>
+      </trans-unit>
+      <trans-unit id="8224637288884628884" datatype="html">
+        <source>The password has succesfully been updated, you can login now</source>
+        <target state="new">The password has succesfully been updated, you can login now</target>
+      </trans-unit>
+      <trans-unit id="f2f39aedb60df25817490ef4da4162a5a7cf8246" datatype="html">
+        <source>The field password is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="new">The field password is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="confirmPassword" datatype="html">
+        <source>Confirm password</source>
+        <target state="new">Confirm password</target>
+      </trans-unit>
+      <trans-unit id="52d5bfe05886f782c70d72b1908cd9491b6f66da" datatype="html">
+        <source>Both passwords dont match</source>
+        <target state="new">Both passwords dont match</target>
+      </trans-unit>
+      <trans-unit id="916fa1b6137bcfdeb4cb2d1da23de5f25a628993" datatype="html">
+        <source>Invalid password, check the details</source>
+        <target state="new">Invalid password, check the details</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

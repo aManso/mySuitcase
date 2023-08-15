@@ -7,9 +7,10 @@ import { AuthenticationGuard } from '../../../core/guards/authentication.guard';
 // TODO use it when launching to PROD
 import { passwordValidator } from '../../../core/validators/validators';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME} from '../../../core/config/config';
+import { GENERAL_SNACKBAR_TIME } from '../../../core/config/config';
 import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from '../../const/backend-errors';
 import { FRONTEND_ERRORS } from '../../const/frontend-errors';
+import { FRONTEND_MESSAGES } from '../../const/frontend-messages';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit{
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(20),
-        // passwordValidator(),
+        passwordValidator(), // TODO
       ]),
     });
   }
@@ -66,25 +67,42 @@ export class LoginComponent implements OnInit{
 
   public submit() {
     if (this.loginForm.valid) {
-      this._loginService.login(this.loginForm.value).subscribe((user: User|boolean) => {
-        if (user) {
-          const targetUrl = this._authenticationGuard.lastIntendedTargetRoute ? this._authenticationGuard.lastIntendedTargetRoute : this.baseRoute;
-          this._router.navigate([targetUrl]);
-        } else {
-          this._showGeneralError();
-        }
-      },
-        (error: any) => {
-          if (error.error === BACKEND_ERROR_TYPES.USER_NOT_FOUND) {
-            this._snackBar.open(BACKEND_ERRORS.USER_NOT_FOUND.title, '', {duration: GENERAL_SNACKBAR_TIME});
-          } else {
-            this._showGeneralError();
-          }
-        });
+      if (this.loginMode) {
+        this.login();
+      } else {
+        this.remindPassword();
+      }
     }
   }
 
+  private login() {
+    this._loginService.login(this.loginForm.value).subscribe((user: User|boolean) => {
+      if (user) {
+        const targetUrl = this._authenticationGuard.lastIntendedTargetRoute ? this._authenticationGuard.lastIntendedTargetRoute : this.baseRoute;
+        this._router.navigate([targetUrl]);
+      } else {
+        this._showGeneralError();
+      }
+    },
+      (error: any) => {
+        if (error.error === BACKEND_ERROR_TYPES.USER_NOT_FOUND) {
+          this._snackBar.open(BACKEND_ERRORS.USER_NOT_FOUND.title, '', {duration: GENERAL_SNACKBAR_TIME});
+        } else {
+          this._showGeneralError();
+        }
+      });
+  }
+
+  private remindPassword() {
+    this._loginService.remindPassword(this.loginForm.value.email).subscribe(() => {
+      this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_REMINDER_PASSWORD_SENT.message, '', {duration: GENERAL_SNACKBAR_TIME, panelClass: ['success-snackbar']});
+    },
+    (error: any) => {
+      this._showGeneralError();
+    });
+  }
+
   private _showGeneralError() {
-    this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.title, FRONTEND_ERRORS.GENERAL_ERROR.message, {duration: EXTENDED_SNACKBAR_TIME});
+    this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: GENERAL_SNACKBAR_TIME, panelClass: ['error-snackbar']});
   }
 }

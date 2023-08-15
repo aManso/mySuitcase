@@ -323,7 +323,10 @@
         <source>Pet</source>
         <target>Mascota</target>
       </trans-unit>
-      <trans-unit id="acb92fd9031543d9b8ff174d45ed723be39cb01e" datatype="html"> <source>Baby</source> <target>Bebé</target> </trans-unit>
+      <trans-unit id="acb92fd9031543d9b8ff174d45ed723be39cb01e" datatype="html">
+        <source>Baby</source>
+        <target>Bebé</target>
+      </trans-unit>
       <trans-unit id="baby" datatype="html">
         <source>Baby</source>
         <target>Bebé</target>
@@ -627,6 +630,30 @@
       <trans-unit id="25d84f777c27d2f75c151b1ba693c1a3409fcb2a" datatype="html">
         <source>Gender (Optional)</source>
         <target>Sexo (Optional)</target>
+      </trans-unit>
+      <trans-unit id="7496106783763114485" datatype="html">
+        <source>If the user exists in our data base, an email has successfully been sent to update your password, check your email even in the junk folder</source>
+        <target>Si el usuario existe en nuestra base de datos, pronto recibirás un email para actualizar la contraseña. Comprueba tu email incluso en la carpeta de spam</target>
+      </trans-unit>
+      <trans-unit id="8224637288884628884" datatype="html">
+        <source>The password has succesfully been updated, you can login now</source>
+        <target>La contraseña ha sido cambiada satisfactoriamente, ¡ya puedes loguearte!</target>
+      </trans-unit>
+      <trans-unit id="f2f39aedb60df25817490ef4da4162a5a7cf8246" datatype="html">
+        <source>The field password is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target>El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>necesario<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="confirmPassword" datatype="html">
+        <source>Confirm password</source>
+        <target>Confirma tu contraseña</target>
+      </trans-unit>
+      <trans-unit id="52d5bfe05886f782c70d72b1908cd9491b6f66da" datatype="html">
+        <source>Both passwords dont match</source>
+        <target>Ambas contraseñas no coinciden</target>
+      </trans-unit>
+      <trans-unit id="916fa1b6137bcfdeb4cb2d1da23de5f25a628993" datatype="html">
+        <source>Invalid password, check the details</source>
+        <target>Contraseña inválida, revisa los detalles</target>
       </trans-unit>
     </body>
   </file>

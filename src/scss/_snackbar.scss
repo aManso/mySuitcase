@@ -1,16 +1,13 @@
-@import 'variables';
+@import '_variables';
 
-.success-snackbar {
-    background-color: $success-color;
-}
+.mat-mdc-snack-bar-container {
+    &.success-snackbar .mdc-snackbar__surface {
+        background-color: $success-color;
+        color: $white;
+    }
 
-.error-snackbar {
-    background-color: $error-color;
-}
-
-.error-snackbar, .success-snackbar {
-    color: white;
-    /* position: absolute;
-    top: calc(40px);
-    left: calc(50% - 220px); */
-}
+    &.error-snackbar .mdc-snackbar__surface {
+        background-color: $error-color;
+        color: $white;
+    }
+}   

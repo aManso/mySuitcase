@@ -10,6 +10,7 @@ import { LoginService } from './login.service';
 import { AuthenticationGuard } from '../guards/authentication.guard';
 import { AuthorizationGuard } from '../guards/authorization.guard';
 import { SessionModule } from '../session/session.module';
+import { UpdatePasswordComponent } from './containers/update-password.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { SessionModule } from '../session/session.module';
   ],
   declarations: [
     LoginComponent,
+    UpdatePasswordComponent,
   ],
   exports: [],
   providers: [

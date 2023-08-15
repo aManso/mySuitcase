@@ -12,6 +12,9 @@ import { UserService } from '../services/user.service';
 export class LoginService {
   private readonly URL_API = environment.apiUrl + 'users/';
   private readonly URL_CHECK_EXISTING_USER = environment.apiUrl + 'login/';
+  private readonly URL_REMIND_PASSWORD = environment.apiUrl + 'login/remindPassword';
+  private readonly URL_UPDATE_PASSWORD = environment.apiUrl + 'login/updatePassword';
+
   public logged$: BehaviorSubject<User|undefined>;
 
   public constructor(
@@ -94,5 +97,15 @@ export class LoginService {
     this._sessionService.stopInterval();
     this.logged$.next(undefined);
     this._router.navigate(['home']);
+  }
+
+  // REMIND PASSWORD
+  public remindPassword(email: string, lang?: string): Observable<boolean> {
+    return this._http.post(this.URL_REMIND_PASSWORD, {email, lang}) as Observable<boolean>
+  }
+
+   // UPDATE PASSWORD
+   public updatePassword(password: string, authorizationToken: string): Observable<boolean> {
+    return this._http.put(this.URL_UPDATE_PASSWORD, {password, authorizationToken}) as Observable<boolean>
   }
 }
