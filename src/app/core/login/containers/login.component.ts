@@ -11,6 +11,7 @@ import { GENERAL_SNACKBAR_TIME } from '../../../core/config/config';
 import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from '../../const/backend-errors';
 import { FRONTEND_ERRORS } from '../../const/frontend-errors';
 import { FRONTEND_MESSAGES } from '../../const/frontend-messages';
+import { ConfigService } from '../../services/config.service';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit{
 
   public constructor(
     private _loginService: LoginService,
+    private readonly _configService: ConfigService,
     public _authenticationGuard: AuthenticationGuard,
     private _router: Router,
     @Inject(BASE_ROUTE) private baseRoute: string[],
@@ -94,7 +96,8 @@ export class LoginComponent implements OnInit{
   }
 
   private remindPassword() {
-    this._loginService.remindPassword(this.loginForm.value.email).subscribe(() => {
+    const lang = this._configService.getLocale();
+    this._loginService.remindPassword(this.loginForm.value.email, lang).subscribe(() => {
       this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_REMINDER_PASSWORD_SENT.message, '', {duration: GENERAL_SNACKBAR_TIME, panelClass: ['success-snackbar']});
     },
     (error: any) => {
