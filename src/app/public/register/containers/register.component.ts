@@ -1,6 +1,6 @@
 import { Inject, Component, OnInit, InjectionToken } from '@angular/core';
 import { Router } from '@angular/router';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../../core/models/user';
 import { RegisterService } from '../register.service';
 import { passwordMatchingValidator, passwordValidator } from '../../../core/validators/validators';
@@ -13,14 +13,14 @@ export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit{
-  public registerForm: UntypedFormGroup;
-  public passwordForm: UntypedFormGroup;
+  public registerForm: FormGroup;
+  public passwordForm: FormGroup;
 
   public constructor(
     private _registerService: RegisterService,
     private _router: Router,
     @Inject(BASE_ROUTE) private baseRoute: string[],
-    private fb: UntypedFormBuilder
+    private fb: FormBuilder
   ) {
   }
 
@@ -39,15 +39,15 @@ export class RegisterComponent implements OnInit{
     });
   }
 
-  private _setPasswordForm(): UntypedFormGroup {
-    return new UntypedFormGroup({
-      password: new UntypedFormControl(null, [
+  private _setPasswordForm(): FormGroup {
+    return new FormGroup({
+      password: new FormControl(null, [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(20),
         passwordValidator(),
       ]),
-      passwordConfirmation: new UntypedFormControl(null, [
+      passwordConfirmation: new FormControl(null, [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(20),
