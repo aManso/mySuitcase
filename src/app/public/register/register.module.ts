@@ -8,6 +8,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SharedModule } from '../../core/shared/shared.module';
 import { BASE_ROUTE, RegisterComponent } from './containers/register.component';
 import { RegisterRoutingModule } from './register-routing.module';
+import { ConfirmRegisterComponent } from './containers/confirm-register.component';
+import { RegisterService } from './register.service';
+import { RegisterResolver } from './register-resolver';
 
 @NgModule({
   imports: [
@@ -22,9 +25,12 @@ import { RegisterRoutingModule } from './register-routing.module';
   ],
   declarations: [
     RegisterComponent,
+    ConfirmRegisterComponent,
   ],
   exports: [],
   providers: [
+    RegisterService,
+    RegisterResolver,
     {provide: BASE_ROUTE, useValue: '/'},
   ],
 })

@@ -527,6 +527,12 @@
       <trans-unit id="fdabdf9133bbd11a171f3948a50ccc3e515067be" datatype="html">
         <source>The field subject is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
       </trans-unit>
+      <trans-unit id="1570755176726799526" datatype="html">
+        <source>The register has been completed, time to login and start packing!</source>
+      </trans-unit>
+      <trans-unit id="3407420007208457265" datatype="html">
+        <source>The register can not be done, maybe the link has expired. Please try to register again and if the error persists send us a message through our contact page</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

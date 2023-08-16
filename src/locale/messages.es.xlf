@@ -699,6 +699,14 @@
         <source>The field subject is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <target>El campo asunto es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>demasiado largo<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
       </trans-unit>
+      <trans-unit id="3407420007208457265" datatype="html">
+        <source>The register can not be done, maybe the link has expired. Please try to register again and if the error persists send us a message through our contact page</source>
+        <target>El registro no puede llevarse a cabo, quizá el enlace ha caducado. Por favor trata de registrarte de nuevo y si el error persiste, mándanos un mensaje a través de la página de contacto</target>
+      </trans-unit>
+      <trans-unit id="1570755176726799526" datatype="html">
+        <source>The register has been completed, time to login and start packing!</source>
+        <target>El registro ha sido completado, ¡Hora de entrar y comenzar a hacer la maleta!</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

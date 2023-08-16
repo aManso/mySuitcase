@@ -4,12 +4,10 @@ import {Observable, of as _of} from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
 import {SuitcaseService} from '../services/suitcase.service';
 import {Suitcase} from '../models/suitcase';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class DetailResolver  {
   constructor(
-    private _http: HttpClient,
     private _router: Router,
     private _suitcaseService: SuitcaseService,
     ) { }

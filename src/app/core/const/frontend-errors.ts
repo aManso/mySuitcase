@@ -22,5 +22,9 @@ export const FRONTEND_ERRORS = {
     USER_NOT_FOUND: {
         title: 'Error',
         message: $localize `User has not been found in our system`
+    },
+    ERROR_REGISTRATION: {
+        title: 'Error',
+        message: $localize `The register can not be done, maybe the link has expired. Please try to register again and if the error persists send us a message through our contact page`
     }
 }

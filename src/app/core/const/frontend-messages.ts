@@ -21,5 +21,9 @@ export const FRONTEND_MESSAGES = {
     CONFIRMATION_REMOVED_NOTIFICATION: {
         title: $localize `The notification has been successfully removed`,
         message: ''
+    },
+    CONFIRMATION_REGISTRATION: {
+        title: ``,
+        message: $localize `The register has been completed, time to login and start packing!`
     }
 }

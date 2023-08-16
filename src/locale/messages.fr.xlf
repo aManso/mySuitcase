@@ -698,6 +698,14 @@
         <source>The field subject is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <target state="new">The field subject is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
       </trans-unit>
+      <trans-unit id="3407420007208457265" datatype="html">
+        <source>The register can not be done, maybe the link has expired. Please try to register again and if the error persists send us a message through our contact page</source>
+        <target state="new">The register can not be done, maybe the link has expired. Please try to register again and if the error persists send us a message through our contact page</target>
+      </trans-unit>
+      <trans-unit id="1570755176726799526" datatype="html">
+        <source>The register has been completed, time to login and start packing!</source>
+        <target state="new">The register has been completed, time to login and start packing!</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
