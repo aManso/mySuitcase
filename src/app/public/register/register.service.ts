@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, UserRegister } from '../../core/models/user';
-import { Subject, Observable } from 'rxjs';
-import { SessionService } from '../../core/session/session.service';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,7 +12,6 @@ export class RegisterService {
 
   public constructor(
     private http: HttpClient,
-    private _sessionService: SessionService,
   ) {
   }
 
