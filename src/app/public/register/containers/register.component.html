@@ -6,10 +6,6 @@
         <mat-label i18n="@@name" for="name">Name</mat-label>
         <input matInput type="text" class="form-control" id="name" aria-describedby="name" i18n-placeholder
         placeholder="Introduce your username" formControlName="name">
-        <!-- <mat-error *ngIf="registerForm.get('name').errors">
-          <span *ngIf="registerForm.get('name').hasError('required'); else otherError" i18n>The field password is <strong>required</strong></span>
-          <ng-template #otherError><span i18n>Invalid password, check the details</span></ng-template>
-        </mat-error> -->
         <mat-error *ngIf="registerForm.get('name').hasError('required')" i18n="@@required_username">The field name is <strong>required</strong></mat-error>
         <mat-error *ngIf="registerForm.get('name').hasError('minlength')" i18n="@@min_username">The field name is <strong>too short</strong></mat-error>
         <mat-error *ngIf="registerForm.get('name').hasError('maxlength')" i18n="@@max_username">The field name is <strong>too long</strong></mat-error>
@@ -20,9 +16,9 @@
         <mat-label for="email">Email</mat-label>
         <input matInput type="email" class="form-control" id="email" aria-describedby="emailHelp" i18n-placeholder placeholder="Introduce your email"
         formControlName="email">
-        <mat-error *ngIf="registerForm.get('email').hasError('required')" i18ni18n="@@required_email">The field email is <strong>required</strong></mat-error>
-        <mat-error *ngIf="registerForm.get('email').hasError('email')" i18ni18n="@@min_email">The field email has <strong>invalid format</strong></mat-error>
-        <mat-error *ngIf="registerForm.get('email').hasError('maxlength')" i18ni18n="@@max_email">The field email is <strong>too long</strong></mat-error>
+        <mat-error *ngIf="registerForm.get('email').hasError('required')" i18n="@@required_email">The field email is <strong>required</strong></mat-error>
+        <mat-error *ngIf="registerForm.get('email').hasError('email')" i18n="@@invalid_email">The field email has <strong>invalid format</strong></mat-error>
+        <mat-error *ngIf="registerForm.get('email').hasError('maxlength')" i18n="@@max_email">The field email is <strong>too long</strong></mat-error>
       <!-- <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con nadie</small> -->
       </mat-form-field>
 

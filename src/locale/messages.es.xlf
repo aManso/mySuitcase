@@ -58,13 +58,13 @@
         <source>Introduce your email</source>
         <target>Introduce tu email</target>
       </trans-unit>
-      <trans-unit id="cde9db13a7846e5aebee03adc0f22f4ca217a140" datatype="html">
-        <source> the e-mail format is not valid </source>
-        <target>el formato del email no es válido</target>
-      </trans-unit>
-      <trans-unit id="1a40cd9cdb3da1af9a21b8c83b906c86774b2f38" datatype="html">
-        <source> The field Email is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requered<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+      <trans-unit id="required_email" datatype="html">
+        <source>The field email is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <target>El campo email es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="invalid_email" datatype="html">
+        <source>The field email has <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>invalid format<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target>El campo email tiene un <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>formato inválido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
       </trans-unit>
       <trans-unit id="password" datatype="html">
         <source>Password</source>
@@ -73,10 +73,6 @@
       <trans-unit id="df2ebc334ecf2252686644042ddade27cee3e3d0" datatype="html">
         <source>Introduce your password</source>
         <target>Introduce tu contraseña</target>
-      </trans-unit>
-      <trans-unit id="d9f7f70c6ad29cee7d98800afd6126f8ccdebb40" datatype="html">
-        <source> The field password is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requered<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
-        <source> El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
       </trans-unit>
       <trans-unit id="pass_requirements" datatype="html">
         <source>Password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</source>
@@ -134,29 +130,13 @@
         <source>Name</source>
         <target>Nombre</target>
       </trans-unit>
-      <trans-unit id="3dd984fbcc3f5648878294b217dcc561a276915a" datatype="html">
-        <source> The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
-        <target> El campo nombre es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
-      </trans-unit>
       <trans-unit id="email" datatype="html">
         <source>Email</source>
         <target>Email</target>
       </trans-unit>
-      <trans-unit id="a8f3f64b6bb3d430ff34aee268276500a0e066fb" datatype="html">
-        <source> The email format is not valid </source>
-        <target> El formato de email no es válido </target>
-      </trans-unit>
-      <trans-unit id="b7fdc80a3a81472ab6beab055b2d591da6f4a561" datatype="html">
-        <source> The field email <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
-        <target> El campo email es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
-      </trans-unit>
       <trans-unit id="4ec731ab596dbd3d8f3d0e58fbf717dc4d134540" datatype="html">
         <source>I want to change the password</source>
         <target>Quiero cambiar la contraseña</target>
-      </trans-unit>
-      <trans-unit id="3d89cd5cc4704d55c2bdecdf80778b4bfd39a026" datatype="html">
-        <source> The field pasword is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
-        <target>El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
       </trans-unit>
       <trans-unit id="pass_requirements-error" datatype="html">
         <source> The field password <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>does not match the requirements<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
@@ -631,9 +611,9 @@
         <source>I am new, Let&apos;s start!</source>
         <target>Soy nuevo aquí, ¡Empecemos!</target>
       </trans-unit>
-      <trans-unit id="783f63fff2215fba2767e31a03173f7e5935ea62" datatype="html">
-        <source> The field pasword is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
-        <target> El campo contraseña es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>necesario<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </target>
+      <trans-unit id="max_email" datatype="html">
+        <source>The field email is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target>El campo email es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>demasiado largo<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </target>
       </trans-unit>
       <trans-unit id="25d84f777c27d2f75c151b1ba693c1a3409fcb2a" datatype="html">
         <source>Gender (Optional)</source>
@@ -694,6 +674,10 @@
       <trans-unit id="max_username" datatype="html">
         <source>The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <target>El campo nombre es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>demasiado largo<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="0dd390d056411e1709ec97ec51c46d78600e3f7b" datatype="html">
+        <source>Current password</source>
+        <target>Contraseña actual</target>
       </trans-unit>
     </body>
   </file>

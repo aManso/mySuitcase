@@ -5,19 +5,13 @@
     <mat-form-field class="full-width login-field" appearance="outline">
       <mat-label>Email</mat-label>
       <input type="email" matInput autocomplete="off" formControlName="email" i18n-placeholder placeholder="Introduce your email">
-      <mat-error *ngIf="loginForm.get('email').hasError('email') && !loginForm.get('email').hasError('required')" i18n>
-        the e-mail format is not valid
-      </mat-error>
-      <mat-error *ngIf="loginForm.get('email').hasError('required')" i18n>
-        The field Email is <strong>requered</strong>
-      </mat-error>
+      <mat-error *ngIf="loginForm.get('email').hasError('email') && !loginForm.get('email').hasError('required')" i18n="@@invalid_email">The field email has <strong>invalid format</strong></mat-error>
+      <mat-error *ngIf="loginForm.get('email').hasError('required')" i18n="@@required_email">The field email is <strong>required</strong></mat-error>
     </mat-form-field>
     <mat-form-field *ngIf="loginMode" class="full-width login-field" appearance="outline">
       <mat-label i18n="@@password">Password</mat-label>
       <input type="password" matInput autocomplete="off" formControlName="password" i18n-placeholder placeholder="Introduce your password">
-      <mat-error *ngIf="loginForm.get('password').hasError('required')" i18n>
-        The field password is <strong>requered</strong>
-      </mat-error>
+      <mat-error *ngIf="loginForm.get('password').hasError('required')" i18n="@@required_password">The field password is <strong>required</strong></mat-error>
       <mat-hint class="hint-password" i18n="@@pass_requirements">Password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</mat-hint>
     </mat-form-field>
     <div class="form-check" *ngIf="loginMode">
