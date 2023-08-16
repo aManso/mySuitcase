@@ -678,6 +678,26 @@
         <source>Current password</source>
         <target state="new">Current password</target>
       </trans-unit>
+      <trans-unit id="47dff9ac2b836bd64f071f5d1a766899adfc2a0d" datatype="html">
+        <source>The field message is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="new">The field message is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="5380356a5136ee375881be32c09d329f5a3d0264" datatype="html">
+        <source>The field message is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too short<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="new">The field message is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too short<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="dd9393b2981e489bb171464e4db69ea5c1fa679d" datatype="html">
+        <source>The field message is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="new">The field message is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="fdabdf9133bbd11a171f3948a50ccc3e515067be" datatype="html">
+        <source>The field subject is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="new">The field subject is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="0a9f37733353cccd499455d037edf5730cb48172" datatype="html">
+        <source>The field subject is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="new">The field subject is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

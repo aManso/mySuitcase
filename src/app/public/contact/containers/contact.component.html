@@ -32,7 +32,7 @@
               <mat-error *ngIf="contactForm.get('email').touched">
                 <span *ngIf="contactForm.get('email').hasError('required')" i18n="@@required_email">The field email is <strong>required</strong></span>
                 <span *ngIf="contactForm.get('email').hasError('email')" i18n="@@invalid_email">The field email has <strong>invalid format</strong></span>
-                <span *ngIf="contactForm.get('email').hasError('maxlength')" i18n="@@max_username">The field email is <strong>too long</strong></span>
+                <span *ngIf="contactForm.get('email').hasError('maxlength')" i18n="@@max_email">The field email is <strong>too long</strong></span>
               </mat-error>
             </div>
           </div>
