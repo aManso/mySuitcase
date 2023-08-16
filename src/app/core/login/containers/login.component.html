@@ -1,6 +1,6 @@
 <navbar-component></navbar-component>
 
-<form class="form-contact col-lg-6 col-xl-6 offset-xl-1" [formGroup]="loginForm">
+<form class="form col-lg-6 col-xl-6 offset-xl-1 min-full-height" [formGroup]="loginForm">
   <div class="search-wrapper">
     <mat-form-field class="full-width login-field" appearance="outline">
       <mat-label>Email</mat-label>
@@ -18,7 +18,7 @@
       <input type="checkbox" class="form-check-input" id="rememberme" formControlName="keepSession">
       <label class="form-check-label" for="rememberme" i18n>Remember me</label>
     </div>
-    <div class="button-block">
+    <div class="button-block mb-3">
       <button type="submit" class="button border-1 mt-3" [disabled]="!loginForm.valid" [ngClass]="{'disabled-button': !loginForm.valid}"
         (click)="submit()" i18n>Go ahead!</button>
       <button type="submit" class="button border-1 mt-3" (click)="goTo('register')" i18n>I am new, Let's start!</button>

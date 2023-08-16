@@ -1,0 +1,39 @@
+/*=================== contact banner start ====================*/
+
+.contact-info{
+  margin-bottom: 12px;
+
+  &__icon{
+    margin-right: 20px;
+
+    i,span{
+      color: #8f9195;
+      font-size: 27px;
+    }
+  }
+
+  .media-body{
+
+    h3{
+      font-size: 16px;
+      margin-bottom: 0;
+
+      a{
+        color: $title-color;
+      }
+    }
+
+    p{
+      color: #999999;
+    }
+  }
+}
+/*=================== contact banner end ====================*/
+
+
+/*=================== contact form start ====================*/
+.contact-title{
+  font-size: 27px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}

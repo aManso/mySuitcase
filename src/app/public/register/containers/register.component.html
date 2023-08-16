@@ -1,5 +1,5 @@
 <navbar-component></navbar-component>
-<form class="form-contact col-lg-6 col-xl-6 offset-xl-1" [formGroup]="registerForm">
+<form class="form col-lg-6 col-xl-6 offset-xl-1" [formGroup]="registerForm">
   <div class="search-wrapper">
     <div class="form-group">
       <mat-form-field class="full-width register-field" appearance="outline">
@@ -63,7 +63,7 @@
       </div> -->
     </div>
     <div class="button-block">
-      <button type="submit" [disabled]="!isValidForm()" class="button border-1 mt-3"
+      <button type="submit" [disabled]="!isValidForm()" class="button border-1"
         (click)="submit()" i18n>Start!</button>
     </div>
     <small><a href="javascript:void(0)" (click)="goTo('login')" class="nav-link" role="button" aria-haspopup="true"
