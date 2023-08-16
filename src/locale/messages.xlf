@@ -476,7 +476,7 @@
       <trans-unit id="e366b542b9627d8379cd034b6358fbec27b6ce57" datatype="html">
         <source>I am new, Let&apos;s start!</source>
       </trans-unit>
-      <trans-unit id="52d5bfe05886f782c70d72b1908cd9491b6f66da" datatype="html">
+      <trans-unit id="passwords_dont_match" datatype="html">
         <source>Both passwords dont match</source>
       </trans-unit>
       <trans-unit id="7496106783763114485" datatype="html">
@@ -488,10 +488,10 @@
       <trans-unit id="confirmPassword" datatype="html">
         <source>Confirm password</source>
       </trans-unit>
-      <trans-unit id="f2f39aedb60df25817490ef4da4162a5a7cf8246" datatype="html">
+      <trans-unit id="required_password" datatype="html">
         <source>The field password is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
       </trans-unit>
-      <trans-unit id="916fa1b6137bcfdeb4cb2d1da23de5f25a628993" datatype="html">
+      <trans-unit id="invalid_password" datatype="html">
         <source>Invalid password, check the details</source>
       </trans-unit>
       <trans-unit id="English-tooltip" datatype="html">
@@ -505,6 +505,24 @@
       </trans-unit>
       <trans-unit id="7371a1fd2da4a67a285dca20fa05b57e0e494896" datatype="html">
         <source>All rights reserved</source>
+      </trans-unit>
+      <trans-unit id="max_username" datatype="html">
+        <source>The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+      </trans-unit>
+      <trans-unit id="2531609935995942151" datatype="html">
+        <source>User has not been found in our system</source>
+      </trans-unit>
+      <trans-unit id="5251634415719590390" datatype="html">
+        <source>There is already an user with this email</source>
+      </trans-unit>
+      <trans-unit id="8824034487493718675" datatype="html">
+        <source>We have just sent an email to you, please review your email (even spam folder) to complete the register</source>
+      </trans-unit>
+      <trans-unit id="required_username" datatype="html">
+        <source>The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+      </trans-unit>
+      <trans-unit id="min_username" datatype="html">
+        <source>The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too short<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
       </trans-unit>
     </body>
   </file>

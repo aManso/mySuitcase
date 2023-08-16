@@ -2,25 +2,54 @@
 <form class="form-contact col-lg-6 col-xl-6 offset-xl-1" [formGroup]="registerForm">
   <div class="search-wrapper">
     <div class="form-group">
-      <label for="name" i18n="@@name">Name</label>
-      <input type="text" class="form-control" id="name" aria-describedby="name" i18n-placeholder
+      <mat-form-field class="full-width register-field" appearance="outline">
+        <mat-label i18n="@@name" for="name">Name</mat-label>
+        <input matInput type="text" class="form-control" id="name" aria-describedby="name" i18n-placeholder
         placeholder="Introduce your username" formControlName="name">
+        <!-- <mat-error *ngIf="registerForm.get('name').errors">
+          <span *ngIf="registerForm.get('name').hasError('required'); else otherError" i18n>The field password is <strong>required</strong></span>
+          <ng-template #otherError><span i18n>Invalid password, check the details</span></ng-template>
+        </mat-error> -->
+        <mat-error *ngIf="registerForm.get('name').hasError('required')" i18n="@@required_username">The field name is <strong>required</strong></mat-error>
+        <mat-error *ngIf="registerForm.get('name').hasError('minlength')" i18n="@@min_username">The field name is <strong>too short</strong></mat-error>
+        <mat-error *ngIf="registerForm.get('name').hasError('maxlength')" i18n="@@max_username">The field name is <strong>too long</strong></mat-error>
 
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" i18n-placeholder placeholder="Introduce your email"
+      </mat-form-field>
+
+      <mat-form-field class="full-width register-field" appearance="outline">
+        <mat-label for="email">Email</mat-label>
+        <input matInput type="email" class="form-control" id="email" aria-describedby="emailHelp" i18n-placeholder placeholder="Introduce your email"
         formControlName="email">
+        <mat-error *ngIf="registerForm.get('email').hasError('required')" i18ni18n="@@required_email">The field email is <strong>required</strong></mat-error>
+        <mat-error *ngIf="registerForm.get('email').hasError('email')" i18ni18n="@@min_email">The field email has <strong>invalid format</strong></mat-error>
+        <mat-error *ngIf="registerForm.get('email').hasError('maxlength')" i18ni18n="@@max_email">The field email is <strong>too long</strong></mat-error>
       <!-- <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con nadie</small> -->
+      </mat-form-field>
 
       <div [formGroup]="passwordForm">
-        <label for="password" i18n="@@password">Password</label>
-        <input type="password" class="form-control" id="password" i18n-placeholder placeholder="Introduce your password"
-          formControlName="password">
-        <details class="details">
+        <mat-form-field class="full-width register-field" appearance="outline">
+          <mat-label i18n="@@password">Password</mat-label>
+          <input type="password" class="form-control" id="password" matInput autocomplete="off" formControlName="password" i18n-placeholder placeholder="Introduce your password">
+          <mat-error *ngIf="passwordForm.get('password').errors">
+              <span *ngIf="passwordForm.get('password').hasError('required'); else otherError" i18n="@@required_password">The field password is <strong>required</strong></span>
+              <ng-template #otherError><span i18n="@@invalid_password">Invalid password, check the details</span></ng-template>
+          </mat-error>
+      </mat-form-field>
+      <details class="details" tabindex="-1">
           <small id="passwordHelp" class="form-text text-muted" i18n="@@pass_requirements">Password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</small>
-        </details>
-        <label for="passwordConfirmation" i18n>Repit the password</label>
-        <input type="password" class="form-control" id="passwordConfirmation" i18n-placeholder placeholder="Repit the password"
+      </details>
+  
+      <mat-form-field class="full-width register-field" appearance="outline">
+          <mat-label i18n="@@confirmPassword">Confirm password</mat-label>
+          <input type="password" class="form-control" id="passwordConfirmation" matInput autocomplete="off" i18n-placeholder placeholder="Repit the password"
           formControlName="passwordConfirmation">
+          <mat-error *ngIf="passwordForm.get('passwordConfirmation').errors">
+              <span *ngIf="passwordForm.get('passwordConfirmation').hasError('required'); else otherError" i18n="@@required_password">The field password is <strong>required</strong></span>
+              <ng-template #otherError><span i18n="@@invalid_password">Invalid password, check the details</span></ng-template>
+          </mat-error>
+      </mat-form-field>
+      <mat-error *ngIf="passwordForm.hasError('notMatchingPasswords')" class="form-error" i18n="@@passwords_dont_match">Both passwords dont match</mat-error>
+
       </div>
 
       <!-- <label for="age">Edad</label>

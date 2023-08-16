@@ -637,7 +637,7 @@
         <source>The password has succesfully been updated, you can login now</source>
         <target state="new">The password has succesfully been updated, you can login now</target>
       </trans-unit>
-      <trans-unit id="f2f39aedb60df25817490ef4da4162a5a7cf8246" datatype="html">
+      <trans-unit id="required_password" datatype="html">
         <source>The field password is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <target state="new">The field password is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
       </trans-unit>
@@ -645,11 +645,11 @@
         <source>Confirm password</source>
         <target state="new">Confirm password</target>
       </trans-unit>
-      <trans-unit id="52d5bfe05886f782c70d72b1908cd9491b6f66da" datatype="html">
+      <trans-unit id="passwords_dont_match" datatype="html">
         <source>Both passwords dont match</source>
         <target state="new">Both passwords dont match</target>
       </trans-unit>
-      <trans-unit id="916fa1b6137bcfdeb4cb2d1da23de5f25a628993" datatype="html">
+      <trans-unit id="invalid_password" datatype="html">
         <source>Invalid password, check the details</source>
         <target state="new">Invalid password, check the details</target>
       </trans-unit>
@@ -668,6 +668,30 @@
       <trans-unit id="01ab0c6ecc20d99d424f9a618c51e1afcb570568" datatype="html">
         <source>Website made by </source>
         <target state="new">Website made by </target>
+      </trans-unit>
+      <trans-unit id="5251634415719590390" datatype="html">
+        <source>There is already an user with this email</source>
+        <target state="new">There is already an user with this email</target>
+      </trans-unit>
+      <trans-unit id="2531609935995942151" datatype="html">
+        <source>User has not been found in our system</source>
+        <target state="new">User has not been found in our system</target>
+      </trans-unit>
+      <trans-unit id="8824034487493718675" datatype="html">
+        <source>We have just sent an email to you, please review your email (even spam folder) to complete the register</source>
+        <target state="new">We have just sent an email to you, please review your email (even spam folder) to complete the register</target>
+      </trans-unit>
+      <trans-unit id="required_username" datatype="html">
+        <source>The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="new">The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="min_username" datatype="html">
+        <source>The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too short<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="new">The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too short<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="max_username" datatype="html">
+        <source>The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="new">The field name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
       </trans-unit>
     </body>
   </file>

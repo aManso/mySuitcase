@@ -17,17 +17,7 @@ export class RegisterService {
   ) {
   }
 
-  public register (user: User) {
-    const $registerResponse = new Subject<User>();
-    (this.http.post(this.URL_REGISTER, user) as Observable<UserRegister>).subscribe((response: UserRegister) => {
-      if (typeof response === 'object') {
-        $registerResponse.next(response.user);
-      } else {
-        $registerResponse.next(response);
-      }
-    }, (error: any) => {
-      $registerResponse.error(error);
-    });
-    return $registerResponse;
+  public register (user: User): Observable<UserRegister> {
+    return this.http.post(this.URL_REGISTER, user) as Observable<UserRegister>;
   }
 }
