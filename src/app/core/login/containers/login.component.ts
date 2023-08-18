@@ -88,7 +88,7 @@ export class LoginComponent implements OnInit{
     },
       (error: any) => {
         if (error.error === BACKEND_ERROR_TYPES.USER_NOT_FOUND) {
-          this._snackBar.open(BACKEND_ERRORS.USER_NOT_FOUND.title, '', {duration: GENERAL_SNACKBAR_TIME});
+          this._snackBar.open(BACKEND_ERRORS.USER_NOT_FOUND.title, '', {duration: GENERAL_SNACKBAR_TIME, panelClass: ['error-snackbar']});
         } else {
           this._showGeneralError();
         }
