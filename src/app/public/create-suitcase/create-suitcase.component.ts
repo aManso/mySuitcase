@@ -130,6 +130,11 @@ export class CreateSuitcaseComponent implements OnInit {
     this.suitcase = this._suitcaseService.getCurrentSuitcase();
     this._locale = this._configService.getLocale()
 
+    if (!this.suitcase) {
+      // when trying to get access to the edit or create screen without selecting the previous steps
+      this._router.navigate(['home']);
+    }
+
     this._activatedRoute.data.subscribe(data => {
       this.createMode = data.createMode;
       if (!this.createMode) {
