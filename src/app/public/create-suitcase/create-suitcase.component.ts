@@ -52,7 +52,9 @@ import { ConfigService } from 'src/app/core/services/config.service';
 })
 export class CreateSuitcaseComponent implements OnInit {
   public suitcase: Suitcase;
-  public showWeather: boolean;
+  public weatherReady: boolean;
+  public showWeather = true;
+  public showSuggestions = true;
   public weatherDays: number;
   private _sevenDaysDateInMillis: number;
   public suggestionList: TripType;
@@ -150,8 +152,8 @@ export class CreateSuitcaseComponent implements OnInit {
       this._changeDetector.detectChanges();
     });
     // show weather data if possible
-    this.showWeather = this._checkShowWeather();
-    this.weatherDays = this.showWeather ? Math.ceil((this._sevenDaysDateInMillis - new Date(this.suitcase.date.from).getTime()) / (1000*60*60*24)) : 0;
+    this.weatherReady = this._checkShowWeather();
+    this.weatherDays = this.weatherReady ? Math.ceil((this._sevenDaysDateInMillis - new Date(this.suitcase.date.from).getTime()) / (1000*60*60*24)) : 0;
   }
 
   private _fetchSuggestionList(tripType: TripType, pageNr: number, lang: string): Observable<TripType> {

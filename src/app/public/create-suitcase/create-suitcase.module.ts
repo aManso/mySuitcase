@@ -3,7 +3,7 @@ import { CreateSuitcaseRoutingModule } from './create-suitcase-routing.module';
 import { CreateSuitcaseComponent } from './create-suitcase.component';
 import { WeatherPanelModule } from './components/weather-panel/weather-panel.module';
 import { CommonModule } from '@angular/common';
-import { MatInputModule as MatInputModule } from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule as MatButtonModule } from '@angular/material/button';

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User, UserRegister } from '../../core/models/user';
+import { User } from '../../core/models/user';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { SimpleOutput } from 'src/app/core/models/shared';

@@ -25,12 +25,14 @@ $header-height: 50px;
   overflow: hidden;
   position: relative;
   min-height: 200px; // 100 for the question block + 35px for the button + 15 to separate
+  display: flex;
+  justify-content: center;
 }
 
 #create-form-content {
   margin: auto;
   padding: 20px;
-  width: 75%;
+  width: 100%;
   height: calc(100% - #{$header-height});
 
   .question {
@@ -42,6 +44,7 @@ $header-height: 50px;
 #name-form-field {
   position: absolute;
   width: 100%;
+  max-width: 500px;
 }
 
 #button-wrapper {
@@ -54,7 +57,6 @@ $header-height: 50px;
 
 #date-form-field, #place-form-field, #type-form-field {
   display: none;
-  justify-content: space-between;
   position: absolute;
   width: 100%;
 }
@@ -64,6 +66,7 @@ $header-height: 50px;
 }
 
 #date-form-field {
+  justify-content: center;
 
   mat-form-field {
     margin: 0 10px;
@@ -81,8 +84,8 @@ $header-height: 50px;
   align-items: center;
   
   .type-options__card {
-    width: 70%;
-    max-height: 300px;
+    padding: 20px 10px;
+    max-height: 350px;
     overflow-y: scroll;
   }
 
@@ -209,6 +212,7 @@ $header-height: 50px;
   }
 }
 
+// MEDIAQUERIES
 @media (max-width: 750px) {
   #createSuitcaseForm {
     min-height: 250px;
@@ -219,6 +223,13 @@ $header-height: 50px;
     justify-content: flex-start;
   }
 }
+
+@media (max-width: 576px) { // for small devices, limit the height of the card to 200px to be able to select all options
+  #type-form-field .type-options__card {
+    max-height: 200px;
+  }
+}
+
 
 
 #infowindow-content .title {
