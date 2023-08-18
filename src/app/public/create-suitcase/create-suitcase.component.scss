@@ -344,7 +344,6 @@ $margin: 15px;
 
   .columns-row {
     padding: 0 20px;
-    flex-direction: column;
   }
 
   #new-item-field {
@@ -358,6 +357,7 @@ $margin: 15px;
   
   .columns-row {
     .suggestion-column {
+      order: 1;
       margin-bottom: 30px;
       border-radius: 10px;
       padding-right: 30px;
@@ -370,6 +370,7 @@ $margin: 15px;
     }  
 
     .suitcase-column {
+      order: 2;
       padding-right: 30px;
       padding-bottom: 20px;
 
