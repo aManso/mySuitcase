@@ -189,7 +189,7 @@ $margin: 15px;
 .suitcase-card {
   .item {
     max-height: 50px;
-    box-sizing: content-box;
+    box-sizing: border-box;
   }
 
   .item-data {
@@ -226,7 +226,7 @@ $margin: 15px;
 
 // PRINT MODE
 .print-mode {
-  .col-lg-4:not(.suitcase-column), .form, #save-icon, #print-icon, .item-actions, .footer {
+  .col-lg-3:not(.suitcase-column), .form, #save-icon, #print-icon, .item-actions, #navbarSupportedContent, .navbar-toggler, .footer {
     display: none;
   }
   .suitcase-column {
