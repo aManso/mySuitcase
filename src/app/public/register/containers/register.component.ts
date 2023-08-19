@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from '../../../core/models/user';
 import { RegisterService } from '../register.service';
 import { passwordMatchingValidator, passwordValidator } from '../../../core/validators/validators';
-import { EXTENDED_SNACKBAR_TIME } from 'src/app/core/config/config';
+import { EXTENDED_SNACKBAR_TIME, MAX_AGE, MAX_EMAIL_LENGTH, MAX_NAME_LENGTH, MAX_PASSWORD_LENGTH, MIN_AGE, MIN_NAME_LENGTH, MIN_PASSWORD_LENGTH } from 'src/app/core/config/config';
 import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
 import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
 import { ConfigService } from 'src/app/core/services/config.service';
@@ -42,10 +42,10 @@ export class RegisterComponent implements OnInit{
   private _setRegisterForm() {
     this.passwordForm = this._setPasswordForm();
     return this.fb.group({
-      email: [null, Validators.compose([Validators.required, Validators.email, Validators.maxLength(25)])],
+      email: [null, Validators.compose([Validators.required, Validators.email, Validators.maxLength(MAX_EMAIL_LENGTH)])],
       passwords: this.passwordForm,
-      name: [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(12)])],
-      age: [null, Validators.compose([Validators.min(14), Validators.max(99)])],
+      name: [null, Validators.compose([Validators.required, Validators.minLength(MIN_NAME_LENGTH), Validators.maxLength(MAX_NAME_LENGTH)])],
+      age: [null, Validators.compose([Validators.min(MIN_AGE), Validators.max(MAX_AGE)])],
       gender: null,
     });
   }
@@ -54,14 +54,14 @@ export class RegisterComponent implements OnInit{
     return new FormGroup({
       password: new FormControl(null, [
         Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(20),
+        Validators.minLength(MIN_PASSWORD_LENGTH),
+        Validators.maxLength(MAX_PASSWORD_LENGTH),
         passwordValidator(),
       ]),
       passwordConfirmation: new FormControl(null, [
         Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(20),
+        Validators.minLength(MIN_PASSWORD_LENGTH),
+        Validators.maxLength(MAX_PASSWORD_LENGTH),
         passwordValidator(),
       ]),
     }, {validators: passwordMatchingValidator})

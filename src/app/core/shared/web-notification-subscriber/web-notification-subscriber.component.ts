@@ -33,11 +33,11 @@ export class WebNotificationSubscriberComponent {
       height: '240px',
       width: '460px',
       hasBackdrop: true,
-      data: FRONTEND_MESSAGES.CONFIRMATION_SEND_NOTIFICATION
+      data: FRONTEND_MESSAGES.SUSCRIBE_NOTIFICATION
     });
     dialogRef.afterClosed().subscribe((confirm: boolean) => {
       this._notificationsService.subscribeNotifications().subscribe(()=> {
-        this._snackBar.open('La suscripción ha sido activada satisfactoriamente', '', {duration: EXTENDED_SNACKBAR_TIME});
+        this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_SUSCRIBE_NOTIFICATION.message, '', {duration: EXTENDED_SNACKBAR_TIME});
       }, ((error)=> {
         if (error && (error.name === BACKEND_ERROR_TYPES.POP_UPS_BLOCKED || error.name === FRONTEND_ERROR_TYPES.NOTIFICATIONS_DISABLED)) {
           const dialogRef = this._dialog.open(ErrorDialogComponent, {
@@ -46,7 +46,7 @@ export class WebNotificationSubscriberComponent {
             hasBackdrop: true,
             data: error.name === BACKEND_ERROR_TYPES.POP_UPS_BLOCKED ? BACKEND_ERRORS.POP_UPS_BLOCKED : FRONTEND_ERRORS.NOTIFICATIONS_DISABLED
           });
-        } else {
+        } else { // in local its not possible test notifications unless we make a production build, so we get FRONTEND_ERROR_TYPES.NOTIFICATIONS_DISABLED
           this._snackBar.open('Ha habido un problema al activar las notificaciones, por favor intentelo de nuevo más tarde', '', {duration: EXTENDED_SNACKBAR_TIME});
         }
       }));

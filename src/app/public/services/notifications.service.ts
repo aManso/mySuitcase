@@ -23,7 +23,6 @@ export class NotificationsService {
           this._swPush.requestSubscription({
             serverPublicKey: PUBLIC_VAPID_KEY,
           }).then((sub)=> {
-            console.log("Notification subscription: ", sub);
             const url = this.ADD_SUBSCRIBER_API;  
             this._http.post(url, sub).subscribe(
                 (data: any) => {

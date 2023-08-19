@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME } from '../../config/config';
+import { EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME, MAX_AGE, MAX_EMAIL_LENGTH, MAX_NAME_LENGTH, MAX_PASSWORD_LENGTH, MIN_AGE, MIN_NAME_LENGTH, MIN_PASSWORD_LENGTH } from '../../config/config';
 import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from '../../const/backend-errors';
 import { LoginService } from '../../login/login.service';
 import { User } from '../../models/user';
@@ -45,10 +45,10 @@ export class SettingsComponent{
     this.passwordForm = this._setPasswordForm();
     this._user = this._user ? this._user : {} as User;
     return this._fb.group({
-      email: [this._user.email, Validators.compose([Validators.required, Validators.email])],
+      email: [this._user.email, Validators.compose([Validators.required, Validators.email, Validators.maxLength(MAX_EMAIL_LENGTH)])],
       passwords: this.passwordForm,
-      name: [this._user.name, Validators.maxLength(12)],
-      age: [this._user.age, Validators.compose([Validators.min(14), Validators.max(99)])],
+      name: [this._user.name, Validators.maxLength(MIN_NAME_LENGTH), Validators.maxLength(MAX_NAME_LENGTH)],
+      age: [this._user.age, Validators.compose([Validators.min(MIN_AGE), Validators.max(MAX_AGE)])],
       gender: [this._user.gender],
     });
   }
@@ -57,8 +57,8 @@ export class SettingsComponent{
     return new FormGroup({
       password: new FormControl(null, [
         Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(20),
+        Validators.minLength(MIN_PASSWORD_LENGTH),
+        Validators.maxLength(MAX_PASSWORD_LENGTH),
         passwordValidator(),
       ]),
     })
