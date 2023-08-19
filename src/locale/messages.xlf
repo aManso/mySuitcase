@@ -533,6 +533,15 @@
       <trans-unit id="3407420007208457265" datatype="html">
         <source>The register can not be done, maybe the link has expired. Please try to register again and if the error persists send us a message through our contact page</source>
       </trans-unit>
+      <trans-unit id="4980935138474804964" datatype="html">
+        <source>You can relax now, you will be informed of any updates in mysuitcase.net!</source>
+      </trans-unit>
+      <trans-unit id="6997873744832482699" datatype="html">
+        <source>Are you sure that you want to suscribe to keep toned of all the updates in mysuitcase.net?</source>
+      </trans-unit>
+      <trans-unit id="8213172001825771483" datatype="html">
+        <source>¡Confirm!</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
