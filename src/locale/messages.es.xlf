@@ -212,6 +212,7 @@
       </trans-unit>
       <trans-unit id="20e6397af2875eae30e7048026c8beeae5845bb5" datatype="html">
         <source>My suitcases</source>
+        <target>Mis maletas</target>
       </trans-unit>
       <trans-unit id="cad3fe66c0a1d4f9cc19865175bfd1710ff1f1c7" datatype="html">
         <source>Inform us regarding any incident or suggestion</source>
