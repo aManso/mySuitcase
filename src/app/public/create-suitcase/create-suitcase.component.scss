@@ -23,6 +23,11 @@ $margin: 15px;
 
   .suitcase-column {
     order: 2;
+
+    .card-body {
+      max-height: 450px;
+      overflow-y: scroll;
+    }
   }
 
   .weather-column {
