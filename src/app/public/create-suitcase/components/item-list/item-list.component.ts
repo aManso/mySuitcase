@@ -48,7 +48,7 @@ export class ItemListComponent implements OnInit {
   public onAddItem: EventEmitter<{item: TripItem, index:number, itemList: TripItem[], listName: string}> = new EventEmitter<{item: TripItem, index:number, itemList: TripItem[], listName: string}>();
 
   @Output()
-  public onRemoveItem: EventEmitter<{itemList: TripItem[], index:number, listName: string}> = new EventEmitter<{itemList: TripItem[], index:number, listName: string}>();
+  public checkRecommendations: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(
     private _renderer: Renderer2,
@@ -57,6 +57,7 @@ export class ItemListComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this._manageHeaders(this.itemList);
     this._sortItems(this.itemList);
   }
 
@@ -77,6 +78,10 @@ export class ItemListComponent implements OnInit {
   }
 
   private _sortItems(itemList: TripItem[]) {
+    itemList.sort((a, b) => (a.type < b.type ? -1 : 1));
+  }
+
+  private _manageHeaders(itemList: TripItem[]) {
     this._subsubheadersInner = JSON.parse(JSON.stringify(this.resetSubheaders()));
     itemList.forEach((item: TripItem) => {
       item.showInSuggestion = true;
@@ -96,6 +101,7 @@ export class ItemListComponent implements OnInit {
     item.showInSuggestion = false;
     setTimeout(() => {
       this.itemList.splice(index, 1);
+      this._manageHeaders(this.itemList);
       this._sortItems(this.itemList);
       // trigger a refresh in parent component to let it know the item has been removed from the list
       this._changeDetector.markForCheck();
@@ -105,10 +111,16 @@ export class ItemListComponent implements OnInit {
   public removeItem(itemList: TripItem[], index:number, itemRef: HTMLElement) {
     this.counter % 2 ? this._renderer.addClass(itemRef, 'flip-out-ver-right') : this._renderer.addClass(itemRef, 'removedItem');
     this.counter++;
-    this.onRemoveItem.emit({itemList, index, listName: this.listName});
-    this._sortItems(this.itemList);
-    // trigger a refresh in parent component to let it know the item has been removed from the list
-    this._changeDetector.markForCheck();
+    
+    // When the animations finishes remove it
+    setTimeout(() => {
+      // remove it from the list
+      itemList.splice(index, 1);
+      this._manageHeaders(this.itemList);
+      this._sortItems(this.itemList);
+      if (this.itemList.length < 5) this.checkRecommendations.emit(this.listName);
+      this._changeDetector.detectChanges();
+    }, 1000)
   }
 
   public showSubsubheader(type, name: string): boolean {

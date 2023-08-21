@@ -174,7 +174,7 @@ export class CreateSuitcaseComponent implements OnInit {
     return tripType;
   }
 
-  private _checkMoreRecommendations(type: string) {
+  public checkRecommendations(type: string) {
     // Fetch more recommendations when one of the items has been removed from the suggestion list and there are less
     // than 5 items left in the list of the category
     if (this.suggestionList[type].items.length < 5 ) {
@@ -188,7 +188,7 @@ export class CreateSuitcaseComponent implements OnInit {
         // is higher than 3, decrease the priority and do the process over again.
         if (this.suggestionList[type].items.length < 5 && this.suggestionList[type].currentPriority < 3) {
           this.suggestionList[type].currentPriority++;
-          this._checkMoreRecommendations(type);
+          this.checkRecommendations(type);
         }
         let viewChildren: QueryList<any>;
         switch (type) {
@@ -206,7 +206,7 @@ export class CreateSuitcaseComponent implements OnInit {
             break;
         }
         this._changeDetector.detectChanges();
-        viewChildren.toArray()[0]._sortItems(viewChildren.toArray()[0].itemList);
+        viewChildren.toArray()[0].ngOnInit();
         this._changeDetector.detectChanges();
       });
     }
@@ -271,22 +271,15 @@ export class CreateSuitcaseComponent implements OnInit {
 
       // if it comes from suggestion list, check it there is need to fetch more recommendations
       if (listName) {
-        this._checkMoreRecommendations(listName); // not when its a new item
+        this.checkRecommendations(listName); // not when its a new item
       }
       this.totalItemsInList++;
       this._changeDetector.detectChanges();
     }, 0)
   }
 
-  // REMOVE
-  public removeItemFromChild(object: {itemList: TripItem[], index:number, listName: string}) {
-    // remove item from suggestions
-    this.removeItem(object.itemList, object.index, object.listName);
-  }
   public removeItem(itemList: TripItem[], index:number, listName: string, viewChildren?: QueryList<any>) {
-    // if removing from the suggestions add a class to trigger an animation
-    const fromSuggestionList = !viewChildren;
-    if (!fromSuggestionList && viewChildren) {
+    if (viewChildren) {
       // Alternate two keyframe animations
       this.counter % 2 ? this._renderer.addClass(viewChildren.toArray()[index].nativeElement, 'flip-out-ver-right') :
         this._renderer.addClass(viewChildren.toArray()[index].nativeElement, 'removedItem');
@@ -296,8 +289,6 @@ export class CreateSuitcaseComponent implements OnInit {
     setTimeout(() => {
       // remove it from the list
       itemList.splice(index, 1);
-      // if coming from suggestion list check the suggestions otherwise also remove it from the list to be saved
-      if (fromSuggestionList) this._checkMoreRecommendations(listName);
       this.totalItemsInList--;
       this._changeDetector.detectChanges();
     }, 1000)

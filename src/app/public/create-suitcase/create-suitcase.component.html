@@ -37,7 +37,7 @@
                                  [maxShownList]="10"
                                  [listName]="'common'"
                                  (onAddItem)="addItemFromChild($event)"
-                                 (onRemoveItem)="removeItemFromChild($event)">
+                                 (checkRecommendations)="checkRecommendations($event)">
           </my-suitcase-item-list>
 
           <my-suitcase-item-list #beach
@@ -45,7 +45,7 @@
                                  [maxShownList]="5"
                                  [listName]="'beach'"
                                  (onAddItem)="addItemFromChild($event)"
-                                 (onRemoveItem)="removeItemFromChild($event)">
+                                 (checkRecommendations)="checkRecommendations($event)">
           </my-suitcase-item-list>
 
           <my-suitcase-item-list #mountain
@@ -53,7 +53,7 @@
                                  [maxShownList]="5"
                                  [listName]="'mountain'"
                                  (onAddItem)="addItemFromChild($event)"
-                                 (onRemoveItem)="removeItemFromChild($event)">
+                                 (checkRecommendations)="checkRecommendations($event)">
           </my-suitcase-item-list>
 
           <my-suitcase-item-list #sport
@@ -61,7 +61,7 @@
                                  [maxShownList]="5"
                                  [listName]="'sport'"
                                  (onAddItem)="addItemFromChild($event)"
-                                 (onRemoveItem)="removeItemFromChild($event)">
+                                 (checkRecommendations)="checkRecommendations($event)">
           </my-suitcase-item-list>
 
           <my-suitcase-item-list #baby
@@ -69,7 +69,7 @@
                                  [maxShownList]="5"
                                  [listName]="'baby'"
                                  (onAddItem)="addItemFromChild($event)"
-                                 (onRemoveItem)="removeItemFromChild($event)">
+                                 (checkRecommendations)="checkRecommendations($event)">
           </my-suitcase-item-list>
 
           <my-suitcase-item-list #pet
@@ -77,7 +77,7 @@
                                  [maxShownList]="5"
                                  [listName]="'pet'"
                                  (onAddItem)="addItemFromChild($event)"
-                                 (onRemoveItem)="removeItemFromChild($event)">
+                                 (checkRecommendations)="checkRecommendations($event)">
           </my-suitcase-item-list>
         </div>
       </div>
