@@ -83,6 +83,7 @@ export class ItemListComponent implements OnInit {
       if (item.type) {
         this._subsubheadersInner[item.type].push(item);
       } else {
+        item.type = 'others';
         this._subsubheadersInner['others'].push(item);
       }
     })
