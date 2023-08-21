@@ -251,11 +251,11 @@ export class CreateSuitcaseComponent implements OnInit {
       }
     }
   }
-  public addItemFromChild(object: {item: TripItem, index?:number, itemList: TripItem[], listName: string}) {
+  public addItemFromChild(object: {item: TripItem, listName: string}) {
     // method to add a item from the suggestion panel
-    this._addItem(object.item, object.index, object.itemList, object.listName);
+    this._addItem(object.item, object.listName);
   }
-  private _addItem(item: TripItem, index?:number, suggestionList?: TripItem[], listName?: string) {
+  private _addItem(item: TripItem, listName?: string) {
     // by def the type is the main category, except for beach, mountain and sport where the type is the subcategory and
     // otherwise consider the item in the 'other' category.
     const type = listName === 'beach' || listName === 'mountain' || listName === 'sport' ? listName : item.type ? item.type : 'others';
@@ -268,17 +268,13 @@ export class CreateSuitcaseComponent implements OnInit {
       // change the status show to true to do the animation of appearing
       this.suitcaseList[type][this.suitcaseList[type].length - 1].showInSuitcase = true;
       this.subsubheaders[type].push(item);
-
-      // if it comes from suggestion list, check it there is need to fetch more recommendations
-      if (listName) {
-        this.checkRecommendations(listName); // not when its a new item
-      }
       this.totalItemsInList++;
       this._changeDetector.detectChanges();
     }, 0)
   }
 
-  public removeItem(itemList: TripItem[], index:number, listName: string, viewChildren?: QueryList<any>) {
+  // REMOVE
+  public removeItem(itemList: TripItem[], index:number, viewChildren?: QueryList<any>) {
     if (viewChildren) {
       // Alternate two keyframe animations
       this.counter % 2 ? this._renderer.addClass(viewChildren.toArray()[index].nativeElement, 'flip-out-ver-right') :

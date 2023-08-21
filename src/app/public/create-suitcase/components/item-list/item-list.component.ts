@@ -39,13 +39,13 @@ import {
   ],
 })
 export class ItemListComponent implements OnInit {
-  public counter = 1;
+  public counterToToggleAnimation = 1;
   @Input() itemList: TripItem[];
   @Input() maxShownList: number;
   @Input() listName: string;
   private _subsubheadersInner = {};
   @Output()
-  public onAddItem: EventEmitter<{item: TripItem, index:number, itemList: TripItem[], listName: string}> = new EventEmitter<{item: TripItem, index:number, itemList: TripItem[], listName: string}>();
+  public onAddItem: EventEmitter<{item: TripItem, listName: string}> = new EventEmitter<{item: TripItem, listName: string}>();
 
   @Output()
   public checkRecommendations: EventEmitter<string> = new EventEmitter<string>();
@@ -94,33 +94,32 @@ export class ItemListComponent implements OnInit {
     })
   }
 
-  public addItem(item: TripItem, index?:number, itemList?: TripItem[], ) {
-    this.onAddItem.emit({item, index, itemList, listName: this.listName});
-    this._sortItems(this.itemList);
+  public addItem(item: TripItem, index?:number) {
+    this.onAddItem.emit({item, listName: this.listName});
     // do async the rest of actions to allow the animations
     item.showInSuggestion = false;
     setTimeout(() => {
-      this.itemList.splice(index, 1);
-      this._manageHeaders(this.itemList);
-      this._sortItems(this.itemList);
-      // trigger a refresh in parent component to let it know the item has been removed from the list
-      this._changeDetector.markForCheck();
+      this.removeAndOrganizeSuggestionList(index);
     }, 1000);
   }
 
-  public removeItem(itemList: TripItem[], index:number, itemRef: HTMLElement) {
-    this.counter % 2 ? this._renderer.addClass(itemRef, 'flip-out-ver-right') : this._renderer.addClass(itemRef, 'removedItem');
-    this.counter++;
+  public removeItem(index:number, itemRef: HTMLElement) {
+    this.counterToToggleAnimation % 2 ? this._renderer.addClass(itemRef, 'flip-out-ver-right') : this._renderer.addClass(itemRef, 'removedItem');
+    this.counterToToggleAnimation++;
     
     // When the animations finishes remove it
     setTimeout(() => {
-      // remove it from the list
-      itemList.splice(index, 1);
-      this._manageHeaders(this.itemList);
-      this._sortItems(this.itemList);
-      if (this.itemList.length < 5) this.checkRecommendations.emit(this.listName);
-      this._changeDetector.detectChanges();
+      this.removeAndOrganizeSuggestionList(index);
     }, 1000)
+  }
+
+  private removeAndOrganizeSuggestionList(index: number) {
+    // remove it from the list
+    this.itemList.splice(index, 1);
+    this._manageHeaders(this.itemList);
+    this._sortItems(this.itemList);
+    if (this.itemList.length < 5) this.checkRecommendations.emit(this.listName);
+    this._changeDetector.detectChanges();
   }
 
   public showSubsubheader(type, name: string): boolean {

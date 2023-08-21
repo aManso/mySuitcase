@@ -31,7 +31,7 @@
           <mat-icon *ngIf="!showSuggestions" (click)="showSuggestions = !showSuggestions" matSuffix matTooltip="expand" [matTooltipPosition]="'below'" class="expand">arrow_drop_down</mat-icon>
         </div>
 
-        <div class="suggestion-body" *ngIf="showSuggestions">
+        <div class="suggestion-card-body" *ngIf="showSuggestions">
           <my-suitcase-item-list #common
                                  [itemList]="suggestionList.common ? suggestionList.common.items : []"
                                  [maxShownList]="10"
@@ -194,7 +194,7 @@
           <input matInput type="number" [(ngModel)]="item.quantity">
         </mat-form-field>
         <div class="item-actions">
-          <mat-icon aria-hidden="false" aria-label="Discard item" (click)="removeItem(suitcaseList[item.type], i, 'suitcase', viewChildrenSuitcase)">delete_sweep</mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Discard item" (click)="removeItem(suitcaseList[item.type], i, viewChildrenSuitcase)">delete_sweep</mat-icon>
         </div>
       </div>
     </div>

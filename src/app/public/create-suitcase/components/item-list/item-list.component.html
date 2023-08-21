@@ -83,8 +83,8 @@
         <span class="item-name">{{item.name}}</span>
       </div>
       <div class="item-actions">
-        <mat-icon aria-hidden="false" aria-label="Discard item" (click)="removeItem(itemList, i, itemRef)">delete_sweep</mat-icon>
-        <mat-icon aria-hidden="false" aria-label="Discard item" (click)="addItem(item, i, itemList)">add_circle</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="Discard item" (click)="removeItem(i, itemRef)">delete_sweep</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="Discard item" (click)="addItem(item, i)">add_circle</mat-icon>
       </div>
     </div>
   </div>
