@@ -19,6 +19,11 @@ $margin: 15px;
   .suggestion-column {
     order: 1;
     height: fit-content;
+
+    .suggestion-body {
+      max-height: 450px;
+      overflow-y: scroll;
+    }
   }
 
   .suitcase-column {
@@ -155,6 +160,10 @@ $margin: 15px;
   transition: box-shadow .3s;
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    .item-data {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
     .item-actions {
       display: flex;
       align-items: center;
@@ -308,7 +317,7 @@ $margin: 15px;
       padding-right: 30px;
       overflow: hidden;
 
-      .suggestion-lists {
+      .suggestion-body {
         max-height: 250px;
         overflow-y: scroll;
       }
@@ -368,7 +377,7 @@ $margin: 15px;
       padding-right: 30px;
       overflow: hidden;
 
-      .suggestion-lists {
+      .suggestion-body {
         max-height: 175px;
         overflow-y: scroll;
       }

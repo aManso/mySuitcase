@@ -31,7 +31,7 @@
           <mat-icon *ngIf="!showSuggestions" (click)="showSuggestions = !showSuggestions" matSuffix matTooltip="expand" [matTooltipPosition]="'below'" class="expand">arrow_drop_down</mat-icon>
         </div>
 
-        <div class="suggestion-lists" *ngIf="showSuggestions">
+        <div class="suggestion-body" *ngIf="showSuggestions">
           <my-suitcase-item-list #common
                                  [itemList]="suggestionList.common ? suggestionList.common.items : []"
                                  [maxShownList]="10"

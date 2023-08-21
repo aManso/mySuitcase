@@ -33,7 +33,7 @@
       <span i18n="@@baby">Baby</span>
     </div>
   </ng-container>
-  <ng-container *ngFor="let item of itemList | slice:0:5; let i=index" [ngSwitch]="item.type">
+  <ng-container *ngFor="let item of itemList; let i=index" [ngSwitch]="item.type">
     <ng-container *ngSwitchCase="'tech'">
       <div class="card-header card-subsubheader" *ngIf="showSubsubheader('tech', item.name)">
         <mat-icon matSuffix  i18n-matTooltip matTooltip="Technology" [matTooltipPosition]="'below'">photo_camera</mat-icon>
