@@ -50,8 +50,8 @@
     </ng-container>
     <ng-container *ngSwitchCase="'clothes'">
       <div class="card-header card-subsubheader" *ngIf="showSubsubheader('clothes', item.name)">
-        <mat-icon matSuffix  i18n-matTooltip matTooltip="Clothe" [matTooltipPosition]="'below'">checkroom</mat-icon>
-        <span i18n="@@clothe">Clothe</span>
+        <mat-icon matSuffix  i18n-matTooltip matTooltip="Clothes" [matTooltipPosition]="'below'">checkroom</mat-icon>
+        <span i18n="@@clothes">Clothes</span>
       </div>
       <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
     </ng-container>
