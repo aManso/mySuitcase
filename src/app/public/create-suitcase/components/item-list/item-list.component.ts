@@ -4,8 +4,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  ViewChildren,
-  QueryList,
   OnInit,
   Renderer2,
   ViewEncapsulation,
@@ -46,7 +44,6 @@ export class ItemListComponent implements OnInit {
   @Input() maxShownList: number;
   @Input() listName: string;
   private _subsubheadersInner = {};
-  @ViewChildren('item') itemViewChildren!: QueryList<any>;
   @Output()
   public onAddItem: EventEmitter<{item: TripItem, index:number, itemList: TripItem[], listName: string}> = new EventEmitter<{item: TripItem, index:number, itemList: TripItem[], listName: string}>();
 
@@ -104,9 +101,8 @@ export class ItemListComponent implements OnInit {
     }, 1000);
   }
 
-  public removeItem(itemList: TripItem[], index:number) {
-    this.counter % 2 ? this._renderer.addClass(this.itemViewChildren.toArray()[index].nativeElement, 'flip-out-ver-right') :
-      this._renderer.addClass(this.itemViewChildren.toArray()[index].nativeElement, 'removedItem');
+  public removeItem(itemList: TripItem[], index:number, itemRef: HTMLElement) {
+    this.counter % 2 ? this._renderer.addClass(itemRef, 'flip-out-ver-right') : this._renderer.addClass(itemRef, 'removedItem');
     this.counter++;
     this.onRemoveItem.emit({itemList, index, listName: this.listName});
     this._sortItems(this.itemList);

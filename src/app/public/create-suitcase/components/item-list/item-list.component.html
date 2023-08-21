@@ -78,12 +78,12 @@
 
 <ng-template #cardBody let-item let-i="i">
   <div class="card-body">
-    <div class="item" #item [@showHiddenItem]="item.showInSuggestion ? 'show' : 'hidden'">
+    <div class="item" #itemRef [@showHiddenItem]="item.showInSuggestion ? 'show' : 'hidden'">
       <div class="item-data">
         <span class="item-name">{{item.name}}</span>
       </div>
       <div class="item-actions">
-        <mat-icon aria-hidden="false" aria-label="Discard item" (click)="removeItem(itemList, i)">delete_sweep</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="Discard item" (click)="removeItem(itemList, i, itemRef)">delete_sweep</mat-icon>
         <mat-icon aria-hidden="false" aria-label="Discard item" (click)="addItem(item, i, itemList)">add_circle</mat-icon>
       </div>
     </div>
