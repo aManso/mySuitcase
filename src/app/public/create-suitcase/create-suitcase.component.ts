@@ -122,31 +122,23 @@ export class CreateSuitcaseComponent implements OnInit {
   ) {
   }
 
-  public ngOnInit() {
-    const sevenDaysDate = new Date();
-    sevenDaysDate.setDate(sevenDaysDate.getDate() + 7);
-    this._sevenDaysDateInMillis = sevenDaysDate.getTime();
+  public ngOnInit() {    
     // Fetch the suitcase created in the previous steps with the basic information
     this.suitcase = this._suitcaseService.getCurrentSuitcase();
+    // Get the locale to request recommendation items translated
     this._locale = this._configService.getLocale()
 
+    // TODO fetch edited suitcase
     if (!this.suitcase) {
       // when trying to get access to the edit or create screen without selecting the previous steps
       this._router.navigate(['home']);
     }
 
+    // check if we are in create or edit mode
     this._activatedRoute.data.subscribe(data => {
       this.createMode = data.createMode;
       if (!this.createMode) {
-        // If coming to edit, there should be already a list of items, so we continue from there
-        this.suitcaseList = this.suitcase.items;
-        // and we show them
-        Object.keys(this.suitcaseList).forEach((key: string) => {
-          this.suitcaseList[key].forEach((item: TripItem) => {
-            this.totalItemsInList++;
-            item.showInSuitcase = true;
-          })
-        })
+        this.initEdit();
       }
     });
 
@@ -156,11 +148,43 @@ export class CreateSuitcaseComponent implements OnInit {
       this.dataReady = true;
       this._changeDetector.detectChanges();
     });
+
+    this.handleWeatherPanel();
+  }
+
+  // WEATHER
+  private handleWeatherPanel() {
+    this.getNext7Days();
     // show weather data if possible
     this.weatherReady = this._checkShowWeather();
     this.weatherDays = this.weatherReady ? Math.ceil((this._sevenDaysDateInMillis - new Date(this.suitcase.date.from).getTime()) / (1000*60*60*24)) : 0;
   }
 
+  private getNext7Days() {
+    const sevenDaysDate = new Date();
+    sevenDaysDate.setDate(sevenDaysDate.getDate() + 7);
+    this._sevenDaysDateInMillis = sevenDaysDate.getTime();
+  }
+
+  private _checkShowWeather(): boolean {
+    // show the weather panel if the dates of the trip are in the next 7 days
+    return !!this.suitcase && new Date(this.suitcase.date.from).getTime() < this._sevenDaysDateInMillis;
+  }
+
+  // EDIT
+  private initEdit() {
+    // When editing there should be already a list of items, so we continue from there
+    this.suitcaseList = this.suitcase.items;
+    // and we show them
+    Object.keys(this.suitcaseList).forEach((key: string) => {
+      this.suitcaseList[key].forEach((item: TripItem) => {
+        this.totalItemsInList++;
+        item.showInSuitcase = true;
+      })
+    });
+  }
+
+  // LOAD INITIAL SUITCASE
   private _fetchSuggestionList(tripType: TripType, pageNr: number, lang: string): Observable<TripType> {
     return this._suitcaseService.fetchRecommendations(tripType, pageNr, lang);
   }
@@ -174,6 +198,7 @@ export class CreateSuitcaseComponent implements OnInit {
     return tripType;
   }
 
+  // CHECKS WITH EACH INTERACTION
   public checkRecommendations(type: string) {
     // Fetch more recommendations when one of the items has been removed from the suggestion list and there are less
     // than 5 items left in the list of the category
@@ -212,20 +237,6 @@ export class CreateSuitcaseComponent implements OnInit {
     }
   }
 
-  private _checkShowWeather(): boolean {
-    // show the weather panel if the dates of the trip are in the next 7 days
-    return !!this.suitcase && new Date(this.suitcase.date.from).getTime() < this._sevenDaysDateInMillis;
-  }
-
-  private _duplicatedInSuitcase(newName: string): boolean {
-    // when adding manually a new item, check if that item already exist in the provisional list
-    return Object.keys(this.suitcaseList).some((key) => {
-      return this.suitcaseList[key].some((item) => {
-        return item.name === newName;
-      })
-    })
-  }
-
   public showSubsubheader(type, name: string): boolean {
     // check if we must show the headers of the subcategories
     return this.subsubheaders[type][0] && this.subsubheaders[type][0].name === name;
@@ -251,10 +262,21 @@ export class CreateSuitcaseComponent implements OnInit {
       }
     }
   }
+
+  private _duplicatedInSuitcase(newName: string): boolean {
+    // when adding manually a new item, check if that item already exist in the provisional list
+    return Object.keys(this.suitcaseList).some((key) => {
+      return this.suitcaseList[key].some((item) => {
+        return item.name === newName;
+      })
+    })
+  }
+
   public addItemFromChild(object: {item: TripItem, listName: string}) {
     // method to add a item from the suggestion panel
     this._addItem(object.item, object.listName);
   }
+
   private _addItem(item: TripItem, listName?: string) {
     // by def the type is the main category, except for beach, mountain and sport where the type is the subcategory and
     // otherwise consider the item in the 'other' category.
@@ -283,13 +305,15 @@ export class CreateSuitcaseComponent implements OnInit {
     }
     // When the animations finishes remove it
     setTimeout(() => {
-      // remove it from the list
-      itemList.splice(index, 1);
+      // remove it from the lists, the main list and the subheaders list to later check if it is needed or not to show the subheader
+      const removedItemList = itemList.splice(index, 1);
+      this.subsubheaders[removedItemList[0].type].splice(index, 1);
       this.totalItemsInList--;
       this._changeDetector.detectChanges();
     }, 1000)
   }
 
+  // PRINT
   public printSuitcase(): void {
     window.onafterprint = (event) => {
       console.log('After print');
