@@ -39,42 +39,45 @@ export class OverviewComponent implements OnInit {
         map((output: SuitcaseOverviewOutput) => output.list),
       )
       .subscribe((suitcaseList: Suitcase[]) => {
-        let otherIcon = 0;
-        let mountainIcon = 0;
-        let beachIcon = 0;
-        let babyIcon = 0;
-        let sportIcon = 0;
-        let petIcon = 0;
-        suitcaseList = suitcaseList.map((suitcase: Suitcase) => {
-          // assign a default image if it has not one attached
-          if (!suitcase.icon && suitcase.items.baby.length > 0 && babyIcon <= otherIcon) {
-            suitcase.icon = 'baby';
-            babyIcon++;
-          } else if (!suitcase.icon && suitcase.items.sport.length > 0 && sportIcon <= otherIcon) {
-            suitcase.icon = 'sport';
-            sportIcon++;
-          } else if (!suitcase.icon && suitcase.items.pet.length > 0 && petIcon <= otherIcon) {
-            suitcase.icon = 'pet';
-            petIcon++;
-          } else if (!suitcase.icon && suitcase.items.mountain.length > 0 && mountainIcon <= otherIcon) {
-            suitcase.icon = 'mountain';
-            mountainIcon++;
-          } else if (!suitcase.icon && suitcase.items.beach.length > 0 && beachIcon <= otherIcon) {
-            suitcase.icon = 'beach';
-            beachIcon++;
-          } else {
-            suitcase.icon = 'cultural';
-            otherIcon++;
-          }
-          // create a new class suitcase to be able to use the inner methods
-          return new Suitcase(suitcase)
-        });
-        this.suitcaseList = suitcaseList;
+        this.suitcaseList = this.selectBackgroundImg(suitcaseList);
         this.suitcaseListTotal = suitcaseList.length;
         this.dataReady = true;
         this._changeDetector.detectChanges();
         this.dataLoaded.emit();
       })
+  }
+
+  private selectBackgroundImg(suitcaseList: Suitcase[]) {
+    let otherIcon = 0;
+    let mountainIcon = 0;
+    let beachIcon = 0;
+    let babyIcon = 0;
+    let sportIcon = 0;
+    let petIcon = 0;
+    return suitcaseList.map((suitcase: Suitcase) => {
+      // assign a default image if it has not one attached
+      if (!suitcase.icon && suitcase.type.baby.selected && babyIcon <= otherIcon) {
+        suitcase.icon = 'baby';
+        babyIcon++;
+      } else if (!suitcase.icon && suitcase.type.sport.selected && sportIcon <= otherIcon) {
+        suitcase.icon = 'sport';
+        sportIcon++;
+      } else if (!suitcase.icon && suitcase.type.pet.selected && petIcon <= otherIcon) {
+        suitcase.icon = 'pet';
+        petIcon++;
+      } else if (!suitcase.icon && suitcase.type.mountain.selected && mountainIcon <= otherIcon) {
+        suitcase.icon = 'mountain';
+        mountainIcon++;
+      } else if (!suitcase.icon && suitcase.type.beach.selected && beachIcon <= otherIcon) {
+        suitcase.icon = 'beach';
+        beachIcon++;
+      } else {
+        suitcase.icon = 'cultural';
+        otherIcon++;
+      }
+      // create a new class suitcase to be able to use the inner methods
+      return new Suitcase(suitcase)
+    });
   }
 
   public edit(suitcase: Suitcase) {
