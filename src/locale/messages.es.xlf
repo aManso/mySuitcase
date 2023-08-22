@@ -720,6 +720,14 @@
         <source>You can relax now, you will be informed of any updates in mysuitcase.net!</source>
         <target>Ya puedes relajarte, ¡Serás informado de todas las actualizaciones en mysuitcase.net!</target>
       </trans-unit>
+      <trans-unit id="4a760cd9f9fd31d2010c539cbd5a197fbbfdc936" datatype="html">
+        <source>New item</source>
+        <target>Nuevo item</target>
+      </trans-unit>
+      <trans-unit id="5cb17ba9f6b7b4897192b7f5ae228a9e59703ae8" datatype="html">
+        <source>Select a category or other</source>
+        <target>Selecciona una categoría o será considerado como "otros"</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

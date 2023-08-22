@@ -4,16 +4,22 @@
   <div class="row">
     <form #itemForm="ngForm" class="form" (submit)="addNewItem(newItem, itemForm.controls['newItem'])">
       <mat-form-field id="new-item-field" class="form-field" appearance="fill" color="primary">
-        <mat-label>Nuevo item</mat-label>
+        <mat-label i18n>New item</mat-label>
         <input matInput [(ngModel)]="newItem" name="newItem">
         <div id="selection-categories-wrapper">
-          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'tech'? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'tech' ? '': 'tech'" matTooltip="Tecnología" [matTooltipPosition]="'below'">photo_camera</mat-icon>
-          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'clothes' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'clothes' ? '': 'clothes'" matTooltip="Ropa" [matTooltipPosition]="'below'">checkroom</mat-icon>
-          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'cleanliness' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'cleanliness' ? '': 'cleanliness'" matTooltip="Aseo" [matTooltipPosition]="'below'">clean_hands</mat-icon>
-          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'medicines' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'medicines' ? '': 'medicines'" matTooltip="Medicinas" [matTooltipPosition]="'below'">medical_services</mat-icon>
-          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'documents' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'documents' ? '': 'documents'" matTooltip="Documentos" [matTooltipPosition]="'below'">description</mat-icon>
-          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'pet' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'pet' ? '': 'pet'" matTooltip="Mascota" [matTooltipPosition]="'below'">pets</mat-icon>
-          <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'baby' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'baby' ? '': 'baby'" matTooltip="Bebé" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
+          <mat-label class="selection-categories-label" [ngClass]="[newItem ? 'selectable': 'disabled-icon']" i18n>Select a category or other</mat-label>  
+          <div class="selection-categories-icons">
+            <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'tech'? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'tech' ? '': 'tech'" matTooltip="Technology" [matTooltipPosition]="'below'">photo_camera</mat-icon>
+            <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'cleanliness' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'cleanliness' ? '': 'cleanliness'" matTooltip="Cleanliness" [matTooltipPosition]="'below'">clean_hands</mat-icon>
+            <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'clothes' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'clothes' ? '': 'clothes'" matTooltip="Clothes" [matTooltipPosition]="'below'">checkroom</mat-icon>
+            <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'medicines' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'medicines' ? '': 'medicines'" matTooltip="Medicines" [matTooltipPosition]="'below'">medical_services</mat-icon>
+            <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'documents' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'documents' ? '': 'documents'" matTooltip="Documents" [matTooltipPosition]="'below'">description</mat-icon>
+            <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'beach' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'beach' ? '': 'beach'" matTooltip="Beach" [matTooltipPosition]="'below'">beach_access</mat-icon>
+            <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'mountain' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'mountain' ? '': 'mountain'" matTooltip="Mountain" [matTooltipPosition]="'below'">filter_hdr</mat-icon>
+            <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'sport' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'sport' ? '': 'sport'" matTooltip="Sport" [matTooltipPosition]="'below'">sports_soccer</mat-icon>
+            <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'baby' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'baby' ? '': 'baby'" matTooltip="Baby" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
+            <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'pet' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'pet' ? '': 'pet'" matTooltip="Pet" [matTooltipPosition]="'below'">pets</mat-icon>
+            </div>        
         </div>
         <mat-icon matSuffix [ngClass]="newItem ? '': 'disabled-icon'" class="clickable-icon" id="add-icon" (click)="addNewItem(newItem, itemForm.controls['newItem'])">add</mat-icon>
         <mat-error *ngIf="itemForm.controls['newItem']?.errors?.duplicated">El elemento ya se encuentra en la lista</mat-error>
@@ -94,35 +100,35 @@
         <div class="card-body">
           <div *ngFor="let item of suitcaseList['tech']; let i=index" class="common-card-body">
             <div class="card-header card-subsubheader" *ngIf="showSubsubheader('tech', item.name)">
-              <mat-icon matSuffix matTooltip="Tecnología" [matTooltipPosition]="'below'">photo_camera</mat-icon>
+              <mat-icon matSuffix matTooltip="Technology" [matTooltipPosition]="'below'">photo_camera</mat-icon>
               <span i18n="@@technology">Technology</span>
             </div>
             <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
           </div>
           <div *ngFor="let item of suitcaseList['cleanliness']; let i=index" class="common-card-body">
             <div class="card-header card-subsubheader" *ngIf="showSubsubheader('cleanliness', item.name)">
-              <mat-icon matSuffix matTooltip="Aseo" [matTooltipPosition]="'below'">clean_hands</mat-icon>
+              <mat-icon matSuffix matTooltip="Cleanliness" [matTooltipPosition]="'below'">clean_hands</mat-icon>
               <span i18n="@@cleanliness">Cleanliness</span>
             </div>
             <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
           </div>
           <div *ngFor="let item of suitcaseList['clothes']; let i=index" class="common-card-body">
             <div class="card-header card-subsubheader" *ngIf="showSubsubheader('clothes', item.name)">
-              <mat-icon matSuffix matTooltip="Ropa" [matTooltipPosition]="'below'">checkroom</mat-icon>
+              <mat-icon matSuffix matTooltip="Clothes" [matTooltipPosition]="'below'">checkroom</mat-icon>
               <span i18n="@@clothes">Clothes</span>
             </div>
             <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
           </div>
           <div *ngFor="let item of suitcaseList['medicines']; let i=index" class="common-card-body">
             <div class="card-header card-subsubheader" *ngIf="showSubsubheader('medicines', item.name)">
-              <mat-icon matSuffix matTooltip="Medicinas" [matTooltipPosition]="'below'">medical_services</mat-icon>
+              <mat-icon matSuffix matTooltip="Medicines" [matTooltipPosition]="'below'">medical_services</mat-icon>
               <span i18n="@@medicines">Medicines</span>
             </div>
             <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
           </div>
           <div *ngFor="let item of suitcaseList['documents']; let i=index" class="common-card-body">
             <div class="card-header card-subsubheader" *ngIf="showSubsubheader('documents', item.name)">
-              <mat-icon matSuffix matTooltip="Documentos" [matTooltipPosition]="'below'">description</mat-icon>
+              <mat-icon matSuffix matTooltip="Documents" [matTooltipPosition]="'below'">description</mat-icon>
               <span i18n="@@documents">Documents</span>
             </div>
             <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
@@ -136,7 +142,7 @@
           </div>
           <div *ngFor="let item of suitcaseList['mountain']; let i=index" class="common-card-body">
             <div class="card-header card-subsubheader" *ngIf="showSubsubheader('mountain', item.name)">
-              <mat-icon matSuffix matTooltip="Montaña" [matTooltipPosition]="'below'">filter_hdr</mat-icon>
+              <mat-icon matSuffix matTooltip="Mountain" [matTooltipPosition]="'below'">filter_hdr</mat-icon>
               <span i18n="@@mountain">Mountain</span>
             </div>
             <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
@@ -150,14 +156,14 @@
           </div>
           <div *ngFor="let item of suitcaseList['baby']; let i=index" class="common-card-body">
             <div class="card-header card-subsubheader" *ngIf="showSubsubheader('baby', item.name)">
-              <mat-icon matSuffix matTooltip="Bebé" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
+              <mat-icon matSuffix matTooltip="Baby" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
               <span i18n="@@baby">Baby</span>
             </div>
             <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
           </div>
           <div *ngFor="let item of suitcaseList['pet']; let i=index" class="common-card-body">
             <div class="card-header card-subsubheader" *ngIf="showSubsubheader('pet', item.name)">
-              <mat-icon matSuffix matTooltip="Mascota" [matTooltipPosition]="'below'">pets</mat-icon>
+              <mat-icon matSuffix matTooltip="Pet" [matTooltipPosition]="'below'">pets</mat-icon>
               <span i18n="@@pet">Pet</span>
             </div>
             <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
