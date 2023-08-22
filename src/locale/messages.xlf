@@ -257,11 +257,11 @@
       <trans-unit id="cleanliness" datatype="html">
         <source>Cleanliness</source>
       </trans-unit>
-      <trans-unit id="4e88cfbdd9cc4e4ad314d83d3561f246455868e0" datatype="html">
-        <source>Clothe</source>
+      <trans-unit id="32c8e2a62a234d43ac11beea2df30da5c3681a7c" datatype="html">
+        <source>Clothes</source>
       </trans-unit>
-      <trans-unit id="clothe" datatype="html">
-        <source>Clothe</source>
+      <trans-unit id="clothes" datatype="html">
+        <source>Clothes</source>
       </trans-unit>
       <trans-unit id="7edffe2a2f09a8c2944a475bb5fbd985961ae89c" datatype="html">
         <source>Medicines</source>
