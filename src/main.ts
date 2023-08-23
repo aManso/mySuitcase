@@ -7,8 +7,7 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 if (environment.production) {
-  // If we are in a not secure mode, we redirect, otherwise we enable prod mode
-  location.protocol === 'http:' ? window.location.href = location.href.replace('http', 'https') : enableProdMode();
+  enableProdMode();
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)

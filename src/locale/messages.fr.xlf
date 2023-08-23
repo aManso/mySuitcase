@@ -482,14 +482,6 @@
         <source>If you love finding out new the historic city centers all around the world, this is your trip</source>
         <target>Si te encanta descubrir nuevos centros históricos alrededor del mundo, este es tu viaje</target>
       </trans-unit>
-      <trans-unit id="30670184cdbdf5a22bc9432f10b7ce0e6b18fb42" datatype="html">
-        <source>Currently we are building this website.</source>
-        <target>Actualmente estamos construyendo esta web.</target>
-      </trans-unit>
-      <trans-unit id="3a2d90df8a166c6501ef6aad3e06ed979912cef6" datatype="html">
-        <source>Leave us your e-mail and we will contact you as soon as possible.</source>
-        <target>Dejanos tu email y te contactaremos lo más pronto posible</target>
-      </trans-unit>
       <trans-unit id="6be5a85d0426c32591fd4f3b0ca67c34030a66e1" datatype="html">
         <source>Lets go for a trip!</source>
         <target>Vámonos de viaje!</target>
@@ -725,6 +717,10 @@
       <trans-unit id="5cb17ba9f6b7b4897192b7f5ae228a9e59703ae8" datatype="html">
         <source>Select a category or other</source>
         <target state="new">Select a category or other</target>
+      </trans-unit>
+      <trans-unit id="4979431550827924582" datatype="html">
+        <source>First you need to login or register, it will take less than a minute</source>
+        <target state="new">First you need to login or register, it will take less than a minute</target>
       </trans-unit>
     </body>
   </file>
