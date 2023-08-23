@@ -13,6 +13,8 @@ import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 import { SaveDialogComponent } from 'src/app/public/create-suitcase/components/dialog/save-dialog.component';
 import { FRONTEND_MESSAGES } from '../../const/frontend-messages';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
+import { LoginService } from '../../login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'web-notification-subscriber',
@@ -22,13 +24,19 @@ import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 export class WebNotificationSubscriberComponent {
 
   constructor(
-    private _notificationsService: NotificationsService,
-    private _snackBar: MatSnackBar,
-    private _dialog: MatDialog,
+    private readonly _notificationsService: NotificationsService,
+    private readonly _loginService: LoginService,
+    private readonly _router: Router,
+    private readonly _snackBar: MatSnackBar,
+    private readonly _dialog: MatDialog,
   ) {
   }
 
-  public subscribeNotifications() {
+  public applyForNotifications() {
+    this._loginService.isLoggedIn() ? this._subscribeNotifications() : this._goToLogin();
+  }
+
+  private _subscribeNotifications() {
     const dialogRef = this._dialog.open(InfoDialogComponent, {
       height: '240px',
       width: '460px',
@@ -50,6 +58,18 @@ export class WebNotificationSubscriberComponent {
           this._snackBar.open('Ha habido un problema al activar las notificaciones, por favor intentelo de nuevo más tarde', '', {duration: EXTENDED_SNACKBAR_TIME});
         }
       }));
+    });
+  }
+
+  private _goToLogin() {
+    const dialogRef = this._dialog.open(InfoDialogComponent, {
+      height: '240px',
+      width: '460px',
+      hasBackdrop: true,
+      data: FRONTEND_MESSAGES.LOGIN_FOR_NOTIFICATION
+    });
+    dialogRef.afterClosed().subscribe((confirm: boolean) => {
+      this._router.navigate(['/login'])
     });
   }
 

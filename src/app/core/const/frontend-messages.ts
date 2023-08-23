@@ -22,6 +22,10 @@ export const FRONTEND_MESSAGES = {
         title: $localize `The notification has been successfully removed`,
         message: ''
     },
+    LOGIN_FOR_NOTIFICATION: {
+        title: $localize `¡Confirm!`,
+        message: $localize `First you need to login or register, it will take less than a  minute`
+    },
     SUSCRIBE_NOTIFICATION: {
         title: $localize `¡Confirm!`,
         message: $localize `Are you sure that you want to suscribe to keep toned of all the updates in mysuitcase.net?`
