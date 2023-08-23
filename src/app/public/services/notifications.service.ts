@@ -4,7 +4,6 @@ import { Observable, Subject } from "rxjs";
 import { environment } from "src/environments/environment";
 import { SwPush } from '@angular/service-worker';
 import { FRONTEND_ERROR_TYPES } from "../../core/const/frontend-errors";
-import { Notification } from "src/app/core/models/notification";
 
 const PUBLIC_VAPID_KEY= "BN_Vaz62gKS1Mi6YS-6guChhEdg8J14bupDKzgh2rgeIcTwmGiDiblm96Emmkzlbakhk8Cy5sylcII65gVfHD7E";
 
