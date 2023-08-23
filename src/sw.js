@@ -1,5 +1,5 @@
 
-const VERSION = 'v1';
+const VERSION = 'v2';
 
 function log(message) {
     console.log(VERSION, message);

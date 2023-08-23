@@ -5,7 +5,7 @@
         (function load() {
             const locale = getLocale();
             localStorage.setItem(LOCALE_KEY, locale)
-            document.location.href=document.location.href + locale + "/"
+            document.location.href="https://" + document.location.host + locale + "/"
         })()
         // If there is not a locale set in the localStorage, we set as default the one of the navigator
         function getLocale() {
