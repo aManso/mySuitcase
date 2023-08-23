@@ -1,7 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EXTENDED_SNACKBAR_TIME } from '../../config/config';
@@ -10,7 +7,6 @@ import { FRONTEND_ERRORS, FRONTEND_ERROR_TYPES } from '../../const/frontend-erro
 
 import { NotificationsService } from '../../../public/services/notifications.service';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
-import { SaveDialogComponent } from 'src/app/public/create-suitcase/components/dialog/save-dialog.component';
 import { FRONTEND_MESSAGES } from '../../const/frontend-messages';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 import { LoginService } from '../../login/login.service';
@@ -50,7 +46,7 @@ export class WebNotificationSubscriberComponent {
         if (error && (error.name === BACKEND_ERROR_TYPES.POP_UPS_BLOCKED || error.name === FRONTEND_ERROR_TYPES.NOTIFICATIONS_DISABLED)) {
           const dialogRef = this._dialog.open(ErrorDialogComponent, {
             height: '240px',
-            width: '460px',
+            width: '500px',
             hasBackdrop: true,
             data: error.name === BACKEND_ERROR_TYPES.POP_UPS_BLOCKED ? BACKEND_ERRORS.POP_UPS_BLOCKED : FRONTEND_ERRORS.NOTIFICATIONS_DISABLED
           });
