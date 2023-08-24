@@ -547,11 +547,11 @@
       </trans-unit>
       <trans-unit id="English" datatype="html">
         <source>English <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;UK flag&quot; src=&quot;assets/img/lang/uk-flag-icon.png&quot;&gt;"/></source>
-        <target>Inglés</target>
+        <target>Inglés <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;UK flag&quot; src=&quot;assets/img/lang/uk-flag-icon.png&quot;&gt;"/></target>
       </trans-unit>
       <trans-unit id="Spanish" datatype="html">
         <source>Spanish <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;Spain flag&quot; src=&quot;assets/img/lang/spain-flag-icon.png&quot;&gt;"/></source>
-        <target>Español</target>
+        <target>Español <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;Spain flag&quot; src=&quot;assets/img/lang/spain-flag-icon.png&quot;&gt;"/></target>
       </trans-unit>
       <trans-unit id="English-tooltip" datatype="html">
         <source>English</source>
