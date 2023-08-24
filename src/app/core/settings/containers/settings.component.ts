@@ -47,7 +47,7 @@ export class SettingsComponent{
     return this._fb.group({
       email: [this._user.email, Validators.compose([Validators.required, Validators.email, Validators.maxLength(MAX_EMAIL_LENGTH)])],
       passwords: this.passwordForm,
-      name: [this._user.name, Validators.maxLength(MIN_NAME_LENGTH), Validators.maxLength(MAX_NAME_LENGTH)],
+      name: [this._user.name, Validators.compose([Validators.maxLength(MIN_NAME_LENGTH), Validators.maxLength(MAX_NAME_LENGTH)])],
       age: [this._user.age, Validators.compose([Validators.min(MIN_AGE), Validators.max(MAX_AGE)])],
       gender: [this._user.gender],
     });
