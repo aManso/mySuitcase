@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./core/login/login.module').then(m => m.LoginModule) },
   { path: 'register', loadChildren: () => import('./public/register/register.module').then(m => m.RegisterModule) },
   { path: 'settings', loadChildren: () => import('./core/settings/settings.module').then(m => m.SettingsModule) },
-  { path: '', redirectTo: '', pathMatch: 'full'},
+  { path: 'page-not-found', loadComponent: () => import('./core/not-found/not-found.component').then(c => c.NotFoundComponent) },
   // Wildcard route for a 404 page
   { path: 'home', redirectTo: '' },
   { path: '**', redirectTo: 'page-not-found' },
