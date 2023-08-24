@@ -5,9 +5,8 @@
 Here is a working website : https://mysuitcase.net
 
 ## Table of contents
-- [mySuitcase🛄](#mysuitcase%F0%9F%9B%84)
+- [mySuitcase 🛄](#mysuitcase%F0%9F%9B%84)
   - [Table of contents](#table-of-contents)
-  - [Screenshots](#screenshots)
   - [Technologies](#technologies)
   - [Setup](#setup)
   - [i18n](#i18n)
@@ -36,9 +35,9 @@ For the translations we use angular i18n architecture (following https://medium.
 
 ## Deploy
   ### Locally
-    `npm run start` (with proxy.conf to distinguish PROD vs DEV - https://medium.com/@asfo/creando-un-proxy-en-angular-para-conectarte-a-un-api-local-y-de-producci%C3%B3n-106c34cd9815)
+  `npm run start` (with proxy.conf to distinguish PROD vs DEV - https://medium.com/@asfo/creando-un-proxy-en-angular-para-conectarte-a-un-api-local-y-de-producci%C3%B3n-106c34cd9815)
   ### Production
-    `npm run start-prod` (in dist folder)
+  `npm run start-prod` (in dist folder)
 
 ## Tests
   `npm run test` 
