@@ -714,13 +714,13 @@
         <source>New item</source>
         <target state="new">New item</target>
       </trans-unit>
-      <trans-unit id="5cb17ba9f6b7b4897192b7f5ae228a9e59703ae8" datatype="html">
-        <source>Select a category or other</source>
-        <target state="new">Select a category or other</target>
-      </trans-unit>
       <trans-unit id="4979431550827924582" datatype="html">
         <source>First you need to login or register, it will take less than a minute</source>
         <target state="new">First you need to login or register, it will take less than a minute</target>
+      </trans-unit>
+      <trans-unit id="04201f9d27abd7d6f58a4328ab98063ce1072006" datatype="html">
+        <source>Categories</source>
+        <target state="new">Categories</target>
       </trans-unit>
     </body>
   </file>

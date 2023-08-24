@@ -1,13 +1,13 @@
 <navbar-component></navbar-component>
 
-<div class="container full-screen" *ngIf="dataReady">
+<div class="container" *ngIf="dataReady">
   <div class="row">
     <form #itemForm="ngForm" class="form" (submit)="addNewItem(newItem, itemForm.controls['newItem'])">
       <mat-form-field id="new-item-field" class="form-field" appearance="fill" color="primary">
         <mat-label i18n>New item</mat-label>
         <input matInput [(ngModel)]="newItem" name="newItem">
         <div id="selection-categories-wrapper">
-          <mat-label class="selection-categories-label" [ngClass]="[newItem ? 'selectable': 'disabled-icon']" i18n>Select a category or other</mat-label>  
+          <mat-label class="selection-categories-label" [ngClass]="[newItem ? 'selectable': 'disabled-icon']" i18n>Categories</mat-label>  
           <div class="selection-categories-icons">
             <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'tech'? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'tech' ? '': 'tech'" matTooltip="Technology" [matTooltipPosition]="'below'">photo_camera</mat-icon>
             <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'cleanliness' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'cleanliness' ? '': 'cleanliness'" matTooltip="Cleanliness" [matTooltipPosition]="'below'">clean_hands</mat-icon>

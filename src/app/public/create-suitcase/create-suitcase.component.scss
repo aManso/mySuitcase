@@ -9,12 +9,9 @@ $margin: 15px;
   margin-bottom: 20px;
 }
 
-.full-screen {
-  height: calc(100% - #{$max-footer-height} - #{$min-header-height});
-}
-
 .columns-row {
-  height: 70%;
+  min-height: 70%;
+  height: auto;
 
   .suggestion-column {
     order: 1;

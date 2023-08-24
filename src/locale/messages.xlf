@@ -539,11 +539,11 @@
       <trans-unit id="4a760cd9f9fd31d2010c539cbd5a197fbbfdc936" datatype="html">
         <source>New item</source>
       </trans-unit>
-      <trans-unit id="5cb17ba9f6b7b4897192b7f5ae228a9e59703ae8" datatype="html">
-        <source>Select a category or other</source>
-      </trans-unit>
       <trans-unit id="4979431550827924582" datatype="html">
         <source>First you need to login or register, it will take less than a minute</source>
+      </trans-unit>
+      <trans-unit id="04201f9d27abd7d6f58a4328ab98063ce1072006" datatype="html">
+        <source>Categories</source>
       </trans-unit>
     </body>
   </file>
