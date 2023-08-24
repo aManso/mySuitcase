@@ -228,6 +228,7 @@
       </trans-unit>
       <trans-unit id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8" datatype="html">
         <source>Profile</source>
+        <target>Perfil</target>
       </trans-unit>
       <trans-unit id="938e098241c5ab7a46aa2a4315573e646b2790c2" datatype="html">
         <source>Subscribe to be up to date by retriving all the notifications</source>
