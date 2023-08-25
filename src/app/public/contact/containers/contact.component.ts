@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { EXTENDED_SNACKBAR_TIME, MAX_EMAIL_LENGTH, MAX_MESSAGE_LENGTH, MAX_NAME_LENGTH, MIN_MESSAGE_LENGTH } from 'src/app/core/config/config';
+import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from 'src/app/core/const/backend-errors';
 import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
 import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
 import { ContactService } from '../contact.service';
@@ -44,7 +45,11 @@ export class ContactComponent implements OnInit {
           this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_REGISTER.message, '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['success-snackbar']});
       },
       (error: any) => {
-        this._showGeneralError();
+        if (error.error === BACKEND_ERROR_TYPES.MISSING_FIELDS) {
+          this._snackBar.open(BACKEND_ERRORS.MISSING_FIELDS.title, BACKEND_ERRORS.MISSING_FIELDS.message, {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['error-snackbar']});
+        } else {
+          this._showGeneralError();
+        }
       });
     }
   }
