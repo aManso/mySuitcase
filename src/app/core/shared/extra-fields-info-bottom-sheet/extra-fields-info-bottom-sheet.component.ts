@@ -9,7 +9,7 @@ import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
   styleUrls: ['./extra-fields-info-bottom-sheet.component.scss']
 })
 export class ExtraFieldsInfoBottomSheetComponent {
-  constructor(private _bottomSheetRef: MatBottomSheetRef<ExtraFieldsInfoBottomSheetComponent>) {}
+  constructor(private readonly _bottomSheetRef: MatBottomSheetRef<ExtraFieldsInfoBottomSheetComponent>) {}
 
   public closePanel(event: MouseEvent): void {
     this._bottomSheetRef.dismiss();

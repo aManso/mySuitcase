@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+
 import { EXTENDED_SNACKBAR_TIME } from '../../config/config';
 import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from '../../const/backend-errors';
 import { FRONTEND_ERRORS, FRONTEND_ERROR_TYPES } from '../../const/frontend-errors';
-
 import { NotificationsService } from '../../../public/services/notifications.service';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 import { FRONTEND_MESSAGES } from '../../const/frontend-messages';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 import { LoginService } from '../../login/login.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'web-notification-subscriber',
@@ -51,7 +51,7 @@ export class WebNotificationSubscriberComponent {
             data: error.name === BACKEND_ERROR_TYPES.POP_UPS_BLOCKED ? BACKEND_ERRORS.POP_UPS_BLOCKED : FRONTEND_ERRORS.NOTIFICATIONS_DISABLED
           });
         } else { // in local its not possible test notifications unless we make a production build, so we get FRONTEND_ERROR_TYPES.NOTIFICATIONS_DISABLED
-          this._snackBar.open('Ha habido un problema al activar las notificaciones, por favor intentelo de nuevo más tarde', '', {duration: EXTENDED_SNACKBAR_TIME});
+          this._snackBar.open(FRONTEND_ERRORS.NOTIFICATIONS_DISABLED.title, FRONTEND_ERRORS.NOTIFICATIONS_DISABLED.message, {duration: EXTENDED_SNACKBAR_TIME});
         }
       }));
     });

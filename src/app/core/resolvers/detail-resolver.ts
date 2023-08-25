@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
+
 import {Observable, of as _of} from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
+
 import {SuitcaseService} from '../services/suitcase.service';
 import {Suitcase} from '../models/suitcase';
 
 @Injectable()
 export class DetailResolver  {
   constructor(
-    private _router: Router,
-    private _suitcaseService: SuitcaseService,
+    private readonly _router: Router,
+    private readonly _suitcaseService: SuitcaseService,
     ) { }
 
   /**

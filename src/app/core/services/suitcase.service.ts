@@ -1,5 +1,6 @@
 import { Optional, Injectable, Inject, LOCALE_ID } from '@angular/core';
 import { HttpClient, HttpEvent, HttpEventType, HttpHeaders, HttpRequest } from '@angular/common/http';
+
 import { Observable, Subject } from 'rxjs';
 import { last, map, tap } from 'rxjs/operators';
 
@@ -17,8 +18,7 @@ import { Languages } from '../const/languages';
 
 @Injectable()
 export class SuitcaseService {
-  private _currentSuitcase: Suitcase;
-  public totalSuitcases: number;
+  
   private readonly SAVE_SUITCASE_API = environment.apiUrl + 'suitcase/save';
   private readonly UPDATE_SUITCASE_API = environment.apiUrl + 'suitcase/update';
   private readonly RECOMMENDATIONS_SUITCASE_API = environment.apiUrl + 'suitcase/recommendations';
@@ -26,10 +26,13 @@ export class SuitcaseService {
   private readonly SUITCASE_DETAIL_API = environment.apiUrl + 'suitcase/detail/';
   private readonly REMOVE_SUITCASE_API = environment.apiUrl + 'suitcase/remove';
 
+  private _currentSuitcase: Suitcase;
+  public totalSuitcases: number;
+
   public constructor(
-    private _http: HttpClient,
+    private readonly _http: HttpClient,
     @Inject(LOCALE_ID) public localeId: string,
-    @Optional() private _sessionService?: SessionService,
+    @Optional() private readonly _sessionService?: SessionService,
   ) {
   }
 

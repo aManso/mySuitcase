@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME, MAX_AGE, MAX_EMAIL_LENGTH, MAX_NAME_LENGTH, MAX_PASSWORD_LENGTH, MIN_AGE, MIN_NAME_LENGTH, MIN_PASSWORD_LENGTH } from '../../config/config';
 import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from '../../const/backend-errors';
+import { FRONTEND_MESSAGES } from '../../const/frontend-messages';
 import { LoginService } from '../../login/login.service';
 import { User } from '../../models/user';
 import { ExtraFieldsInfoBottomSheetComponent } from '../../shared/extra-fields-info-bottom-sheet/extra-fields-info-bottom-sheet.component';
@@ -93,7 +94,7 @@ export class SettingsComponent{
 
   public saveChanges() {
     this._settingsService.update({...this.settingsForm.value, _id: this._user._id}).subscribe((response)=> {
-      this._snackBar.open('Usuario actualizado!', '', {duration: GENERAL_SNACKBAR_TIME, panelClass: ['success-snackbar'], horizontalPosition: 'center', verticalPosition: 'top'});
+      this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_USER_UPDATED.title, FRONTEND_MESSAGES.CONFIRMATION_USER_UPDATED.message, {duration: GENERAL_SNACKBAR_TIME, panelClass: ['success-snackbar'], horizontalPosition: 'center', verticalPosition: 'top'});
     }, (error)=> {
       if (error && (error.error === BACKEND_ERROR_TYPES.WRONG_PASSWORD || error.error === BACKEND_ERROR_TYPES.EXISTING_EMAIL)) {
         this._snackBar.open(

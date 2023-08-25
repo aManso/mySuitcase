@@ -34,11 +34,18 @@ export class RegisterComponent implements OnInit{
   ) {
   }
 
+  /**
+   * Init the user language and the register form
+   */
   public ngOnInit() {
     this.lang = this._configService.getLocale();
     this.registerForm = this._setRegisterForm();
   }
 
+  /**
+   * Creates the inital status of the register form
+   * @returns the form
+   */
   private _setRegisterForm() {
     this.passwordForm = this._setPasswordForm();
     return this.fb.group({
@@ -50,6 +57,10 @@ export class RegisterComponent implements OnInit{
     });
   }
 
+  /**
+   * Creates the inital status of the password form group
+   * @returns a form group for the passwords
+   */
   private _setPasswordForm(): FormGroup {
     return new FormGroup({
       password: new FormControl(null, [
@@ -67,14 +78,25 @@ export class RegisterComponent implements OnInit{
     }, {validators: passwordMatchingValidator})
   }
 
+  /**
+   * Redirect to the specified path
+   * @param path the target path
+   */
   public goTo(path: string) {
     this._router.navigate([path]);
   }
 
+  /**
+   * Checks if the form has errors in its controls
+   * @returns true if form is valid
+   */
   public isValidForm(): boolean {
     return this.registerForm.valid;
   }
 
+  /**
+   * Submits the form to register and redirect to login if success
+   */
   public submit() {
     if (this.isValidForm()) {
       this._registerService.register(this.adaptUser(this.registerForm.value), this.lang).subscribe((response: SimpleOutput) => {
@@ -91,6 +113,11 @@ export class RegisterComponent implements OnInit{
     }
   }
 
+  /**
+   * Adapt object to the expected input contract
+   * @param form the introduced values
+   * @returns the input contract to register a new user
+   */
   public adaptUser(form: any): User {
     return {...form,
       password: form.passwords.password,

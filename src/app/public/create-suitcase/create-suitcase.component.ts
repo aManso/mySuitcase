@@ -10,10 +10,6 @@ import {
   HostBinding,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SuitcaseService } from '../../core/services/suitcase.service';
-import { Suitcase } from '../../core/models/suitcase';
-import {TripItem, TripType} from '../../core/models/trip';
-import { Observable } from 'rxjs';
 import {
   trigger,
   state,
@@ -23,9 +19,16 @@ import {
 } from '@angular/animations';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
+
 import { SaveDialogComponent } from "./components/dialog/save-dialog.component";
 import { GENERAL_SNACKBAR_TIME } from "../../core/config/config";
 import { ConfigService } from 'src/app/core/services/config.service';
+import { SuitcaseService } from '../../core/services/suitcase.service';
+import { Suitcase } from '../../core/models/suitcase';
+import { TripItem, TripType } from '../../core/models/trip';
+import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
+import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
 
 @Component({
   selector: 'app-create-suitcase',
@@ -56,7 +59,6 @@ export class CreateSuitcaseComponent implements OnInit {
   public showWeather = true;
   public showSuggestions = true;
   public weatherDays: number;
-  private _sevenDaysDateInMillis: number;
   public suggestionList: TripType;
   public newItem: string;
   public counter = 1;
@@ -64,9 +66,10 @@ export class CreateSuitcaseComponent implements OnInit {
   public totalItemsInList = 0;
   public createMode = true;
   @HostBinding('class.print-mode') public printMode = false;
-  private _locale: string
-
   public dataReady = false;
+
+  private _sevenDaysDateInMillis: number;
+  private _locale: string
 
   // Each of the categories in the suggestion column
   @ViewChildren('common') viewChildrenCommon!: QueryList<any>;
@@ -111,14 +114,14 @@ export class CreateSuitcaseComponent implements OnInit {
   };
 
   constructor(
-    private _suitcaseService: SuitcaseService,
+    private readonly _suitcaseService: SuitcaseService,
     private readonly _changeDetector: ChangeDetectorRef,
-    private _renderer: Renderer2,
-    private _dialog: MatDialog,
-    private _router: Router,
-    private _snackBar: MatSnackBar,
-    private _activatedRoute: ActivatedRoute,
-    private _configService: ConfigService,
+    private readonly _renderer: Renderer2,
+    private readonly _dialog: MatDialog,
+    private readonly _router: Router,
+    private readonly _snackBar: MatSnackBar,
+    private readonly _activatedRoute: ActivatedRoute,
+    private readonly _configService: ConfigService,
   ) {
   }
 
@@ -337,13 +340,13 @@ export class CreateSuitcaseComponent implements OnInit {
         if (confirm || confirm === undefined) {
           this.suitcase.items = this.suitcaseList;
           this._suitcaseService.saveSuitcase(this.suitcase, true).subscribe(()=> {
-            this._snackBar.open("The suitcase has been saved!!", '', {duration: GENERAL_SNACKBAR_TIME});
+            this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_USER_SAVED.title, FRONTEND_MESSAGES.CONFIRMATION_USER_SAVED.message, {duration: GENERAL_SNACKBAR_TIME});
             this._router.navigate(['home']);
           });
         }
         dialogRef.close();
       }, (error: any) => {
-        let snackBarRef = this._snackBar.open("There has been an error. The suitcase has not been saved yet, please try it again in a while or contact us", 'close');
+        let snackBarRef = this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.title, FRONTEND_ERRORS.GENERAL_ERROR.message, {duration: GENERAL_SNACKBAR_TIME});
         snackBarRef.onAction().subscribe(() => {
           snackBarRef.dismiss();
         });

@@ -1,15 +1,16 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
 import { Observable, of as _of } from 'rxjs';
+
 import { LoginService } from '../login/login.service';
 import { UserService } from '../services/user.service';
-import { User } from '../models/user';
 
 @Injectable()
 export class SettingsResolver  {
   constructor(
-    private _userService: UserService,
-    private _loginService: LoginService,
+    private readonly _userService: UserService,
+    private readonly _loginService: LoginService,
   ) {
   }
 

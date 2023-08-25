@@ -23,7 +23,6 @@ import { configLocaleFactory, ConfigService } from './core/services/config.servi
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SharedModule,
     // Material
     MatButtonModule,
     MatDialogModule,
@@ -37,6 +36,7 @@ import { configLocaleFactory, ConfigService } from './core/services/config.servi
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    SharedModule,
     // Tip: The routing module must be the last to import. Why? It is possible that a series of modules will not be loaded when routing.
     AppRoutingModule,
   ],

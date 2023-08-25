@@ -3,6 +3,8 @@ import {
 } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EXTENDED_SNACKBAR_TIME } from 'src/app/core/config/config';
+import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
+import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
 import { Notification } from 'src/app/core/models/notification';
 
 import { AdminNotificationsService } from '../../notifications/notifications.service';
@@ -23,10 +25,10 @@ export class WebNotificationSendComponent {
 
   public sendNotification() {
     this._notificationsService.sendNotification(this.notificationId).subscribe(()=> {
-      this._snackBar.open('La suscripción ha sido enviada satisfactoriamente', '', {duration: EXTENDED_SNACKBAR_TIME});
+      this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_SENT_NOTIFICATION.title, FRONTEND_MESSAGES.CONFIRMATION_SENT_NOTIFICATION.message, {duration: EXTENDED_SNACKBAR_TIME});
     }, ((error)=> {
       console.log(error);
-      this._snackBar.open('Ha habido un problema al enviar la notificacion, por favor intentelo de nuevo más tarde', '', {duration: EXTENDED_SNACKBAR_TIME});
+      this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.title, FRONTEND_ERRORS.GENERAL_ERROR.message, {duration: EXTENDED_SNACKBAR_TIME});
     }));
   }
 

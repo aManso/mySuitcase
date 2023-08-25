@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { EXTENDED_SNACKBAR_TIME, MAX_EMAIL_LENGTH, MAX_MESSAGE_LENGTH, MAX_NAME_LENGTH, MIN_MESSAGE_LENGTH } from 'src/app/core/config/config';
 import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
 import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
 import { ContactService } from '../contact.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })

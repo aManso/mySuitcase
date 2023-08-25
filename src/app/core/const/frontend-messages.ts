@@ -34,8 +34,28 @@ export const FRONTEND_MESSAGES = {
         title: $localize `¡Confirm!`,
         message: $localize `You can relax now, you will be informed of any updates in mysuitcase.net!`
     },
+    CONFIRMATION_CREATED_NOTIFICATION: {
+        title: $localize `Great!`,
+        message: $localize `The subscription has successfully been created`
+    },
+    CONFIRMATION_SENT_NOTIFICATION: {
+        title: $localize `Great!`,
+        message: $localize `The subscription has successfully been sent`
+    },
     CONFIRMATION_REGISTRATION: {
         title: ``,
         message: $localize `The register has been completed, time to login and start packing!`
+    },
+    CONFIRMATION_USER_SAVED: {
+        title: $localize `Saved!`,
+        message: $localize `The user has been created, start packing!`
+    },
+    CONFIRMATION_USER_UPDATED: {
+        title: $localize `Updated!`,
+        message: $localize `The user has been updated`
+    },
+    SUITCASE_REMOVED: {
+        title: $localize `Removed!`,
+        message: $localize `One suitcase less..`
     }
 }

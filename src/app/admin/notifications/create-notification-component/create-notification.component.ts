@@ -4,6 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GENERAL_SNACKBAR_TIME } from 'src/app/core/config/config';
 import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
+import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
 import { Notification } from 'src/app/core/models/notification';
 import { SimpleOutput } from 'src/app/core/models/shared';
 import { AdminNotificationsService } from '../notifications.service';
@@ -42,7 +43,7 @@ export class CreateNotificationComponent {
       const notification: Notification = this._buildNotification(this.notificationForm);
       this._notificationsService.createNotification(notification).subscribe({
         next: (response: SimpleOutput)=> {
-          this._snackBar.open('La notificación ha sido creada satisfactoriamente', '', {duration: GENERAL_SNACKBAR_TIME});
+          this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_CREATED_NOTIFICATION.message, FRONTEND_MESSAGES.CONFIRMATION_CREATED_NOTIFICATION.message, {duration: GENERAL_SNACKBAR_TIME});
           this._dialogRef.close(true);
         },
         error: (error)=> {

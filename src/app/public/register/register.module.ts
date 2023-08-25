@@ -15,9 +15,10 @@ import { RegisterResolver } from './register-resolver';
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    // Own modules
     SharedModule,
     RegisterRoutingModule,
-    ReactiveFormsModule,
     // Angular Material
     MatFormFieldModule,
     MatInputModule,

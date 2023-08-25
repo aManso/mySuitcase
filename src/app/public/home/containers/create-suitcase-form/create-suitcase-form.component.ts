@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
-
+import { Validators, FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, ThemePalette } from '@angular/material/core';
 import { ProgressBarMode } from '@angular/material/progress-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -17,8 +16,7 @@ import { Suitcase } from '../../../../core/models/suitcase';
 import { SuitcaseService } from '../../../../core/services/suitcase.service';
 import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from 'src/app/core/const/backend-errors';
 import { ErrorDialogComponent } from 'src/app/core/shared/error-dialog/error-dialog.component';
-
-const suitcaseNameMaxLength = 20;
+import { MAX_NAME_LENGTH } from 'src/app/core/config/config';
 
 @Component({
   selector: 'my-suitcase-create-suitcase-form',
@@ -28,9 +26,9 @@ const suitcaseNameMaxLength = 20;
     {
       provide: DateAdapter,
       useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+      deps: [ MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS ],
     },
-    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
   ],
 })
 export class CreateSuitcaseFormComponent implements OnInit {
@@ -39,8 +37,8 @@ export class CreateSuitcaseFormComponent implements OnInit {
   public percentagePerQuestion: number;
   public color: ThemePalette = 'primary';
   public mode: ProgressBarMode = 'determinate';
-  public createSuitcaseForm: UntypedFormGroup;
-  public sportForm: UntypedFormGroup;
+  public createSuitcaseForm: FormGroup;
+  public sportForm: FormGroup;
   public currentDate = new Date();
   public steps: CreateSuitcaseFormSteps[] = [
     {
@@ -68,10 +66,10 @@ export class CreateSuitcaseFormComponent implements OnInit {
   lng = -4.745940;
 
   constructor(
-    private readonly _formBuilder: UntypedFormBuilder,
+    private readonly _formBuilder: FormBuilder,
     private readonly _router: Router,
     private readonly _suitcaseService: SuitcaseService,
-    private _dialog: MatDialog,
+    private readonly _dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -84,27 +82,27 @@ export class CreateSuitcaseFormComponent implements OnInit {
   // **** GENERIC METHODS *****
 
   private _createForm() {
-    this.sportForm = new UntypedFormGroup({
-      'cycling': new UntypedFormControl(false),
-      'diving': new UntypedFormControl(false),
+    this.sportForm = new FormGroup({
+      'cycling': new FormControl(false),
+      'diving': new FormControl(false),
     });
 
     this.createSuitcaseForm = this._formBuilder.group({
-      name: [null, [Validators.required, Validators.maxLength(suitcaseNameMaxLength)],],
+      name: [null, [Validators.required, Validators.maxLength(MAX_NAME_LENGTH)],],
       from: [null, [Validators.required]],
       to: [null, [Validators.required]],
-      place: [null, [Validators.required, Validators.maxLength(suitcaseNameMaxLength)],],
+      place: [null, [Validators.required, Validators.maxLength(MAX_NAME_LENGTH)],],
       type: this._buildOptionList(),
       sports: this.sportForm,
     });
   }
 
-  public getTypeControls(typeControl: any): UntypedFormControl[] {
-    return typeControl.controls as UntypedFormControl[];
+  public getTypeControls(typeControl: any): FormControl[] {
+    return typeControl.controls as FormControl[];
   }
 
   public isSportsSelected(): boolean {
-    return (this.createSuitcaseForm.controls.type as UntypedFormArray).controls[2].value.selected;
+    return (this.createSuitcaseForm.controls.type as FormArray).controls[2].value.selected;
   }
 
   private _updateProgressBar() {

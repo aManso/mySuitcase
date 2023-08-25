@@ -1,6 +1,5 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS as MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 
 import { TimeoutDialogComponent } from './timeout-dialog/timeout-dialog.component';

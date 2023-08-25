@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { SessionService } from '../../../session/session.service';
 import { LoginService } from '../../../login/login.service';
 import { environment } from 'src/environments/environment';
@@ -16,8 +17,8 @@ export class NavBarComponent {
   public languages = Languages;
 
   public constructor(
-    private _router: Router,
-    private sessionService: SessionService,
+    private readonly _router: Router,
+    private readonly sessionService: SessionService,
     public loginService: LoginService,
     private readonly configService: ConfigService,
   ) {}

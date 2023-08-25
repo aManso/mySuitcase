@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { ContactComponent } from './containers/contact.component';
 
-// Root routes of this particular module: HOME.
+// Root routes of this particular module: CONTACT.
 const routes: Routes = [
   { path: '', component: ContactComponent },
 ];

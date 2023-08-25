@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
+
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+
 import { LoginService } from '../login/login.service';
 import { User } from "../models/user";
 import { UserService } from '../services/user.service';
@@ -11,11 +13,14 @@ export class AuthorizationGuard  {
   public lastIntendedTargetRoute: string;
 
   constructor(
-    private _userService: UserService,
-    private _loginService: LoginService,
-    private _router: Router,
+    private readonly _userService: UserService,
+    private readonly _loginService: LoginService,
+    private readonly _router: Router,
     ) {}
 
+  /**
+  * If user is logged in, check if it has admin rights, otherwise redirect to login
+  */
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean|Observable<boolean> {
     this.lastIntendedTargetRoute = state.url;
     // if user is logged in because token is stored..
@@ -36,9 +41,9 @@ export class AuthorizationGuard  {
             return of(false);
           })
         )
-      } else if (this._checkAdminUser(this._userService.activeUser)) {
+      } else {
         // if there is not an active user or it has not admin rights, we redirect to login
-        return true;
+        return this._checkAdminUser(this._userService.activeUser)
       }
     }
     return false;

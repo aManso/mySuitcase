@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { AppConfig, MYSUITCASE_CONFIG_TOKEN } from './app.config';
 import { SwUpdate } from '@angular/service-worker'
+
+import { AppConfig, MYSUITCASE_CONFIG_TOKEN } from './app.config';
 import { ConfigService } from './core/services/config.service';
 
 @Component({
@@ -13,16 +14,25 @@ export class AppComponent implements OnInit {
 
   constructor(
     @Inject(MYSUITCASE_CONFIG_TOKEN) config: AppConfig,
-    private swUpdate: SwUpdate ,
-    private readonly configService: ConfigService,
+    private readonly _swUpdate: SwUpdate ,
+    private readonly _configService: ConfigService,
   ) {
     this.config = config;
   }
 
+  /**
+   * When app is load and we init the first component, 
+   * We check if the service workers are enabled (They are in production and https protocol), 
+   * if so we request the user to accept a new version of the website if it has been triggered
+   * 
+   * Also, as well as in the main index, we check the locale, and if it does not exist, we set by def the one of the browser, 
+   * This is needed as some users could access the app not from the main index.html, it means instead of going through
+   * https://mysuitcase.net , the access https://mysuitcase.net/es-ES/#/home/
+   */
   public ngOnInit(): void {
 
-    if (this.swUpdate.isEnabled) {
-      this.swUpdate.versionUpdates.subscribe((evt: any)=> {
+    if (this._swUpdate.isEnabled) {
+      this._swUpdate.versionUpdates.subscribe((evt: any)=> {
         switch (evt.type) {
           case 'VERSION_DETECTED':
             console.log(`Downloading new app version: ${evt.version.hash}`);
@@ -44,8 +54,8 @@ export class AppComponent implements OnInit {
     }
     // If there is not a locale set in the localStorage, we set as default the one of the navigator
     // This is also done in the main index but it could be possible that the user get access straight to a particular locale
-    if (!this.configService.getLocale()) {
-      this.configService.setLocale(window.navigator.language);
+    if (!this._configService.getLocale()) {
+      this._configService.setLocale(window.navigator.language);
     }
     
   }

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { User, UserLogin} from '../models/user';
+
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { retry, map } from 'rxjs/operators';
+
 import { environment } from '../../../environments/environment';
 import { SessionService } from '../session/session.service';
 import { UserService } from '../services/user.service';
+import { User, UserLogin} from '../models/user';
 
 @Injectable()
 export class LoginService {
@@ -18,10 +20,10 @@ export class LoginService {
   public logged$: BehaviorSubject<User|undefined>;
 
   public constructor(
-    private _http: HttpClient,
-    private _router: Router,
-    private _sessionService: SessionService,
-    private _userService: UserService,
+    private readonly _http: HttpClient,
+    private readonly _router: Router,
+    private readonly _sessionService: SessionService,
+    private readonly _userService: UserService,
   ) {
     this.logged$ = new BehaviorSubject<User|undefined>(undefined);
 

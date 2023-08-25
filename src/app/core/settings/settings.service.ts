@@ -1,7 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+
 import { Observable } from "rxjs";
 import { retry } from "rxjs/operators";
+
 import { environment } from "src/environments/environment";
 import { User } from "../models/user";
 
@@ -11,7 +13,7 @@ export class SettingsService {
     private readonly URL_UPDATE_USER = environment.apiUrl + 'users/update/';
 
     public constructor(
-        private _http: HttpClient,
+        private readonly _http: HttpClient,
     ) { }
 
     public update(user: User): Observable<User> {

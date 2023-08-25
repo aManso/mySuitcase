@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
 } from '@angular/core';
+
 import { PWAInstallerService } from '../../services/pwa-installer.service';
 
 @Component({
@@ -12,7 +13,7 @@ import { PWAInstallerService } from '../../services/pwa-installer.service';
 export class PwaInstallerComponent implements AfterViewInit {
 
   constructor(
-    private _pwaInstallerService: PWAInstallerService,
+    private readonly _pwaInstallerService: PWAInstallerService,
   ) {
   }
 

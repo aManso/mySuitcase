@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { LoginService } from 'src/app/core/login/login.service';
 import { ConfirmRegisterComponent } from './containers/confirm-register.component';
 import { RegisterComponent } from './containers/register.component';

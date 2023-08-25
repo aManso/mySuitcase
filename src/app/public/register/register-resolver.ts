@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
 import { Observable, of, of as _of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+
 import { RegisterService } from './register.service';
 
 @Injectable()

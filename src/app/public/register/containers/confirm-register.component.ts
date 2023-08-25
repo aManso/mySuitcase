@@ -17,9 +17,12 @@ export class ConfirmRegisterComponent implements OnInit{
   public constructor(
     private readonly _snackBar: MatSnackBar,
     private readonly _router: Router,
-    private _activatedRoute: ActivatedRoute,
+    private readonly _activatedRoute: ActivatedRoute,
   ) {}
  
+  /**
+   * It retrieves a token as confirmRegistration from the resolver, otherwise so error
+   */
   public ngOnInit() {
     this._activatedRoute.snapshot.data.confirmRegistration ? 
       this._showRegistrationComplete() : this._showRegistrationError();

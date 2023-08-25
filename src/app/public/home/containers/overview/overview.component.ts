@@ -1,13 +1,17 @@
 import { ChangeDetectorRef, ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, LOCALE_ID, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+
+import { map } from 'rxjs/operators';
+
 import { SuitcaseService } from "../../../../core/services/suitcase.service";
 import { Suitcase, SuitcaseOverviewOutput } from "../../../../core/models/suitcase";
-import { map } from 'rxjs/operators';
-import { MatDialog } from '@angular/material/dialog';
 import { RemoveDialogComponent } from "./dialog/remove-dialog.component";
 import { SimpleOutput } from "../../../../core/models/shared";
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME } from "../../../../core/config/config";
+import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
+import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
 
 @Component({
   selector: 'my-suitcase-overview',
@@ -25,13 +29,16 @@ export class OverviewComponent implements OnInit {
 
   public constructor(
     private readonly _suitcaseService: SuitcaseService,
-    private _dialog: MatDialog,
+    private readonly _dialog: MatDialog,
     private readonly _changeDetector: ChangeDetectorRef,
-    private _router: Router,
-    private _snackBar: MatSnackBar,
+    private readonly _router: Router,
+    private readonly _snackBar: MatSnackBar,
     @Inject(LOCALE_ID) public localeId: string,
   ) { }
 
+  /**
+   * It fetches all the created suitcases and notify parent component
+   */
   public ngOnInit(): void {
     const input = {};
     this._suitcaseService.retrieveSuitcaseOverview(input)
@@ -47,7 +54,12 @@ export class OverviewComponent implements OnInit {
       })
   }
 
-  private selectBackgroundImg(suitcaseList: Suitcase[]) {
+  /**
+   * Choose which image having as background of the created suitcases depending on the options selected for the trip
+   * @param suitcaseList 
+   * @returns the list of the suitcases with a chosen background
+   */
+  private selectBackgroundImg(suitcaseList: Suitcase[]):Suitcase[] {
     let otherIcon = 0;
     let mountainIcon = 0;
     let beachIcon = 0;
@@ -97,9 +109,9 @@ export class OverviewComponent implements OnInit {
         this._suitcaseService.removeSuitcase(id).subscribe((response: SimpleOutput) => {
           this.suitcaseList.splice(index, 1);
           this._changeDetector.detectChanges();
-          this._snackBar.open("Una maleta menos...", '', {duration: GENERAL_SNACKBAR_TIME});
+          this._snackBar.open(FRONTEND_MESSAGES.SUITCASE_REMOVED.title, FRONTEND_MESSAGES.SUITCASE_REMOVED.message, {duration: GENERAL_SNACKBAR_TIME});
         }, (error: any) => {
-          this._snackBar.open("Vaya, ha habido un problema y no se ha podido eliminar la maleta, si el problema persiste por favor contactanos", '', {duration: EXTENDED_SNACKBAR_TIME});
+          this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.title, FRONTEND_ERRORS.GENERAL_ERROR.message, {duration: EXTENDED_SNACKBAR_TIME});
         });
       }
       dialogRef.close();

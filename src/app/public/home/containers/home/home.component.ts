@@ -7,7 +7,6 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-
 import { MatDialog } from '@angular/material/dialog';
 
 import { LoginService } from '../../../../core/login/login.service';
@@ -53,16 +52,20 @@ export class HomeComponent implements OnInit {
   private _maximumSuitcases: number;
 
   constructor(
-    private _loginService: LoginService,
-    private _userService: UserService,
-    private _router: Router,
-    private _activatedRoute: ActivatedRoute,
-    private _dialog: MatDialog,
-    private _sessionService: SessionService,
-    private _suitcaseService: SuitcaseService,
-    private _configService: ConfigService,
+    private readonly _loginService: LoginService,
+    private readonly _userService: UserService,
+    private readonly _router: Router,
+    private readonly _activatedRoute: ActivatedRoute,
+    private readonly _dialog: MatDialog,
+    private readonly _sessionService: SessionService,
+    private readonly _suitcaseService: SuitcaseService,
+    private readonly _configService: ConfigService,
   ) { }
 
+  /**
+   * We check if the user is logged in and if so we recover it either from the service if it is navegating throguht the website
+   * or from the sessionStorage if previously logged.
+   */
   public ngOnInit() {
     this._maximumSuitcases = this._configService.getMaximumSuitcases(false);
     // we get the logged user if exists
@@ -134,8 +137,8 @@ export class HomeComponent implements OnInit {
         width: '400px',
         hasBackdrop: true,
         data: {
-          title: 'Numero de listas maximo alcanzado',
-          content: 'Has alcanzado el numero maximo de maletas, por favor borra alguna antes de crear otra.',
+          title: $localize `Maximum number of suitcases reached`,
+          content: $localize `You have reached the maxium number of suitcases, please remove some before creating a new one`,
           confirmButton: 'OK'
         }
       });

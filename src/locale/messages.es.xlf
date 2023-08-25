@@ -725,6 +725,50 @@
         <source>Categories</source>
         <target>Categorias</target>
       </trans-unit>
+      <trans-unit id="6899344040225872362" datatype="html">
+        <source>Great!</source>
+        <target>¡Genial!</target>
+      </trans-unit>
+      <trans-unit id="4861853581854043794" datatype="html">
+        <source>The subscription has successfully been created</source>
+        <target>La subscripción ha sido satisfactoriamente creada</target>
+      </trans-unit>
+      <trans-unit id="4528690127792822075" datatype="html">
+        <source>The subscription has successfully been sent</source>
+        <target>La subscripción ha sido satisfactoriamente enviada</target>
+      </trans-unit>
+      <trans-unit id="4848068705010228483" datatype="html">
+        <source>Saved!</source>
+        <target>¡Guardada!</target>
+      </trans-unit>
+      <trans-unit id="1874945877667802399" datatype="html">
+        <source>The user has been created, start packing!</source>
+        <target>El usuario ha sido creado, ¡Ya puedes comenzar a hacer la maleta!</target>
+      </trans-unit>
+      <trans-unit id="6171150143554908350" datatype="html">
+        <source>Updated!</source>
+        <target>¡Actualizada!</target>
+      </trans-unit>
+      <trans-unit id="5735773149116667554" datatype="html">
+        <source>The user has been updated</source>
+        <target>El usuario ha sido actualizado</target>
+      </trans-unit>
+      <trans-unit id="1236487209085580750" datatype="html">
+        <source>Removed!</source>
+        <target>¡Eliminado!</target>
+      </trans-unit>
+      <trans-unit id="8024150993772970365" datatype="html">
+        <source>One suitcase less..</source>
+        <target>Una maleta menos..</target>
+      </trans-unit>
+      <trans-unit id="4923899603787526347" datatype="html">
+        <source>Maximum number of suitcases reached</source>
+        <target>Máximo numero de maletas alcanzado</target>
+      </trans-unit>
+      <trans-unit id="786670510303286576" datatype="html">
+        <source>You have reached the maxium number of suitcases, please remove some before creating a new one</source>
+        <target>Has alcanzado el máximo numero de maletas, por favor elimina alguna antes de crear una nueva</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

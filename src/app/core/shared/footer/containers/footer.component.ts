@@ -10,7 +10,7 @@ export class FooterComponent {
   public fullYear: string;
 
   public constructor(
-    private _router: Router,
+    private readonly _router: Router,
   ) {
     this.fullYear = new Date().getFullYear().toString();
   }
