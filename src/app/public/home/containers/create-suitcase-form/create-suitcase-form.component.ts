@@ -113,26 +113,31 @@ export class CreateSuitcaseFormComponent implements OnInit {
     const list = [
       {
         name: $localize `:@@category_beach:beach`,
+        value: 'beach',
         icon: 'beach_access',
         selected: false,
       },
       {
         name: $localize `:@@category_mountain:mountain`,
+        value: 'mountain',
         icon: 'filter_hdr',
         selected: false,
       },
       {
         name: $localize `:@@category_sport:sport`,
+        value: 'sport',
         icon: 'sports_soccer',
         selected: false,
       },
       {
         name: $localize `:@@category_pet:pet`,
+        value: 'pet',
         icon: 'pets',
         selected: false,
       },
       {
         name: $localize `:@@category_baby:baby`,
+        value: 'baby',
         icon: 'baby_changing_station',
         selected: false,
       },
@@ -208,11 +213,11 @@ export class CreateSuitcaseFormComponent implements OnInit {
       }
     };
     optionList.forEach((option) => {
-      tripType[option.name] = {
+      tripType[option.value] = {
         selected: option.selected,
         currentPriority: 1,
         currentPage: 1,
-        sports: option.name === 'sport' ? sports : undefined,
+        sports: option.value === 'sport' ? sports : undefined,
       }
     });
     return tripType;
