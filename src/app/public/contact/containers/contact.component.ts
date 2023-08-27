@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 import { EXTENDED_SNACKBAR_TIME, MAX_EMAIL_LENGTH, MAX_MESSAGE_LENGTH, MAX_NAME_LENGTH, MIN_MESSAGE_LENGTH } from 'src/app/core/config/config';
 import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from 'src/app/core/const/backend-errors';
@@ -19,7 +20,8 @@ export class ContactComponent implements OnInit {
   constructor(
     private readonly _contactService: ContactService,
     private readonly _fb: FormBuilder,
-    private readonly _snackBar: MatSnackBar
+    private readonly _snackBar: MatSnackBar,
+    private readonly _router: Router,
   ) { }
 
   ngOnInit() {
@@ -42,7 +44,8 @@ export class ContactComponent implements OnInit {
   public submit() {
     if (this.isValidForm()) {
       this._contactService.contact(this.contactForm.value).subscribe(() => {
-          this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_REGISTER.message, '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['success-snackbar']});
+          this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_CONTACT_MSG_SENT.message, '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['success-snackbar']});
+          this._router.navigate(['/login'])
       },
       (error: any) => {
         if (error.error === BACKEND_ERROR_TYPES.MISSING_FIELDS) {

@@ -1,6 +1,9 @@
 
 
 export const FRONTEND_MESSAGES = {
+    CONFIRMATION_CONTACT_MSG_SENT: {
+        message: $localize `The message has been sent, soon we will handle the request and provide you a response. Thanks for contacting us`
+    },
     CONFIRMATION_REMINDER_PASSWORD_SENT: {
         message: $localize `If the user exists in our data base, an email has successfully been sent to update your password, check your email even in the junk folder`
     },

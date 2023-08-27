@@ -778,6 +778,10 @@
         <source>Diving</source>
         <target state="new">Diving</target>
       </trans-unit>
+      <trans-unit id="4594315457815498149" datatype="html">
+        <source>The message has been sent, soon we will handle the request and provide you a response. Thanks for contacting us</source>
+        <target state="new">The message has been sent, soon we will handle the request and provide you a response. Thanks for contacting us</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

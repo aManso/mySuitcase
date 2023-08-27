@@ -781,6 +781,10 @@
         <source>Diving</source>
         <target>Buceo</target>
       </trans-unit>
+      <trans-unit id="4594315457815498149" datatype="html">
+        <source>The message has been sent, soon we will handle the request and provide you a response. Thanks for contacting us</source>
+        <target>El mensaje ha sido enviado correctamente, muy pronto gestionaremos su solicitud. Gracias por contactarnos.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
