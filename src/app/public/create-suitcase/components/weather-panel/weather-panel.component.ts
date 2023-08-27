@@ -10,6 +10,7 @@ import { ConfigService } from 'src/app/core/services/config.service';
   styleUrls: ['./weather-panel.component.scss']
 })
 export class WeatherPanelComponent implements OnInit {
+  private _maxAllowedDaysInAPI = 7;
 
   @Input() coordinates: Coordinates;
   @Input() weatherDays: number;
@@ -47,7 +48,7 @@ export class WeatherPanelComponent implements OnInit {
   private _parseData(data: any) {
     this.weatherIsReady = !!data;
     this.weatherData = data;
-    this.weatherData.daily = data.daily.splice(0, this.weatherDays);
+    this.weatherData.daily = data.daily.splice(this._maxAllowedDaysInAPI - this.weatherDays, this.weatherDays);
     this.weatherData.daily.forEach((dailyWeather: any) => {
       dailyWeather.dayOfMonth = new Date(parseInt(dailyWeather.dt + '000')).getDate();
       const sunriseTime = new Date(parseInt(dailyWeather.sunrise + '000'));

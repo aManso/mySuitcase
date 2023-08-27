@@ -177,6 +177,7 @@ export class CreateSuitcaseComponent implements OnInit {
   }
 
   private getNext7Days() {
+    // The weather API just allow know next 7 days
     const sevenDaysDate = new Date();
     sevenDaysDate.setDate(sevenDaysDate.getDate() + 7);
     this._sevenDaysDateInMillis = sevenDaysDate.getTime();
