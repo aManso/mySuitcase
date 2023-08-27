@@ -97,7 +97,7 @@ export class HomeComponent implements OnInit {
   }
 
   public onOverviewLoaded(): void {
-    this.showOverview = true;
+    this.showOverview = this._suitcaseService.totalSuitcases > 0;
     this._activatedRoute.fragment.subscribe((fragment: string) => {
       if (fragment) {
         this._scrollTo(fragment);
