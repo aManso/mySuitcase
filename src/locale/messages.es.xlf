@@ -582,12 +582,12 @@
         <target>Enviar mensaje</target>
       </trans-unit>
       <trans-unit id="d6bbf648820068c3a29583083524d7c848aa5773" datatype="html">
-        <source>📍 Spain.</source>
-        <target>📍 España.</target>
+        <source>📍 Spain</source>
+        <target>📍 España</target>
       </trans-unit>
       <trans-unit id="79808490a9d863954a8070d377d889fc0963515c" datatype="html">
         <source>Not available yet</source>
-        <target>No disponible aun</target>
+        <target>No disponible aún</target>
       </trans-unit>
       <trans-unit id="180cbbc855314cc56905b57ad77d981d70ff5c52" datatype="html">
         <source>Send us your query anytime!</source>
