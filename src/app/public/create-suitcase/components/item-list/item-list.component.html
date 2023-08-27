@@ -15,10 +15,16 @@
       <span i18n="@@mountain">Mountain</span>
     </div>
   </ng-container>
-  <ng-container *ngSwitchCase="'sport'">
+  <ng-container *ngSwitchCase="'cycling'">
     <div class="card-header card-subheader" *ngIf="itemList.length > 0">
-      <mat-icon matSuffix i18n-matTooltip matTooltip="Sport" [matTooltipPosition]="'below'">sports_soccer</mat-icon>
-      <span i18n="@@sport">Sport</span>
+      <mat-icon matSuffix i18n-matTooltip matTooltip="Cycling" [matTooltipPosition]="'below'">pedal_bike</mat-icon>
+      <span i18n="@@cycling">Cycling</span>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'diving'">
+    <div class="card-header card-subheader" *ngIf="itemList.length > 0">
+      <mat-icon matSuffix i18n-matTooltip matTooltip="Diving" [matTooltipPosition]="'below'">scuba_diving</mat-icon>
+      <span i18n="@@diving">Diving</span>
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="'pet'">

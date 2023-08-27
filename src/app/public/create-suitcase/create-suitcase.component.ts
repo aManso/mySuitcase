@@ -73,7 +73,8 @@ export class CreateSuitcaseComponent implements OnInit {
 
   // Each of the categories in the suggestion column
   @ViewChildren('common') viewChildrenCommon!: QueryList<any>;
-  @ViewChildren('sport') viewChildrenSport!: QueryList<any>;
+  @ViewChildren('cycling') viewChildrenCycling!: QueryList<any>;
+  @ViewChildren('diving') viewChildrenDiving!: QueryList<any>;
   @ViewChildren('beach') viewChildrenBeach!: QueryList<any>;
   @ViewChildren('mountain') viewChildrenMountain!: QueryList<any>;
   @ViewChildren('pet') viewChildrenPet!: QueryList<any>;
@@ -94,7 +95,8 @@ export class CreateSuitcaseComponent implements OnInit {
     beach: [],
     mountain: [],
     pet: [],
-    sport: [],
+    cycling: [],
+    diving: [],
   };
   // suitcase shown in template
   public suitcaseList = {
@@ -110,7 +112,8 @@ export class CreateSuitcaseComponent implements OnInit {
     beach: [] as TripItem[],
     mountain: [] as TripItem[],
     pet: [] as TripItem[],
-    sport: [] as TripItem[],
+    cycling: [] as TripItem[],
+    diving: [] as TripItem[],
   };
 
   constructor(
@@ -146,13 +149,23 @@ export class CreateSuitcaseComponent implements OnInit {
     });
 
     // Fetch suggestions
+    this.suitcase.type = this._flatSports(this.suitcase.type);
     this._fetchSuggestionList(this.suitcase.type, 1, this._locale).subscribe((response: TripType) => {
-      this.suggestionList = this._convertToModel(response);
+      this.suggestionList = response;
       this.dataReady = true;
       this._changeDetector.detectChanges();
     });
 
     this.handleWeatherPanel();
+  }
+
+  private _flatSports(tripType: TripType): TripType {
+    tripType.sport.sports.forEach((sport)=> {
+      tripType[sport] = {...tripType.sport, sport: undefined};
+      delete tripType[sport].sport;
+      delete tripType[sport].sports;
+    })
+    return tripType;
   }
 
   // WEATHER
@@ -192,15 +205,6 @@ export class CreateSuitcaseComponent implements OnInit {
     return this._suitcaseService.fetchRecommendations(tripType, pageNr, lang);
   }
 
-  private _convertToModel(tripType: TripType): TripType {
-    if (tripType.sport) {
-      tripType.sport.items = tripType.sport.items.flatMap((item: any) => {
-        return item.items
-      });
-    }
-    return tripType;
-  }
-
   // CHECKS WITH EACH INTERACTION
   public checkRecommendations(type: string) {
     // Fetch more recommendations when one of the items has been removed from the suggestion list and there are less
@@ -220,7 +224,9 @@ export class CreateSuitcaseComponent implements OnInit {
         }
         let viewChildren: QueryList<any>;
         switch (type) {
-          case 'sport': viewChildren = this.viewChildrenSport;
+          case 'cycling': viewChildren = this.viewChildrenCycling;
+            break;
+          case 'diving': viewChildren = this.viewChildrenDiving;
             break;
           case 'beach': viewChildren = this.viewChildrenBeach;
             break;
@@ -281,9 +287,9 @@ export class CreateSuitcaseComponent implements OnInit {
   }
 
   private _addItem(item: TripItem, listName?: string) {
-    // by def the type is the main category, except for beach, mountain and sport where the type is the subcategory and
+    // by def the type is the main category, except for beach, mountain and sports where the type is the subcategory and
     // otherwise consider the item in the 'other' category.
-    const type = listName === 'beach' || listName === 'mountain' || listName === 'sport' ? listName : item.type ? item.type : 'others';
+    const type = listName in ['beach', 'mountain', 'cycling', 'diving', 'baby', 'pet'] ? listName : item.type ? item.type : 'others';
     item.quantity = 1;
     // add the item to the list to be shown in the provisional list and in the list to be saved
     this.suitcaseList[type].push(item);

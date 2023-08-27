@@ -25,6 +25,18 @@ export interface TripType {
     sports?: string[],
     items?: TripItem[],
   },
+  diving?: {
+    selected: boolean,
+    currentPriority?: number,
+    currentPage?: number,
+    items?: TripItem[],
+  },
+  cycling?: {
+    selected: boolean,
+    currentPriority?: number,
+    currentPage?: number,
+    items?: TripItem[],
+  },
   pet?: {
     selected: boolean,
     currentPriority?: number,

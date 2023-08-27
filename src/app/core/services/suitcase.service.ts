@@ -112,8 +112,11 @@ export class SuitcaseService {
         if (trip.pet) {
           trip.pet.items = this._getTranslatedItems(trip.pet.items);
         }
-        if (trip.sport) {
-          trip.sport.items = this._getTranslatedItems(trip.sport.items);
+        if (trip.cycling) {
+          trip.cycling.items = this._getTranslatedItems(trip.cycling.items);
+        }  
+        if (trip.diving) {
+          trip.diving.items = this._getTranslatedItems(trip.diving.items);
         }        
         return trip;
       })

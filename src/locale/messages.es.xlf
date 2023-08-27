@@ -289,14 +289,6 @@
         <source>Mountain</source>
         <target>Montaña</target>
       </trans-unit>
-      <trans-unit id="b672b311199643fb80c4db973fceb27a336f876e" datatype="html">
-        <source>Sport</source>
-        <target>Deporte</target>
-      </trans-unit>
-      <trans-unit id="sport" datatype="html">
-        <source>Sport</source>
-        <target>Deporte</target>
-      </trans-unit>
       <trans-unit id="441ba31f53ff0cda8be4cbfa164c00ae36a2116b" datatype="html">
         <source>Pet</source>
         <target>Mascota</target>
@@ -768,6 +760,26 @@
       <trans-unit id="786670510303286576" datatype="html">
         <source>You have reached the maxium number of suitcases, please remove some before creating a new one</source>
         <target>Has alcanzado el máximo numero de maletas, por favor elimina alguna antes de crear una nueva</target>
+      </trans-unit>
+      <trans-unit id="2145810472241108816" datatype="html">
+        <source>The user not confirmed yet his email, please check your mailbox even in the junk folder</source>
+        <target>El usuario no ha confirmado aún este email, por favor comprueba tu bandeja de entrada, incluso en la carpeta de spam</target>
+      </trans-unit>
+      <trans-unit id="4226526771666691505" datatype="html">
+        <source>The are missing fields that need to be complete, please review the form message</source>
+        <target>Hay campos sin rellenar, por favor revisa el formulario del mensaje</target>
+      </trans-unit>
+      <trans-unit id="4257316494450827013" datatype="html">
+        <source>The user is not authorized to perform this action, please try to log in again</source>
+        <target>El usuario no está autorizado para llevar a cabo esta acción, por favor trata de hacer login de nuevo</target>
+      </trans-unit>
+      <trans-unit id="cycling" datatype="html">
+        <source>Cycling</source>
+        <target>Bici</target>
+      </trans-unit>
+      <trans-unit id="diving" datatype="html">
+        <source>Diving</source>
+        <target>Buceo</target>
       </trans-unit>
     </body>
   </file>
