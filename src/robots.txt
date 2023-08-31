@@ -1,3 +1,3 @@
-Sitemap: https://mysuitcase.com/#/sitemap.xml
+Sitemap: https://mysuitcase.net/en-US/sitemap.xml
 User-agent: *
 Disallow: /admin/
