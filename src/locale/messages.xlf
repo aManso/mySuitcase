@@ -437,8 +437,8 @@
       <trans-unit id="9780fc3d4a4f60a27b2644620704fb48cb9cdb86" datatype="html">
         <source>Enter Message</source>
       </trans-unit>
-      <trans-unit id="d6bbf648820068c3a29583083524d7c848aa5773" datatype="html">
-        <source>📍 Spain.</source>
+      <trans-unit id="82a036e61e8891966c782265d9b68523ea8d42c7" datatype="html">
+        <source>📍 Spain</source>
       </trans-unit>
       <trans-unit id="25d84f777c27d2f75c151b1ba693c1a3409fcb2a" datatype="html">
         <source>Gender (Optional)</source>

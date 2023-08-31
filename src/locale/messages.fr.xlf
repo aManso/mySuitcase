@@ -570,9 +570,9 @@
         <source>Send Message</source>
         <target state="new">Send Message</target>
       </trans-unit>
-      <trans-unit id="d6bbf648820068c3a29583083524d7c848aa5773" datatype="html">
-        <source>📍 Spain.</source>
-        <target state="new">📍 Spain.</target>
+      <trans-unit id="82a036e61e8891966c782265d9b68523ea8d42c7" datatype="html">
+        <source>📍 Spain</source>
+        <target state="new">📍 Spain</target>
       </trans-unit>
       <trans-unit id="79808490a9d863954a8070d377d889fc0963515c" datatype="html">
         <source>Not available yet</source>
