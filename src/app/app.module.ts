@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
@@ -42,6 +42,7 @@ import { configLocaleFactory, ConfigService } from './core/services/config.servi
   ],
   providers: [
     ConfigService,
+    Meta,
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true} },
     { provide: MYSUITCASE_CONFIG_TOKEN, useValue: MYSUITCASE_CONFIG },
     {

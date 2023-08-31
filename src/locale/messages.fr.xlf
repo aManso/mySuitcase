@@ -786,6 +786,10 @@
         <source>My Suitcase</source>
         <target state="new">My Suitcase</target>
       </trans-unit>
+      <trans-unit id="6500789419431241084" datatype="html">
+        <source>Use mysuitcase to easily list all you need to pack in your suitcase for your next trip. Save, reuse or print those lists</source>
+        <target state="new">Use mysuitcase to easily list all you need to pack in your suitcase for your next trip. Save, reuse or print those lists</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

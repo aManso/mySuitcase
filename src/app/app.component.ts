@@ -1,8 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { SwUpdate } from '@angular/service-worker'
 
 import { AppConfig, MYSUITCASE_CONFIG_TOKEN } from './app.config';
-import { ConfigService } from './core/services/config.service';
+import { Languages } from './core/const/languages';
+import { ConfigService, META_TAGS } from './core/services/config.service';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +18,7 @@ export class AppComponent implements OnInit {
     @Inject(MYSUITCASE_CONFIG_TOKEN) config: AppConfig,
     private readonly _swUpdate: SwUpdate ,
     private readonly _configService: ConfigService,
+    private readonly _metaService: Meta,
   ) {
     this.config = config;
   }
@@ -30,7 +33,18 @@ export class AppComponent implements OnInit {
    * https://mysuitcase.net , the access https://mysuitcase.net/es-ES/#/home/
    */
   public ngOnInit(): void {
+    this._manageSWVersion();
+    
+    // If there is not a locale set in the localStorage, we set as default the one of the navigator
+    // This is also done in the main index but it could be possible that the user get access straight to a particular locale
+    if (!this._configService.getLocale()) {
+      this._configService.setLocale(window.navigator.language);
+    }
 
+    this._addMetaTags();    
+  }
+
+  private _manageSWVersion() {
     if (this._swUpdate.isEnabled) {
       this._swUpdate.versionUpdates.subscribe((evt: any)=> {
         switch (evt.type) {
@@ -52,11 +66,10 @@ export class AppComponent implements OnInit {
     } else {
       console.log("The current browser does not support service workers or the Angular Service Worker is not up and running");
     }
-    // If there is not a locale set in the localStorage, we set as default the one of the navigator
-    // This is also done in the main index but it could be possible that the user get access straight to a particular locale
-    if (!this._configService.getLocale()) {
-      this._configService.setLocale(window.navigator.language);
-    }
-    
+  }
+
+  private _addMetaTags() {
+    const metaDesc = META_TAGS.DESCRIPTION;
+    this._metaService.addTag( { name: 'description', content: metaDesc});
   }
 }
