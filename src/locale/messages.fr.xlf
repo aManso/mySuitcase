@@ -782,6 +782,10 @@
         <source>The message has been sent, soon we will handle the request and provide you a response. Thanks for contacting us</source>
         <target state="new">The message has been sent, soon we will handle the request and provide you a response. Thanks for contacting us</target>
       </trans-unit>
+      <trans-unit id="mysuitcase" datatype="html">
+        <source>My Suitcase</source>
+        <target state="new">My Suitcase</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

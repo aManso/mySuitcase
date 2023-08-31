@@ -590,6 +590,9 @@
       <trans-unit id="4594315457815498149" datatype="html">
         <source>The message has been sent, soon we will handle the request and provide you a response. Thanks for contacting us</source>
       </trans-unit>
+      <trans-unit id="mysuitcase" datatype="html">
+        <source>My Suitcase</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

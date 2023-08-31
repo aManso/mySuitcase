@@ -785,6 +785,10 @@
         <source>The message has been sent, soon we will handle the request and provide you a response. Thanks for contacting us</source>
         <target>El mensaje ha sido enviado correctamente, muy pronto gestionaremos su solicitud. Gracias por contactarnos.</target>
       </trans-unit>
+      <trans-unit id="mysuitcase" datatype="html">
+        <source>My Suitcase</source>
+        <target>Mi Maleta</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

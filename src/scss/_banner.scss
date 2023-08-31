@@ -7,10 +7,13 @@
     padding-top: 0px;
   }
 
-  h1{
+  h1, h2 {
     text-transform: uppercase;
     color: $primary-color;
     margin-bottom: 15px;
+  }
+
+  h1 {
     font-size: 60px;
 
     @media(max-width: 1200px){
@@ -21,42 +24,20 @@
       font-size: 30px;
     }
   }
-}
 
-.hero-banner-sm{
-  background: url(../assets/img/banner/banner.png) left center no-repeat;
-  background-size: cover;
-  padding-top: 140px;
-  padding-bottom: 90px;
+  h2 {
+    font-size: 35px;
+    opacity: 0.8;
 
-  @media(min-width: 992px){
-    padding-top: 240px;
-    padding-bottom: 140px;
-  }
-
-  h1{
-    text-transform: uppercase;
-    color: $primary-color;
+    @media(max-width: 1200px){
+      font-size: 25px;
+    }
 
     @media(max-width: 991px){
-      font-size: 38px;
-    }
-
-    @media(max-width: 768px){
-      font-size: 28px;
+      font-size: 20px;
     }
   }
-
-  p{
-    margin-bottom: 0;
-  }
 }
-
-.hero-banner-sm-content{
-  max-width: 400px;
-}
-
-
 
 .bg-shape{
   position: relative;
