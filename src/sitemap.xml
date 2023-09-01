@@ -3,28 +3,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
    <url>
-      <loc>https://www.mysuitcase.net/en-US/#/home</loc>
+      <loc>https://www.mysuitcase.net/en-US/home</loc>
       <lastmod>2023-08-29</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
 
    <url>
-      <loc>https://www.mysuitcase.net/es-ES/#/home</loc>
+      <loc>https://www.mysuitcase.net/es-ES/home</loc>
       <lastmod>2023-08-29</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
 
    <url>
-      <loc>https://www.mysuitcase.net/en-US/#/contact</loc>
+      <loc>https://www.mysuitcase.net/en-US/contact</loc>
       <lastmod>2023-08-29</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.1</priority>
    </url>
 
    <url>
-      <loc>https://www.mysuitcase.net/es-ES/#/contact</loc>
+      <loc>https://www.mysuitcase.net/es-ES/contact</loc>
       <lastmod>2023-08-29</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.1</priority>

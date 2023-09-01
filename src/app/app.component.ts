@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
    * 
    * Also, as well as in the main index, we check the locale, and if it does not exist, we set by def the one of the browser, 
    * This is needed as some users could access the app not from the main index.html, it means instead of going through
-   * https://mysuitcase.net , the access https://mysuitcase.net/es-ES/#/home/
+   * https://mysuitcase.net , the access https://mysuitcase.net/es-ES/home/
    */
   public ngOnInit(): void {
     this._manageSWVersion();
