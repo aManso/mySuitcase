@@ -38,7 +38,6 @@ async function installServiceWorker() {
         '/assets/img/home/undraw_world.svg',
         '/assets/img/home/undraw_airport.svg',
         '/assets/img/logo/logo.png',
-        '/assets/icons/logo-144.png'
     ]);
     // we set the offline file in the cache
     cache.put(request, response);
