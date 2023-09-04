@@ -381,6 +381,10 @@ $margin: 15px;
       padding-right: 30px;
       overflow: hidden;
 
+      .suggestion-card-body {
+        max-height: 350px;
+      }
+
       .suggestion-body {
         max-height: 175px;
         overflow-y: scroll;
