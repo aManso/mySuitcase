@@ -309,8 +309,8 @@ export class CreateSuitcaseComponent implements OnInit {
   public removeItem(itemList: TripItem[], index:number, viewChildren?: QueryList<any>) {
     if (viewChildren) {
       // Alternate two keyframe animations
-      this.counter % 2 ? this._renderer.addClass(viewChildren.toArray()[index].nativeElement, 'flip-out-ver-right') :
-        this._renderer.addClass(viewChildren.toArray()[index].nativeElement, 'removedItem');
+      const element = viewChildren.toArray().find((child)=> { return child.nativeElement.innerHTML.search(itemList[index].name) > 0})
+      this.counter % 2 ? this._renderer.addClass(element.nativeElement, 'flip-out-ver-right') : this._renderer.addClass(element.nativeElement, 'removedItem');
       this.counter++;
     }
     // When the animations finishes remove it
