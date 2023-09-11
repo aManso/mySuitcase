@@ -462,9 +462,9 @@
         <source>Sun, beach?</source>
         <target state="new">¿Sol, playa?</target>
       </trans-unit>
-      <trans-unit id="457462efa9dd3323a65ff5b7fe2c5d3b429b9032" datatype="html">
+      <trans-unit id="f5b3bf221836ea873d498727f11c4b285d30d9ab" datatype="html">
         <source>Some days to rest and to sunbath in a dreamed beach is never a bad idea. </source>
-        <target>Unos dias para descansar y tomar el sol en una playa de ensueño no es nunca una mala idea.</target>
+        <target state="new">Unos dias para descansar y tomar el sol en una playa de ensueño no es nunca una mala idea.</target>
       </trans-unit>
       <trans-unit id="e99d7ae1515c88ff4e9a7c4f42953e494d833e73" datatype="html">
         <source>Turism, culture?</source>
@@ -531,12 +531,12 @@
         <target>Ya estoy registrado, quiero volver.</target>
       </trans-unit>
       <trans-unit id="English" datatype="html">
-        <source>English <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;UK flag&quot; src=&quot;assets/img/lang/uk-flag-icon.png&quot;&gt;"/></source>
-        <target state="new">English <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;UK flag&quot; src=&quot;assets/img/lang/uk-flag-icon.png&quot;&gt;"/></target>
+        <source>English <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; i18n-alt alt=&quot;UK flag to use English version&quot; src=&quot;assets/img/lang/uk-flag-icon.png&quot;&gt;"/></source>
+        <target state="new">English <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; i18n-alt alt=&quot;UK flag to use English version&quot; src=&quot;assets/img/lang/uk-flag-icon.png&quot;&gt;"/></target>
       </trans-unit>
       <trans-unit id="Spanish" datatype="html">
-        <source>Spanish <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;Spain flag&quot; src=&quot;assets/img/lang/spain-flag-icon.png&quot;&gt;"/></source>
-        <target state="new">Spanish <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;Spain flag&quot; src=&quot;assets/img/lang/spain-flag-icon.png&quot;&gt;"/></target>
+        <source>Spanish <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; i18n-alt alt=&quot;Spain flag to use Spanish version&quot; src=&quot;assets/img/lang/spain-flag-icon.png&quot;&gt;"/></source>
+        <target state="new">Spanish <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; i18n-alt alt=&quot;Spain flag to use Spanish version&quot; src=&quot;assets/img/lang/spain-flag-icon.png&quot;&gt;"/></target>
       </trans-unit>
       <trans-unit id="fe46ccaae902ce974e2441abe752399288298619" datatype="html">
         <source>Language</source>
@@ -789,6 +789,62 @@
       <trans-unit id="6500789419431241084" datatype="html">
         <source>Use mysuitcase to easily list all you need to pack in your suitcase for your next trip. Save, reuse or print those lists</source>
         <target state="new">Use mysuitcase to easily list all you need to pack in your suitcase for your next trip. Save, reuse or print those lists</target>
+      </trans-unit>
+      <trans-unit id="c1aebe701ce743d42b1bfd4b8d5c3bde4c3c559b" datatype="html">
+        <source>Logo of mysuitcase to go back main screen</source>
+        <target state="new">Logo of mysuitcase to go back main screen</target>
+      </trans-unit>
+      <trans-unit id="a835bdcbc96206187229c134cd9be7734891d9bf" datatype="html">
+        <source>Decorative image of settings page</source>
+        <target state="new">Decorative image of settings page</target>
+      </trans-unit>
+      <trans-unit id="82e730dddae8abdd425b4ce6539b6489aafcefd5" datatype="html">
+        <source>UK flag to use English version</source>
+        <target state="new">UK flag to use English version</target>
+      </trans-unit>
+      <trans-unit id="8863f345a64a33fc9bfdfa1ef69e32b924e44da2" datatype="html">
+        <source>Spain flag to use Spanish version</source>
+        <target state="new">Spain flag to use Spanish version</target>
+      </trans-unit>
+      <trans-unit id="1f71e11a2b7aab9092bd5d9777bec059d0ee1953" datatype="html">
+        <source>Not found page image</source>
+        <target state="new">Not found page image</target>
+      </trans-unit>
+      <trans-unit id="e2b587032b1d2316518acf846c2affa3c66026df" datatype="html">
+        <source>Icon of the chosen place</source>
+        <target state="new">Icon of the chosen place</target>
+      </trans-unit>
+      <trans-unit id="bea7016a05959c643b6a475988469e87c880cb36" datatype="html">
+        <source>Image of an airport to send to the login page</source>
+        <target state="new">Image of an airport to send to the login page</target>
+      </trans-unit>
+      <trans-unit id="6c80956cbfff2e84affb28afa4241333484018af" datatype="html">
+        <source>Image of mountain type of trip</source>
+        <target state="new">Image of mountain type of trip</target>
+      </trans-unit>
+      <trans-unit id="9ad2e02f006f6747be89a1917680b1fd6cc1a1d4" datatype="html">
+        <source>Image of beach type of trip</source>
+        <target state="new">Image of beach type of trip</target>
+      </trans-unit>
+      <trans-unit id="35fbd91724c2674d4601d58cca00a49db1573426" datatype="html">
+        <source>Image of baby type of trip</source>
+        <target state="new">Image of baby type of trip</target>
+      </trans-unit>
+      <trans-unit id="dd4666b67b05c106db58fbebb812d43be558a661" datatype="html">
+        <source>Image of pet type of trip</source>
+        <target state="new">Image of pet type of trip</target>
+      </trans-unit>
+      <trans-unit id="5878c4ea472096102b532bfb4bd7e20985a76687" datatype="html">
+        <source>Image of sport type of trip</source>
+        <target state="new">Image of sport type of trip</target>
+      </trans-unit>
+      <trans-unit id="327b784cd726b26c02b553a04cce74d4dab33a09" datatype="html">
+        <source>Image of any other type of trip different from the previous types</source>
+        <target state="new">Image of any other type of trip different from the previous types</target>
+      </trans-unit>
+      <trans-unit id="altLoginImage" datatype="html">
+        <source>decorative login image of mysuitcase</source>
+        <target state="new">decorative login image of mysuitcase</target>
       </trans-unit>
     </body>
   </file>

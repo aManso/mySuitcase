@@ -2,7 +2,7 @@
   <div class="main_menu">
     <nav class="navbar navbar-expand-lg ">
       <div class="container box_1620">
-        <a class="navbar-brand" (click)="goHome()"><img class ="logo" src="assets/img/logo/logo.png" alt=""></a>
+        <a class="navbar-brand" (click)="goHome()"><img class ="logo" src="assets/img/logo/logo.png" i18n-alt alt="Logo of mysuitcase to go back main screen"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -16,8 +16,8 @@
             <li *ngIf="loginService.isLoggedIn()" class="nav-item active"><a class="nav-link" [routerLink]="['/settings']" i18n>Profile</a></li>
             <li class="nav-item active"><a class="nav-link" [routerLink]="['/home']" [queryParams]="{}" [fragment]="'notifications'" i18n>Subscribe</a></li>
             <li class="nav-item active"><a class="nav-link" [routerLink]="['/contact']" i18n>Contact</a></li>
-            <li class="nav-item active"><a class="nav-link" href="javascript:void(0)" role="button" tabindex="0" (click)="changeLanguage(languages.en)" i18n="@@English">English <img class="lang-img lang-img--small" alt="UK flag" src="assets/img/lang/uk-flag-icon.png"></a></li>
-            <li class="nav-item active"><a class="nav-link" href="javascript:void(0)" role="button" tabindex="0" (click)="changeLanguage(languages.es)" i18n="@@Spanish">Spanish <img class="lang-img lang-img--small" alt="Spain flag" src="assets/img/lang/spain-flag-icon.png"></a></li>
+            <li class="nav-item active"><a class="nav-link" href="javascript:void(0)" role="button" tabindex="0" (click)="changeLanguage(languages.en)" i18n="@@English">English <img class="lang-img lang-img--small" i18n-alt alt="UK flag to use English version" src="assets/img/lang/uk-flag-icon.png"></a></li>
+            <li class="nav-item active"><a class="nav-link" href="javascript:void(0)" role="button" tabindex="0" (click)="changeLanguage(languages.es)" i18n="@@Spanish">Spanish <img class="lang-img lang-img--small" i18n-alt alt="Spain flag to use Spanish version" src="assets/img/lang/spain-flag-icon.png"></a></li>
             <li *ngIf="loginService.isLoggedIn()" class="nav-item active" (click)="logout()"><a class="nav-link" i18n>Logout</a></li>
           </ul>
           <ul class="nav navbar-nav menu_nav menu_nav--icons justify-content-end">
@@ -30,10 +30,10 @@
               <a i18n-matTooltip matTooltip="Language" class="nav-link" (click)="showLanguages = !showLanguages"><mat-icon>flag</mat-icon></a>
               <div class="language-flags" *ngIf="showLanguages">
                 <a i18n-matTooltip="@@English-tooltip" matTooltip="English" matTooltipPosition="left" class="nav-link" href="javascript:void(0)" role="button" tabindex="0" (click)="changeLanguage(languages.en)" mat-menu-item>
-                  <img class="lang-img" alt="UK flag" src="assets/img/lang/uk-flag-icon.png">
+                  <img class="lang-img" i18n-alt alt="UK flag to use English version" src="assets/img/lang/uk-flag-icon.png">
                 </a>
                 <a i18n-matTooltip="@@Spanish-tooltip" matTooltip="Spanish" matTooltipPosition="left" class="nav-link" href="javascript:void(0)" role="button" tabindex="0" (click)="changeLanguage(languages.es)" mat-menu-item>
-                  <img class="lang-img" alt="Spain flag" src="assets/img/lang/spain-flag-icon.png">
+                  <img class="lang-img" i18n-alt alt="Spain flag to use Spanish version" src="assets/img/lang/spain-flag-icon.png">
                 </a>
               </div>
             </li>
