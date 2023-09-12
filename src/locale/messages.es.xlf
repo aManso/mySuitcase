@@ -845,6 +845,18 @@
         <source>decorative login image of mysuitcase</source>
         <target>Imagen decorativa de acceso a mysuitcase</target>
       </trans-unit>
+      <trans-unit id="a835bdcbc96206187229c134cd9be7734891d9bf" datatype="html">
+        <source>Decorative image of settings page</source>
+        <target>Imagen decorativa de la página de settings</target>
+      </trans-unit>
+      <trans-unit id="004b222ff9ef9dd4771b777950ca1d0e4cd4348a" datatype="html">
+        <source>About</source>
+        <target>Acerca de</target>
+      </trans-unit>
+      <trans-unit id="873283261fb00a54a5237b6e81767f3e0409fa06" datatype="html">
+        <source>What mysuitcase is</source>
+        <target>Qué es mysuitcase</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

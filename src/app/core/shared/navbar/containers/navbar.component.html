@@ -16,6 +16,7 @@
             <li *ngIf="loginService.isLoggedIn()" class="nav-item active"><a class="nav-link" [routerLink]="['/settings']" i18n>Profile</a></li>
             <li class="nav-item active"><a class="nav-link" [routerLink]="['/home']" [queryParams]="{}" [fragment]="'notifications'" i18n>Subscribe</a></li>
             <li class="nav-item active"><a class="nav-link" [routerLink]="['/contact']" i18n>Contact</a></li>
+            <li class="nav-item active"><a class="nav-link" [routerLink]="['/about']" i18n>About</a></li>
             <li class="nav-item active"><a class="nav-link" href="javascript:void(0)" role="button" tabindex="0" (click)="changeLanguage(languages.en)" i18n="@@English">English <img class="lang-img lang-img--small" i18n-alt alt="UK flag to use English version" src="assets/img/lang/uk-flag-icon.png"></a></li>
             <li class="nav-item active"><a class="nav-link" href="javascript:void(0)" role="button" tabindex="0" (click)="changeLanguage(languages.es)" i18n="@@Spanish">Spanish <img class="lang-img lang-img--small" i18n-alt alt="Spain flag to use Spanish version" src="assets/img/lang/spain-flag-icon.png"></a></li>
             <li *ngIf="loginService.isLoggedIn()" class="nav-item active" (click)="logout()"><a class="nav-link" i18n>Logout</a></li>
@@ -26,6 +27,7 @@
             <li *ngIf="loginService.isLoggedIn()" class="nav-item active"><a i18n-matTooltip matTooltip="Manage your profile and other settings" class="nav-link" [routerLink]="['/settings']" routerLinkActive="active-link"><mat-icon>settings</mat-icon></a></li>
             <li class="nav-item active"><a i18n-matTooltip matTooltip="Subscribe to be up to date by retriving all the notifications" class="nav-link" [routerLink]="['/home']" [queryParams]="{}" [fragment]="'notifications'"><mat-icon>notificationsactive</mat-icon></a></li>
             <li class="nav-item active"><a i18n-matTooltip matTooltip="Inform us regarding any incident or suggestion" class="nav-link" [routerLink]="['/contact']" routerLinkActive="active-link"><mat-icon>support</mat-icon></a></li>
+            <li class="nav-item active"><a i18n-matTooltip matTooltip="What mysuitcase is" class="nav-link" [routerLink]="['/about']" routerLinkActive="active-link"><mat-icon>info</mat-icon></a></li>
             <li class="nav-item active language-container" *ngIf="isProdMode()">
               <a i18n-matTooltip matTooltip="Language" class="nav-link" (click)="showLanguages = !showLanguages"><mat-icon>flag</mat-icon></a>
               <div class="language-flags" *ngIf="showLanguages">

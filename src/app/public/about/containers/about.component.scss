@@ -1,0 +1,18 @@
+.hero-banner {
+  padding: 50px 0;
+}
+
+.presentation__container {
+  display: flex;
+  justify-content: center;
+
+  video {
+    width: 100%;
+  }
+}
+
+.about-title{
+  font-size: 27px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}

@@ -846,6 +846,14 @@
         <source>decorative login image of mysuitcase</source>
         <target state="new">decorative login image of mysuitcase</target>
       </trans-unit>
+      <trans-unit id="004b222ff9ef9dd4771b777950ca1d0e4cd4348a" datatype="html">
+        <source>About</source>
+        <target state="new">About</target>
+      </trans-unit>
+      <trans-unit id="873283261fb00a54a5237b6e81767f3e0409fa06" datatype="html">
+        <source>What mysuitcase is</source>
+        <target state="new">What mysuitcase is</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

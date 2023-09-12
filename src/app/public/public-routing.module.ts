@@ -24,6 +24,7 @@ const routes: Routes = [
           createMode: false,
         },
         loadChildren: () => import('./create-suitcase/create-suitcase.module').then(m => m.CreateSuitcaseModule) },
+      { path: 'about', loadComponent: () => import('./about/containers/about.component').then(m => m.AboutComponent) },
       { path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
     ]},

@@ -638,6 +638,12 @@
       <trans-unit id="altLoginImage" datatype="html">
         <source>decorative login image of mysuitcase</source>
       </trans-unit>
+      <trans-unit id="004b222ff9ef9dd4771b777950ca1d0e4cd4348a" datatype="html">
+        <source>About</source>
+      </trans-unit>
+      <trans-unit id="873283261fb00a54a5237b6e81767f3e0409fa06" datatype="html">
+        <source>What mysuitcase is</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
