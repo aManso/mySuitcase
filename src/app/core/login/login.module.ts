@@ -11,6 +11,7 @@ import { AuthenticationGuard } from '../guards/authentication.guard';
 import { AuthorizationGuard } from '../guards/authorization.guard';
 import { SessionModule } from '../session/session.module';
 import { UpdatePasswordComponent } from './containers/update-password.component';
+import { LoginWrapperComponent } from './login-wrapper.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { UpdatePasswordComponent } from './containers/update-password.component'
     MatInputModule,
   ],
   declarations: [
+    LoginWrapperComponent,
     LoginComponent,
     UpdatePasswordComponent,
   ],
@@ -34,6 +36,4 @@ import { UpdatePasswordComponent } from './containers/update-password.component'
     {provide: BASE_ROUTE, useValue: '/'},
   ],
 })
-export class LoginModule {
-  constructor() {}
-}
+export class LoginModule {}

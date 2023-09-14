@@ -1,5 +1,5 @@
 <navbar-component></navbar-component>
-<form class="form col-lg-6 col-xl-6 offset-xl-1" [formGroup]="registerForm">
+<form class="form col-lg-6 col-xl-6 offset-xl-1" *ngIf="registerForm" [formGroup]="registerForm">
   <div class="search-wrapper">
     <div class="form-group">
       <mat-form-field class="full-width register-field" appearance="outline">

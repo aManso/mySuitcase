@@ -11,6 +11,7 @@ import { RegisterRoutingModule } from './register-routing.module';
 import { ConfirmRegisterComponent } from './containers/confirm-register.component';
 import { RegisterService } from './register.service';
 import { RegisterResolver } from './register-resolver';
+import { RegisterWrapperComponent } from './register-wrapper.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { RegisterResolver } from './register-resolver';
     MatSnackBarModule,
   ],
   declarations: [
+    RegisterWrapperComponent,
     RegisterComponent,
     ConfirmRegisterComponent,
   ],

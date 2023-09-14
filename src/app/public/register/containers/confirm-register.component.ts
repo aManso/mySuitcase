@@ -24,9 +24,15 @@ export class ConfirmRegisterComponent implements OnInit{
    * It retrieves a token as confirmRegistration from the resolver, otherwise so error
    */
   public ngOnInit() {
-    this._activatedRoute.snapshot.data.confirmRegistration ? 
-      this._showRegistrationComplete() : this._showRegistrationError();
-    this._router.navigate(['/login']);
+    this._activatedRoute.queryParams.subscribe(params => {
+      if (params && params.token) {
+        this._activatedRoute.snapshot.data.confirmRegistration ? 
+          this._showRegistrationComplete() : this._showRegistrationError();
+          this._router.navigate(['/login']);
+      } else {
+        window.location.href = 'https://mysuitcase.net';
+      }
+    });
   }
 
   private _showRegistrationComplete() {

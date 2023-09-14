@@ -1,7 +1,7 @@
 import { Inject, Component, OnInit, InjectionToken } from '@angular/core';
 import { LoginService } from '../login.service';
-import { Router } from '@angular/router';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../../core/models/user';
 import { AuthenticationGuard } from '../../../core/guards/authentication.guard';
 // TODO use it when launching to PROD
@@ -21,29 +21,32 @@ export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
-  public loginForm: UntypedFormGroup;
+  public loginForm: FormGroup;
   public loginMode = true;
 
   public constructor(
-    private _loginService: LoginService,
+    private readonly _loginService: LoginService,
     private readonly _configService: ConfigService,
-    public _authenticationGuard: AuthenticationGuard,
-    private _router: Router,
     @Inject(BASE_ROUTE) private baseRoute: string[],
-    private fb: UntypedFormBuilder,
-    private _snackBar: MatSnackBar,
+    private readonly _authenticationGuard: AuthenticationGuard,
+    private readonly _router: Router,
+    private readonly _activatedRoute: ActivatedRoute,
+    private readonly _fb: FormBuilder,
+    private readonly _snackBar: MatSnackBar,
   ) {
   }
 
   public ngOnInit() {
-    this.loginForm = this._setLoginForm();
+    this._activatedRoute.queryParams.subscribe(params => {
+      params && params.token ? this._router.navigate(['login/update-password'], { queryParams: { token: params.token} }) : this.loginForm = this._setLoginForm();
+    });
   }
 
   private _setLoginForm() {
-    return this.fb.group({
+    return this._fb.group({
       keepSession: [null],
       email: [null, Validators.compose([Validators.required, Validators.email])],
-      password: new UntypedFormControl(null, [
+      password: new FormControl(null, [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(20),
@@ -53,7 +56,7 @@ export class LoginComponent implements OnInit{
   }
 
   private _setRememberForm() {
-    return this.fb.group({
+    return this._fb.group({
       email: [null, Validators.compose([Validators.required, Validators.email])],
     });
   }

@@ -7,9 +7,9 @@ import { DetailResolver } from '../core/resolvers/detail-resolver';
 // Root routes of this particular module: PUBLIC.
 const routes: Routes = [
   // This module has its own children. Be careful with redirection.
-    {
-      path: '', component: PublicComponent,
-      children: [
+  {
+    path: '', component: PublicComponent,
+    children: [
       { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
       { path: 'create-suitcase',
         data: {

@@ -1,5 +1,5 @@
 import { Inject, Component, OnInit, InjectionToken } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit{
     private readonly _registerService: RegisterService,
     private readonly _configService: ConfigService,
     private readonly _router: Router,
+    private readonly _activatedRoute: ActivatedRoute,
     @Inject(BASE_ROUTE) private readonly baseRoute: string[],
     private readonly fb: FormBuilder,
     private readonly _snackBar: MatSnackBar
@@ -39,7 +40,9 @@ export class RegisterComponent implements OnInit{
    */
   public ngOnInit() {
     this.lang = this._configService.getLocale();
-    this.registerForm = this._setRegisterForm();
+    this._activatedRoute.queryParams.subscribe(params => {
+      params && params.token ? this._router.navigate(['register/confirm'], { queryParams: { token: params.token} }) : this.registerForm = this._setRegisterForm();
+    });
   }
 
   /**

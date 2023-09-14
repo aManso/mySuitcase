@@ -37,6 +37,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref":"/",
             "aot": true,
             "outputPath": "dist/my-suitcase",
             "index": "src/index.html",

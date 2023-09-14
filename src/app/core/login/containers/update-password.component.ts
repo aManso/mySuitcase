@@ -18,23 +18,23 @@ export class UpdatePasswordComponent {
   private token: string;
 
   public constructor(
-    private _loginService: LoginService,
-    private _router: Router,
-    private fb: FormBuilder,
-    private _snackBar: MatSnackBar,
-    private route: ActivatedRoute
+    private readonly _loginService: LoginService,
+    private readonly _router: Router,
+    private readonly _fb: FormBuilder,
+    private readonly _snackBar: MatSnackBar,
+    private readonly _route: ActivatedRoute
   ) {
   }
 
   public ngOnInit() {
-    this.updatePasswordForm = this._setLoginForm();
-    this.route.queryParams.subscribe(params => {
+    this._route.queryParams.subscribe(params => {
       this.token = params.token;
+      params && params.token ? this.updatePasswordForm = this._setLoginForm() : window.location.href = 'https://mysuitcase.net';
     });
   }
 
-  private _setLoginForm() {
-    return this.fb.group({
+  private _setLoginForm(): FormGroup {
+    return this._fb.group({
       password: new FormControl(null, [
         Validators.required,
         Validators.minLength(6),
