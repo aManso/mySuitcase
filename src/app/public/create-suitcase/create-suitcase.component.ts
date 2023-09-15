@@ -73,6 +73,7 @@ export class CreateSuitcaseComponent implements OnInit {
 
   // Each of the categories in the suggestion column
   @ViewChildren('common') viewChildrenCommon!: QueryList<any>;
+  @ViewChildren('cultural') viewChildrenCultural!: QueryList<any>;
   @ViewChildren('cycling') viewChildrenCycling!: QueryList<any>;
   @ViewChildren('diving') viewChildrenDiving!: QueryList<any>;
   @ViewChildren('beach') viewChildrenBeach!: QueryList<any>;
@@ -231,6 +232,8 @@ export class CreateSuitcaseComponent implements OnInit {
             break;
           case 'beach': viewChildren = this.viewChildrenBeach;
             break;
+          case 'cultural': viewChildren = this.viewChildrenCultural;
+            break;
           case 'mountain': viewChildren = this.viewChildrenMountain;
             break;
           case 'pet': viewChildren = this.viewChildrenPet;
@@ -290,7 +293,7 @@ export class CreateSuitcaseComponent implements OnInit {
   private _addItem(item: TripItem, listName?: string) {
     // by def the type is the main category, except for beach, mountain and sports where the type is the subcategory and
     // otherwise consider the item in the 'other' category.
-    const type = listName in ['beach', 'mountain', 'cycling', 'diving', 'baby', 'pet'] ? listName : item.type ? item.type : 'others';
+    const type = listName in ['beach', 'mountain','cultural', 'cycling', 'diving', 'baby', 'pet'] ? listName : item.type ? item.type : 'others';
     item.quantity = 1;
     // add the item to the list to be shown in the provisional list and in the list to be saved
     this.suitcaseList[type].push(item);

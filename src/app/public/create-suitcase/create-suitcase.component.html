@@ -47,6 +47,14 @@
                                  (checkRecommendations)="checkRecommendations($event)">
           </my-suitcase-item-list>
 
+          <my-suitcase-item-list #cultural
+                                 [itemList]="suggestionList.cultural ? suggestionList.cultural.items : []"
+                                 [maxShownList]="10"
+                                 [listName]="'cultural'"
+                                 (onAddItem)="addItemFromChild($event)"
+                                 (checkRecommendations)="checkRecommendations($event)">
+          </my-suitcase-item-list>
+
           <my-suitcase-item-list #beach
                                  [itemList]="suggestionList.beach ? suggestionList.beach.items : []"
                                  [maxShownList]="5"

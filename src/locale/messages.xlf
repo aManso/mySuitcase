@@ -644,6 +644,12 @@
       <trans-unit id="873283261fb00a54a5237b6e81767f3e0409fa06" datatype="html">
         <source>What mysuitcase is</source>
       </trans-unit>
+      <trans-unit id="category_cultural" datatype="html">
+        <source>cultural</source>
+      </trans-unit>
+      <trans-unit id="cultural" datatype="html">
+        <source>Cultural</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -1,54 +1,25 @@
+export interface TripTypeProps {
+  selected: boolean,
+  currentPriority?: number,
+  currentPage?: number,
+  items?: TripItem[],
+}
+
+export interface TripTypeSportProps extends TripTypeProps {
+  sports?: string[]
+}
+
 // Information about the trip data
 export interface TripType {
-  beach?: {
-    selected: boolean,
-    currentPriority?: number,
-    currentPage?: number,
-    items?: TripItem[],
-  }
-  common?: {
-    selected: boolean,
-    currentPriority?: number,
-    currentPage?: number,
-    items?: TripItem[],
-  }
-  mountain?: {
-    selected: boolean,
-    currentPriority?: number,
-    currentPage?: number,
-    items?: TripItem[],
-  }
-  sport?: {
-    selected: boolean,
-    currentPriority?: number,
-    currentPage?: number,
-    sports?: string[],
-    items?: TripItem[],
-  },
-  diving?: {
-    selected: boolean,
-    currentPriority?: number,
-    currentPage?: number,
-    items?: TripItem[],
-  },
-  cycling?: {
-    selected: boolean,
-    currentPriority?: number,
-    currentPage?: number,
-    items?: TripItem[],
-  },
-  pet?: {
-    selected: boolean,
-    currentPriority?: number,
-    currentPage?: number,
-    items?: TripItem[],
-  },
-  baby?: {
-    selected: boolean,
-    currentPriority?: number,
-    currentPage?: number,
-    items?: TripItem[],
-  }
+  beach?: TripTypeProps,
+  common?: TripTypeProps,
+  cultural?: TripTypeProps,
+  mountain?: TripTypeProps,
+  sport?: TripTypeSportProps,
+  diving?: TripTypeProps,
+  cycling?: TripTypeProps,
+  pet?: TripTypeProps,
+  baby?: TripTypeProps
 }
 
 export interface TripItem {

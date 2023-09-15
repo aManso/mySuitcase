@@ -3,6 +3,12 @@
   <ng-container *ngSwitchCase="'common'">
     <div class="card-header card-subheader" *ngIf="itemList.length > 0" i18n>Common items</div>
   </ng-container>
+  <ng-container *ngSwitchCase="'cultural'">
+    <div class="card-header card-subheader" *ngIf="itemList.length > 0">
+      <mat-icon matSuffix i18n-matTooltip="@@cultural" matTooltip="Cultural" [matTooltipPosition]="'below'">museum</mat-icon>
+      <span i18n="@@cultural">Cultural</span>
+    </div>
+  </ng-container>
   <ng-container *ngSwitchCase="'beach'">
     <div class="card-header card-subheader" *ngIf="itemList.length > 0">
       <mat-icon matSuffix i18n-matTooltip matTooltip="Beach" [matTooltipPosition]="'below'">beach_access</mat-icon>

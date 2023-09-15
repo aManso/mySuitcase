@@ -857,6 +857,14 @@
         <source>What mysuitcase is</source>
         <target>Qué es mysuitcase</target>
       </trans-unit>
+      <trans-unit id="cultural" datatype="html">
+        <source>Cultural</source>
+        <target>Cultural</target>
+      </trans-unit>
+      <trans-unit id="category_cultural" datatype="html">
+        <source>cultural</source>
+        <target>cultural</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

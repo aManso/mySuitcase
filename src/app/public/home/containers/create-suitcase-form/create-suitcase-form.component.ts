@@ -112,6 +112,12 @@ export class CreateSuitcaseFormComponent implements OnInit {
   private _buildOptionList() {
     const list = [
       {
+        name: $localize `:@@category_cultural:cultural`,
+        value: 'cultural',
+        icon: 'museum',
+        selected: false,
+      },
+      {
         name: $localize `:@@category_beach:beach`,
         value: 'beach',
         icon: 'beach_access',

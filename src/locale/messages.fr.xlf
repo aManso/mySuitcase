@@ -854,6 +854,14 @@
         <source>What mysuitcase is</source>
         <target state="new">What mysuitcase is</target>
       </trans-unit>
+      <trans-unit id="cultural" datatype="html">
+        <source>Cultural</source>
+        <target state="new">Cultural</target>
+      </trans-unit>
+      <trans-unit id="category_cultural" datatype="html">
+        <source>cultural</source>
+        <target state="new">cultural</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
