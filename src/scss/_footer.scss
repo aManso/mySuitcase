@@ -257,12 +257,8 @@
 
 .footer-bottom {
   padding: 15px 0;
-  margin-top: 30px;
+  margin-top: 15px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-
-  @media (min-width: 1000px) {
-    margin-top: 70px;
-  }
 }
 
 .footer-text {

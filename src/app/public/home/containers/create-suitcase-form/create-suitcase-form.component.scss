@@ -61,7 +61,7 @@ $header-height: 50px;
   width: 100%;
 }
 
-#name-form-field, #date-form-field, #type-form-field {
+#name-form-field, #date-form-field {
   padding-top: 50px;
 }
 
@@ -80,13 +80,15 @@ $header-height: 50px;
 
 #type-form-field {
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  height: 90%;
   align-items: center;
   
   .type-options__card {
     padding: 20px 10px;
-    max-height: 350px;
     overflow-y: scroll;
+    width: 90%;
+    max-width: 400px;
   }
 
   @media(max-width: 768px){
@@ -224,9 +226,13 @@ $header-height: 50px;
   }
 }
 
-@media (max-width: 576px) { // for small devices, limit the height of the card to 200px to be able to select all options
-  #type-form-field .type-options__card {
-    max-height: 200px;
+@media (max-height: 800px) { // for small devices, limit the height of the card to 200px to be able to select all options
+  #type-form-field {
+    justify-content: flex-start;
+
+    .type-options__card {
+      max-height: 300px;
+    }
   }
 }
 
