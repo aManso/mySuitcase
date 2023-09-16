@@ -347,7 +347,7 @@ export class CreateSuitcaseComponent implements OnInit {
         hasBackdrop: true,
       });
       dialogRef.afterClosed().subscribe((confirm: boolean) => {
-        if (confirm || confirm === undefined) {
+        if (confirm) {
           this.suitcase.items = this.suitcaseList;
           this._suitcaseService.saveSuitcase(this.suitcase, true).subscribe(()=> {
             this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_USER_SAVED.message, '', {duration: GENERAL_SNACKBAR_TIME});
