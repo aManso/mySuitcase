@@ -595,7 +595,7 @@
       </trans-unit>
       <trans-unit id="e366b542b9627d8379cd034b6358fbec27b6ce57" datatype="html">
         <source>I am new, Let&apos;s start!</source>
-        <target>Soy nuevo aquí, ¡Empecemos!</target>
+        <target>Soy nuevo, ¡Empecemos!</target>
       </trans-unit>
       <trans-unit id="max_email" datatype="html">
         <source>The field email is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>too long<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
