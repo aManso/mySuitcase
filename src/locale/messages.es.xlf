@@ -266,8 +266,8 @@
         <target>Guardar la maleta</target>
       </trans-unit>
       <trans-unit id="ca502a737da4a390f0b3cb4f9bca5b978ff8d460" datatype="html">
-        <source>Are you sure that you want to save and finish the suitcase?</source>
-        <target>¿Estás seguro que quieres guardar y finalizar la maleta?</target>
+        <source>Are you sure that you want to save the suitcase?</source>
+        <target>¿Estás seguro que quieres guardar la maleta?</target>
       </trans-unit>
       <trans-unit id="a5a0af89a66cb7397f18d60047d55ab98f29ea14" datatype="html">
         <source>Common items</source>
