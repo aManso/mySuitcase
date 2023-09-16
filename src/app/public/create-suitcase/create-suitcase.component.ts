@@ -350,13 +350,13 @@ export class CreateSuitcaseComponent implements OnInit {
         if (confirm || confirm === undefined) {
           this.suitcase.items = this.suitcaseList;
           this._suitcaseService.saveSuitcase(this.suitcase, true).subscribe(()=> {
-            this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_USER_SAVED.title, FRONTEND_MESSAGES.CONFIRMATION_USER_SAVED.message, {duration: GENERAL_SNACKBAR_TIME});
+            this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_USER_SAVED.message, '', {duration: GENERAL_SNACKBAR_TIME});
             this._router.navigate(['home']);
           });
         }
         dialogRef.close();
       }, (error: any) => {
-        let snackBarRef = this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.title, FRONTEND_ERRORS.GENERAL_ERROR.message, {duration: GENERAL_SNACKBAR_TIME});
+        let snackBarRef = this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: GENERAL_SNACKBAR_TIME});
         snackBarRef.onAction().subscribe(() => {
           snackBarRef.dismiss();
         });

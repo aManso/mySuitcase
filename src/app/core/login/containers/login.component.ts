@@ -91,9 +91,9 @@ export class LoginComponent implements OnInit{
     },
       (error: any) => {
         if (error.error === BACKEND_ERROR_TYPES.USER_NOT_FOUND) {
-          this._snackBar.open(BACKEND_ERRORS.USER_NOT_FOUND.title, '', {duration: GENERAL_SNACKBAR_TIME, panelClass: ['error-snackbar']});
+          this._snackBar.open(BACKEND_ERRORS.USER_NOT_FOUND.message, '', {duration: GENERAL_SNACKBAR_TIME, panelClass: ['error-snackbar']});
         } else if (error.error === BACKEND_ERROR_TYPES.USER_NOT_CONFIRMED) {
-          this._snackBar.open(BACKEND_ERRORS.USER_NOT_CONFIRMED.title, BACKEND_ERRORS.USER_NOT_CONFIRMED.message, {duration: GENERAL_SNACKBAR_TIME, panelClass: ['error-snackbar']});
+          this._snackBar.open(BACKEND_ERRORS.USER_NOT_CONFIRMED.message, '', {duration: 30000, panelClass: ['error-snackbar']});
         } else {
           this._showGeneralError();
         }

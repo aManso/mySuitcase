@@ -51,7 +51,7 @@ export class WebNotificationSubscriberComponent {
             data: error.name === BACKEND_ERROR_TYPES.POP_UPS_BLOCKED ? BACKEND_ERRORS.POP_UPS_BLOCKED : FRONTEND_ERRORS.NOTIFICATIONS_DISABLED
           });
         } else { // in local its not possible test notifications unless we make a production build, so we get FRONTEND_ERROR_TYPES.NOTIFICATIONS_DISABLED
-          this._snackBar.open(FRONTEND_ERRORS.NOTIFICATIONS_DISABLED.title, FRONTEND_ERRORS.NOTIFICATIONS_DISABLED.message, {duration: EXTENDED_SNACKBAR_TIME});
+          this._snackBar.open(FRONTEND_ERRORS.NOTIFICATIONS_DISABLED.message, '', {duration: EXTENDED_SNACKBAR_TIME});
         }
       }));
     });

@@ -25,10 +25,10 @@ export class WebNotificationSendComponent {
 
   public sendNotification() {
     this._notificationsService.sendNotification(this.notificationId).subscribe(()=> {
-      this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_SENT_NOTIFICATION.title, FRONTEND_MESSAGES.CONFIRMATION_SENT_NOTIFICATION.message, {duration: EXTENDED_SNACKBAR_TIME});
+      this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_SENT_NOTIFICATION.message, '', {duration: EXTENDED_SNACKBAR_TIME});
     }, ((error)=> {
       console.log(error);
-      this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.title, FRONTEND_ERRORS.GENERAL_ERROR.message, {duration: EXTENDED_SNACKBAR_TIME});
+      this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: EXTENDED_SNACKBAR_TIME});
     }));
   }
 

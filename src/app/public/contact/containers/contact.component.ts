@@ -49,7 +49,7 @@ export class ContactComponent implements OnInit {
       },
       (error: any) => {
         if (error.error === BACKEND_ERROR_TYPES.MISSING_FIELDS) {
-          this._snackBar.open(BACKEND_ERRORS.MISSING_FIELDS.title, BACKEND_ERRORS.MISSING_FIELDS.message, {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['error-snackbar']});
+          this._snackBar.open(BACKEND_ERRORS.MISSING_FIELDS.message, '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['error-snackbar']});
         } else {
           this._showGeneralError();
         }

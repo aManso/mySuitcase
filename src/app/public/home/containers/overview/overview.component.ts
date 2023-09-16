@@ -109,9 +109,9 @@ export class OverviewComponent implements OnInit {
         this._suitcaseService.removeSuitcase(id).subscribe((response: SimpleOutput) => {
           this.suitcaseList.splice(index, 1);
           this._changeDetector.detectChanges();
-          this._snackBar.open(FRONTEND_MESSAGES.SUITCASE_REMOVED.title, FRONTEND_MESSAGES.SUITCASE_REMOVED.message, {duration: GENERAL_SNACKBAR_TIME});
+          this._snackBar.open(FRONTEND_MESSAGES.SUITCASE_REMOVED.message, '', {duration: GENERAL_SNACKBAR_TIME});
         }, (error: any) => {
-          this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.title, FRONTEND_ERRORS.GENERAL_ERROR.message, {duration: EXTENDED_SNACKBAR_TIME});
+          this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: EXTENDED_SNACKBAR_TIME});
         });
       }
       dialogRef.close();

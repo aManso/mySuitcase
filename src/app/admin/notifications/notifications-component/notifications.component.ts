@@ -69,11 +69,11 @@ export class NotificationsComponent implements OnInit {
       if (confirm) {
         this._notificationService.deleteNotification(notificationId).subscribe({
           next: (response)=> {
-            this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_REMOVED_NOTIFICATION.title, FRONTEND_MESSAGES.CONFIRMATION_REMOVED_NOTIFICATION.message, {duration: GENERAL_SNACKBAR_TIME});
+            this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_REMOVED_NOTIFICATION.message, '', {duration: GENERAL_SNACKBAR_TIME});
             this._updateList();
           },
           error: ()=> {
-            this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.title, FRONTEND_ERRORS.GENERAL_ERROR.message, {duration: GENERAL_SNACKBAR_TIME});
+            this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: GENERAL_SNACKBAR_TIME});
           },
         })
       }
@@ -88,7 +88,7 @@ export class NotificationsComponent implements OnInit {
         this._changeDetectorRef.detectChanges();
       },
       error: ()=> {
-        this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.title, FRONTEND_ERRORS.GENERAL_ERROR.message, {duration: GENERAL_SNACKBAR_TIME});
+        this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: GENERAL_SNACKBAR_TIME});
       },
     })
   }

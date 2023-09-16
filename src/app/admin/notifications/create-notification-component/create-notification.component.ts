@@ -43,11 +43,11 @@ export class CreateNotificationComponent {
       const notification: Notification = this._buildNotification(this.notificationForm);
       this._notificationsService.createNotification(notification).subscribe({
         next: (response: SimpleOutput)=> {
-          this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_CREATED_NOTIFICATION.message, FRONTEND_MESSAGES.CONFIRMATION_CREATED_NOTIFICATION.message, {duration: GENERAL_SNACKBAR_TIME});
+          this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_CREATED_NOTIFICATION.message, '', {duration: GENERAL_SNACKBAR_TIME});
           this._dialogRef.close(true);
         },
         error: (error)=> {
-          this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.title, FRONTEND_ERRORS.GENERAL_ERROR.message, {duration: GENERAL_SNACKBAR_TIME});
+          this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: GENERAL_SNACKBAR_TIME});
         },
       })
     }
