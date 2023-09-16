@@ -102,7 +102,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
   }
 
   public isSportsSelected(): boolean {
-    return (this.createSuitcaseForm.controls.type as FormArray).controls[2].value.selected;
+    return this.createSuitcaseForm.controls.type.value.find((type)=> { return type.name === 'sport'}).selected;
   }
 
   private _updateProgressBar() {
