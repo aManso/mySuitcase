@@ -265,7 +265,7 @@
         <source>Save the suitcase</source>
         <target>Guardar la maleta</target>
       </trans-unit>
-      <trans-unit id="ca502a737da4a390f0b3cb4f9bca5b978ff8d460" datatype="html">
+      <trans-unit id="7f15a967d17169112f376df8e730407ba8c62ab6" datatype="html">
         <source>Are you sure that you want to save the suitcase?</source>
         <target>¿Estás seguro que quieres guardar la maleta?</target>
       </trans-unit>
@@ -471,7 +471,7 @@
       </trans-unit>
       <trans-unit id="f5b3bf221836ea873d498727f11c4b285d30d9ab" datatype="html">
         <source>Some days to rest and to sunbath in a dreamed beach is never a bad idea. </source>
-        <target state="new">Unos dias para descansar y tomar el sol en una playa de ensueño no es nunca una mala idea.</target>
+        <target>Unos dias para descansar y tomar el sol en una playa de ensueño no es nunca una mala idea.</target>
       </trans-unit>
       <trans-unit id="e99d7ae1515c88ff4e9a7c4f42953e494d833e73" datatype="html">
         <source>Turism, culture?</source>
@@ -539,11 +539,11 @@
       </trans-unit>
       <trans-unit id="English" datatype="html">
         <source>English <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; i18n-alt alt=&quot;UK flag to use English version&quot; src=&quot;assets/img/lang/uk-flag-icon.png&quot;&gt;"/></source>
-        <target state="new">Inglés <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;UK flag&quot; src=&quot;assets/img/lang/uk-flag-icon.png&quot;&gt;"/></target>
+        <target>Inglés <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;UK flag&quot; src=&quot;assets/img/lang/uk-flag-icon.png&quot;&gt;"/></target>
       </trans-unit>
       <trans-unit id="Spanish" datatype="html">
         <source>Spanish <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; i18n-alt alt=&quot;Spain flag to use Spanish version&quot; src=&quot;assets/img/lang/spain-flag-icon.png&quot;&gt;"/></source>
-        <target state="new">Español <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;Spain flag&quot; src=&quot;assets/img/lang/spain-flag-icon.png&quot;&gt;"/></target>
+        <target>Español <x id="TAG_IMG" ctype="image" equiv-text="&lt;img class=&quot;lang-img lang-img--small&quot; alt=&quot;Spain flag&quot; src=&quot;assets/img/lang/spain-flag-icon.png&quot;&gt;"/></target>
       </trans-unit>
       <trans-unit id="English-tooltip" datatype="html">
         <source>English</source>
@@ -795,7 +795,7 @@
       </trans-unit>
       <trans-unit id="c1aebe701ce743d42b1bfd4b8d5c3bde4c3c559b" datatype="html">
         <source>Logo of mysuitcase to go back main screen</source>
-        <target state="new">Logo of mysuitcase to go back main screen</target>
+        <target>Logo of mysuitcase to go back main screen</target>
       </trans-unit>
       <trans-unit id="82e730dddae8abdd425b4ce6539b6489aafcefd5" datatype="html">
         <source>UK flag to use English version</source>
