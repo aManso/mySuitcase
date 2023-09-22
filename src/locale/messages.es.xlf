@@ -865,6 +865,10 @@
         <source>cultural</source>
         <target>cultural</target>
       </trans-unit>
+      <trans-unit id="6528994619118115586" datatype="html">
+        <source>Ready! The suitcase is saved</source>
+        <target>Listo! La maleta ha sido guardada</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

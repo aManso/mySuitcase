@@ -650,6 +650,9 @@
       <trans-unit id="cultural" datatype="html">
         <source>Cultural</source>
       </trans-unit>
+      <trans-unit id="6528994619118115586" datatype="html">
+        <source>Ready! The suitcase is saved</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

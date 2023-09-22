@@ -350,7 +350,7 @@ export class CreateSuitcaseComponent implements OnInit {
         if (confirm) {
           this.suitcase.items = this.suitcaseList;
           this._suitcaseService.saveSuitcase(this.suitcase, true).subscribe(()=> {
-            this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_USER_SAVED.message, '', {duration: GENERAL_SNACKBAR_TIME});
+            this._snackBar.open(FRONTEND_MESSAGES.SUITCASE_SAVED.message, '', {duration: GENERAL_SNACKBAR_TIME});
             this._router.navigate(['home']);
           });
         }

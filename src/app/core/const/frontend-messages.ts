@@ -57,6 +57,10 @@ export const FRONTEND_MESSAGES = {
         title: $localize `Updated!`,
         message: $localize `The user has been updated`
     },
+    SUITCASE_SAVED: {
+        title: $localize `Saved!`,
+        message: $localize `Ready! The suitcase is saved`
+    },
     SUITCASE_REMOVED: {
         title: $localize `Removed!`,
         message: $localize `One suitcase less..`
