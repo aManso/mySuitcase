@@ -9,7 +9,7 @@
         })()
         // If there is not a locale set in the localStorage, we set as default the one of the navigator
         function getLocale() {
-            return localStorage.getItem(LOCALE_KEY) || window.navigator.language;
+            return localStorage.getItem(LOCALE_KEY) || window.navigator?.language || 'es-ES';
         }
     </script>
 </head>
