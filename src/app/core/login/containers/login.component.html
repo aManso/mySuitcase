@@ -21,7 +21,7 @@
     <div class="button-block mb-3">
       <button type="submit" class="button border-1 mt-3" [disabled]="!loginForm.valid" [ngClass]="{'disabled-button': !loginForm.valid}"
         (click)="submit()" i18n>Go ahead!</button>
-      <button type="submit" class="button border-1 mt-3" (click)="goTo('register')" i18n>I am new, Let's start!</button>
+      <button type="submit" class="button border-1 mt-3" (click)="goTo('register')" *ngIf="loginMode" i18n>I am new, Let's start!</button>
     </div>
     <small>
       <a href="javascript:void(0)" (click)="toggleMode()" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false" 
