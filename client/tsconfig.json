@@ -1,8 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "ignoreDeprecations": "6.0",
     "strictPropertyInitialization": false,
     "noImplicitAny": false,
     "strictNullChecks": false,
@@ -12,7 +10,8 @@
     "declaration": false,
     "module": "es2020",
     "moduleResolution": "bundler",
-    "experimentalDecorators": true,
+    "target": "ES2022",
+    "useDefineForClassFields": false,
     "importHelpers": true,
     "typeRoots": [
       "node_modules/@types"
