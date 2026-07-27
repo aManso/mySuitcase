@@ -1,9 +1,13 @@
-import { Inject, Component, OnInit, InjectionToken, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, InjectionToken, ChangeDetectionStrategy, inject } from '@angular/core';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { User } from '../../../core/models/user';
 import { AuthenticationGuard } from '../../../core/guards/authentication.guard';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { NavBarModule } from '../../../core/shared/navbar/navbar.module';
+import { FooterModule } from '../../../core/shared/footer/footer.module';
+
 // TODO use it when launching to PROD
 import { passwordValidator } from '../../../core/validators/validators';
 
@@ -14,27 +18,27 @@ export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [ReactiveFormsModule, NavBarModule, FooterModule, MatSnackBarModule],
+    providers: [{ provide: BASE_ROUTE, useValue: '/' }],
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   public loginForm: UntypedFormGroup;
   public loginMode = true;
 
-  public constructor(
-    private _loginService: LoginService,
-    public _authenticationGuard: AuthenticationGuard,
-    private _router: Router,
-    @Inject(BASE_ROUTE) private baseRoute: string[],
-    private fb: UntypedFormBuilder
-  ) {
-  }
+  private _snackBar = inject(MatSnackBar);
+  private _loginService = inject(LoginService);
+  private _authenticationGuard = inject(AuthenticationGuard);
+  private _fb = inject(UntypedFormBuilder)
+  private _router = inject(Router);
+  private _baseRoute = inject(BASE_ROUTE);
 
   public ngOnInit() {
     this.loginForm = this._setLoginForm();
   }
 
   private _setLoginForm() {
-    return this.fb.group({
+    return this._fb.group({
       keepSession: [null],
       email: [null, Validators.compose([Validators.required, Validators.email])],
       password: new UntypedFormControl(null, [
@@ -47,7 +51,7 @@ export class LoginComponent implements OnInit{
   }
 
   private _setRememberForm() {
-    return this.fb.group({
+    return this._fb.group({
       email: [null, Validators.compose([Validators.required, Validators.email])],
     });
   }
@@ -63,18 +67,23 @@ export class LoginComponent implements OnInit{
 
   public submit() {
     if (this.loginForm.valid) {
-      this._loginService.login(this.loginForm.value).subscribe((user: User|boolean) => {
-        if (user) {
-          const targetUrl = this._authenticationGuard.lastIntendedTargetRoute ? this._authenticationGuard.lastIntendedTargetRoute : this.baseRoute;
-          this._router.navigate([targetUrl]);
-        } else {
-          console.error('The user or the password is wrong');
-          // TODO show an error message when there email or the password was wrong
+      this._loginService.login(this.loginForm.value).subscribe({
+        next: (user: User|boolean) => {
+          if (user) {
+            const targetUrl = this._authenticationGuard.lastIntendedTargetRoute ? this._authenticationGuard.lastIntendedTargetRoute : this._baseRoute;
+            this._router.navigate([targetUrl]);
+          } else {
+            this._snackBar.open('The user or the password is wrong', 'Close', {
+              duration: 5 * 1000,
+            });
+          }
+        },
+        error: (error: any) => {
+          this._snackBar.open(error, 'Close', {
+            duration: 5 * 1000,
+          });
         }
-      },
-        (error: any) => {
-        // TODO show an error message when there was a problem
-        });
+      });
     }
   }
 }

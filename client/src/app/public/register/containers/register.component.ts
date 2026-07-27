@@ -1,9 +1,11 @@
-import { Inject, Component, OnInit, InjectionToken, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, InjectionToken, ChangeDetectionStrategy, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { User } from '../../../core/models/user';
 import { RegisterService } from '../register.service';
 import { passwordMatchingValidator, passwordValidator } from '../../../core/validators/validators';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../../core/shared/shared.module';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 
@@ -11,20 +13,23 @@ export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
     selector: 'app-register',
     templateUrl: './register.component.html',
     styleUrls: ['./register.component.scss'],
+    imports: [
+      CommonModule,
+      SharedModule,
+      ReactiveFormsModule,
+    ],
+    providers: [{ provide: BASE_ROUTE, useValue: '/' }],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
 })
 export class RegisterComponent implements OnInit{
   public registerForm: UntypedFormGroup;
   public passwordForm: UntypedFormGroup;
 
-  public constructor(
-    private _registerService: RegisterService,
-    private _router: Router,
-    @Inject(BASE_ROUTE) private baseRoute: string[],
-    private fb: UntypedFormBuilder
-  ) {
-  }
+  private _registerService = inject(RegisterService);
+  private _router = inject(Router);
+  private _baseRoute = inject(BASE_ROUTE);
+  private _fb = inject(UntypedFormBuilder);
 
   public ngOnInit() {
     this.registerForm = this._setRegisterForm();
@@ -32,7 +37,7 @@ export class RegisterComponent implements OnInit{
 
   private _setRegisterForm() {
     this.passwordForm = this._setPasswordForm();
-    return this.fb.group({
+    return this._fb.group({
       email: [null, Validators.compose([Validators.required, Validators.email])],
       passwords: this.passwordForm,
       name: [null, Validators.maxLength(12)],
@@ -70,7 +75,7 @@ export class RegisterComponent implements OnInit{
     if (this.isValidForm()) {
       this._registerService.register(this.registerForm.value).subscribe((user: User|boolean) => {
         if (user) {
-          this.goTo(this.baseRoute.toString());
+          this.goTo(this._baseRoute.toString());
         } else {
           console.error('An user already exist with this email');
         }
