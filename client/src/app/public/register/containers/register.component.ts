@@ -6,6 +6,7 @@ import { RegisterService } from '../register.service';
 import { passwordMatchingValidator, passwordValidator } from '../../../core/validators/validators';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../../core/shared/shared.module';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 
@@ -30,6 +31,7 @@ export class RegisterComponent implements OnInit{
   private _router = inject(Router);
   private _baseRoute = inject(BASE_ROUTE);
   private _fb = inject(UntypedFormBuilder);
+  private _snackBar = inject(MatSnackBar);
 
   public ngOnInit() {
     this.registerForm = this._setRegisterForm();
@@ -73,16 +75,22 @@ export class RegisterComponent implements OnInit{
 
   public submit() {
     if (this.isValidForm()) {
-      this._registerService.register(this.registerForm.value).subscribe((user: User|boolean) => {
-        if (user) {
-          this.goTo(this._baseRoute.toString());
-        } else {
-          console.error('An user already exist with this email');
-        }
-      },
-        (error: any) => {
-          console.error('Error in the transaction');
-        });
+      this._registerService.register(this.registerForm.value).subscribe({
+        next: (user: User|boolean) => {
+          if (user) {
+            this.goTo(this._baseRoute.toString());
+          } else {
+            this._snackBar.open('An user already exist with this email', 'Close', {
+              duration: 5 * 1000,
+            });
+          }
+        },
+        error: (error: any) => {
+          this._snackBar.open(error, 'Close', {
+            duration: 5 * 1000,
+          });
+        },
+      });
     }
   }
 }
