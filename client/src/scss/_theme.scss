@@ -1,8 +1,5 @@
 @use '@angular/material' as mat;
-
-// Local copies of color variables (from _variables.scss) to avoid @use/@import mixing
-$primary-color: #D88A83;
-$tertiary-color: #394359;
+@use 'variables' as *;
 
 // These were previously exported by @angular/material/theming — now defined locally
 $black-87-opacity: rgba(0, 0, 0, 0.87);

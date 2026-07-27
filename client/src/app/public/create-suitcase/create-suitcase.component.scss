@@ -1,5 +1,6 @@
-@import "./../../../scss/variables";
-@import "./../../../scss/theme";
+@use "./../../../scss/variables" as *;
+@use "./../../../scss/theme" as *;
+@use 'sass:map';
 
 $weather-size: 300px;
 $actions-size: 25px;
@@ -81,12 +82,12 @@ $margin: 15px;
 }
 
 .card-subheader {
-  background: map_get($mat-suitcase-secondary, 300);
+  background: map.get($mat-suitcase-secondary, 300);
   color: white;
 }
 
 .card-subsubheader {
-  background: map_get($mat-suitcase-secondary, 100);
+  background: map.get($mat-suitcase-secondary, 100);
   color: white;
 }
 
@@ -94,12 +95,12 @@ $margin: 15px;
   padding: 0;
 
   .item:nth-child(odd) {
-    background: map_get($mat-suitcase-primary, 50);
+    background: map.get($mat-suitcase-primary, 50);
   }
 }
 
 .common-card-body:nth-child(odd) .card-body .item {
-  background: map_get($mat-suitcase-primary, 50);
+  background: map.get($mat-suitcase-primary, 50);
 }
 
 .common-card-body:nth-child(even) .card-body .item {
@@ -176,7 +177,7 @@ $margin: 15px;
       padding: 2px;
       border: 1px solid $tertiary-color;
       border-radius: 5px;
-      background-color: map_get($mat-suitcase-secondary, 300);
+      background-color: map.get($mat-suitcase-secondary, 300);
       margin-left: 10px;
       color: white;
     }
