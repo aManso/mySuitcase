@@ -35,7 +35,7 @@ userCtrl.addUser = async (req, res) => {
 
 userCtrl.deleteUser = async (req, res) => {
     // res.send('Hello world');
-    const response = await userModel.findByIdAndRemove(req.params.id);
+    const response = await userModel.findByIdAndDelete(req.params.id);
     res.json(response);
 };
 

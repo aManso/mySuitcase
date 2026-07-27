@@ -3,16 +3,18 @@ const userCtrl = {};
 const userModel = require('../models/user');
 
 userCtrl.login = async (req, res) => {
-    // res.send('Hello world');
     console.log(req.body);
     const user = await userModel.findOne({ email: req.body.email, password: req.body.password });
     console.log(user);
-    // we remove the password that is not needed in FE
-    delete user.password;
-    // we create the jwt
-    let payload = {subject: user. _id};
+    if (!user) {
+        return res.json(false);
+    }
+    // Convert to plain object so we can safely remove the password before sending to FE
+    const userObj = user.toObject();
+    delete userObj.password;
+    let payload = { subject: user._id };
     let token = jwt.sign(payload, 'secretKey');
-    return user ? res.json({user, token}) : res.json(false);
+    return res.json({ user: userObj, token });
 };
 
 module.exports = userCtrl;
