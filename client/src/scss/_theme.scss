@@ -1,6 +1,14 @@
-@import '~@angular/material/theming';
-@import 'variables';
-@include mat-core();
+@use '@angular/material' as mat;
+
+// Local copies of color variables (from _variables.scss) to avoid @use/@import mixing
+$primary-color: #D88A83;
+$tertiary-color: #394359;
+
+// These were previously exported by @angular/material/theming — now defined locally
+$black-87-opacity: rgba(0, 0, 0, 0.87);
+$white-87-opacity: rgba(255, 255, 255, 0.87);
+
+@include mat.core();
 
 $mat-suitcase-secondary: (
   100: #c1c8d7,
@@ -57,9 +65,15 @@ $mat-suitcase-primary: (
   )
 );
 
-$my-app-primary: mat-palette($mat-suitcase-primary, 400);
-$my-app-accent:  mat-palette($mat-suitcase-secondary);
-$my-app-warn:    mat-palette($mat-red, 700);
-$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
-@include angular-material-theme($my-app-theme);
+$my-app-primary: mat.m2-define-palette($mat-suitcase-primary, 400);
+$my-app-accent:  mat.m2-define-palette($mat-suitcase-secondary);
+$my-app-warn:    mat.m2-define-palette(mat.$m2-red-palette, 700);
+$my-app-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $my-app-primary,
+    accent: $my-app-accent,
+    warn: $my-app-warn,
+  )
+));
+@include mat.all-component-themes($my-app-theme);
 

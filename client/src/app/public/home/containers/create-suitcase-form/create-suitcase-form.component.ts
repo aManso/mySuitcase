@@ -1,7 +1,7 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressBarMode } from '@angular/material/progress-bar';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreateSuitcaseFormSteps } from './create-suitcase-form.interfaces';
 import {TripLocation, TripType} from '../../../../core/models/trip';
@@ -11,9 +11,11 @@ import { SuitcaseService } from '../../../services/suitcase.service';
 const suitcaseNameMaxLength = 20;
 
 @Component({
-  selector: 'my-suitcase-create-suitcase-form',
-  templateUrl: './create-suitcase-form.component.html',
-  styleUrls: ['./create-suitcase-form.component.scss']
+    selector: 'my-suitcase-create-suitcase-form',
+    templateUrl: './create-suitcase-form.component.html',
+    styleUrls: ['./create-suitcase-form.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class CreateSuitcaseFormComponent implements OnInit {
   public progressBarValue: number;
@@ -21,7 +23,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
   public percentagePerQuestion: number;
   public color: ThemePalette = 'primary';
   public mode: ProgressBarMode = 'determinate';
-  public createSuitcaseForm: FormGroup;
+  public createSuitcaseForm: UntypedFormGroup;
   public currentDate = new Date();
   public steps: CreateSuitcaseFormSteps[] = [
     {
@@ -63,7 +65,7 @@ export class CreateSuitcaseFormComponent implements OnInit {
   // });
 
   constructor(
-    private readonly _formBuilder: FormBuilder,
+    private readonly _formBuilder: UntypedFormBuilder,
     private readonly _router: Router,
     private readonly _suitcaseService: SuitcaseService,
   ) { }
@@ -84,9 +86,9 @@ export class CreateSuitcaseFormComponent implements OnInit {
       to: [null, [Validators.required]],
       place: [null, [Validators.required, Validators.maxLength(suitcaseNameMaxLength)],],
       type: this._buildOptionList(),
-      sports: new FormGroup({
-        'cycling': new FormControl(false),
-        'diving': new FormControl(false),
+      sports: new UntypedFormGroup({
+        'cycling': new UntypedFormControl(false),
+        'diving': new UntypedFormControl(false),
       }),
     });
   }

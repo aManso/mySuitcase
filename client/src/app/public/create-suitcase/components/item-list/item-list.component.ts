@@ -9,6 +9,7 @@ import {
   OnInit,
   Renderer2,
   ViewEncapsulation,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import {TripItem} from "../../../../core/models/trip";
 import {
@@ -20,25 +21,27 @@ import {
 } from '@angular/animations';
 
 @Component({
-  selector: 'my-suitcase-item-list',
-  templateUrl: './item-list.component.html',
-  encapsulation: ViewEncapsulation.None,
-  animations: [
-    trigger('showHiddenItem', [
-      state('show', style({
-        opacity: 1,
-      })),
-      state('hidden', style({
-        opacity: 0,
-      })),
-      transition('hidden => show', [
-        animate('1s')
-      ]),
-      transition('show => hidden', [
-        animate('1s')
-      ]),
-    ]),
-  ],
+    selector: 'my-suitcase-item-list',
+    templateUrl: './item-list.component.html',
+    encapsulation: ViewEncapsulation.None,
+    animations: [
+        trigger('showHiddenItem', [
+            state('show', style({
+                opacity: 1,
+            })),
+            state('hidden', style({
+                opacity: 0,
+            })),
+            transition('hidden => show', [
+                animate('1s')
+            ]),
+            transition('show => hidden', [
+                animate('1s')
+            ]),
+        ]),
+    ],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class ItemListComponent implements OnInit {
   public counter = 1;

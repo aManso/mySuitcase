@@ -1,12 +1,14 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { SuitcaseService } from '../../../services/suitcase.service';
 import { Coordinates } from '../../../../core/models/trip';
 
 @Component({
-  selector: 'my-suitcase-weather-panel',
-  templateUrl: './weather-panel.component.html',
-  styleUrls: ['./weather-panel.component.scss']
+    selector: 'my-suitcase-weather-panel',
+    templateUrl: './weather-panel.component.html',
+    styleUrls: ['./weather-panel.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class WeatherPanelComponent implements OnInit {
 

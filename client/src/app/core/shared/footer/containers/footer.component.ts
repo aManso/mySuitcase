@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'footer-component',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
+    selector: 'footer-component',
+    templateUrl: './footer.component.html',
+    styleUrls: ['./footer.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class FooterComponent {
 

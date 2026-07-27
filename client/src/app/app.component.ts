@@ -1,13 +1,15 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { LoginService } from './public/login/login.service';
 import { SessionService } from './core/services/session.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TimeoutDialogComponent } from './timeout-dialog/timeout-dialog.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class AppComponent implements AfterViewInit {
 

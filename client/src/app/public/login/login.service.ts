@@ -68,7 +68,7 @@ export class LoginService {
         if (!res) {
           throw new Error('there were not found users!');
         }
-        return res;
+        return res as User[];
       }),
       catchError((err: any) => {
         console.log(err.message);

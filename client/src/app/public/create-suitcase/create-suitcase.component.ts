@@ -24,27 +24,28 @@ import { MatDialog } from '@angular/material/dialog';
 import { SaveDialogComponent } from "./components/dialog/save-dialog.component";
 
 @Component({
-  selector: 'app-create-suitcase',
-  templateUrl: './create-suitcase.component.html',
-  styleUrls: ['./create-suitcase.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  animations: [
-    trigger('showHiddenItem', [
-      state('hidden', style({
-        opacity: 0,
-      })),
-      state('show', style({
-        opacity: 1,
-      })),
-      transition('hidden => show', [
-        animate('1s')
-      ]),
-      transition('show => hidden', [
-        animate('1s')
-      ]),
-    ]),
-  ],
+    selector: 'app-create-suitcase',
+    templateUrl: './create-suitcase.component.html',
+    styleUrls: ['./create-suitcase.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    animations: [
+        trigger('showHiddenItem', [
+            state('hidden', style({
+                opacity: 0,
+            })),
+            state('show', style({
+                opacity: 1,
+            })),
+            transition('hidden => show', [
+                animate('1s')
+            ]),
+            transition('show => hidden', [
+                animate('1s')
+            ]),
+        ]),
+    ],
+    standalone: false
 })
 export class CreateSuitcaseComponent implements OnInit {
   public suitcase: Suitcase;

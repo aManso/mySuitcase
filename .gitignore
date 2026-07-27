@@ -10,6 +10,7 @@
 # dependencies
 /client/node_modules
 /client/dist
+/client/.angular
 /server/node_modules
 
 # profiling files
@@ -24,6 +25,7 @@ speed-measure-plugin.json
 *.launch
 .settings/
 *.sublime-workspace
+.vscode/
 
 # IDE - VSCode
 .vscode/*

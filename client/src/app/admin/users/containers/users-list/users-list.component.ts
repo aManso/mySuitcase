@@ -1,20 +1,22 @@
-import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, ChangeDetectorRef, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { UntypedFormBuilder, FormControl, UntypedFormGroup } from '@angular/forms';
 import { User } from '../../../../core/models/user';
 import { LoginService } from '../../../../public/login/login.service';
 
 @Component({
-  selector: 'app-users-list',
-  templateUrl: './users-list.component.html',
+    selector: 'app-users-list',
+    templateUrl: './users-list.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class UsersListComponent implements OnInit {
   public result: any;
-  public usersForm: FormGroup;
+  public usersForm: UntypedFormGroup;
 
   constructor(
     private _loginService: LoginService,
     private readonly _changeDetector: ChangeDetectorRef,
-    private _fb: FormBuilder,
+    private _fb: UntypedFormBuilder,
   ) {}
 
   ngOnInit() {
