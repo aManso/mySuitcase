@@ -5,8 +5,7 @@ import { RouterModule } from '@angular/router';
 // import { FooterComponent } from './footer/containers/footer.component';
 
 import {FooterModule} from './footer/footer.module';
-import {NavBarModule} from './navbar/navbar.module';
-
+import { NavBarComponent } from './navbar/containers/navbar.component';
 
 @NgModule({
   declarations: [],
@@ -14,14 +13,13 @@ import {NavBarModule} from './navbar/navbar.module';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-
-
+    NavBarComponent,
   ],
   exports: [
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    NavBarModule,
+    NavBarComponent,
     FooterModule,
   ],
   providers: [],

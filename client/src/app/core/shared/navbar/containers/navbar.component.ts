@@ -8,7 +8,7 @@ import { SessionService } from '../../../services/session.service';
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true
 })
 export class NavBarComponent{
   private _router = inject(Router);
