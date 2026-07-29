@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './core/shared/shared.module';
-import { NotFoundModule } from './not-found/not-found.module';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { AuthenticationGuard } from './core/guards/authentication.guard';
 import { AuthorizationGuard } from './core/guards/authorization.guard';
@@ -13,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { TimeoutDialogComponent } from './timeout-dialog/timeout-dialog.component';
 import { MatButtonModule } from '@angular/material/button';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -20,7 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         BrowserAnimationsModule,
-        NotFoundModule,
+        NotFoundComponent,
         SharedModule,
         // Material
         MatButtonModule,
