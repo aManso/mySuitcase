@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectorRef, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Component, OnInit, input, ChangeDetectorRef, ChangeDetectionStrategy, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Coordinates } from '../../../../core/models/trip';
 
@@ -11,8 +11,8 @@ import { Coordinates } from '../../../../core/models/trip';
 })
 export class WeatherPanelComponent implements OnInit {
 
-  @Input() coordinates: Coordinates;
-  @Input() weatherDays: number;
+  readonly coordinates = input<Coordinates>();
+  readonly weatherDays = input<number>();
 
   public weatherIsReady: boolean;
   public weatherData: any;
@@ -29,8 +29,8 @@ export class WeatherPanelComponent implements OnInit {
       .set('Access-Control-Allow-Origin', '*')
       .set('Access-Control-Allow-Methods', 'GET');
 
-    let url = this._weatherApiUrl.replace('{lat}', this.coordinates.lat.toString());
-    url = url.replace('{lon}', this.coordinates.lng.toString());
+    let url = this._weatherApiUrl.replace('{lat}', this.coordinates().lat.toString());
+    url = url.replace('{lon}', this.coordinates().lng.toString());
     this._http.get(url, {headers}).subscribe({
       next: (response: any) => {
         // TODO not working due to CORS, it should work from a server
@@ -57,7 +57,7 @@ export class WeatherPanelComponent implements OnInit {
   private _parseData(data: any) {
     this.weatherIsReady = !!data;
     this.weatherData = data;
-    this.weatherData.daily = data.daily.splice(0, this.weatherDays);
+    this.weatherData.daily = data.daily.splice(0, this.weatherDays());
     this.weatherData.daily.forEach((dailyWeather: any) => {
       dailyWeather.dayOfMonth = new Date(parseInt(dailyWeather.dt + '000')).getDate();
       const sunriseTime = new Date(parseInt(dailyWeather.sunrise + '000'));

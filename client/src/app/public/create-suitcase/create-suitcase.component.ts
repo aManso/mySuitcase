@@ -5,8 +5,7 @@ import {
   ChangeDetectorRef,
   Renderer2,
   ElementRef,
-  ViewChildren,
-  QueryList,
+  viewChildren,
   ViewEncapsulation,
   inject,
 } from '@angular/core';
@@ -86,13 +85,13 @@ export class CreateSuitcaseComponent implements OnInit {
   public dataReady = false;
 
   // Each of the categories in the suggestion column
-  @ViewChildren('common') viewChildrenCommon!: QueryList<any>;
-  @ViewChildren('sport') viewChildrenSport!: QueryList<any>;
-  @ViewChildren('beach') viewChildrenBeach!: QueryList<any>;
-  @ViewChildren('mountain') viewChildrenMountain!: QueryList<any>;
-  @ViewChildren('pet') viewChildrenPet!: QueryList<any>;
-  @ViewChildren('baby') viewChildrenBaby!: QueryList<any>;
-  @ViewChildren('suitcase') viewChildrenSuitcase!: QueryList<any>;
+  readonly viewChildrenCommon = viewChildren<ItemListComponent>('common');
+  readonly viewChildrenSport = viewChildren<ItemListComponent>('sport');
+  readonly viewChildrenBeach = viewChildren<ItemListComponent>('beach');
+  readonly viewChildrenMountain = viewChildren<ItemListComponent>('mountain');
+  readonly viewChildrenPet = viewChildren<ItemListComponent>('pet');
+  readonly viewChildrenBaby = viewChildren<ItemListComponent>('baby');
+  readonly viewChildrenSuitcase = viewChildren<ElementRef>('suitcase');
 
   // headers of the subcategories
   public subsubheaders = {
@@ -173,23 +172,23 @@ export class CreateSuitcaseComponent implements OnInit {
           this.suggestionList[type].currentPriority++;
           this._checkMoreRecommendations(type);
         }
-        let viewChildren: QueryList<any>;
+        let childList: readonly ItemListComponent[];
         switch (type) {
-          case 'sport': viewChildren = this.viewChildrenSport;
+          case 'sport': childList = this.viewChildrenSport();
             break;
-          case 'beach': viewChildren = this.viewChildrenBeach;
+          case 'beach': childList = this.viewChildrenBeach();
             break;
-          case 'mountain': viewChildren = this.viewChildrenMountain;
+          case 'mountain': childList = this.viewChildrenMountain();
             break;
-          case 'pet': viewChildren = this.viewChildrenPet;
+          case 'pet': childList = this.viewChildrenPet();
             break;
-          case 'baby': viewChildren = this.viewChildrenBaby;
+          case 'baby': childList = this.viewChildrenBaby();
             break;
-          default: viewChildren = this.viewChildrenCommon;
+          default: childList = this.viewChildrenCommon();
             break;
         }
         this._changeDetector.detectChanges();
-        viewChildren.toArray()[0]._sortItems(viewChildren.toArray()[0].itemList);
+        childList[0]._sortItems(childList[0].itemList());
         this._changeDetector.detectChanges();
       });
     }
@@ -266,13 +265,13 @@ export class CreateSuitcaseComponent implements OnInit {
     // remove item from suggestions
     this.removeItem(object.itemList, object.index, object.listName);
   }
-  public removeItem(itemList: TripItem[], index:number, listName: string, viewChildren?: QueryList<any>) {
+  public removeItem(itemList: TripItem[], index:number, listName: string, children?: readonly ElementRef[]) {
     // if removing from the suggestions add a class to trigger an animation
-    const fromSuggestionList = !viewChildren;
-    if (!fromSuggestionList && viewChildren) {
+    const fromSuggestionList = !children;
+    if (!fromSuggestionList && children) {
       // Alternate two keyframe animations
-      this.counter % 2 ? this._renderer.addClass(viewChildren.toArray()[index].nativeElement, 'flip-out-ver-right') :
-        this._renderer.addClass(viewChildren.toArray()[index].nativeElement, 'removedItem');
+      this.counter % 2 ? this._renderer.addClass(children[index].nativeElement, 'flip-out-ver-right') :
+        this._renderer.addClass(children[index].nativeElement, 'removedItem');
       this.counter++;
     }
     // When the animations finishes remove it

@@ -1,11 +1,10 @@
 import {
   ChangeDetectorRef,
   Component,
-  Input,
-  Output,
-  EventEmitter,
-  ViewChildren,
-  QueryList,
+  ElementRef,
+  input,
+  output,
+  viewChildren,
   OnInit,
   Renderer2,
   ViewEncapsulation,
@@ -50,22 +49,19 @@ import {
 })
 export class ItemListComponent implements OnInit {
   public counter = 1;
-  @Input() itemList: TripItem[];
-  @Input() maxShownList: number;
-  @Input() listName: string;
+  readonly itemList = input<TripItem[]>();
+  readonly maxShownList = input<number>();
+  readonly listName = input<string>();
   private _subsubheadersInner = {};
-  @ViewChildren('item') itemViewChildren!: QueryList<any>;
-  @Output()
-  public onAddItem: EventEmitter<{item: TripItem, index:number, itemList: TripItem[], listName: string}> = new EventEmitter<{item: TripItem, index:number, itemList: TripItem[], listName: string}>();
-
-  @Output()
-  public onRemoveItem: EventEmitter<{itemList: TripItem[], index:number, listName: string}> = new EventEmitter<{itemList: TripItem[], index:number, listName: string}>();
+  readonly itemViewChildren = viewChildren<ElementRef>('item');
+  readonly onAddItem = output<{item: TripItem, index: number, itemList: TripItem[], listName: string}>();
+  readonly onRemoveItem = output<{itemList: TripItem[], index: number, listName: string}>();
 
   private readonly _changeDetector = inject(ChangeDetectorRef);
   private readonly _renderer = inject(Renderer2);
 
   public ngOnInit() {
-    this._sortItems(this.itemList);
+    this._sortItems(this.itemList());
   }
 
   private resetSubheaders() {
@@ -83,7 +79,7 @@ export class ItemListComponent implements OnInit {
     };
   }
 
-  private _sortItems(itemList: TripItem[]) {
+  public _sortItems(itemList: TripItem[]) {
     this._subsubheadersInner = JSON.parse(JSON.stringify(this.resetSubheaders()));
     itemList.forEach((item: TripItem) => {
       item.showInSuggestion = true;
@@ -96,24 +92,24 @@ export class ItemListComponent implements OnInit {
   }
 
   public addItem(item: TripItem, index?:number, itemList?: TripItem[], ) {
-    this.onAddItem.emit({item, index, itemList, listName: this.listName});
-    this._sortItems(this.itemList);
+    this.onAddItem.emit({item, index, itemList, listName: this.listName()});
+    this._sortItems(this.itemList());
     // do async the rest of actions to allow the animations
     item.showInSuggestion = false;
     setTimeout(() => {
-      this.itemList.splice(index, 1);
-      this._sortItems(this.itemList);
+      this.itemList().splice(index, 1);
+      this._sortItems(this.itemList());
       // trigger a refresh in parent component to let it know the item has been removed from the list
       this._changeDetector.markForCheck();
     }, 1000);
   }
 
   public removeItem(itemList: TripItem[], index:number) {
-    this.counter % 2 ? this._renderer.addClass(this.itemViewChildren.toArray()[index].nativeElement, 'flip-out-ver-right') :
-      this._renderer.addClass(this.itemViewChildren.toArray()[index].nativeElement, 'removedItem');
+    this.counter % 2 ? this._renderer.addClass(this.itemViewChildren()[index].nativeElement, 'flip-out-ver-right') :
+      this._renderer.addClass(this.itemViewChildren()[index].nativeElement, 'removedItem');
     this.counter++;
-    this.onRemoveItem.emit({itemList, index, listName: this.listName});
-    this._sortItems(this.itemList);
+    this.onRemoveItem.emit({itemList, index, listName: this.listName()});
+    this._sortItems(this.itemList());
     // trigger a refresh in parent component to let it know the item has been removed from the list
     this._changeDetector.markForCheck();
   }
