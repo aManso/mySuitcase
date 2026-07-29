@@ -34,11 +34,6 @@ export class HomeComponent implements OnInit {
     this._router.navigate([path]);
   }
 
-  public logout(): void {
-    this._sessionService.stopInterval();
-    this._loginService.logout();
-  }
-
   public createSuitcase() {
     document.getElementById('buttons-area').classList.add('disappearToTop');
     document.getElementById('image-area').classList.add('disappearToTop');

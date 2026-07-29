@@ -1,5 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../../../../public/login/login.service';
+import { SessionService } from '../../../services/session.service';
 
 @Component({
     selector: 'navbar-component',
@@ -9,12 +11,20 @@ import { Router } from '@angular/router';
     standalone: false
 })
 export class NavBarComponent{
+  private _router = inject(Router);
+  private _loginService = inject(LoginService);
+  private _sessionService = inject(SessionService);
 
-  public constructor(
-    private _router: Router,
-  ) {}
+  public isLoggedIn(): boolean {
+    return this._loginService.isLoggedIn();
+  }
 
   public goTo(path: string) {
     this._router.navigate([path]);
+  }
+
+  public logout(): void {
+    this._sessionService.stopInterval();
+    this._loginService.logout();
   }
 }
