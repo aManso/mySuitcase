@@ -1,5 +1,5 @@
-import { Component, ChangeDetectorRef, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { UntypedFormBuilder, FormControl, UntypedFormGroup } from '@angular/forms';
+import { Component, ChangeDetectorRef, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
+import { ReactiveFormsModule, UntypedFormBuilder, FormControl, UntypedFormGroup } from '@angular/forms';
 import { User } from '../../../../core/models/user';
 import { LoginService } from '../../../../public/login/login.service';
 
@@ -7,17 +7,16 @@ import { LoginService } from '../../../../public/login/login.service';
     selector: 'app-users-list',
     templateUrl: './users-list.component.html',
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [ReactiveFormsModule],
 })
 export class UsersListComponent implements OnInit {
   public result: any;
   public usersForm: UntypedFormGroup;
 
-  constructor(
-    private _loginService: LoginService,
-    private readonly _changeDetector: ChangeDetectorRef,
-    private _fb: UntypedFormBuilder,
-  ) {}
+  private readonly _loginService = inject(LoginService);
+  private readonly _changeDetector = inject(ChangeDetectorRef);
+  private readonly _fb = inject(UntypedFormBuilder);
 
   ngOnInit() {
     this.usersForm = this._fb.group({

@@ -1,4 +1,4 @@
-import { Injectable, Injector } from '@angular/core';
+import { inject, Injectable, Injector } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { Suitcase } from '../../core/models/suitcase';
@@ -13,11 +13,7 @@ export class SuitcaseService {
   private readonly SAVE_SUITCASE_API = environment.apiUrl + 'suitcase/save';
   private readonly UPDATE_SUITCASE_API = environment.apiUrl + 'suitcase/update';
   private readonly RECOMMENDATIONS_SUITCASE_API = environment.apiUrl + 'suitcase/recommendations';
-
-  public constructor(
-    private _http: HttpClient,
-  ) {
-  }
+  private readonly _http = inject(HttpClient);
 
   public saveSuitcase(suitcase: Suitcase, existing = false): Observable<void> {
     const $saveResponse = new Subject<void>();

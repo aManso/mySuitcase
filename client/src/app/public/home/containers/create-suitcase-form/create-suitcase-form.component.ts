@@ -1,8 +1,14 @@
-import { Component, OnInit, ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
-import { ProgressBarMode } from '@angular/material/progress-bar';
-import { UntypedFormBuilder, UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import { Component, OnInit, ElementRef, ViewChild, ChangeDetectionStrategy, inject } from '@angular/core';
+import { ThemePalette, MatNativeDateModule } from '@angular/material/core';
+import { MatProgressBarModule, ProgressBarMode } from '@angular/material/progress-bar';
+import { UntypedFormBuilder, UntypedFormGroup, UntypedFormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CreateSuitcaseFormSteps } from './create-suitcase-form.interfaces';
 import {TripLocation, TripType} from '../../../../core/models/trip';
 import { Suitcase } from '../../../../core/models/suitcase';
@@ -15,7 +21,18 @@ const suitcaseNameMaxLength = 20;
     templateUrl: './create-suitcase-form.component.html',
     styleUrls: ['./create-suitcase-form.component.scss'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [
+      ReactiveFormsModule,
+      MatProgressBarModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatIconModule,
+      MatButtonModule,
+      MatDatepickerModule,
+      MatNativeDateModule,
+      MatCheckboxModule,
+    ],
 })
 export class CreateSuitcaseFormComponent implements OnInit {
   public progressBarValue: number;
@@ -64,11 +81,9 @@ export class CreateSuitcaseFormComponent implements OnInit {
   //   map: this.map,
   // });
 
-  constructor(
-    private readonly _formBuilder: UntypedFormBuilder,
-    private readonly _router: Router,
-    private readonly _suitcaseService: SuitcaseService,
-  ) { }
+  private readonly _formBuilder = inject(UntypedFormBuilder);
+  private readonly _router = inject(Router);
+  private readonly _suitcaseService = inject(SuitcaseService);
 
   ngOnInit(): void {
     this.currentQuestion = this.steps[0].stepNr;

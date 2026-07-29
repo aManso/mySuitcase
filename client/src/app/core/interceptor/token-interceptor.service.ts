@@ -4,11 +4,7 @@ import { SessionService } from '../services/session.service';
 
 @Injectable()
 export class TokenInterceptorService implements HttpInterceptor {
-
-  public constructor(
-    private _injector: Injector,
-  ) {
-  }
+  private readonly _injector: Injector;
 
   public intercept(req, next) {
     // this is to make sure that the dependency exist

@@ -9,8 +9,12 @@ import {
   OnInit,
   Renderer2,
   ViewEncapsulation,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  inject
 } from '@angular/core';
+import { NgTemplateOutlet, SlicePipe } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import {TripItem} from "../../../../core/models/trip";
 import {
   trigger,
@@ -41,7 +45,8 @@ import {
         ]),
     ],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [NgTemplateOutlet, SlicePipe, MatIconModule, MatTooltipModule],
 })
 export class ItemListComponent implements OnInit {
   public counter = 1;
@@ -56,11 +61,8 @@ export class ItemListComponent implements OnInit {
   @Output()
   public onRemoveItem: EventEmitter<{itemList: TripItem[], index:number, listName: string}> = new EventEmitter<{itemList: TripItem[], index:number, listName: string}>();
 
-  constructor(
-    private _renderer: Renderer2,
-    private readonly _changeDetector: ChangeDetectorRef,
-  ) {
-  }
+  private readonly _changeDetector = inject(ChangeDetectorRef);
+  private readonly _renderer = inject(Renderer2);
 
   public ngOnInit() {
     this._sortItems(this.itemList);

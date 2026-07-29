@@ -1,13 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'app-user-detail',
     templateUrl: './user-detail.component.html',
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
 })
-export class UserDetailComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
+export class UserDetailComponent {
 }

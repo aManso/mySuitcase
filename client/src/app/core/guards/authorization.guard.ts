@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import {LoginService} from '../../public/login/login.service';
 
@@ -7,10 +7,8 @@ import {LoginService} from '../../public/login/login.service';
 export class AuthorizationGuard  {
   public lastIntendedTargetRoute: string;
 
-  constructor(
-    private _loginService: LoginService,
-    private _router: Router,
-    ) {}
+  private readonly _loginService = inject(LoginService);
+  private readonly _router = inject(Router);
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     this.lastIntendedTargetRoute = state.url;

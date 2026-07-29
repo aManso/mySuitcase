@@ -5,7 +5,8 @@ import { User } from '../../../core/models/user';
 import { RegisterService } from '../register.service';
 import { passwordMatchingValidator, passwordValidator } from '../../../core/validators/validators';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '../../../core/shared/shared.module';
+import { NavBarComponent } from '../../../core/shared/navbar/containers/navbar.component';
+import { FooterComponent } from '../../../core/shared/footer/containers/footer.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
@@ -16,7 +17,8 @@ export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
     styleUrls: ['./register.component.scss'],
     imports: [
       CommonModule,
-      SharedModule,
+      NavBarComponent,
+      FooterComponent,
       ReactiveFormsModule,
     ],
     providers: [{ provide: BASE_ROUTE, useValue: '/' }],

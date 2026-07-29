@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { User, UserLogin} from '../../core/models/user';
@@ -17,11 +17,11 @@ export class LoginService {
   public logged$: Subject<User|boolean>;
   private _storageMethod: any;
 
-  public constructor(
-    private _http: HttpClient,
-    private _router: Router,
-    private _sessionService: SessionService,
-  ) {
+  private readonly _http = inject(HttpClient);
+  private readonly _router = inject(Router);
+  private readonly _sessionService = inject(SessionService);
+
+  public constructor() {
     this.logged$ = new Subject<User|boolean>();
     this._sessionService.logout$.subscribe(() => {
       this.logout();

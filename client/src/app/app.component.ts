@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, ChangeDetectionStrategy, inject } from '@angular/core';
 import { LoginService } from './public/login/login.service';
 import { SessionService } from './core/services/session.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,12 +13,10 @@ import { TimeoutDialogComponent } from './timeout-dialog/timeout-dialog.componen
 })
 export class AppComponent implements AfterViewInit {
 
-  public constructor(
-    private _loginService: LoginService,
-    private _elementRef: ElementRef,
-    public sessionService: SessionService,
-    private _dialog: MatDialog,
-  ) {}
+  private _loginService = inject(LoginService);
+  private _elementRef = inject(ElementRef);
+  public sessionService = inject(SessionService);
+  private _dialog = inject(MatDialog);
 
   public ngAfterViewInit() {
     let timeoutOpened = false;

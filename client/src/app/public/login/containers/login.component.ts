@@ -5,7 +5,7 @@ import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormControl, UntypedFor
 import { User } from '../../../core/models/user';
 import { AuthenticationGuard } from '../../../core/guards/authentication.guard';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { FooterModule } from '../../../core/shared/footer/footer.module';
+import { FooterComponent } from '../../../core/shared/footer/containers/footer.component';
 
 // TODO use it when launching to PROD
 import { passwordValidator } from '../../../core/validators/validators';
@@ -19,7 +19,7 @@ export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
     styleUrls: ['./login.component.scss'],
     changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true,
-    imports: [ReactiveFormsModule, NavBarComponent, FooterModule, MatSnackBarModule],
+    imports: [ReactiveFormsModule, NavBarComponent, FooterComponent, MatSnackBarModule],
     providers: [{ provide: BASE_ROUTE, useValue: '/' }],
 })
 export class LoginComponent implements OnInit {

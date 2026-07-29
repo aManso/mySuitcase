@@ -1,25 +1,24 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../login/login.service';
 import { User } from '../../../../core/models/user';
-import { SessionService } from '../../../../core/services/session.service';
+import { NavBarComponent } from '../../../../core/shared/navbar/containers/navbar.component';
+import { FooterComponent } from '../../../../core/shared/footer/containers/footer.component';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [NavBarComponent, FooterComponent],
 })
 export class HomeComponent implements OnInit {
   public isAdmin: boolean;
   public isLogged = false;
 
-  constructor(
-    private _loginService: LoginService,
-    private _router: Router,
-    private _sessionService: SessionService,
-  ) { }
+  private _loginService = inject(LoginService);
+  private _router = inject(Router);
 
   ngOnInit() {
     this.isLogged = !!this._loginService.isLoggedIn();

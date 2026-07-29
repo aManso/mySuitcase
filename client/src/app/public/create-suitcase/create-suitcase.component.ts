@@ -8,6 +8,7 @@ import {
   ViewChildren,
   QueryList,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { SuitcaseService } from '../services/suitcase.service';
 import { Suitcase } from '../../core/models/suitcase';
@@ -20,8 +21,17 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-import { MatDialog } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { NgClass, NgTemplateOutlet } from '@angular/common';
+import { MatDialog, MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { SaveDialogComponent } from "./components/dialog/save-dialog.component";
+import { ItemListComponent } from "./components/item-list/item-list.component";
+import { WeatherPanelComponent } from "./components/weather-panel/weather-panel.component";
 
 @Component({
     selector: 'app-create-suitcase',
@@ -45,7 +55,23 @@ import { SaveDialogComponent } from "./components/dialog/save-dialog.component";
             ]),
         ]),
     ],
-    standalone: false
+    standalone: true,
+    imports: [
+      FormsModule,
+      NgClass,
+      NgTemplateOutlet,
+      MatFormFieldModule,
+      MatInputModule,
+      MatIconModule,
+      MatButtonModule,
+      MatTooltipModule,
+      MatDialogModule,
+      ItemListComponent,
+      WeatherPanelComponent,
+    ],
+    providers: [
+      { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
+    ],
 })
 export class CreateSuitcaseComponent implements OnInit {
   public suitcase: Suitcase;
@@ -95,14 +121,11 @@ export class CreateSuitcaseComponent implements OnInit {
     baby: [],
   };
 
-  constructor(
-    private _suitcaseService: SuitcaseService,
-    private readonly _changeDetector: ChangeDetectorRef,
-    private _elementRef: ElementRef,
-    private _renderer: Renderer2,
-    private _dialog: MatDialog,
-  ) {
-  }
+  private readonly _suitcaseService = inject(SuitcaseService);
+  private readonly _changeDetector = inject(ChangeDetectorRef);
+  private readonly _elementRef = inject(ElementRef);
+  private readonly _renderer = inject(Renderer2);
+  private readonly _dialog = inject(MatDialog);
 
   public ngOnInit() {
     const sevenDaysDate = new Date();

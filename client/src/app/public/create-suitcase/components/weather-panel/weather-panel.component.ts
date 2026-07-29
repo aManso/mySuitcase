@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, ChangeDetectionStrategy, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { SuitcaseService } from '../../../services/suitcase.service';
 import { Coordinates } from '../../../../core/models/trip';
 
 @Component({
@@ -8,7 +7,7 @@ import { Coordinates } from '../../../../core/models/trip';
     templateUrl: './weather-panel.component.html',
     styleUrls: ['./weather-panel.component.scss'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
 })
 export class WeatherPanelComponent implements OnInit {
 
@@ -20,12 +19,8 @@ export class WeatherPanelComponent implements OnInit {
   // It retrieves the daily forecast for the next 7 days
   private _weatherApiUrl = 'data/2.5/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly&APPID=196a1bbd3530f9a1bfe6b1d93626f518';
 
-  constructor(
-    private _http: HttpClient,
-    private _suitcaseService: SuitcaseService,
-    private readonly _changeDetector: ChangeDetectorRef,
-  ) {
-  }
+  private readonly _http = inject(HttpClient);
+  private readonly _changeDetector = inject(ChangeDetectorRef);
 
   public ngOnInit() {
     const headers= new HttpHeaders()

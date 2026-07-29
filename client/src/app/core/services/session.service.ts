@@ -1,4 +1,4 @@
-import { Injectable, Injector } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 const MINUTES_TO_SHOW_COUNTDOWN = 10;
@@ -13,8 +13,6 @@ export class SessionService {
   public showTimeOutPopUp$: Subject<number> = new Subject<number>();
   public logout$: Subject<void> = new Subject<void>();
   private _storageMethod = sessionStorage;
-
-  public constructor() {}
 
   public setStorageMethod(storageMethod: any): void {
     this._storageMethod = storageMethod;

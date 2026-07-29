@@ -1,16 +1,15 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import {SessionService} from '../core/services/session.service';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
     selector: 'my-suitcase-timeout-dialog',
     templateUrl: 'timeout-dialog.component.html',
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    imports: [MatDialogModule, MatButtonModule],
+    standalone: true
 })
 export class TimeoutDialogComponent {
-
-  constructor(
-    public sessionService: SessionService,
-  ) {
-  }
+  public sessionService = inject(SessionService);
 }

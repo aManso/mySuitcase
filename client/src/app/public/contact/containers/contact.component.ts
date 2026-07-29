@@ -1,15 +1,13 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { NavBarComponent } from '../../../core/shared/navbar/containers/navbar.component';
+import { FooterComponent } from '../../../core/shared/footer/containers/footer.component';
 
 @Component({
-    selector: 'app-home',
+    selector: 'app-contact',
     templateUrl: './contact.component.html',
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [NavBarComponent, FooterComponent],
 })
-export class ContactComponent implements OnInit {
-  constructor(
-  ) { }
-
-  ngOnInit() {
-  }
+export class ContactComponent {
 }
