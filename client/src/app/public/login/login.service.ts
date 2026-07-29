@@ -23,28 +23,33 @@ export class LoginService {
 
   public constructor() {
     this.logged$ = new Subject<User|boolean>();
-    this._sessionService.logout$.subscribe(() => {
-      this.logout();
+    this._sessionService.logout$.subscribe({
+      next: () => {
+        this.logout();
+      },
     });
   }
 
   public login(form: {email: string, password: string, keepSession: boolean}): Observable<User|boolean> {
     const $loginResponse = new Subject<User|boolean>();
-    (this._http.post(this.URL_CHECK_EXISTING_USER, form) as Observable<UserLogin>).subscribe((response: UserLogin|boolean) => {
-      if (typeof response === 'object') {
-        console.log('user logged', response.user);
-        this._selectedUser = response.user;
-        this._storageMethod = form.keepSession ? localStorage : sessionStorage;
-        this._sessionService.setStorageMethod(this._storageMethod);
-        this._sessionService.startSession(response.token);
-        $loginResponse.next(response.user);
-        this.logged$.next(response.user)
-      } else {
-        $loginResponse.next(response);
-        this.logged$.next(response)
-      }
-    }, (error: any) => {
-      $loginResponse.error(error);
+    (this._http.post(this.URL_CHECK_EXISTING_USER, form) as Observable<UserLogin>).subscribe({
+      next: (response: UserLogin|boolean) => {
+        if (typeof response === 'object') {
+          console.log('user logged', response.user);
+          this._selectedUser = response.user;
+          this._storageMethod = form.keepSession ? localStorage : sessionStorage;
+          this._sessionService.setStorageMethod(this._storageMethod);
+          this._sessionService.startSession(response.token);
+          $loginResponse.next(response.user);
+          this.logged$.next(response.user)
+        } else {
+          $loginResponse.next(response);
+          this.logged$.next(response)
+        }
+      },
+      error: (error: any) => {
+        $loginResponse.error(error);
+      },
     });
     return $loginResponse;
   }

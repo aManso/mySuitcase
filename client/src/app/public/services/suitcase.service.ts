@@ -18,13 +18,16 @@ export class SuitcaseService {
   public saveSuitcase(suitcase: Suitcase, existing = false): Observable<void> {
     const $saveResponse = new Subject<void>();
     const url = existing ? this.UPDATE_SUITCASE_API : this.SAVE_SUITCASE_API;
-    this._http.post(url, {suitcase}).subscribe((data: any) => {
-      this._currentSuitcase = data.response;
-      console.log('Suitcase saved! ', data.response);
-      $saveResponse.next();
-    }, (error: any) => {
-      console.log('There was a problem at saving the suitcase: ', error);
-      $saveResponse.error(error);
+    this._http.post(url, {suitcase}).subscribe({
+      next: (data: any) => {
+        this._currentSuitcase = data.response;
+        console.log('Suitcase saved! ', data.response);
+        $saveResponse.next();
+      },
+      error: (error: any) => {
+        console.log('There was a problem at saving the suitcase: ', error);
+        $saveResponse.error(error);
+      },
     });
     return $saveResponse;
   }
@@ -35,12 +38,15 @@ export class SuitcaseService {
 
   public fetchRecommendations(options: TripType, pageNumber: number, limit?: number): Observable<TripType> {
     const $saveResponse = new Subject<TripType>();
-    this._http.post(this.RECOMMENDATIONS_SUITCASE_API, {options, pageNumber, limit}).subscribe((response: TripType) => {
-      console.log('Recommendations retrieved', response);
-      $saveResponse.next(response);
-    }, (error: any) => {
-      console.log('There was a problem at retrieving the recommendations: ', error);
-      $saveResponse.error(error);
+    this._http.post(this.RECOMMENDATIONS_SUITCASE_API, {options, pageNumber, limit}).subscribe({
+      next: (response: TripType) => {
+        console.log('Recommendations retrieved', response);
+        $saveResponse.next(response);
+      },
+      error: (error: any) => {
+        console.log('There was a problem at retrieving the recommendations: ', error);
+        $saveResponse.error(error);
+      },
     });
     return $saveResponse;
   }

@@ -16,17 +16,20 @@ export class RegisterService {
 
   public register (user: User) {
     const $registerResponse = new Subject<User|boolean>();
-    (this._http.post(this.URL_REGISTER, user) as Observable<UserRegister|boolean>).subscribe((response: UserRegister|boolean) => {
-      if (typeof response === 'object') {
-        console.log('user registered', response.user);
-        this._loginService.setActiveUser(response.user);
-        this._sessionService.startSession(response.token);
-        $registerResponse.next(response.user);
-      } else {
-        $registerResponse.next(response);
-      }
-    }, (error: any) => {
-      $registerResponse.error(error);
+    (this._http.post(this.URL_REGISTER, user) as Observable<UserRegister|boolean>).subscribe({
+      next: (response: UserRegister|boolean) => {
+        if (typeof response === 'object') {
+          console.log('user registered', response.user);
+          this._loginService.setActiveUser(response.user);
+          this._sessionService.startSession(response.token);
+          $registerResponse.next(response.user);
+        } else {
+          $registerResponse.next(response);
+        }
+      },
+      error: (error: any) => {
+        $registerResponse.error(error);
+      },
     });
     return $registerResponse;
   }
