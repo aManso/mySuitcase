@@ -28,6 +28,8 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
+              "src/manifest.webmanifest",
+              "src/pwa-installer.js",
               "src/assets"
             ],
             "styles": [
@@ -95,6 +97,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
+              "src/manifest.webmanifest",
+              "src/pwa-installer.js",
               "src/assets"
             ],
             "styles": [
