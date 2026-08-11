@@ -1,15 +1,30 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { EXTENDED_SNACKBAR_TIME } from '../../config/config';
 import { FRONTEND_ERRORS } from '../../const/frontend-errors';
 import { FRONTEND_MESSAGES } from '../../const/frontend-messages';
 import { passwordMatchingValidator, passwordValidator } from '../../validators/validators';
 import { LoginService } from '../login.service';
+import { FooterComponent } from '../../shared/footer/containers/footer.component';
+import { NavBarComponent } from '../../shared/navbar/containers/navbar.component';
 
 @Component({
   selector: 'app-update-password',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NavBarComponent,
+    FooterComponent,
+  ],
   templateUrl: './update-password.component.html',
   styleUrls: ['./update-password.component.scss'],
 })

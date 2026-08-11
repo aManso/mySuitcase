@@ -1,4 +1,6 @@
-import { Component, OnInit, InjectionToken, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, InjectionToken, OnInit, inject } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from '../login.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -12,11 +14,24 @@ import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from '../../const/backend-errors'
 import { FRONTEND_ERRORS } from '../../const/frontend-errors';
 import { FRONTEND_MESSAGES } from '../../const/frontend-messages';
 import { ConfigService } from '../../services/config.service';
+import { FooterComponent } from '../../shared/footer/containers/footer.component';
+import { NavBarComponent } from '../../shared/navbar/containers/navbar.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 
 @Component({
   selector: 'app-login',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NavBarComponent,
+    FooterComponent,
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

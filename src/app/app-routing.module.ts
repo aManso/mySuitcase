@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DetailResolver } from './core/resolvers/detail-resolver';
 import { LoginService } from './core/login/login.service';
+import { BASE_ROUTE } from './core/login/containers/login.component';
 import { RegisterResolver } from './public/register/register-resolver';
 import { AuthorizationGuard } from './core/guards/authorization.guard';
 import { AuthenticationGuard } from './core/guards/authentication.guard';
 import { SettingsResolver } from './core/resolvers/settings-resolver';
+import { SessionService, SessionServiceConfig } from './core/session/session.service';
 
 // ROOT OF THE APPLICATION. The entire route system is pulled from here.
 const routes: Routes = [
@@ -33,7 +35,22 @@ const routes: Routes = [
       { path: '', redirectTo: 'users', pathMatch: 'full' },
     ],
   },
-  { path: 'login', loadChildren: () => import('./core/login/login.module').then(m => m.LoginModule) },
+  {
+    path: 'login',
+    loadComponent: () => import('./core/login/login-wrapper.component').then(c => c.LoginWrapperComponent),
+    providers: [
+      LoginService,
+      AuthenticationGuard,
+      AuthorizationGuard,
+      SessionService,
+      { provide: BASE_ROUTE, useValue: '/' },
+      { provide: SessionServiceConfig, useValue: { MINUTES_TO_SHOW_COUNTDOWN: undefined } },
+    ],
+    children: [
+      { path: '', loadComponent: () => import('./core/login/containers/login.component').then(c => c.LoginComponent) },
+      { path: 'update-password', pathMatch: 'prefix', loadComponent: () => import('./core/login/containers/update-password.component').then(c => c.UpdatePasswordComponent) },
+    ],
+  },
   {
     path: 'register',
     loadComponent: () => import('./public/register/register-wrapper.component').then(c => c.RegisterWrapperComponent),
