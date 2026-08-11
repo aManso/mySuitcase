@@ -1,13 +1,13 @@
-@import '_variables';
+@use '_variables' as vars;
 
 .mat-mdc-snack-bar-container {
     &.success-snackbar .mdc-snackbar__surface {
-        background-color: $success-color;
-        color: $white;
+        background-color: vars.$success-color;
+        color: vars.$white;
     }
 
     &.error-snackbar .mdc-snackbar__surface {
-        background-color: $error-color;
-        color: $white;
+        background-color: vars.$error-color;
+        color: vars.$white;
     }
 }   

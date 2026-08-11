@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { OnInit } from '@angular/core';
 
 @Component({
-  selector: 'footer-component',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
+    selector: 'footer-component',
+    templateUrl: './footer.component.html',
+    styleUrls: ['./footer.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: true,
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
   public fullYear: string;
+  private readonly _router = inject(Router);
 
-  public constructor(
-    private readonly _router: Router,
-  ) {
+  ngOnInit(): void {
     this.fullYear = new Date().getFullYear().toString();
   }
 

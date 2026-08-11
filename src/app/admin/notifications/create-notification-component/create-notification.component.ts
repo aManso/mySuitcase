@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { GENERAL_SNACKBAR_TIME } from 'src/app/core/config/config';
-import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
-import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
-import { Notification } from 'src/app/core/models/notification';
-import { SimpleOutput } from 'src/app/core/models/shared';
+import { GENERAL_SNACKBAR_TIME } from '../../../core/config/config';
+import { FRONTEND_ERRORS } from '../../../core/const/frontend-errors';
+import { FRONTEND_MESSAGES } from '../../../core/const/frontend-messages';
+import { Notification } from '../../../core/models/notification';
+import { SimpleOutput } from '../../../core/models/shared';
 import { AdminNotificationsService } from '../notifications.service';
 
 @Component({
@@ -16,13 +16,10 @@ import { AdminNotificationsService } from '../notifications.service';
 })
 export class CreateNotificationComponent {
   public notificationForm: FormGroup;
-
-  public constructor(
-    private _fb: FormBuilder,
-    private _notificationsService: AdminNotificationsService,
-    private _snackBar: MatSnackBar,
-    private _dialogRef: MatDialogRef<CreateNotificationComponent>
-  ) {}
+  private readonly _fb: FormBuilder = inject(FormBuilder);
+  private readonly _notificationsService: AdminNotificationsService = inject(AdminNotificationsService);
+  private readonly _snackBar: MatSnackBar = inject(MatSnackBar);
+  private readonly _dialogRef: MatDialogRef<CreateNotificationComponent> = inject(MatDialogRef<CreateNotificationComponent>);
 
   public ngOnInit() {
     this.notificationForm = this._setNotificationForm();

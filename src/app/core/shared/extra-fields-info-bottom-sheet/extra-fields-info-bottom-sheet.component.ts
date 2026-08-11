@@ -2,11 +2,15 @@ import {
   Component,
 } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-extra-fields-info-bottom-sheet',
   templateUrl: './extra-fields-info-bottom-sheet.component.html',
-  styleUrls: ['./extra-fields-info-bottom-sheet.component.scss']
+  styleUrls: ['./extra-fields-info-bottom-sheet.component.scss'],
+  standalone: true,
+  imports: [MatTooltipModule, MatIconModule],
 })
 export class ExtraFieldsInfoBottomSheetComponent {
   constructor(private readonly _bottomSheetRef: MatBottomSheetRef<ExtraFieldsInfoBottomSheetComponent>) {}

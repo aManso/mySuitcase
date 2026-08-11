@@ -1,12 +1,12 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
-import { GENERAL_SNACKBAR_TIME } from 'src/app/core/config/config';
-import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
-import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
-import { Notification } from 'src/app/core/models/notification';
-import { InfoDialogComponent } from 'src/app/core/shared/info-dialog/info-dialog.component';
+import { GENERAL_SNACKBAR_TIME } from '../../../core/config/config';
+import { FRONTEND_ERRORS } from '../../../core/const/frontend-errors';
+import { FRONTEND_MESSAGES } from '../../../core/const/frontend-messages';
+import { Notification } from '../../../core/models/notification';
+import { InfoDialogComponent } from '../../../core/shared/info-dialog/info-dialog.component';
 import { CreateNotificationComponent } from '../create-notification-component/create-notification.component';
 import { AdminNotificationsService } from '../notifications.service';
 
@@ -30,13 +30,11 @@ export class NotificationsComponent implements OnInit {
   displayedColumns: string[] = ['position', 'title', 'body', 'icon', 'send'];
   dataSource;
 
-  public constructor(
-    private _activatedRoute: ActivatedRoute,
-    private _dialog: MatDialog,
-    private _snackBar: MatSnackBar,
-    private _notificationService: AdminNotificationsService,
-    private _changeDetectorRef: ChangeDetectorRef,
-  ) {}
+  private readonly _dialog: MatDialog = inject(MatDialog);
+  private readonly _snackBar: MatSnackBar = inject(MatSnackBar);
+  private readonly _notificationService: AdminNotificationsService = inject(AdminNotificationsService);
+  private readonly _changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  private readonly _activatedRoute: ActivatedRoute = inject(ActivatedRoute);
 
   public ngOnInit(): void {
     this.notifications = this._activatedRoute.snapshot.data.notifications;

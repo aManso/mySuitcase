@@ -1,13 +1,14 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Coordinates } from '../../../../core/models/trip';
 import { environment } from '../../../../../environments/environment';
-import { ConfigService } from 'src/app/core/services/config.service';
+import { ConfigService } from '../../../../core/services/config.service';
 
 @Component({
   selector: 'my-suitcase-weather-panel',
   templateUrl: './weather-panel.component.html',
-  styleUrls: ['./weather-panel.component.scss']
+  styleUrls: ['./weather-panel.component.scss'],
+  standalone: true,
 })
 export class WeatherPanelComponent implements OnInit {
   private _maxAllowedDaysInAPI = 7;
@@ -19,13 +20,9 @@ export class WeatherPanelComponent implements OnInit {
   public weatherData: any;
   // It retrieves the daily forecast for the next 5 days
   private readonly URL_WEATHER_API = environment.apiUrl + 'weather';
-
-  constructor(
-    private _http: HttpClient,
-    private readonly _changeDetector: ChangeDetectorRef,
-    private readonly _configService: ConfigService,
-  ) {
-  }
+  private readonly _changeDetector = inject(ChangeDetectorRef);
+  private readonly _http = inject(HttpClient);
+  private readonly _configService = inject(ConfigService);
 
   public ngOnInit() {
     const url = this.URL_WEATHER_API + '?lat='+this.coordinates.lat.toString()+'&lon='+this.coordinates.lng.toString()+'&lan='+this.getLanguage(this._configService.getLocale());

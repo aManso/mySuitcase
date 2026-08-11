@@ -16,6 +16,12 @@
   ],
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
+    "extendedDiagnostics": {
+      "checks": {
+        "nullishCoalescingNotNullable": "suppress",
+        "optionalChainNotNullable": "suppress"
+      }
+    },
     "strictTemplates": true,
     "trace": true
   }

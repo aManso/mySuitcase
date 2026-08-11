@@ -1,9 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { SwUpdate } from '@angular/service-worker'
 
 import { AppConfig, MYSUITCASE_CONFIG_TOKEN } from './app.config';
-import { Languages } from './core/const/languages';
 import { ConfigService, META_TAGS } from './core/services/config.service';
 
 @Component({
@@ -12,16 +11,10 @@ import { ConfigService, META_TAGS } from './core/services/config.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public config: AppConfig;
-
-  constructor(
-    @Inject(MYSUITCASE_CONFIG_TOKEN) config: AppConfig,
-    private readonly _swUpdate: SwUpdate ,
-    private readonly _configService: ConfigService,
-    private readonly _metaService: Meta,
-  ) {
-    this.config = config;
-  }
+  private readonly _swUpdate: SwUpdate = inject(SwUpdate);
+  private readonly _configService: ConfigService = inject(ConfigService);
+  private readonly _metaService: Meta = inject(Meta);
+  protected readonly config: AppConfig = inject(MYSUITCASE_CONFIG_TOKEN);
 
   /**
    * When app is load and we init the first component, 

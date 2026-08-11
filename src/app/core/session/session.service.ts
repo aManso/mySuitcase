@@ -1,4 +1,4 @@
-import { Injectable, Optional } from '@angular/core';
+import { Injectable, inject, Optional } from '@angular/core';
 
 import { Subject } from 'rxjs';
 
@@ -16,8 +16,9 @@ export class SessionService {
   public showTimeOutPopUp$: Subject<number> = new Subject<number>();
   public logout$: Subject<void> = new Subject<void>();
   private _storageMethod: Storage;
+  private readonly _config = inject(SessionServiceConfig, { optional: true });
 
-  public constructor(@Optional() private _config: SessionServiceConfig) {
+  public constructor() {
     this.sessionSeconds = this._config && this._config.MINUTES_TO_SHOW_COUNTDOWN ? this._config.MINUTES_TO_SHOW_COUNTDOWN * 60: undefined;
     console.log(this.sessionSeconds + ' seconds of session');
   }

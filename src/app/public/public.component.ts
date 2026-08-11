@@ -1,14 +1,33 @@
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { RouterOutlet } from '@angular/router';
+import { MatDialog, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 import { LoginService } from '../core/login/login.service';
-import { SessionService } from '../core/session/session.service';
+import { SuitcaseService } from '../core/services/suitcase.service';
+import { DetailResolver } from '../core/resolvers/detail-resolver';
+import { NotificationsService } from './services/notifications.service';
+import { AuthenticationGuard } from '../core/guards/authentication.guard';
+import { AuthorizationGuard } from '../core/guards/authorization.guard';
+import { SessionService, SessionServiceConfig } from '../core/session/session.service';
 import { TimeoutDialogComponent } from '../core/session/timeout-dialog/timeout-dialog.component';
 
 @Component({
   selector: 'app-public',
   templateUrl: './public.component.html',
-  styles: [':host {display: inline-block; width: 100%; height: 100%}']
+  styles: [':host {display: inline-block; width: 100%; height: 100%}'],
+  standalone: true,
+  imports: [RouterOutlet, TimeoutDialogComponent],
+  providers: [
+    LoginService,
+    SuitcaseService,
+    DetailResolver,
+    NotificationsService,
+    AuthenticationGuard,
+    AuthorizationGuard,
+    SessionService,
+    { provide: SessionServiceConfig, useValue: { MINUTES_TO_SHOW_COUNTDOWN: 10 } },
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
+  ],
 })
 export class PublicComponent implements AfterViewInit {
 

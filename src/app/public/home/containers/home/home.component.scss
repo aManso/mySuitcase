@@ -1,4 +1,4 @@
-@import "./../../../../../scss/_variables";
+@use "./../../../../../scss/_variables" as *;
 
 :host {display: inline-block; width: 100%; height: 100%}
 

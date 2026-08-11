@@ -1,16 +1,19 @@
 import { Component, OnInit, InjectionToken } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-
-import { EXTENDED_SNACKBAR_TIME } from 'src/app/core/config/config';
-import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
-import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
+import { NavBarComponent } from '../../../core/shared/navbar/containers/navbar.component';
+import { FooterComponent } from '../../../core/shared/footer/containers/footer.component';
+import { FRONTEND_MESSAGES } from '../../../core/const/frontend-messages';
+import { EXTENDED_SNACKBAR_TIME } from '../../../core/config/config';
+import { FRONTEND_ERRORS } from '../../../core/const/frontend-errors';
 
 export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 
 @Component({
   selector: 'app-confirm-register',
   templateUrl: './confirm-register.component.html',
+  standalone: true,
+  imports: [NavBarComponent, FooterComponent],
 })
 export class ConfirmRegisterComponent implements OnInit{
 

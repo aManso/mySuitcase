@@ -1,15 +1,11 @@
-import { Injectable, Injector } from '@angular/core';
+import { inject, Injectable, Injector } from '@angular/core';
 import { HttpInterceptor } from '@angular/common/http';
 
 import { SessionService } from '../session/session.service';
 
 @Injectable()
 export class TokenInterceptorService implements HttpInterceptor {
-
-  public constructor(
-    private readonly _injector: Injector,
-  ) {
-  }
+  private readonly _injector = inject(Injector);
 
   public intercept(req, next) {
     // this is to make sure that the dependency exist

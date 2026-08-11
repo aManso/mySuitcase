@@ -1,16 +1,14 @@
-import { Injectable } from '@angular/core';
-import { Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 
+import { inject, Injectable } from '@angular/core';
+import { Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import { LoginService } from '../login/login.service';
 
 @Injectable()
 export class AuthenticationGuard  {
   public lastIntendedTargetRoute: string;
 
-  constructor(
-    private readonly _loginService: LoginService,
-    private readonly _router: Router,
-    ) {}
+  private readonly _loginService = inject(LoginService);
+  private readonly _router = inject(Router);
 
   /**
    * If not logged in and try to access parent route, redirect to login

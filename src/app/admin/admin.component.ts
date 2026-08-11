@@ -1,22 +1,26 @@
-import { Component, AfterViewInit, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, ChangeDetectionStrategy, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-
+import { LoginService } from '../core/login/login.service';
 import { SessionService } from '../core/session/session.service';
 import { TimeoutDialogComponent } from '../core/session/timeout-dialog/timeout-dialog.component';
-import {LoginService} from '../core/login/login.service';
 import { Logger } from '../core/services/logger.service';
+import { AdminNavBarModule } from './components/navbar/admin-navbar.module';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './admin.component.html',
+    templateUrl: './admin.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: true,
+    imports: [AdminNavBarModule],
 })
 export class AdminComponent implements AfterViewInit {
 
+  private readonly _loginService = inject(LoginService);
+  private readonly _elementRef = inject(ElementRef);
+  private readonly _sessionService = inject(SessionService);
+  private readonly _dialog = inject(MatDialog);
+
   public constructor(
-    private _loginService: LoginService,
-    private _sessionService: SessionService,
-    private _elementRef: ElementRef,
-    private _dialog: MatDialog,
     private _logger: Logger,
   ) {
     this._logger.log('AdminComponent')

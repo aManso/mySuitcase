@@ -1,5 +1,6 @@
-import { ChangeDetectorRef, ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, LOCALE_ID, Inject } from '@angular/core';
+import { ChangeDetectorRef, ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, LOCALE_ID, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -10,14 +11,16 @@ import { Suitcase, SuitcaseOverviewOutput } from "../../../../core/models/suitca
 import { RemoveDialogComponent } from "./dialog/remove-dialog.component";
 import { SimpleOutput } from "../../../../core/models/shared";
 import { EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME } from "../../../../core/config/config";
-import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
-import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
+import { FRONTEND_MESSAGES } from '../../../../core/const/frontend-messages';
+import { FRONTEND_ERRORS } from '../../../../core/const/frontend-errors';
 
 @Component({
   selector: 'my-suitcase-overview',
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [MatIconModule],
 })
 export class OverviewComponent implements OnInit {
   public suitcaseList: Suitcase[];
@@ -27,14 +30,12 @@ export class OverviewComponent implements OnInit {
   @Output()
   public dataLoaded: EventEmitter<void> = new EventEmitter<void>();
 
-  public constructor(
-    private readonly _suitcaseService: SuitcaseService,
-    private readonly _dialog: MatDialog,
-    private readonly _changeDetector: ChangeDetectorRef,
-    private readonly _router: Router,
-    private readonly _snackBar: MatSnackBar,
-    @Inject(LOCALE_ID) public localeId: string,
-  ) { }
+  private readonly _suitcaseService = inject(SuitcaseService);
+  private readonly _dialog = inject(MatDialog);
+  private readonly _changeDetector = inject(ChangeDetectorRef);
+  private readonly _router = inject(Router);
+  private readonly _snackBar = inject(MatSnackBar);
+  public localeId: string = inject(LOCALE_ID);
 
   /**
    * It fetches all the created suitcases and notify parent component

@@ -1,4 +1,4 @@
-import { Inject, Component, OnInit, InjectionToken } from '@angular/core';
+import { Component, OnInit, InjectionToken, inject } from '@angular/core';
 import { LoginService } from '../login.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -23,18 +23,14 @@ export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
 export class LoginComponent implements OnInit{
   public loginForm: FormGroup;
   public loginMode = true;
-
-  public constructor(
-    private readonly _loginService: LoginService,
-    private readonly _configService: ConfigService,
-    @Inject(BASE_ROUTE) private baseRoute: string[],
-    private readonly _authenticationGuard: AuthenticationGuard,
-    private readonly _router: Router,
-    private readonly _activatedRoute: ActivatedRoute,
-    private readonly _fb: FormBuilder,
-    private readonly _snackBar: MatSnackBar,
-  ) {
-  }
+  private readonly _loginService: LoginService = inject(LoginService);
+  private readonly _configService: ConfigService = inject(ConfigService);
+  private readonly _authenticationGuard: AuthenticationGuard = inject(AuthenticationGuard);
+  private readonly _router: Router = inject(Router);
+  private readonly _activatedRoute: ActivatedRoute = inject(ActivatedRoute);
+  private readonly _fb: FormBuilder = inject(FormBuilder);
+  private readonly _snackBar: MatSnackBar = inject(MatSnackBar);
+  private readonly _baseRoute: string[] = inject(BASE_ROUTE);
 
   public ngOnInit() {
     this._activatedRoute.queryParams.subscribe(params => {
@@ -83,7 +79,7 @@ export class LoginComponent implements OnInit{
   private login() {
     this._loginService.login(this.loginForm.value).subscribe((user: User|boolean) => {
       if (user) {
-        const targetUrl = this._authenticationGuard.lastIntendedTargetRoute ? this._authenticationGuard.lastIntendedTargetRoute : this.baseRoute;
+        const targetUrl = this._authenticationGuard.lastIntendedTargetRoute ? this._authenticationGuard.lastIntendedTargetRoute : this._baseRoute;
         this._router.navigate([targetUrl]);
       } else {
         this._showGeneralError();

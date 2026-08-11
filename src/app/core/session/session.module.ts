@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { inject, ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS as MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 
@@ -12,8 +12,10 @@ import { SessionService, SessionServiceConfig } from './session.service';
     providers: [{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } }]
 })
 export class SessionModule {
-  constructor(@Optional() @SkipSelf() parentModule?: SessionModule) {
-    if (parentModule) {
+  private readonly _parentModule: SessionModule = inject(SessionModule, { optional: true, skipSelf: true });
+
+  constructor() {
+    if (this._parentModule) {
       throw new Error(
         'SessionModule is already loaded. Import it in the PublicModule or AdminModule only');
     }

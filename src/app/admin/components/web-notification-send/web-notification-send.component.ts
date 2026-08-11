@@ -1,11 +1,10 @@
 import {
-  Component, Input,
+  Component, inject, Input,
 } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { EXTENDED_SNACKBAR_TIME } from 'src/app/core/config/config';
-import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
-import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
-import { Notification } from 'src/app/core/models/notification';
+import { EXTENDED_SNACKBAR_TIME } from '../../../../app/core/config/config';
+import { FRONTEND_ERRORS } from '../../../../app/core/const/frontend-errors';
+import { FRONTEND_MESSAGES } from '../../../../app/core/const/frontend-messages';
 
 import { AdminNotificationsService } from '../../notifications/notifications.service';
 
@@ -16,12 +15,8 @@ import { AdminNotificationsService } from '../../notifications/notifications.ser
 })
 export class WebNotificationSendComponent {
   @Input() notificationId: string;
-
-  constructor(
-    private _notificationsService: AdminNotificationsService,
-    private _snackBar: MatSnackBar,
-  ) {
-  }
+  private readonly _notificationsService: AdminNotificationsService = inject(AdminNotificationsService);
+  private readonly _snackBar: MatSnackBar = inject(MatSnackBar);
 
   public sendNotification() {
     this._notificationsService.sendNotification(this.notificationId).subscribe(()=> {

@@ -1,4 +1,4 @@
-@import "./../../../../scss/variables";
+@use "./../../../../scss/variables" as vars;
 
 /*=================== contact banner start ====================*/
 
@@ -21,7 +21,7 @@
       margin-bottom: 0;
 
       a{
-        color: $title-color;
+        color: vars.$title-color;
       }
     }
 

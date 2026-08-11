@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -16,6 +17,8 @@ import { LoginService } from '../../login/login.service';
   selector: 'web-notification-subscriber',
   styles: [`.subscribe-button{ display: flex; align-items: center; width: 200px; justify-content: space-between;}`],
   templateUrl: './web-notification-subscriber.component.html',
+  standalone: true,
+  imports: [MatIconModule],
 })
 export class WebNotificationSubscriberComponent {
 

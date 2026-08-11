@@ -1,10 +1,10 @@
-@import "./../../../../../scss/_variables";
+@use "./../../../../../scss/_variables" as vars;
 
 :host {
   display: inline-block;
   width: 100%;
-  min-height: calc(#{$min-header-height} - #{$default-padding});
-  margin-bottom: $default-padding;
+  min-height: calc(vars.$min-header-height - vars.$default-padding);
+  margin-bottom: vars.$default-padding;
 }
 
 .logo {

@@ -4,10 +4,12 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Renderer2,
-  ViewChildren,
   QueryList,
-  ViewEncapsulation,
   HostBinding,
+  ElementRef,
+  viewChildren,
+  ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
@@ -17,41 +19,68 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-import { MatDialog } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { NgClass, NgTemplateOutlet } from '@angular/common';
+import { MatDialog, MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { Observable } from 'rxjs';
 
-import { SaveDialogComponent } from "./components/dialog/save-dialog.component";
 import { GENERAL_SNACKBAR_TIME } from "../../core/config/config";
-import { ConfigService } from 'src/app/core/services/config.service';
 import { SuitcaseService } from '../../core/services/suitcase.service';
 import { Suitcase } from '../../core/models/suitcase';
 import { TripItem, TripType } from '../../core/models/trip';
-import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
-import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
+import { SaveDialogComponent } from "./components/dialog/save-dialog.component";
+import { ItemListComponent } from "./components/item-list/item-list.component";
+import { WeatherPanelComponent } from "./components/weather-panel/weather-panel.component";
+import { ConfigService } from '../../core/services/config.service';
+import { FRONTEND_ERRORS } from '../../core/const/frontend-errors';
+import { FRONTEND_MESSAGES } from '../../core/const/frontend-messages';
 
 @Component({
-  selector: 'app-create-suitcase',
-  templateUrl: './create-suitcase.component.html',
-  styleUrls: ['./create-suitcase.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  animations: [
-    trigger('showHiddenItem', [
-      state('hidden', style({
-        opacity: 0,
-      })),
-      state('show', style({
-        opacity: 1,
-      })),
-      transition('hidden => show', [
-        animate('1s')
-      ]),
-      transition('show => hidden', [
-        animate('1s')
-      ]),
-    ]),
-  ],
+    selector: 'app-create-suitcase',
+    templateUrl: './create-suitcase.component.html',
+    styleUrls: ['./create-suitcase.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    animations: [
+        trigger('showHiddenItem', [
+            state('hidden', style({
+                opacity: 0,
+            })),
+            state('show', style({
+                opacity: 1,
+            })),
+            transition('hidden => show', [
+                animate('1s')
+            ]),
+            transition('show => hidden', [
+                animate('1s')
+            ]),
+        ]),
+    ],
+    standalone: true,
+    imports: [
+      FormsModule,
+      NgClass,
+      NgTemplateOutlet,
+      MatFormFieldModule,
+      MatInputModule,
+      MatIconModule,
+      MatButtonModule,
+      MatTooltipModule,
+      MatDialogModule,
+      ItemListComponent,
+      WeatherPanelComponent,
+    ],
+    providers: [
+      { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
+    ],
 })
 export class CreateSuitcaseComponent implements OnInit {
   public suitcase: Suitcase;
@@ -72,15 +101,15 @@ export class CreateSuitcaseComponent implements OnInit {
   private _locale: string
 
   // Each of the categories in the suggestion column
-  @ViewChildren('common') viewChildrenCommon!: QueryList<any>;
-  @ViewChildren('cultural') viewChildrenCultural!: QueryList<any>;
-  @ViewChildren('cycling') viewChildrenCycling!: QueryList<any>;
-  @ViewChildren('diving') viewChildrenDiving!: QueryList<any>;
-  @ViewChildren('beach') viewChildrenBeach!: QueryList<any>;
-  @ViewChildren('mountain') viewChildrenMountain!: QueryList<any>;
-  @ViewChildren('pet') viewChildrenPet!: QueryList<any>;
-  @ViewChildren('baby') viewChildrenBaby!: QueryList<any>;
-  @ViewChildren('suitcase') viewChildrenSuitcase!: QueryList<any>;
+  readonly viewChildrenCommon = viewChildren<ItemListComponent>('common');
+  readonly viewChildrenCultural = viewChildren<ItemListComponent>('cultural');
+  readonly viewChildrenCycling = viewChildren<ItemListComponent>('cycling');
+  readonly viewChildrenDiving = viewChildren<ItemListComponent>('diving');
+  readonly viewChildrenBeach = viewChildren<ItemListComponent>('beach');
+  readonly viewChildrenMountain = viewChildren<ItemListComponent>('mountain');
+  readonly viewChildrenPet = viewChildren<ItemListComponent>('pet');
+  readonly viewChildrenBaby = viewChildren<ItemListComponent>('baby');
+  readonly viewChildrenSuitcase = viewChildren<ElementRef>('suitcase');
 
   // headers of the subcategories
   public subsubheaders = {
@@ -117,17 +146,14 @@ export class CreateSuitcaseComponent implements OnInit {
     diving: [] as TripItem[],
   };
 
-  constructor(
-    private readonly _suitcaseService: SuitcaseService,
-    private readonly _changeDetector: ChangeDetectorRef,
-    private readonly _renderer: Renderer2,
-    private readonly _dialog: MatDialog,
-    private readonly _router: Router,
-    private readonly _snackBar: MatSnackBar,
-    private readonly _activatedRoute: ActivatedRoute,
-    private readonly _configService: ConfigService,
-  ) {
-  }
+  private readonly _suitcaseService = inject(SuitcaseService);
+  private readonly _changeDetector = inject(ChangeDetectorRef);
+  private readonly _renderer = inject(Renderer2);
+  private readonly _dialog = inject(MatDialog);
+  private readonly _router = inject(Router);
+  private readonly _snackBar = inject(MatSnackBar);
+  private readonly _activatedRoute = inject(ActivatedRoute);
+  private readonly _configService = inject(ConfigService);
 
   public ngOnInit() {    
     // Fetch the suitcase created in the previous steps with the basic information
@@ -224,27 +250,27 @@ export class CreateSuitcaseComponent implements OnInit {
           this.suggestionList[type].currentPriority++;
           this.checkRecommendations(type);
         }
-        let viewChildren: QueryList<any>;
+        let childList: readonly ItemListComponent[];
         switch (type) {
-          case 'cycling': viewChildren = this.viewChildrenCycling;
+          case 'cycling': childList = this.viewChildrenCycling();
             break;
-          case 'diving': viewChildren = this.viewChildrenDiving;
+          case 'diving': childList = this.viewChildrenDiving();
             break;
-          case 'beach': viewChildren = this.viewChildrenBeach;
+          case 'beach': childList = this.viewChildrenBeach();
             break;
-          case 'cultural': viewChildren = this.viewChildrenCultural;
+          case 'cultural': childList = this.viewChildrenCultural();
             break;
-          case 'mountain': viewChildren = this.viewChildrenMountain;
+          case 'mountain': childList = this.viewChildrenMountain();
             break;
-          case 'pet': viewChildren = this.viewChildrenPet;
+          case 'pet': childList = this.viewChildrenPet();
             break;
-          case 'baby': viewChildren = this.viewChildrenBaby;
+          case 'baby': childList = this.viewChildrenBaby();
             break;
-          default: viewChildren = this.viewChildrenCommon;
+          default: childList = this.viewChildrenCommon();
             break;
         }
         this._changeDetector.detectChanges();
-        viewChildren.toArray()[0].ngOnInit();
+        childList[0].ngOnInit();
         this._changeDetector.detectChanges();
       });
     }

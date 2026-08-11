@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
+import { NgIf, NgTemplateOutlet } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   trigger,
@@ -9,13 +10,19 @@ import {
 } from '@angular/animations';
 import { MatDialog } from '@angular/material/dialog';
 
+import { NavBarComponent } from '../../../../core/shared/navbar/containers/navbar.component';
+import { FooterComponent } from '../../../../core/shared/footer/containers/footer.component';
+import { OverviewComponent } from '../overview/overview.component';
+import { CreateSuitcaseFormComponent } from '../create-suitcase-form/create-suitcase-form.component';
+import { PwaInstallerComponent } from '../../../../core/shared/pwa-installer/pwa-installer.component';
+import { WebNotificationSubscriberComponent } from '../../../../core/shared/web-notification-subscriber/web-notification-subscriber.component';
 import { LoginService } from '../../../../core/login/login.service';
 import { User } from '../../../../core/models/user';
 import { SessionService } from '../../../../core/session/session.service';
 import { SuitcaseService} from '../../../../core/services/suitcase.service';
 import { MaxSuitcasesReachedDialogComponent} from './max-suitcases-reached-dialog/max-suitcases-reached-dialog.component';
-import { ConfigService, configServiceFactory } from 'src/app/core/services/config.service';
-import { UserService } from 'src/app/core/services/user.service';
+import { ConfigService, configServiceFactory } from '../../../../core/services/config.service';
+import { UserService } from '../../../../core/services/user.service';
 
 const FULL_SCREEN_ANIMATION_TIME = 1000;
 const DISAPPEAR_ANIMATION_TIME = 1000; // in sync with animation made by keyFrames in scss file
@@ -42,7 +49,9 @@ const DISAPPEAR_ANIMATION_TIME = 1000; // in sync with animation made by keyFram
       ]),
     ]),
   ],
-  providers: [{ provide: ConfigService, useFactory: configServiceFactory}]
+  providers: [{ provide: ConfigService, useFactory: configServiceFactory}],
+  standalone: true,
+  imports: [NgIf, NgTemplateOutlet, NavBarComponent, FooterComponent, CreateSuitcaseFormComponent, OverviewComponent, PwaInstallerComponent, WebNotificationSubscriberComponent],
 })
 export class HomeComponent implements OnInit {
   public isAdmin: boolean;
@@ -50,17 +59,14 @@ export class HomeComponent implements OnInit {
   public showOverview = false;
   @ViewChild('overview') private overviewContainer: ElementRef;
   private _maximumSuitcases: number;
-
-  constructor(
-    private readonly _loginService: LoginService,
-    private readonly _userService: UserService,
-    private readonly _router: Router,
-    private readonly _activatedRoute: ActivatedRoute,
-    private readonly _dialog: MatDialog,
-    private readonly _sessionService: SessionService,
-    private readonly _suitcaseService: SuitcaseService,
-    private readonly _configService: ConfigService,
-  ) { }
+  private readonly _loginService = inject(LoginService);
+  private readonly _userService = inject(UserService);
+  private readonly _router = inject(Router);
+  private readonly _activatedRoute = inject(ActivatedRoute);
+  private readonly _dialog = inject(MatDialog);
+  private readonly _sessionService = inject(SessionService);
+  private readonly _suitcaseService = inject(SuitcaseService);
+  private readonly _configService = inject(ConfigService);
 
   /**
    * We check if the user is logged in and if so we recover it either from the service if it is navegating throguht the website

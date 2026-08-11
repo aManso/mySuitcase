@@ -1,18 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgIf } from '@angular/common';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
+import { NavBarComponent } from '../../../core/shared/navbar/containers/navbar.component';
+import { FooterComponent } from '../../../core/shared/footer/containers/footer.component';
 
-import { EXTENDED_SNACKBAR_TIME, MAX_EMAIL_LENGTH, MAX_MESSAGE_LENGTH, MAX_NAME_LENGTH, MIN_MESSAGE_LENGTH } from 'src/app/core/config/config';
-import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from 'src/app/core/const/backend-errors';
-import { FRONTEND_ERRORS } from 'src/app/core/const/frontend-errors';
-import { FRONTEND_MESSAGES } from 'src/app/core/const/frontend-messages';
+import { EXTENDED_SNACKBAR_TIME, MAX_EMAIL_LENGTH, MAX_MESSAGE_LENGTH, MAX_NAME_LENGTH, MIN_MESSAGE_LENGTH } from '../../../core/config/config';
+import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from '../../../core/const/backend-errors';
+import { FRONTEND_ERRORS } from '../../../core/const/frontend-errors';
+import { FRONTEND_MESSAGES } from '../../../core/const/frontend-messages';
 import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
+  standalone: true,
+  imports: [NgIf, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, NavBarComponent, FooterComponent],
 })
 export class ContactComponent implements OnInit {
   public contactForm: FormGroup;

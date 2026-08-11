@@ -1,5 +1,5 @@
-@import "./variables";
+@use "./variables" as vars;
 
 .min-full-height {
-    min-height: calc(100% - #{$max-footer-height} - #{$min-header-height});
+    min-height: calc(100% - #{vars.$max-footer-height} - #{vars.$min-header-height});
 }

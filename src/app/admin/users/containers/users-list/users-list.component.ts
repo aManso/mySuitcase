@@ -1,21 +1,22 @@
-import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { Component, ChangeDetectorRef, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
+import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { User } from '../../../../core/models/user';
 import { AdminUserService } from '../../admin-user.service';
 
 @Component({
-  selector: 'app-users-list',
-  templateUrl: './users-list.component.html',
+    selector: 'app-users-list',
+    templateUrl: './users-list.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: true,
+    imports: [ReactiveFormsModule],
 })
 export class UsersListComponent implements OnInit {
   public result: any;
   public usersForm: UntypedFormGroup;
 
-  constructor(
-    private _userService: AdminUserService,
-    private readonly _changeDetector: ChangeDetectorRef,
-    private _fb: UntypedFormBuilder,
-  ) {}
+  private readonly _userService = inject(AdminUserService);
+  private readonly _changeDetector = inject(ChangeDetectorRef);
+  private readonly _fb = inject(UntypedFormBuilder);
 
   ngOnInit() {
     this.usersForm = this._fb.group({
@@ -60,12 +61,15 @@ export class UsersListComponent implements OnInit {
       joiningDate: new Date(),
       name: 'paco',
       password: '1234',
-    }).subscribe((user: User) => {
-      this.result = user;
-      this._changeDetector.detectChanges();
-    }, (error) => {
-      // TODO replace for a info message
-      console.error(error);
+    }).subscribe({
+      next: (user: User) => {
+        this.result = user;
+        this._changeDetector.detectChanges();
+      },
+      error: (error) => {
+        // TODO replace for a info message
+        console.error(error);
+      },
     });
   }
 

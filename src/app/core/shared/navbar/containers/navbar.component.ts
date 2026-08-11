@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NgIf, AsyncPipe } from '@angular/common';
+import { RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
 
 import { SessionService } from '../../../session/session.service';
 import { LoginService } from '../../../login/login.service';
-import { environment } from 'src/environments/environment';
-import { Languages } from 'src/app/core/const/languages';
-import { ConfigService } from 'src/app/core/services/config.service';
+import { environment } from '../../../../../environments/environment';
+import { Languages } from '../../../const/languages';
+import { ConfigService } from '../../../services/config.service';
 
 @Component({
   selector: 'navbar-component',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  standalone: true,
+  imports: [NgIf, AsyncPipe, RouterLink, RouterLinkActive, MatTooltipModule, MatIconModule],
 })
 export class NavBarComponent {
   public showLanguages = false;

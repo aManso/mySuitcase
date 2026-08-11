@@ -1,27 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+/// <reference types="google.maps" />
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Validators, FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+import { Validators, FormGroup, FormControl, ReactiveFormsModule, UntypedFormBuilder } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, ThemePalette } from '@angular/material/core';
-import { ProgressBarMode } from '@angular/material/progress-bar';
+import { MatProgressBarModule, ProgressBarMode } from '@angular/material/progress-bar';
 import { MatDialog } from '@angular/material/dialog';
 import {
   MAT_MOMENT_DATE_FORMATS,
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
-
 import { CreateSuitcaseFormSteps } from './create-suitcase-form.interfaces';
 import { TripLocation, TripType } from '../../../../core/models/trip';
 import { Suitcase } from '../../../../core/models/suitcase';
 import { SuitcaseService } from '../../../../core/services/suitcase.service';
-import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from 'src/app/core/const/backend-errors';
-import { ErrorDialogComponent } from 'src/app/core/shared/error-dialog/error-dialog.component';
-import { MAX_NAME_LENGTH } from 'src/app/core/config/config';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MAX_NAME_LENGTH } from '../../../../core/config/config';
+import { BACKEND_ERROR_TYPES, BACKEND_ERRORS } from '../../../../core/const/backend-errors';
+import { ErrorDialogComponent } from '../../../../core/shared/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'my-suitcase-create-suitcase-form',
   templateUrl: './create-suitcase-form.component.html',
   styleUrls: ['./create-suitcase-form.component.scss'],
+  standalone: true,
   providers: [
     {
       provide: DateAdapter,
@@ -30,6 +38,17 @@ import { MAX_NAME_LENGTH } from 'src/app/core/config/config';
     },
     { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
   ],
+    imports: [
+      ReactiveFormsModule,
+      MatProgressBarModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatIconModule,
+      MatButtonModule,
+      MatDatepickerModule,
+      MatNativeDateModule,
+      MatCheckboxModule,
+    ],
 })
 export class CreateSuitcaseFormComponent implements OnInit {
   public progressBarValue: number;
@@ -65,12 +84,10 @@ export class CreateSuitcaseFormComponent implements OnInit {
   lat = 41.646961;
   lng = -4.745940;
 
-  constructor(
-    private readonly _formBuilder: FormBuilder,
-    private readonly _router: Router,
-    private readonly _suitcaseService: SuitcaseService,
-    private readonly _dialog: MatDialog,
-  ) { }
+  private readonly _formBuilder = inject(UntypedFormBuilder);
+  private readonly _router = inject(Router);
+  private readonly _suitcaseService = inject(SuitcaseService);
+  private readonly _dialog = inject(MatDialog);
 
   ngOnInit(): void {
     this.currentQuestion = this.steps[0].stepNr;
@@ -271,9 +288,6 @@ export class CreateSuitcaseFormComponent implements OnInit {
       this._router.navigate(['/create-suitcase']);
     }, 1000);
   }
-
-
-
 
   // ******* MAP **********
 

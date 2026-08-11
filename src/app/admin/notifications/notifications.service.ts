@@ -2,8 +2,8 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
 import { map } from "rxjs/operators";
-import { Notification, NotificationOutput } from "src/app/core/models/notification";
-import { environment } from "src/environments/environment";
+import { Notification, NotificationOutput } from "../../core/models/notification";
+import { environment } from "../../../environments/environment";
 
 @Injectable()
 export class AdminNotificationsService {

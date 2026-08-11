@@ -3,8 +3,8 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable, of } from "rxjs";
 import { catchError, retry, map } from 'rxjs/operators';
-import { User } from "src/app/core/models/user";
-import { environment } from "src/environments/environment";
+import { User } from "../../core/models/user";
+import { environment } from "../../../environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class AdminUserService {
@@ -37,7 +37,7 @@ export class AdminUserService {
       } 
 
     public getUsers(): Observable<User[]> {
-        return this._http.get(this.URL_API).pipe(
+        return this._http.get<User[]>(this.URL_API).pipe(
           retry(3),
           map(res => {
             if (!res) {

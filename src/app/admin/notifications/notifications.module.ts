@@ -14,7 +14,7 @@ import { AdminNotificationsService } from './notifications.service';
 import { NotificationsResolver } from './notifications-resolver';
 import { WebNotificationSendComponent } from '../components/web-notification-send/web-notification-send.component';
 import { CreateNotificationComponent } from './create-notification-component/create-notification.component';
-import { SharedModule } from 'src/app/core/shared/shared.module';
+import { SharedModule } from '../../core/shared/shared.module';
 
 @NgModule({
 

@@ -1,25 +1,24 @@
-@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
-
 /* Directory file of styles. To see style go to scss/ */
-@import "./scss/_theme";
-@import "./scss/_variables";
-@import "./scss/_layout";
-@import "./scss/_mixins";
-@import "./scss/_reset";
-@import "./scss/_header";
-@import "./scss/_responsive";
-@import "./scss/_banner";
-@import "./scss/_section-intro";
-@import "./scss/_home";
-// @import "scss/gallery";
-@import "./scss/general";
-@import "./scss/form";
-@import "./scss/blog";
-@import "./scss/btn";
-@import "./scss/footer";
-@import "./scss/dialogs";
-@import "./scss/icons";
-@import "./scss/snackbar";
+
+@use "./scss/theme";
+@use "./scss/_variables";
+@use "./scss/_layout";
+@use "./scss/_mixins";
+@use "./scss/reset";
+@use "./scss/header";
+@use "./scss/responsive";
+@use "./scss/banner";
+@use "./scss/section-intro";
+@use "./scss/home";
+// @use "./scss/gallery";
+@use "./scss/general";
+@use "./scss/form";
+@use "./scss/blog";
+@use "./scss/btn";
+@use "./scss/footer";
+@use "./scss/dialogs";
+@use "./scss/icons";
+@use "./scss/snackbar";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

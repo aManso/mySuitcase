@@ -1,3 +1,6 @@
+@use 'variables' as vars; //declare above imports
+@use 'mixins' as mixins; //declare above imports
+
 /* header style start ============================================================================================ */
 .header_area{
   position: absolute;
@@ -68,8 +71,8 @@
             margin-right: 35px;
               .nav-link{
                   // font: 500 12px/100px $rob;
-                  font-family: $text-font;
-                  color: $title-color;
+                  font-family: vars.$text-font;
+                  color: vars.$title-color;
                   text-transform: capitalize;
                   font-weight: 500;
                   padding: 10px 0;
@@ -82,7 +85,7 @@
               }
                &:hover, &.active{
                    .nav-link{
-                       color: $primary-color;
+                       color: vars.$primary-color;
                        opacity: 1;
                    }
                }
@@ -134,7 +137,7 @@
                           .nav-link{
                               line-height: 45px;
                               // color: $dip;
-                              color: $primary-color !important;
+                              color: vars.$primary-color !important;
                               padding: 0px 30px;
                               transition: all 150ms linear;
                               display: block;
@@ -145,7 +148,7 @@
                           }
                           &:hover{
                               .nav-link{
-                                background-color: $primary-color;
+                                background-color: vars.$primary-color;
                                   color: #fff !important;
                               }
                           }
@@ -195,7 +198,7 @@
       -webkit-transition: transform 500ms ease, background 500ms ease;
       box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
       .navbar{
-        background: #7676ff;
+        background: vars.$primary-color;
         .nav{
           .nav-item{
             .nav-link{
@@ -205,7 +208,7 @@
 
             &:hover, &.active{
               .nav-link{
-                  color: $white;
+                  color: vars.$white;
               }
           }
           }
@@ -277,7 +280,7 @@ background: #ec9d5f;
     text-transform: uppercase;
     font-size: 12px;
     margin-right: 50px;
-    @include transition;
+    @include mixins.transition;
     &:last-child{
       margin-right: 0px;
     }

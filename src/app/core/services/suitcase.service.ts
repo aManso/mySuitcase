@@ -1,4 +1,4 @@
-import { Optional, Injectable, Inject, LOCALE_ID } from '@angular/core';
+import { Injectable, LOCALE_ID, inject } from '@angular/core';
 import { HttpClient, HttpEvent, HttpEventType, HttpHeaders, HttpRequest } from '@angular/common/http';
 
 import { Observable, Subject } from 'rxjs';
@@ -29,12 +29,9 @@ export class SuitcaseService {
   private _currentSuitcase: Suitcase;
   public totalSuitcases: number;
 
-  public constructor(
-    private readonly _http: HttpClient,
-    @Inject(LOCALE_ID) public localeId: string,
-    @Optional() private readonly _sessionService?: SessionService,
-  ) {
-  }
+  private readonly _http: HttpClient = inject(HttpClient);
+  private readonly _sessionService: SessionService = inject(SessionService, {optional: true});
+  protected readonly locale: string = inject(LOCALE_ID);
 
   public saveSuitcase(suitcase: Suitcase, existing = false): Observable<string|void> {
     const $saveResponse = new Subject<void>();
@@ -133,8 +130,8 @@ export class SuitcaseService {
 
   private _getTranslatedItems(items: TripItem[]): TripItem[] {
     // If current app language is not EN get the translated name
-    return Languages.en != this.localeId ? items.map((item: TripItem)=> {
-      item.name = item[this.localeId + '_name'] || item.name;
+    return Languages.en != this.locale ? items.map((item: TripItem)=> {
+      item.name = item[this.locale + '_name'] || item.name;
       return item
     }) : items;
   }
@@ -142,7 +139,7 @@ export class SuitcaseService {
   // *********************** OVERVIEW ************************
   public retrieveSuitcaseOverview(input: SuitcaseOverviewInput): Observable<SuitcaseOverviewOutput> {
     const $overviewResponse = new Subject<SuitcaseOverviewOutput>();
-    this._http.post(this.SUITCASE_OVERVIEW_API, input).subscribe((response: SuitcaseOverviewOutput) => {
+    this._http.post<SuitcaseOverviewOutput>(this.SUITCASE_OVERVIEW_API, input).subscribe((response: SuitcaseOverviewOutput) => {
       console.log('Suitcase overview retrieved', response);
       this.totalSuitcases = response.list.length;
       $overviewResponse.next(response);
@@ -155,7 +152,7 @@ export class SuitcaseService {
 
   public removeSuitcase(id: string): Observable<SimpleOutput> {
     const $response = new Subject<SimpleOutput>();
-    this._http.post(this.REMOVE_SUITCASE_API, {id}).subscribe((response: SimpleOutput) => {
+    this._http.post<SimpleOutput>(this.REMOVE_SUITCASE_API, {id}).subscribe((response: SimpleOutput) => {
       console.log('Suitcase removed', response);
       this.totalSuitcases--;
       $response.next(response);
@@ -173,7 +170,7 @@ export class SuitcaseService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this._sessionService.getToken()}`
     });
-    this._http.get(this.SUITCASE_DETAIL_API + name, {headers: headers}).subscribe((response: SuitcaseDetailOutput) => {
+    this._http.get<SuitcaseDetailOutput>(this.SUITCASE_DETAIL_API + name, {headers: headers}).subscribe((response: SuitcaseDetailOutput) => {
       console.log('Suitcase detail retrieved', response);
       $detailResponse.next(response);
       $detailResponse.complete();

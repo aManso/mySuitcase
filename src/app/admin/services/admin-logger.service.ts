@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Logger } from "src/app/core/services/logger.service";
+import { Logger } from "../../core/services/logger.service";
 
 @Injectable()
 export class AdminLogger extends Logger {

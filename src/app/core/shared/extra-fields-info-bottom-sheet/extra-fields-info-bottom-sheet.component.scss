@@ -1,4 +1,4 @@
-@import "./../../../../scss/variables";
+@use "./../../../../scss/variables" as vars;
 
 :host {
     display: inline-block;
@@ -22,6 +22,6 @@
         }
     }
     .close  {
-        color: $primary-color;
+        color: vars.$primary-color;
     }
 }

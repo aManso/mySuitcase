@@ -1,12 +1,12 @@
-@import "./../../../../../scss/_variables";
-@import "./../../../../../scss/_mixins";
+@use "../../../../../scss/_variables" as vars;
+@use "../../../../../scss/_mixins" as mixins;
 
 .card-img {
   height: 250px;
 }
 
 .overview-title {
-  color: $primary-color;
+  color: vars.$primary-color;
 }
 
 .overview-card {
@@ -15,7 +15,7 @@
   position: relative;
 
   .overview-card-overlay {
-    background: $white;
+    background: vars.$white;
     bottom: 0;
     left: 0;
     opacity: 0.9;
@@ -24,7 +24,7 @@
     transform: translateY(40px);
     width: 100%;
     z-index: -1;
-    @include transition;
+    @include mixins.transition;
 
     h4{
       margin-bottom: 0;

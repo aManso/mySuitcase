@@ -1,11 +1,8 @@
-import { Injectable, LOCALE_ID, Inject } from '@angular/core';
+import { Injectable, LOCALE_ID, inject } from '@angular/core';
 
 @Injectable({providedIn: 'root'})
 export class PWAInstallerService {
-
-    constructor(
-        @Inject(LOCALE_ID) public locale: string
-    ) { }
+    protected readonly locale: string = inject(LOCALE_ID);
 
     public loadScript() {
         let body = <HTMLDivElement> document.body;

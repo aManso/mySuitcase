@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-design',
-  templateUrl: './not-found.component.html',
-  styles: ['section:after {height: 0px}'],
-  standalone: true,
+    selector: 'page-not-found',
+    templateUrl: './not-found.component.html',
+    styles: ['section:after {height: 0px}'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: true
 })
 export class NotFoundComponent{
 }

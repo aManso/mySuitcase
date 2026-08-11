@@ -7,54 +7,28 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "changeDetection": "OnPush",
-          "displayBlock": true,
-          "flat": false,
-          "inlineStyle": false,
-          "inlineTemplate": false,
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
+          "style": "scss"
         }
       },
       "root": "",
       "sourceRoot": "src",
       "prefix": "my-suitcase",
-      "i18n": {
-        "sourceLocale": "en-US",
-        "locales": {
-          "es-ES": {
-            "translation": "src/locale/messages.es.xlf"
-          },
-          "fr-FR": {
-            "translation": "src/locale/messages.fr.xlf"
-          }
-        }
-      },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "baseHref":"/",
-            "aot": true,
-            "outputPath": "dist/my-suitcase",
+            "outputPath": {
+              "base": "dist/my-suitcase"
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "src/polyfills.ts"
+            ],
             "tsConfig": "tsconfig.app.json",
+            "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/offline.html",
-              "src/sw-register.js",
-              "src/sw.js",
-              "src/pwa-installer.js",
-              "src/manifest.webmanifest",
-              "src/robots.txt",
-              "src/sitemap.xml",
-              "src/googlef62ba29c6fd47558.html"
+              "src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
@@ -62,17 +36,13 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ],
-            "vendorChunk": true,
             "extractLicenses": false,
-            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "browser": "src/main.ts"
           },
           "configurations": {
             "production": {
@@ -82,20 +52,12 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": {
-                "scripts": true,
-                "styles": {
-                   "minify": true,
-                   "inlineCritical": false
-                },
-                "fonts": true
-             },
+              "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -103,37 +65,25 @@
                   "maximumError": "5mb"
                 }
               ]
-            },
-            "es": {
-              "localize": ["es"]
             }
           },
           "defaultConfiguration": ""
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "options": {
-            "browserTarget": "my-suitcase:build"
+            "buildTarget": "my-suitcase:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "my-suitcase:build:production"
-            },
-            "es": {
-              "browserTarget": "my-suitcase:build:es"
+              "buildTarget": "my-suitcase:build:production"
             }
           }
         },
         "extract-i18n": {
-          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",
+          "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-suitcase:build",
-            "format": "xlf",
-            "outputPath": "src/locale",
-            "targetFiles": [
-              "messages.es.xlf",
-              "messages.fr.xlf"
-            ]
+            "buildTarget": "my-suitcase:build"
           }
         },
         "test": {
@@ -145,8 +95,7 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
+              "src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
@@ -158,7 +107,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["**/*.spec.ts", "**/*.ts"]
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         },
         "e2e": {
@@ -175,5 +127,34 @@
         }
       }
     }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "type": "component"
+    },
+    "@schematics/angular:directive": {
+      "type": "directive"
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    },
+    "@schematics/angular:guard": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:interceptor": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:module": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:pipe": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:resolver": {
+      "typeSeparator": "."
+    }
+  },
+  "cli": {
+    "analytics": false
   }
 }

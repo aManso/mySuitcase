@@ -1,13 +1,13 @@
-import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, inject } from '@angular/core';
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'suitcase-max-suitcases-reached-dialog',
   templateUrl: './max-suitcases-reached-dialog.component.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
 })
 export class MaxSuitcasesReachedDialogComponent {
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: {title: string, content: string, confirmButton?: string, errorButton?: string}
-  ) {
-  }
+  protected readonly data: {title: string, content: string, confirmButton?: string, errorButton?: string} = inject(MAT_DIALOG_DATA);
 }
