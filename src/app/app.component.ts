@@ -1,12 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { SwUpdate } from '@angular/service-worker'
+import { RouterOutlet } from '@angular/router';
 
 import { AppConfig, MYSUITCASE_CONFIG_TOKEN } from './app.config';
 import { ConfigService, META_TAGS } from './core/services/config.service';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
