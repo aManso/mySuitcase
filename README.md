@@ -1,43 +1,51 @@
-# mySuitcase🛄  
->What does the future hold for travel? Check-in by robot? Budget space flights? Virtual holidays? We’ve digested the findings and come up with a revolutionary idea that we think would benefit the world of travel.
+# mySuitcase 🛄  
+>What does the future hold for travel? Robot check-in? Budget space flights? Virtual holidays? We have digested the findings and come up with a revolutionary idea that we believe can benefit the world of travel.
 
 # [Live Demo](#live-demo)
-Here is a working website : https://mysuitcase.net
+Here is a working website: https://mysuitcase.net
 
 ## Table of contents
 - [mySuitcase 🛄](#mysuitcase%F0%9F%9B%84)
   - [Table of contents](#table-of-contents)
   - [Technologies](#technologies)
+  - [Security Status](#security-status)
   - [Setup](#setup)
   - [i18n](#i18n)
   - [Deploy](#deploy)
-  - [Test](#tests)
+  - [Tests](#tests)
   - [Lint](#lint)
   - [Technical Features](#Technical_Features)
   - [Functional Features](#Functional_Features)
   - [Contact](#contact)
 
 ## Technologies
-* Angular v16 (updated in July 2023)
-* node v16.20.1
-* npm v8.19.4
+* Angular v22
+* node v24.18.0
+* npm v11.16.0
+
+## Security Status
+Latest dependency audit baseline (after `npm audit fix --force` followed by `npm audit fix`):
+
+* 10 vulnerabilities remain (4 high, 6 moderate)
+* Main affected transitive packages: `@hono/node-server`, `image-size`, `picomatch`, `uuid`
+* Run `npm audit` to check current status in your environment
 
 ## Setup
   `npm install`
 
 ## i18n
-For the translations we use angular i18n architecture (following https://medium.com/dailyjs/maintaining-multi-language-angular-applications-26b74df8d085) and the tool ng-extract-i18n-merge (https://github.com/daniel-sc/ng-extract-i18n-merge)
+For translations, we use Angular i18n architecture (following https://medium.com/dailyjs/maintaining-multi-language-angular-applications-26b74df8d085) and the ng-extract-i18n-merge tool (https://github.com/daniel-sc/ng-extract-i18n-merge).
 1. `npm run translate` => `ng extract-i18n` => 
-  1.1 Generates messages.xlf file with texts to be translated
-  1.2 Based on extract-i18n defined in angular.json it merges the new translations to the xlf target files adding an attribute state="new" to those added translations.
-2. `npm run start-es` => `ng serve --proxy-config proxy.conf.json --configuration=es-ES` => runs the app with the translated for a specific language in DEV
-3. `npm run start-prod` => `ng build --configuration=production --localize` => it makes new builds for production with the default locale (en-US) and the different languages (es so far) . Currently there is an error in angular.json configuration production optimization option when doing the build, so the inlineCritical option has to be desactivated.
+  1.1 Generates a messages.xlf file with text to be translated.
+  1.2 Based on extract-i18n defined in angular.json, it merges new translations into target xlf files, adding a state="new" attribute to newly added translations.
+2. `npm run start-es` => `ng serve --proxy-config proxy.conf.json --configuration=es-ES` => runs the app in development mode with a specific translated language.
+3. `npm run start-prod` => `ng build --configuration=production --localize` => creates production builds for the default locale (en-US) and the configured languages (es so far). There is currently an angular.json production optimization configuration issue during build, so the inlineCritical option has to be deactivated.
 
 ## Deploy
   ### Locally
   `npm run start` (with proxy.conf to distinguish PROD vs DEV - https://medium.com/@asfo/creando-un-proxy-en-angular-para-conectarte-a-un-api-local-y-de-producci%C3%B3n-106c34cd9815)
   ### Production
-  `npm run start-prod` (in dist folder)
+  `npm run start-prod` (from the dist folder)
 
 ## Tests
   `npm run test` 
@@ -59,17 +67,17 @@ For the translations we use angular i18n architecture (following https://medium.
 ## Functional_Features
 List of features ready
 - [x] LOGIN user by using JWT
-- [x] Get an overview of all user´s suitcase
-- [x] Create/update/remove/see a suitcase
+- [x] Get an overview of all users' suitcases
+- [x] Create/update/remove/view a suitcase
 - [x] Get RECOMMENDATIONS items when making a suitcase based on the kind of trip
 - [x] Get WEATHER FORECAST for the dates when the user is going to do the trip
 - [x] ADMIN area
-- [x] Suscribe to new updates of the app through NOTIFICATIONS
+- [x] Subscribe to new app updates through NOTIFICATIONS
         * Only working in production build and either locally or under https protocol
 - [x] Get it locally installed as PWA - https://medium.com/ngconf/angular-pwa-install-and-configure-858dd8e9fb07 - https://web.dev/customize-install/
-        * 1. `ng add @angular/pwa` - creates manifest, ngsw-config.json and icons and Also, it modifies angular.json, package.json, index.html and app.module.ts .
-        * 2. configure the cache files in manifest
-        * 3. We add pwa-installer.js and its component and service to show an installer button into the html and trigger the same behaviour to install the pwa
+  * 1. `ng add @angular/pwa` - creates manifest, ngsw-config.json, and icons. It also modifies angular.json, package.json, index.html, and app.module.ts.
+  * 2. Configure cache files in the manifest.
+  * 3. We add pwa-installer.js and its component and service to show an install button in the HTML and trigger the same behavior to install the PWA.
 
 ## Contact
 Created by [@aManso](https://www.linkedin.com/in/alejandro-manso-026a2a2b/) - feel free to contact me!
