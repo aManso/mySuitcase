@@ -1,13 +1,6 @@
 import { Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-} from '@angular/animations';
 import { MatDialog } from '@angular/material/dialog';
 
 import { NavBarComponent } from '../../../../core/shared/navbar/containers/navbar.component';
@@ -31,24 +24,6 @@ const DISAPPEAR_ANIMATION_TIME = 1000; // in sync with animation made by keyFram
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  animations: [
-    trigger('showOverview', [
-      state('hide', style({
-        opacity: 0,
-        height: '0',
-      })),
-      state('show', style({
-        opacity: 1,
-        height: 'auto',
-      })),
-      transition('show => hide', [
-        animate(FULL_SCREEN_ANIMATION_TIME)
-      ]),
-      transition('hide => show', [
-        animate(FULL_SCREEN_ANIMATION_TIME)
-      ]),
-    ]),
-  ],
   providers: [{ provide: ConfigService, useFactory: configServiceFactory}],
   standalone: true,
   imports: [NgTemplateOutlet, NavBarComponent, FooterComponent, CreateSuitcaseFormComponent, OverviewComponent, PwaInstallerComponent, WebNotificationSubscriberComponent],

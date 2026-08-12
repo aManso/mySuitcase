@@ -2,6 +2,18 @@
 
 :host {display: inline-block; width: 100%; height: 100%}
 
+.overview-collapsible {
+  max-height: 4000px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 1s ease, opacity 1s ease;
+}
+
+.overview-collapsible.overview-hidden {
+  max-height: 0;
+  opacity: 0;
+}
+
 .full-screen {
   height: calc(100% - #{$max-footer-height} - #{$min-header-height});
 }

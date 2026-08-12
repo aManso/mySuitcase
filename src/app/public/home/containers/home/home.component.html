@@ -134,7 +134,7 @@
     <!--================Create new suitcase section End =================-->
 
     <!--================Overview created suitcases section Start =================-->
-    <section class="section-margin" [@showOverview]="showOverview ? 'show' : 'hide'" #overview id="mySuitcases">
+    <section class="section-margin overview-collapsible" [class.overview-hidden]="!showOverview" #overview id="mySuitcases">
       <my-suitcase-overview (dataLoaded)="onOverviewLoaded()"></my-suitcase-overview>
     </section>
     <!--================Overview created suitcases section End =================-->
