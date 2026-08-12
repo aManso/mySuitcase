@@ -11,38 +11,66 @@
           <div class="col-12 form-group">
             <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9"
               formControlName="message" i18n-placeholder placeholder="Enter Message"></textarea>
-            <mat-error *ngIf="contactForm.get('message').touched">
-              <span *ngIf="contactForm.get('message').hasError('required')" i18n>The field message is <strong>required</strong></span>
-              <span *ngIf="contactForm.get('message').hasError('minlength')" i18n>The field message is <strong>too short</strong></span>
-              <span *ngIf="contactForm.get('message').hasError('maxlength')" i18n>The field message is <strong>too long</strong></span>
-            </mat-error>
+            @if (contactForm.get('message').touched) {
+              <mat-error>
+                @if (contactForm.get('message').hasError('required')) {
+                  <span i18n>The field message is <strong>required</strong></span>
+                }
+                @if (contactForm.get('message').hasError('minlength')) {
+                  <span i18n>The field message is <strong>too short</strong></span>
+                }
+                @if (contactForm.get('message').hasError('maxlength')) {
+                  <span i18n>The field message is <strong>too long</strong></span>
+                }
+              </mat-error>
+            }
           </div>
           <div class="col-sm-6">
             <div class="form-group">
               <input class="form-control" formControlName="name" name="name" id="name" type="text" i18n-placeholder placeholder="Enter your name">
-              <mat-error *ngIf="contactForm.get('name').touched">
-                <span *ngIf="contactForm.get('name').hasError('required')" i18n="@@required_username">The field name is <strong>required</strong></span>
-                <span *ngIf="contactForm.get('name').hasError('maxlength')" i18n="@@max_username">The field name is <strong>too long</strong></span>
-              </mat-error>
+              @if (contactForm.get('name').touched) {
+                <mat-error>
+                  @if (contactForm.get('name').hasError('required')) {
+                    <span i18n="@@required_username">The field name is <strong>required</strong></span>
+                  }
+                  @if (contactForm.get('name').hasError('maxlength')) {
+                    <span i18n="@@max_username">The field name is <strong>too long</strong></span>
+                  }
+                </mat-error>
+              }
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
               <input class="form-control" formControlName="email" name="email" id="email" type="email" i18n-placeholder placeholder="Enter email address">
-              <mat-error *ngIf="contactForm.get('email').touched">
-                <span *ngIf="contactForm.get('email').hasError('required')" i18n="@@required_email">The field email is <strong>required</strong></span>
-                <span *ngIf="contactForm.get('email').hasError('email')" i18n="@@invalid_email">The field email has <strong>invalid format</strong></span>
-                <span *ngIf="contactForm.get('email').hasError('maxlength')" i18n="@@max_email">The field email is <strong>too long</strong></span>
-              </mat-error>
+              @if (contactForm.get('email').touched) {
+                <mat-error>
+                  @if (contactForm.get('email').hasError('required')) {
+                    <span i18n="@@required_email">The field email is <strong>required</strong></span>
+                  }
+                  @if (contactForm.get('email').hasError('email')) {
+                    <span i18n="@@invalid_email">The field email has <strong>invalid format</strong></span>
+                  }
+                  @if (contactForm.get('email').hasError('maxlength')) {
+                    <span i18n="@@max_email">The field email is <strong>too long</strong></span>
+                  }
+                </mat-error>
+              }
             </div>
           </div>
           <div class="col-12">
             <div class="form-group">
               <input class="form-control" formControlName="subject" name="subject" id="subject" type="text" i18n-placeholder placeholder="Enter Subject">
-              <mat-error *ngIf="contactForm.get('subject').touched">
-                <span *ngIf="contactForm.get('subject').hasError('required')" i18n>The field subject is <strong>required</strong></span>
-                <span *ngIf="contactForm.get('subject').hasError('maxlength')" i18n>The field subject is <strong>too long</strong></span>
-              </mat-error>
+              @if (contactForm.get('subject').touched) {
+                <mat-error>
+                  @if (contactForm.get('subject').hasError('required')) {
+                    <span i18n>The field subject is <strong>required</strong></span>
+                  }
+                  @if (contactForm.get('subject').hasError('maxlength')) {
+                    <span i18n>The field subject is <strong>too long</strong></span>
+                  }
+                </mat-error>
+              }
             </div>
           </div>
         </div>

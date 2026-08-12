@@ -4,34 +4,45 @@
     <div class="search-wrapper">
         <div class="modify-buttons">
             <button class="button edit-button" (click)="toggleEditMode()">
-              <ng-container *ngIf="editMode; else viewMode">
+              @if (editMode) {
+                <ng-container>
                   <span i18n="@@see_button">See</span>
                   <mat-icon aria-hidden="false" aria-label="Edit data">visibility</mat-icon>
-              </ng-container>
-              <ng-template #viewMode>
+                </ng-container>
+              } @else {
+                <ng-container>
                   <span i18n="@@edit_button">Edit</span>
                   <mat-icon aria-hidden="false" aria-label="Edit data">edit</mat-icon>
-              </ng-template>
+                </ng-container>
+              }
             </button>
-            <button *ngIf="editMode && settingsForm.valid" class="button edit-button" (click)="saveChanges()">
+            @if (editMode && settingsForm.valid) {
+              <button class="button edit-button" (click)="saveChanges()">
                 <span i18n="@@save_button">Save</span>
                 <mat-icon aria-hidden="false" aria-label="Edit data">save</mat-icon>
-          </button>
+              </button>
+            }
         </div>
         <div class="scrollable-area">
           <div class="form-group">
             <mat-form-field class="full-width" [appearance]="settingsForm.enabled ? 'fill' : 'outline'">
               <mat-label i18n="@@name">Name</mat-label>
               <input type="text" matInput autocomplete="off" formControlName="name" placeholder="Introduce tu nombre de usuario">
-              <mat-error *ngIf="settingsForm.get('name').hasError('required')" i18n="@@required_username">The field name is <strong>required</strong></mat-error>
+              @if (settingsForm.get('name').hasError('required')) {
+                <mat-error i18n="@@required_username">The field name is <strong>required</strong></mat-error>
+              }
             </mat-form-field>
           </div>
           <div class="form-group">
             <mat-form-field class="full-width" [appearance]="settingsForm.enabled ? 'fill' : 'outline'">
               <mat-label i18n="@@email">Email</mat-label>
               <input type="email" matInput autocomplete="off" formControlName="email" placeholder="Introduce email">
-              <mat-error *ngIf="settingsForm.get('email').hasError('email') && !settingsForm.get('email').hasError('required')" i18n="@@invalid_email">The field email has <strong>invalid format</strong></mat-error>
-              <mat-error *ngIf="settingsForm.get('email').hasError('required')" i18n="@@required_email">The field email is <strong>required</strong></mat-error>
+              @if (settingsForm.get('email').hasError('email') && !settingsForm.get('email').hasError('required')) {
+                <mat-error i18n="@@invalid_email">The field email has <strong>invalid format</strong></mat-error>
+              }
+              @if (settingsForm.get('email').hasError('required')) {
+                <mat-error i18n="@@required_email">The field email is <strong>required</strong></mat-error>
+              }
             </mat-form-field>
           </div>
             
@@ -39,33 +50,47 @@
             <mat-form-field class="full-width" [appearance]="settingsForm.enabled ? 'fill' : 'outline'">
               <mat-label i18n>Current password</mat-label>
               <input type="password" matInput autocomplete="off" formControlName="password" placeholder="*******">
-              <mat-icon *ngIf="settingsForm.enabled" (click)="enableChangePassword()" class="button-in-input" matSuffix i18n-matTooltip matTooltip="I want to change the password">mode_edit</mat-icon>
-              <mat-error *ngIf="passwordForm.get('password').hasError('required')" class="mat-error--with-details" i18n="@@required_password">The field password is <strong>required</strong></mat-error>
-              <mat-error *ngIf="!passwordForm.get('password').hasError('required') && passwordForm.get('password').hasError('forbiddenPassword')" class="mat-error--with-details" i18n="@@pass_requirements-error">
-                The field password <strong>does not match the requirements</strong>.
-              </mat-error>
+              @if (settingsForm.enabled) {
+                <mat-icon (click)="enableChangePassword()" class="button-in-input" matSuffix i18n-matTooltip matTooltip="I want to change the password">mode_edit</mat-icon>
+              }
+              @if (passwordForm.get('password').hasError('required')) {
+                <mat-error class="mat-error--with-details" i18n="@@required_password">The field password is <strong>required</strong></mat-error>
+              }
+              @if (!passwordForm.get('password').hasError('required') && passwordForm.get('password').hasError('forbiddenPassword')) {
+                <mat-error class="mat-error--with-details" i18n="@@pass_requirements-error">
+                  The field password <strong>does not match the requirements</strong>.
+                </mat-error>
+              }
             </mat-form-field>
             <details class="details">
               <small id="passwordHelp" class="form-text text-muted" i18n="@@pass_requirements">Password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</small>
             </details>
 
-            <mat-form-field *ngIf="showPasswordChange" class="full-width" [appearance]="settingsForm.enabled ? 'fill' : 'outline'">
-              <mat-label i18n>Introduce the new password</mat-label>
-              <input type="password" matInput autocomplete="off" formControlName="newPassword" placeholder="*******">  
-              <mat-error *ngIf="passwordForm.get('newPassword').hasError('required')" i18n="@@required_password">The field password is <strong>required</strong></mat-error>
-              <mat-error *ngIf="!passwordForm.get('newPassword').hasError('required') && passwordForm.get('newPassword').hasError('forbiddenPassword')" i18n="@@pass_requirements-error">
-                The field password <strong>does not match the requirements</strong>.
-              </mat-error>
-            </mat-form-field>
+            @if (showPasswordChange) {
+              <mat-form-field class="full-width" [appearance]="settingsForm.enabled ? 'fill' : 'outline'">
+                <mat-label i18n>Introduce the new password</mat-label>
+                <input type="password" matInput autocomplete="off" formControlName="newPassword" placeholder="*******">  
+                @if (passwordForm.get('newPassword').hasError('required')) {
+                  <mat-error i18n="@@required_password">The field password is <strong>required</strong></mat-error>
+                }
+                @if (!passwordForm.get('newPassword').hasError('required') && passwordForm.get('newPassword').hasError('forbiddenPassword')) {
+                  <mat-error i18n="@@pass_requirements-error">
+                    The field password <strong>does not match the requirements</strong>.
+                  </mat-error>
+                }
+              </mat-form-field>
+            }
           </div>
 
-          <div *ngIf="settingsForm.enabled" class="extra-fields-explanation">
-            <h4 i18n>Other data</h4>
-            <small>
-              <a href="javascript:void(0)" (click)="openExtraDataExp()" class="nav-link" role="button" aria-haspopup="true"
-              aria-expanded="false" i18n>I want to know why these extra data is needed to make a list to pack a suitcase.</a>
-            </small>
-          </div>
+          @if (settingsForm.enabled) {
+            <div class="extra-fields-explanation">
+              <h4 i18n>Other data</h4>
+              <small>
+                <a href="javascript:void(0)" (click)="openExtraDataExp()" class="nav-link" role="button" aria-haspopup="true"
+                aria-expanded="false" i18n>I want to know why these extra data is needed to make a list to pack a suitcase.</a>
+              </small>
+            </div>
+          }
 
           <div class="form-group">
             <mat-form-field class="full-width" [appearance]="settingsForm.enabled ? 'fill' : 'outline'">

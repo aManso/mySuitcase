@@ -1,6 +1,6 @@
 <navbar-component></navbar-component>
 
-<ng-container *ngIf="!isLogged; else logged">
+@if (!isLogged) {
   <main>
     <!--================Login section Start =================-->
     <section class="hero-banner magic-ball">
@@ -112,10 +112,7 @@
     <ng-container *ngTemplateOutlet="pwa"></ng-container>
     <!--================PWA section End =================-->
   </main>
-  
-</ng-container>
-
-<ng-template #logged>
+} @else {
   <main id="sections-container">
     <!--================Create new suitcase section Start =================-->
     <section class="logged-user-section hero-banner">
@@ -151,7 +148,7 @@
     <!--================PWA section End =================-->
 
   </main>
-</ng-template>
+}
 
 <ng-template #pwa>
   <section class="bg-gray section-padding pwa-container">

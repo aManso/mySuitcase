@@ -24,6 +24,7 @@ export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
   styleUrls: ['./register.component.scss'],
   standalone: true,
   imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, NavBarComponent, FooterComponent],
+  providers: [RegisterService, { provide: BASE_ROUTE, useValue: ['login'] }]
 })
 export class RegisterComponent implements OnInit{
   public registerForm: FormGroup;

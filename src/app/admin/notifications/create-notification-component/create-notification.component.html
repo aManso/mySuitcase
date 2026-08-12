@@ -6,24 +6,32 @@
             <mat-form-field class="full-width" [appearance]="'fill'">
               <mat-label>Titulo</mat-label>
               <input type="text" matInput formControlName="title" placeholder="Titulo de la notificación">
-              <mat-error *ngIf="notificationForm.get('title').hasError('required')">
-                El campo Titulo es <strong>requerido</strong>
-              </mat-error>
-              <mat-error *ngIf="notificationForm.get('title').hasError('maxlength')">
-                El máximo de caractéres permitidos es de {{notificationForm.get('title').getError('maxlength').requiredLength}} y el actual es de {{notificationForm.get('title').getError('maxlength').actualLength}} 
-              </mat-error>
+              @if (notificationForm.get('title').hasError('required')) {
+                <mat-error>
+                  El campo Titulo es <strong>requerido</strong>
+                </mat-error>
+              }
+              @if (notificationForm.get('title').hasError('maxlength')) {
+                <mat-error>
+                  El máximo de caractéres permitidos es de {{notificationForm.get('title').getError('maxlength').requiredLength}} y el actual es de {{notificationForm.get('title').getError('maxlength').actualLength}} 
+                </mat-error>
+              }
             </mat-form-field>
           </div>
           <div class="form-group">
             <mat-form-field class="full-width" [appearance]="'fill'">
               <mat-label>Mensaje</mat-label>
               <textarea matInput formControlName="body" placeholder="Mensaje de la notificación"></textarea>
-              <mat-error *ngIf="notificationForm.get('body').hasError('required')">
-                El formato de mensaje es <strong>requerido</strong>
-              </mat-error>
-              <mat-error *ngIf="notificationForm.get('body').hasError('maxlength')">
-                El máximo de caractéres permitidos es de {{notificationForm.get('body').getError('maxlength').requiredLength}} y el actual es de {{notificationForm.get('body').getError('maxlength').actualLength}} 
-              </mat-error>
+              @if (notificationForm.get('body').hasError('required')) {
+                <mat-error>
+                  El formato de mensaje es <strong>requerido</strong>
+                </mat-error>
+              }
+              @if (notificationForm.get('body').hasError('maxlength')) {
+                <mat-error>
+                  El máximo de caractéres permitidos es de {{notificationForm.get('body').getError('maxlength').requiredLength}} y el actual es de {{notificationForm.get('body').getError('maxlength').actualLength}} 
+                </mat-error>
+              }
             </mat-form-field>
           </div>
 
@@ -31,9 +39,11 @@
             <mat-form-field class="full-width" [appearance]="'fill'">
               <mat-label>Icono</mat-label>
               <input type="text" matInput formControlName="icon" placeholder="Ruta del icono de la notificación">
-              <mat-error *ngIf="notificationForm.get('icon').hasError('required')">
-                El campo icono es <strong>requerido</strong>
-              </mat-error>
+              @if (notificationForm.get('icon').hasError('required')) {
+                <mat-error>
+                  El campo icono es <strong>requerido</strong>
+                </mat-error>
+              }
             </mat-form-field>
           </div>
 

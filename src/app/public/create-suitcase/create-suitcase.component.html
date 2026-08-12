@@ -1,6 +1,7 @@
 <navbar-component></navbar-component>
 
-<div class="container min-full-height" *ngIf="dataReady">
+@if (dataReady) {
+<div class="container min-full-height">
   <div class="row">
     <form #itemForm="ngForm" class="form" (submit)="addNewItem(newItem, itemForm.controls['newItem'])">
       <mat-form-field id="new-item-field" class="form-field" appearance="fill" color="primary">
@@ -14,16 +15,30 @@
             <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'clothes' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'clothes' ? '': 'clothes'" matTooltip="Clothes" [matTooltipPosition]="'below'">checkroom</mat-icon>
             <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'medicines' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'medicines' ? '': 'medicines'" matTooltip="Medicines" [matTooltipPosition]="'below'">medical_services</mat-icon>
             <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'documents' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'documents' ? '': 'documents'" matTooltip="Documents" [matTooltipPosition]="'below'">description</mat-icon>
-            <mat-icon *ngIf="suitcase.type.beach?.selected" matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'beach' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'beach' ? '': 'beach'" matTooltip="Beach" [matTooltipPosition]="'below'">beach_access</mat-icon>
-            <mat-icon *ngIf="suitcase.type.mountain?.selected" matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'mountain' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'mountain' ? '': 'mountain'" matTooltip="Mountain" [matTooltipPosition]="'below'">filter_hdr</mat-icon>
-            <mat-icon *ngIf="suitcase.type.cycling?.selected" matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'cycling' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'cycling' ? '': 'cycling'" matTooltip="Cycling" [matTooltipPosition]="'below'">pedal_bike</mat-icon>
-            <mat-icon *ngIf="suitcase.type.diving?.selected" matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'diving' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'diving' ? '': 'diving'" matTooltip="Diving" [matTooltipPosition]="'below'">scuba_diving</mat-icon>
-            <mat-icon *ngIf="suitcase.type.baby?.selected" matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'baby' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'baby' ? '': 'baby'" matTooltip="Baby" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
-            <mat-icon *ngIf="suitcase.type.pet?.selected" matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'pet' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'pet' ? '': 'pet'" matTooltip="Pet" [matTooltipPosition]="'below'">pets</mat-icon>
+            @if (suitcase.type.beach?.selected) {
+              <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'beach' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'beach' ? '': 'beach'" matTooltip="Beach" [matTooltipPosition]="'below'">beach_access</mat-icon>
+            }
+            @if (suitcase.type.mountain?.selected) {
+              <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'mountain' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'mountain' ? '': 'mountain'" matTooltip="Mountain" [matTooltipPosition]="'below'">filter_hdr</mat-icon>
+            }
+            @if (suitcase.type.cycling?.selected) {
+              <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'cycling' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'cycling' ? '': 'cycling'" matTooltip="Cycling" [matTooltipPosition]="'below'">pedal_bike</mat-icon>
+            }
+            @if (suitcase.type.diving?.selected) {
+              <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'diving' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'diving' ? '': 'diving'" matTooltip="Diving" [matTooltipPosition]="'below'">scuba_diving</mat-icon>
+            }
+            @if (suitcase.type.baby?.selected) {
+              <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'baby' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'baby' ? '': 'baby'" matTooltip="Baby" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
+            }
+            @if (suitcase.type.pet?.selected) {
+              <mat-icon matSuffix [ngClass]="[newItem ? 'selectable': 'disabled-icon', selectedCategory === 'pet' ? 'selected': '']" class="selection-icon" (click)="selectedCategory = selectedCategory === 'pet' ? '': 'pet'" matTooltip="Pet" [matTooltipPosition]="'below'">pets</mat-icon>
+            }
             </div>        
         </div>
         <mat-icon matSuffix [ngClass]="newItem ? '': 'disabled-icon'" class="clickable-icon" id="add-icon" (click)="addNewItem(newItem, itemForm.controls['newItem'])">add</mat-icon>
-        <mat-error *ngIf="itemForm.controls['newItem']?.errors?.duplicated">El elemento ya se encuentra en la lista</mat-error>
+        @if (itemForm.controls['newItem']?.errors?.duplicated) {
+          <mat-error>El elemento ya se encuentra en la lista</mat-error>
+        }
       </mat-form-field>
     </form>
   </div>
@@ -31,78 +46,86 @@
   <div class="row columns-row">
     <div class="col-lg-3 col-sm-6 col-12 suggestion-column">
       <div class="card">
-        <div class="card-header suggestion-header" *ngIf="suggestionList">
-          <mat-icon matSuffix matTooltip="Suggestions" [matTooltipPosition]="'below'">emoji_objects</mat-icon>
-          <span>Sugerencias</span>
-          <mat-icon *ngIf="showSuggestions" (click)="showSuggestions = !showSuggestions" matSuffix matTooltip="expand" [matTooltipPosition]="'below'" class="unexpand">arrow_drop_up</mat-icon>
-          <mat-icon *ngIf="!showSuggestions" (click)="showSuggestions = !showSuggestions" matSuffix matTooltip="expand" [matTooltipPosition]="'below'" class="expand">arrow_drop_down</mat-icon>
-        </div>
+        @if (suggestionList) {
+          <div class="card-header suggestion-header">
+            <mat-icon matSuffix matTooltip="Suggestions" [matTooltipPosition]="'below'">emoji_objects</mat-icon>
+            <span>Sugerencias</span>
+            @if (showSuggestions) {
+              <mat-icon (click)="showSuggestions = !showSuggestions" matSuffix matTooltip="expand" [matTooltipPosition]="'below'" class="unexpand">arrow_drop_up</mat-icon>
+            }
+            @if (!showSuggestions) {
+              <mat-icon (click)="showSuggestions = !showSuggestions" matSuffix matTooltip="expand" [matTooltipPosition]="'below'" class="expand">arrow_drop_down</mat-icon>
+            }
+          </div>
+        }
 
-        <div class="suggestion-card-body" *ngIf="showSuggestions">
-          <my-suitcase-item-list #common
-                                 [itemList]="suggestionList.common ? suggestionList.common.items : []"
-                                 [maxShownList]="10"
-                                 [listName]="'common'"
-                                 (onAddItem)="addItemFromChild($event)"
-                                 (checkRecommendations)="checkRecommendations($event)">
-          </my-suitcase-item-list>
+        @if (showSuggestions) {
+          <div class="suggestion-card-body">
+            <my-suitcase-item-list #common
+                                   [itemList]="suggestionList.common ? suggestionList.common.items : []"
+                                   [maxShownList]="10"
+                                   [listName]="'common'"
+                                   (onAddItem)="addItemFromChild($event)"
+                                   (checkRecommendations)="checkRecommendations($event)">
+            </my-suitcase-item-list>
 
-          <my-suitcase-item-list #cultural
-                                 [itemList]="suggestionList.cultural ? suggestionList.cultural.items : []"
-                                 [maxShownList]="10"
-                                 [listName]="'cultural'"
-                                 (onAddItem)="addItemFromChild($event)"
-                                 (checkRecommendations)="checkRecommendations($event)">
-          </my-suitcase-item-list>
+            <my-suitcase-item-list #cultural
+                                   [itemList]="suggestionList.cultural ? suggestionList.cultural.items : []"
+                                   [maxShownList]="10"
+                                   [listName]="'cultural'"
+                                   (onAddItem)="addItemFromChild($event)"
+                                   (checkRecommendations)="checkRecommendations($event)">
+            </my-suitcase-item-list>
 
-          <my-suitcase-item-list #beach
-                                 [itemList]="suggestionList.beach ? suggestionList.beach.items : []"
-                                 [maxShownList]="5"
-                                 [listName]="'beach'"
-                                 (onAddItem)="addItemFromChild($event)"
-                                 (checkRecommendations)="checkRecommendations($event)">
-          </my-suitcase-item-list>
+            <my-suitcase-item-list #beach
+                                   [itemList]="suggestionList.beach ? suggestionList.beach.items : []"
+                                   [maxShownList]="5"
+                                   [listName]="'beach'"
+                                   (onAddItem)="addItemFromChild($event)"
+                                   (checkRecommendations)="checkRecommendations($event)">
+            </my-suitcase-item-list>
 
-          <my-suitcase-item-list #mountain
-                                 [itemList]="suggestionList.mountain ? suggestionList.mountain.items : []"
-                                 [maxShownList]="5"
-                                 [listName]="'mountain'"
-                                 (onAddItem)="addItemFromChild($event)"
-                                 (checkRecommendations)="checkRecommendations($event)">
-          </my-suitcase-item-list>
+            <my-suitcase-item-list #mountain
+                                   [itemList]="suggestionList.mountain ? suggestionList.mountain.items : []"
+                                   [maxShownList]="5"
+                                   [listName]="'mountain'"
+                                   (onAddItem)="addItemFromChild($event)"
+                                   (checkRecommendations)="checkRecommendations($event)">
+            </my-suitcase-item-list>
 
-          <my-suitcase-item-list #cycling
-                                 [itemList]="suggestionList.cycling ? suggestionList.cycling.items : []"
-                                 [maxShownList]="5"
-                                 [listName]="'cycling'"
-                                 (onAddItem)="addItemFromChild($event)"
-                                 (checkRecommendations)="checkRecommendations($event)">
-          </my-suitcase-item-list>
+            <my-suitcase-item-list #cycling
+                                   [itemList]="suggestionList.cycling ? suggestionList.cycling.items : []"
+                                   [maxShownList]="5"
+                                   [listName]="'cycling'"
+                                   (onAddItem)="addItemFromChild($event)"
+                                   (checkRecommendations)="checkRecommendations($event)">
+            </my-suitcase-item-list>
 
-          <my-suitcase-item-list #diving
-                                 [itemList]="suggestionList.diving ? suggestionList.diving.items : []"
-                                 [maxShownList]="5"
-                                 [listName]="'diving'"
-                                 (onAddItem)="addItemFromChild($event)"
-                                 (checkRecommendations)="checkRecommendations($event)">
-          </my-suitcase-item-list>
+            <my-suitcase-item-list #diving
+                                   [itemList]="suggestionList.diving ? suggestionList.diving.items : []"
+                                   [maxShownList]="5"
+                                   [listName]="'diving'"
+                                   (onAddItem)="addItemFromChild($event)"
+                                   (checkRecommendations)="checkRecommendations($event)">
+            </my-suitcase-item-list>
 
-          <my-suitcase-item-list #baby
-                                 [itemList]="suggestionList.baby ? suggestionList.baby.items : []"
-                                 [maxShownList]="5"
-                                 [listName]="'baby'"
-                                 (onAddItem)="addItemFromChild($event)"
-                                 (checkRecommendations)="checkRecommendations($event)">
-          </my-suitcase-item-list>
+            <my-suitcase-item-list #baby
+                                   [itemList]="suggestionList.baby ? suggestionList.baby.items : []"
+                                   [maxShownList]="5"
+                                   [listName]="'baby'"
+                                   (onAddItem)="addItemFromChild($event)"
+                                   (checkRecommendations)="checkRecommendations($event)">
+            </my-suitcase-item-list>
 
-          <my-suitcase-item-list #pet
-                                 [itemList]="suggestionList.pet ? suggestionList.pet.items : []"
-                                 [maxShownList]="5"
-                                 [listName]="'pet'"
-                                 (onAddItem)="addItemFromChild($event)"
-                                 (checkRecommendations)="checkRecommendations($event)">
-          </my-suitcase-item-list>
-        </div>
+            <my-suitcase-item-list #pet
+                                   [itemList]="suggestionList.pet ? suggestionList.pet.items : []"
+                                   [maxShownList]="5"
+                                   [listName]="'pet'"
+                                   (onAddItem)="addItemFromChild($event)"
+                                   (checkRecommendations)="checkRecommendations($event)">
+            </my-suitcase-item-list>
+          </div>
+        }
       </div>
     </div>
 
@@ -115,105 +138,162 @@
           <mat-icon aria-hidden="false" aria-label="Print the list" id="print-icon" class="icon" [ngClass]="totalItemsInList > 0 ? '': 'disabled'" (click)="printSuitcase()">print</mat-icon>
         </div>
         <div class="card-body">
-          <div *ngFor="let item of suitcaseList['tech']; let i=index" class="common-card-body">
-            <div class="card-header card-subsubheader" *ngIf="showSubsubheader('tech', item.name)">
-              <mat-icon matSuffix matTooltip="Technology" [matTooltipPosition]="'below'">photo_camera</mat-icon>
-              <span i18n="@@technology">Technology</span>
+          @for (item of suitcaseList['tech']; track $index; let i = $index) {
+            <div class="common-card-body">
+              @if (showSubsubheader('tech', item.name)) {
+                <div class="card-header card-subsubheader">
+                  <mat-icon matSuffix matTooltip="Technology" [matTooltipPosition]="'below'">photo_camera</mat-icon>
+                  <span i18n="@@technology">Technology</span>
+                </div>
+              }
+              <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
             </div>
-            <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
-          </div>
-          <div *ngFor="let item of suitcaseList['cleanliness']; let i=index" class="common-card-body">
-            <div class="card-header card-subsubheader" *ngIf="showSubsubheader('cleanliness', item.name)">
-              <mat-icon matSuffix matTooltip="Cleanliness" [matTooltipPosition]="'below'">clean_hands</mat-icon>
-              <span i18n="@@cleanliness">Cleanliness</span>
+          }
+          @for (item of suitcaseList['cleanliness']; track $index; let i = $index) {
+            <div class="common-card-body">
+              @if (showSubsubheader('cleanliness', item.name)) {
+                <div class="card-header card-subsubheader">
+                  <mat-icon matSuffix matTooltip="Cleanliness" [matTooltipPosition]="'below'">clean_hands</mat-icon>
+                  <span i18n="@@cleanliness">Cleanliness</span>
+                </div>
+              }
+              <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
             </div>
-            <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
-          </div>
-          <div *ngFor="let item of suitcaseList['clothes']; let i=index" class="common-card-body">
-            <div class="card-header card-subsubheader" *ngIf="showSubsubheader('clothes', item.name)">
-              <mat-icon matSuffix matTooltip="Clothes" [matTooltipPosition]="'below'">checkroom</mat-icon>
-              <span i18n="@@clothes">Clothes</span>
+          }
+          @for (item of suitcaseList['clothes']; track $index; let i = $index) {
+            <div class="common-card-body">
+              @if (showSubsubheader('clothes', item.name)) {
+                <div class="card-header card-subsubheader">
+                  <mat-icon matSuffix matTooltip="Clothes" [matTooltipPosition]="'below'">checkroom</mat-icon>
+                  <span i18n="@@clothes">Clothes</span>
+                </div>
+              }
+              <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
             </div>
-            <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
-          </div>
-          <div *ngFor="let item of suitcaseList['medicines']; let i=index" class="common-card-body">
-            <div class="card-header card-subsubheader" *ngIf="showSubsubheader('medicines', item.name)">
-              <mat-icon matSuffix matTooltip="Medicines" [matTooltipPosition]="'below'">medical_services</mat-icon>
-              <span i18n="@@medicines">Medicines</span>
+          }
+          @for (item of suitcaseList['medicines']; track $index; let i = $index) {
+            <div class="common-card-body">
+              @if (showSubsubheader('medicines', item.name)) {
+                <div class="card-header card-subsubheader">
+                  <mat-icon matSuffix matTooltip="Medicines" [matTooltipPosition]="'below'">medical_services</mat-icon>
+                  <span i18n="@@medicines">Medicines</span>
+                </div>
+              }
+              <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
             </div>
-            <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
-          </div>
-          <div *ngFor="let item of suitcaseList['documents']; let i=index" class="common-card-body">
-            <div class="card-header card-subsubheader" *ngIf="showSubsubheader('documents', item.name)">
-              <mat-icon matSuffix matTooltip="Documents" [matTooltipPosition]="'below'">description</mat-icon>
-              <span i18n="@@documents">Documents</span>
+          }
+          @for (item of suitcaseList['documents']; track $index; let i = $index) {
+            <div class="common-card-body">
+              @if (showSubsubheader('documents', item.name)) {
+                <div class="card-header card-subsubheader">
+                  <mat-icon matSuffix matTooltip="Documents" [matTooltipPosition]="'below'">description</mat-icon>
+                  <span i18n="@@documents">Documents</span>
+                </div>
+              }
+              <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
             </div>
-            <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
-          </div>
-          <div *ngFor="let item of suitcaseList['beach']; let i=index" class="common-card-body">
-            <div class="card-header card-subsubheader" *ngIf="showSubsubheader('beach', item.name)">
-              <mat-icon matSuffix matTooltip="Playa" [matTooltipPosition]="'below'">beach_access</mat-icon>
-              <span i18n="@@beach">Beach</span>
+          }
+          @for (item of suitcaseList['beach']; track $index; let i = $index) {
+            <div class="common-card-body">
+              @if (showSubsubheader('beach', item.name)) {
+                <div class="card-header card-subsubheader">
+                  <mat-icon matSuffix matTooltip="Playa" [matTooltipPosition]="'below'">beach_access</mat-icon>
+                  <span i18n="@@beach">Beach</span>
+                </div>
+              }
+              <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
             </div>
-            <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
-          </div>
-          <div *ngFor="let item of suitcaseList['mountain']; let i=index" class="common-card-body">
-            <div class="card-header card-subsubheader" *ngIf="showSubsubheader('mountain', item.name)">
-              <mat-icon matSuffix matTooltip="Mountain" [matTooltipPosition]="'below'">filter_hdr</mat-icon>
-              <span i18n="@@mountain">Mountain</span>
+          }
+          @for (item of suitcaseList['mountain']; track $index; let i = $index) {
+            <div class="common-card-body">
+              @if (showSubsubheader('mountain', item.name)) {
+                <div class="card-header card-subsubheader">
+                  <mat-icon matSuffix matTooltip="Mountain" [matTooltipPosition]="'below'">filter_hdr</mat-icon>
+                  <span i18n="@@mountain">Mountain</span>
+                </div>
+              }
+              <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
             </div>
-            <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
-          </div>
-          <div *ngFor="let item of suitcaseList['diving']; let i=index" class="common-card-body">
-            <div class="card-header card-subsubheader" *ngIf="showSubsubheader('diving', item.name)">
-              <mat-icon matSuffix matTooltip="Diving" [matTooltipPosition]="'below'">scuba_diving</mat-icon>
-              <span i18n="@@diving">Diving</span>
+          }
+          @for (item of suitcaseList['diving']; track $index; let i = $index) {
+            <div class="common-card-body">
+              @if (showSubsubheader('diving', item.name)) {
+                <div class="card-header card-subsubheader">
+                  <mat-icon matSuffix matTooltip="Diving" [matTooltipPosition]="'below'">scuba_diving</mat-icon>
+                  <span i18n="@@diving">Diving</span>
+                </div>
+              }
+              <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
             </div>
-            <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
-          </div>
-          <div *ngFor="let item of suitcaseList['cycling']; let i=index" class="common-card-body">
-            <div class="card-header card-subsubheader" *ngIf="showSubsubheader('cycling', item.name)">
-              <mat-icon matSuffix matTooltip="Cycling" [matTooltipPosition]="'below'">pedal_bike</mat-icon>
-              <span i18n="@@cycling">Cycling</span>
+          }
+          @for (item of suitcaseList['cycling']; track $index; let i = $index) {
+            <div class="common-card-body">
+              @if (showSubsubheader('cycling', item.name)) {
+                <div class="card-header card-subsubheader">
+                  <mat-icon matSuffix matTooltip="Cycling" [matTooltipPosition]="'below'">pedal_bike</mat-icon>
+                  <span i18n="@@cycling">Cycling</span>
+                </div>
+              }
+              <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
             </div>
-            <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
-          </div>
-          <div *ngFor="let item of suitcaseList['baby']; let i=index" class="common-card-body">
-            <div class="card-header card-subsubheader" *ngIf="showSubsubheader('baby', item.name)">
-              <mat-icon matSuffix matTooltip="Baby" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
-              <span i18n="@@baby">Baby</span>
+          }
+          @for (item of suitcaseList['baby']; track $index; let i = $index) {
+            <div class="common-card-body">
+              @if (showSubsubheader('baby', item.name)) {
+                <div class="card-header card-subsubheader">
+                  <mat-icon matSuffix matTooltip="Baby" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
+                  <span i18n="@@baby">Baby</span>
+                </div>
+              }
+              <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
             </div>
-            <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
-          </div>
-          <div *ngFor="let item of suitcaseList['pet']; let i=index" class="common-card-body">
-            <div class="card-header card-subsubheader" *ngIf="showSubsubheader('pet', item.name)">
-              <mat-icon matSuffix matTooltip="Pet" [matTooltipPosition]="'below'">pets</mat-icon>
-              <span i18n="@@pet">Pet</span>
+          }
+          @for (item of suitcaseList['pet']; track $index; let i = $index) {
+            <div class="common-card-body">
+              @if (showSubsubheader('pet', item.name)) {
+                <div class="card-header card-subsubheader">
+                  <mat-icon matSuffix matTooltip="Pet" [matTooltipPosition]="'below'">pets</mat-icon>
+                  <span i18n="@@pet">Pet</span>
+                </div>
+              }
+              <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
             </div>
-            <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
-          </div>
-          <div *ngFor="let item of suitcaseList['others']; let i=index" class="common-card-body">
-            <div class="card-header card-subsubheader" *ngIf="showSubsubheader('others', item.name)" i18n>Others</div>
-            <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
-          </div>
+          }
+          @for (item of suitcaseList['others']; track $index; let i = $index) {
+            <div class="common-card-body">
+              @if (showSubsubheader('others', item.name)) {
+                <div class="card-header card-subsubheader" i18n>Others</div>
+              }
+              <ng-container *ngTemplateOutlet="cardBody; context: { $implicit: item, i:i  };"></ng-container>
+            </div>
+          }
         </div>
         
       </div>
     </div>
 
-    <div class="col-lg-3 col-sm-6 col-12 weather-column" *ngIf="weatherReady">
-      <div class="weather-panel-wrapper">
-        <div class="card-header weather-header">
-          <mat-icon matSuffix matTooltip="Suggestions" [matTooltipPosition]="'below'">sunny</mat-icon>
-          <span>El tiempo</span>
-          <mat-icon *ngIf="showWeather" (click)="showWeather = !showWeather" matSuffix matTooltip="expand" [matTooltipPosition]="'below'" class="unexpand">arrow_drop_up</mat-icon>
-          <mat-icon *ngIf="!showWeather" (click)="showWeather = !showWeather" matSuffix matTooltip="expand" [matTooltipPosition]="'below'" class="expand">arrow_drop_down</mat-icon>
+    @if (weatherReady) {
+      <div class="col-lg-3 col-sm-6 col-12 weather-column">
+        <div class="weather-panel-wrapper">
+          <div class="card-header weather-header">
+            <mat-icon matSuffix matTooltip="Suggestions" [matTooltipPosition]="'below'">sunny</mat-icon>
+            <span>El tiempo</span>
+            @if (showWeather) {
+              <mat-icon (click)="showWeather = !showWeather" matSuffix matTooltip="expand" [matTooltipPosition]="'below'" class="unexpand">arrow_drop_up</mat-icon>
+            }
+            @if (!showWeather) {
+              <mat-icon (click)="showWeather = !showWeather" matSuffix matTooltip="expand" [matTooltipPosition]="'below'" class="expand">arrow_drop_down</mat-icon>
+            }
+          </div>
+          @if (showWeather) {
+            <my-suitcase-weather-panel class="weather-body" [coordinates]="suitcase.place.coordinates" [weatherDays]="weatherDays"></my-suitcase-weather-panel>
+          }
         </div>
-        <my-suitcase-weather-panel class="weather-body" *ngIf="showWeather" [coordinates]="suitcase.place.coordinates" [weatherDays]="weatherDays"></my-suitcase-weather-panel>
       </div>
-    </div>
+    }
   </div>
 </div>
+}
 
 <ng-template #cardBody let-item let-i="i">
   <div class="card-body">

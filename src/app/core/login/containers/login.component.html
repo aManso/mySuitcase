@@ -1,37 +1,51 @@
 <navbar-component></navbar-component>
 
-<form class="form col-lg-6 col-xl-6 offset-xl-1 min-full-height" *ngIf="loginForm" [formGroup]="loginForm">
-  <div class="search-wrapper">
-    <mat-form-field class="full-width login-field" appearance="outline">
-      <mat-label>Email</mat-label>
-      <input type="email" matInput autocomplete="off" formControlName="email" i18n-placeholder placeholder="Introduce your email">
-      <mat-error *ngIf="loginForm.get('email').hasError('email') && !loginForm.get('email').hasError('required')" i18n="@@invalid_email">The field email has <strong>invalid format</strong></mat-error>
-      <mat-error *ngIf="loginForm.get('email').hasError('required')" i18n="@@required_email">The field email is <strong>required</strong></mat-error>
-    </mat-form-field>
-    <mat-form-field *ngIf="loginMode" class="full-width login-field" appearance="outline">
-      <mat-label i18n="@@password">Password</mat-label>
-      <input type="password" matInput autocomplete="off" formControlName="password" i18n-placeholder placeholder="Introduce your password">
-      <mat-error *ngIf="loginForm.get('password').hasError('required')" i18n="@@required_password">The field password is <strong>required</strong></mat-error>
-      <mat-hint class="hint-password" i18n="@@pass_requirements">Password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</mat-hint>
-    </mat-form-field>
-    <div class="form-check" *ngIf="loginMode">
-      <input type="checkbox" class="form-check-input" id="rememberme" formControlName="keepSession">
-      <label class="form-check-label" for="rememberme" i18n>Remember me</label>
+@if (loginForm) {
+  <form class="form col-lg-6 col-xl-6 offset-xl-1 min-full-height" [formGroup]="loginForm">
+    <div class="search-wrapper">
+      <mat-form-field class="full-width login-field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput autocomplete="off" formControlName="email" i18n-placeholder placeholder="Introduce your email">
+        @if (loginForm.get('email').hasError('email') && !loginForm.get('email').hasError('required')) {
+          <mat-error i18n="@@invalid_email">The field email has <strong>invalid format</strong></mat-error>
+        }
+        @if (loginForm.get('email').hasError('required')) {
+          <mat-error i18n="@@required_email">The field email is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+      @if (loginMode) {
+        <mat-form-field class="full-width login-field" appearance="outline">
+          <mat-label i18n="@@password">Password</mat-label>
+          <input type="password" matInput autocomplete="off" formControlName="password" i18n-placeholder placeholder="Introduce your password">
+          @if (loginForm.get('password').hasError('required')) {
+            <mat-error i18n="@@required_password">The field password is <strong>required</strong></mat-error>
+          }
+          <mat-hint class="hint-password" i18n="@@pass_requirements">Password must contain between 6 and 20 characters and include 1 lowercase, 1 capitalcase, 1 number and 1 special character</mat-hint>
+        </mat-form-field>
+      }
+      @if (loginMode) {
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="rememberme" formControlName="keepSession">
+          <label class="form-check-label" for="rememberme" i18n>Remember me</label>
+        </div>
+      }
+      <div class="button-block mb-3">
+        <button type="submit" class="button border-1 mt-3" [disabled]="!loginForm.valid" [ngClass]="{'disabled-button': !loginForm.valid}"
+          (click)="submit()" i18n>Go ahead!</button>
+        @if (loginMode) {
+          <button type="submit" class="button border-1 mt-3" (click)="goTo('register')" i18n>I am new, Let's start!</button>
+        }
+      </div>
+      <small>
+        @if (loginMode) {
+          <a href="javascript:void(0)" (click)="toggleMode()" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false" i18n>Did you forget the password?</a>
+        } @else {
+          <a href="javascript:void(0)" (click)="toggleMode()" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false" i18n>I already remember the passoword :)</a>
+        }
+      </small>
     </div>
-    <div class="button-block mb-3">
-      <button type="submit" class="button border-1 mt-3" [disabled]="!loginForm.valid" [ngClass]="{'disabled-button': !loginForm.valid}"
-        (click)="submit()" i18n>Go ahead!</button>
-      <button type="submit" class="button border-1 mt-3" (click)="goTo('register')" *ngIf="loginMode" i18n>I am new, Let's start!</button>
-    </div>
-    <small>
-      <a href="javascript:void(0)" (click)="toggleMode()" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false" 
-      *ngIf="loginMode; else registerMode" i18n>Did you forget the password?</a>
-      <ng-template #registerMode>
-        <a href="javascript:void(0)" (click)="toggleMode()" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false" i18n>I already remember the passoword :)</a>
-      </ng-template>
-    </small>
-  </div>
-  <img class="login-img" i18n-alt="@@altLoginImage" alt="decorative login image of mysuitcase" src="assets/img/login/undraw_travelers.svg">
-</form>
+    <img class="login-img" i18n-alt="@@altLoginImage" alt="decorative login image of mysuitcase" src="assets/img/login/undraw_travelers.svg">
+  </form>
+}
 
 <footer-component></footer-component>

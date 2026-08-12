@@ -41,6 +41,7 @@ import { WeatherPanelComponent } from "./components/weather-panel/weather-panel.
 import { ConfigService } from '../../core/services/config.service';
 import { FRONTEND_ERRORS } from '../../core/const/frontend-errors';
 import { FRONTEND_MESSAGES } from '../../core/const/frontend-messages';
+import { NavBarComponent } from '../../core/shared/navbar/containers/navbar.component';
 
 @Component({
     selector: 'app-create-suitcase',
@@ -77,6 +78,7 @@ import { FRONTEND_MESSAGES } from '../../core/const/frontend-messages';
       MatDialogModule,
       ItemListComponent,
       WeatherPanelComponent,
+      NavBarComponent,
     ],
     providers: [
       { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },

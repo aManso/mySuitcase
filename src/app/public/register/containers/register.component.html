@@ -10,9 +10,9 @@
           placeholder="Introduce your username" formControlName="name">
           @if (registerForm.get('name').hasError('required')) {
             <mat-error i18n="@@required_username">The field name is <strong>required</strong></mat-error>
-          } @else-if (registerForm.get('name').hasError('minlength')) {
+          } @else if (registerForm.get('name').hasError('minlength')) {
             <mat-error i18n="@@min_username">The field name is <strong>too short</strong></mat-error>
-          } @else-if (registerForm.get('name').hasError('maxlength')) {
+          } @else if (registerForm.get('name').hasError('maxlength')) {
             <mat-error i18n="@@max_username">The field name is <strong>too long</strong></mat-error>
           }
         </mat-form-field>
@@ -23,9 +23,9 @@
           formControlName="email">
           @if (registerForm.get('email').hasError('required')) {
             <mat-error i18n="@@required_email">The field email is <strong>required</strong></mat-error>
-          } @else-if (registerForm.get('email').hasError('email')) {
+          } @else if (registerForm.get('email').hasError('email')) {
             <mat-error i18n="@@invalid_email">The field email has <strong>invalid format</strong></mat-error>
-          } @else-if (registerForm.get('email').hasError('maxlength')) {
+          } @else if (registerForm.get('email').hasError('maxlength')) {
             <mat-error i18n="@@max_email">The field email is <strong>too long</strong></mat-error>
           }
         <!-- <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con nadie</small> -->
@@ -57,7 +57,7 @@
             @if (passwordForm.get('passwordConfirmation').errors) {
               <mat-error>
                 @if (passwordForm.get('passwordConfirmation').hasError('required')) {
-                  <span *ngIf="passwordForm.get('passwordConfirmation').hasError('required'); else otherError" i18n="@@required_password">The field password is <strong>required</strong></span>
+                  <span i18n="@@required_password">The field password is <strong>required</strong></span>
                 } @else {
                   <span i18n="@@invalid_password">Invalid password, check the details</span>
                 }
@@ -67,7 +67,6 @@
         @if (passwordForm.hasError('notMatchingPasswords')) {
           <mat-error class="form-error" i18n="@@passwords_dont_match">Both passwords dont match</mat-error>
         }
-
         </div>
 
         <!-- <label for="age">Edad</label>

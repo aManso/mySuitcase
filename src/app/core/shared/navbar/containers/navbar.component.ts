@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgIf, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,7 +15,7 @@ import { ConfigService } from '../../../services/config.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   standalone: true,
-  imports: [NgIf, AsyncPipe, RouterLink, RouterLinkActive, MatTooltipModule, MatIconModule],
+  imports: [AsyncPipe, RouterLink, RouterLinkActive, MatTooltipModule, MatIconModule],
 })
 export class NavBarComponent {
   public showLanguages = false;

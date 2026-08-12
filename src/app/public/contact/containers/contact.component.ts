@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgIf } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,7 +19,8 @@ import { ContactService } from '../contact.service';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
   standalone: true,
-  imports: [NgIf, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, NavBarComponent, FooterComponent],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, NavBarComponent, FooterComponent],
+  providers: [ContactService]
 })
 export class ContactComponent implements OnInit {
   public contactForm: FormGroup;
