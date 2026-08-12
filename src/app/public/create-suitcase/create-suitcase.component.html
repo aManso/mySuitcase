@@ -297,7 +297,7 @@
 
 <ng-template #cardBody let-item let-i="i">
   <div class="card-body">
-    <div class="item"  #suitcase [@showHiddenItem]="item.showInSuitcase ? 'show' : 'hidden'">
+    <div class="item"  #suitcase [class.is-hidden]="!item.showInSuitcase">
       <span class="item-name">{{item.name}}</span>
       <div class="item-attributes">
         <mat-form-field class="item-data">

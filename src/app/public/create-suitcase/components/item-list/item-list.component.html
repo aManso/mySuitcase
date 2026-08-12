@@ -121,7 +121,7 @@
 
 <ng-template #cardBody let-item let-i="i">
   <div class="card-body">
-    <div class="item" #itemRef [@showHiddenItem]="item.showInSuggestion ? 'show' : 'hidden'">
+    <div class="item" #itemRef [class.is-hidden]="!item.showInSuggestion">
       <div class="item-data">
         <span class="item-name">{{item.name}}</span>
       </div>

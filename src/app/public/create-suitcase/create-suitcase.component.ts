@@ -12,13 +12,6 @@ import {
   inject,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-} from '@angular/animations';
 import { FormsModule } from '@angular/forms';
 import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { MatDialog, MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
@@ -49,22 +42,6 @@ import { NavBarComponent } from '../../core/shared/navbar/containers/navbar.comp
     styleUrls: ['./create-suitcase.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
-    animations: [
-        trigger('showHiddenItem', [
-            state('hidden', style({
-                opacity: 0,
-            })),
-            state('show', style({
-                opacity: 1,
-            })),
-            transition('hidden => show', [
-                animate('1s')
-            ]),
-            transition('show => hidden', [
-                animate('1s')
-            ]),
-        ]),
-    ],
     standalone: true,
     imports: [
       FormsModule,

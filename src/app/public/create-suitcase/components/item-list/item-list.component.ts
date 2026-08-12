@@ -15,34 +15,11 @@ import { NgTemplateOutlet, SlicePipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {TripItem} from "../../../../core/models/trip";
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-} from '@angular/animations';
 
 @Component({
     selector: 'my-suitcase-item-list',
     templateUrl: './item-list.component.html',
     encapsulation: ViewEncapsulation.None,
-    animations: [
-      trigger('showHiddenItem', [
-          state('show', style({
-              opacity: 1,
-          })),
-          state('hidden', style({
-              opacity: 0,
-          })),
-          transition('hidden => show', [
-              animate('1s')
-          ]),
-          transition('show => hidden', [
-              animate('1s')
-          ]),
-      ]),
-    ],
     changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true,
     imports: [NgTemplateOutlet, SlicePipe, MatIconModule, MatTooltipModule],
