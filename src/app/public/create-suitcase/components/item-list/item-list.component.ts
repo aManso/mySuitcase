@@ -15,6 +15,7 @@ import { NgTemplateOutlet, SlicePipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {TripItem} from "../../../../core/models/trip";
+import { FooterComponent } from '../../../../core/shared/footer/containers/footer.component';
 
 @Component({
     selector: 'my-suitcase-item-list',
@@ -22,7 +23,7 @@ import {TripItem} from "../../../../core/models/trip";
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true,
-    imports: [NgTemplateOutlet, SlicePipe, MatIconModule, MatTooltipModule],
+    imports: [NgTemplateOutlet, SlicePipe, MatIconModule, MatTooltipModule, FooterComponent],
 })
 export class ItemListComponent implements OnInit {
 

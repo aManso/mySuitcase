@@ -35,6 +35,7 @@ import { ConfigService } from '../../core/services/config.service';
 import { FRONTEND_ERRORS } from '../../core/const/frontend-errors';
 import { FRONTEND_MESSAGES } from '../../core/const/frontend-messages';
 import { NavBarComponent } from '../../core/shared/navbar/containers/navbar.component';
+import { FooterComponent } from '../../core/shared/footer/containers/footer.component';
 
 @Component({
     selector: 'app-create-suitcase',
@@ -56,6 +57,7 @@ import { NavBarComponent } from '../../core/shared/navbar/containers/navbar.comp
       ItemListComponent,
       WeatherPanelComponent,
       NavBarComponent,
+      FooterComponent,
     ],
     providers: [
       { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
@@ -144,6 +146,7 @@ export class CreateSuitcaseComponent implements OnInit {
     if (!this.suitcase) {
       // when trying to get access to the edit or create screen without selecting the previous steps
       this._router.navigate(['home']);
+      return;
     }
 
     // check if we are in create or edit mode
@@ -197,7 +200,7 @@ export class CreateSuitcaseComponent implements OnInit {
   // EDIT
   private initEdit() {
     // When editing there should be already a list of items, so we continue from there
-    this.suitcaseList = this.suitcase.items;
+    this.suitcaseList = this.suitcase?.items;
     // and we show them
     Object.keys(this.suitcaseList).forEach((key: string) => {
       this.suitcaseList[key].forEach((item: TripItem) => {
@@ -314,10 +317,10 @@ export class CreateSuitcaseComponent implements OnInit {
   }
 
   // REMOVE
-  public removeItem(itemList: TripItem[], index:number, viewChildren?: QueryList<any>) {
-    if (viewChildren) {
+  public removeItem(itemList: TripItem[], index:number, viewChildren?: () => QueryList<any>) {
+    if (viewChildren && viewChildren()) {
       // Alternate two keyframe animations
-      const element = viewChildren.toArray().find((child)=> { return child.nativeElement.innerHTML.search(itemList[index].name) > 0})
+      const element = viewChildren().find((child)=> { return child.nativeElement.innerHTML.search(itemList[index].name) > 0})
       this.counter % 2 ? this._renderer.addClass(element.nativeElement, 'flip-out-ver-right') : this._renderer.addClass(element.nativeElement, 'removedItem');
       this.counter++;
     }

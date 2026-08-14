@@ -7,7 +7,7 @@ import {catchError, map, tap} from 'rxjs/operators';
 import {SuitcaseService} from '../services/suitcase.service';
 import {Suitcase} from '../models/suitcase';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class DetailResolver  {
   constructor(
     private readonly _router: Router,

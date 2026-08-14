@@ -1,12 +1,12 @@
-@if (itemList) {
-  @switch (listName) {
+@if (itemList()) {
+  @switch (listName()) {
     @case ('common') {
-      @if (itemList.length > 0) {
+      @if (itemList().length > 0) {
         <div class="card-header card-subheader" i18n>Common items</div>
       }
     }
     @case ('cultural') {
-      @if (itemList.length > 0) {
+      @if (itemList().length > 0) {
         <div class="card-header card-subheader">
           <mat-icon matSuffix i18n-matTooltip="@@cultural" matTooltip="Cultural" [matTooltipPosition]="'below'">museum</mat-icon>
           <span i18n="@@cultural">Cultural</span>
@@ -14,7 +14,7 @@
       }
     }
     @case ('beach') {
-      @if (itemList.length > 0) {
+      @if (itemList().length > 0) {
         <div class="card-header card-subheader">
           <mat-icon matSuffix i18n-matTooltip matTooltip="Beach" [matTooltipPosition]="'below'">beach_access</mat-icon>
           <span i18n="@@beach">Beach</span>
@@ -22,7 +22,7 @@
       }
     }
     @case ('mountain') {
-      @if (itemList.length > 0) {
+      @if (itemList().length > 0) {
         <div class="card-header card-subheader">
           <mat-icon matSuffix i18n-matTooltip matTooltip="Mountain" [matTooltipPosition]="'below'">filter_hdr</mat-icon>
           <span i18n="@@mountain">Mountain</span>
@@ -30,7 +30,7 @@
       }
     }
     @case ('cycling') {
-      @if (itemList.length > 0) {
+      @if (itemList().length > 0) {
         <div class="card-header card-subheader">
           <mat-icon matSuffix i18n-matTooltip matTooltip="Cycling" [matTooltipPosition]="'below'">pedal_bike</mat-icon>
           <span i18n="@@cycling">Cycling</span>
@@ -38,7 +38,7 @@
       }
     }
     @case ('diving') {
-      @if (itemList.length > 0) {
+      @if (itemList().length > 0) {
         <div class="card-header card-subheader">
           <mat-icon matSuffix i18n-matTooltip matTooltip="Diving" [matTooltipPosition]="'below'">scuba_diving</mat-icon>
           <span i18n="@@diving">Diving</span>
@@ -46,7 +46,7 @@
       }
     }
     @case ('pet') {
-      @if (itemList.length > 0) {
+      @if (itemList().length > 0) {
         <div class="card-header card-subheader">
           <mat-icon matSuffix i18n-matTooltip matTooltip="Pet" [matTooltipPosition]="'below'">pets</mat-icon>
           <span i18n="@@pet">Pet</span>
@@ -54,7 +54,7 @@
       }
     }
     @case ('baby') {
-      @if (itemList.length > 0) {
+      @if (itemList().length > 0) {
         <div class="card-header card-subheader">
           <mat-icon matSuffix i18n-matTooltip matTooltip="Baby" [matTooltipPosition]="'below'">baby_changing_station</mat-icon>
           <span i18n="@@baby">Baby</span>
@@ -62,7 +62,7 @@
       }
     }
   }
-  @for (item of itemList; track $index; let i = $index) {
+  @for (item of itemList(); track $index; let i = $index) {
     @switch (item.type) {
       @case ('tech') {
         @if (showSubsubheader('tech', item.name)) {

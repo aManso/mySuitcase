@@ -16,7 +16,7 @@ import { SimpleOutput } from "../models/shared";
 import { SessionService } from "../session/session.service";
 import { Languages } from '../const/languages';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class SuitcaseService {
   
   private readonly SAVE_SUITCASE_API = environment.apiUrl + 'suitcase/save';
