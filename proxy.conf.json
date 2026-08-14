@@ -1,11 +1,11 @@
 {
-  "/api/*": {
+  "/api": {
     "target": "http://localhost:3000",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": false
   },
-  "/data/2.5/*}": {
+  "/data/2.5/}": {
     "target": "http://api.openweathermap.org",
     "secure": false,
     "logLevel": "debug",
