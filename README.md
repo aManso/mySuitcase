@@ -39,7 +39,13 @@ For translations, we use Angular i18n architecture (following https://medium.com
   1.1 Generates a messages.xlf file with text to be translated.
   1.2 Based on extract-i18n defined in angular.json, it merges new translations into target xlf files, adding a state="new" attribute to newly added translations.
 2. `npm run start-es` => `ng serve --proxy-config proxy.conf.json --configuration=es-ES` => runs the app in development mode with a specific translated language.
-3. `npm run start-prod` => `ng build --configuration=production --localize` => creates production builds for the default locale (en-US) and the configured languages (es so far). There is currently an angular.json production optimization configuration issue during build, so the inlineCritical option has to be deactivated.
+3. `npm run start-fr` => `ng serve --proxy-config proxy.conf.json --configuration=fr-FR` => runs the app in development mode in French.
+4. `npm run start-prod` => `ng build --configuration=production --localize` => creates production builds for all configured locales.
+5. Locale configuration details (angular.json):
+  5.1 `sourceLocale` is `en-US`.
+  5.2 Translation keys use base locale IDs (`es`, `fr`) to match Angular locale data.
+  5.3 `subPath` is used to publish region-specific folders (`es-ES`, `fr-FR`).
+  5.4 Production output is generated under `dist/my-suitcase/browser/en-US`, `dist/my-suitcase/browser/es-ES`, and `dist/my-suitcase/browser/fr-FR`.
 
 ## Deploy
   ### Locally

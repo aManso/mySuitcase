@@ -13,6 +13,19 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "my-suitcase",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "es": {
+            "translation": "src/locale/messages.es.xlf",
+            "subPath": "es-ES"
+          },
+          "fr": {
+            "translation": "src/locale/messages.fr.xlf",
+            "subPath": "fr-FR"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -67,6 +80,16 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "es-ES": {
+              "localize": [
+                "es"
+              ]
+            },
+            "fr-FR": {
+              "localize": [
+                "fr"
+              ]
             }
           },
           "defaultConfiguration": ""
@@ -79,6 +102,12 @@
           "configurations": {
             "production": {
               "buildTarget": "my-suitcase:build:production"
+            },
+            "es-ES": {
+              "buildTarget": "my-suitcase:build:es-ES"
+            },
+            "fr-FR": {
+              "buildTarget": "my-suitcase:build:fr-FR"
             }
           }
         },
