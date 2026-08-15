@@ -1,12 +1,22 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LoginService } from '../../../../core/login/login.service';
 import { SessionService } from '../../../../core/session/session.service';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'admin-navbar-component',
   templateUrl: './admin-navbar.component.html',
-  styleUrls: ['./admin-navbar.component.scss']
+  styleUrls: ['./admin-navbar.component.scss'],
+  imports: [
+    RouterModule, // needed for routerLink in view
+    CommonModule, // needed for async in view
+    // Angular Material
+    MatTooltipModule,
+    MatIconModule,
+  ],
 })
 export class AdminNavBarComponent {
   private readonly _router: Router = inject(Router);

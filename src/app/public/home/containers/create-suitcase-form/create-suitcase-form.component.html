@@ -60,7 +60,7 @@
         <div formArrayName="type">
           <mat-label i18n>What kind of trip are you going to do?</mat-label>
           <div id="type_options">
-            @for (option of createSuitcaseForm.controls.type.controls; track option; let i = $index) {
+            @for (option of getTypeControls(); track $index; let i = $index) {
               <ng-container [formGroupName]="i">
                 <mat-checkbox formControlName="selected">
                   <div class="category-description__container">

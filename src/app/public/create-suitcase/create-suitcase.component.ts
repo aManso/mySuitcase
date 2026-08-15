@@ -317,10 +317,10 @@ export class CreateSuitcaseComponent implements OnInit {
   }
 
   // REMOVE
-  public removeItem(itemList: TripItem[], index:number, viewChildren?: () => QueryList<any>) {
-    if (viewChildren && viewChildren()) {
+  public removeItem(itemList: TripItem[], index:number, viewChildren?: readonly ElementRef[]) {
+    if (viewChildren && viewChildren.length > 0) {
       // Alternate two keyframe animations
-      const element = viewChildren().find((child)=> { return child.nativeElement.innerHTML.search(itemList[index].name) > 0})
+      const element = viewChildren.find((child)=> { return child.nativeElement.innerHTML.search(itemList[index].name) > 0})
       this.counter % 2 ? this._renderer.addClass(element.nativeElement, 'flip-out-ver-right') : this._renderer.addClass(element.nativeElement, 'removedItem');
       this.counter++;
     }

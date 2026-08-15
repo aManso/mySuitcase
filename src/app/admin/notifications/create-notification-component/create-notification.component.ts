@@ -1,6 +1,10 @@
 import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GENERAL_SNACKBAR_TIME } from '../../../core/config/config';
 import { FRONTEND_ERRORS } from '../../../core/const/frontend-errors';
@@ -11,6 +15,8 @@ import { AdminNotificationsService } from '../notifications.service';
 
 @Component({
   selector: 'create-notification-component',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule],
   templateUrl: './create-notification.component.html',
   styleUrls: ['./create-notification.component.scss']
 })

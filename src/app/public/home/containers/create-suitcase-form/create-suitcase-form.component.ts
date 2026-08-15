@@ -1,7 +1,7 @@
 /// <reference types="google.maps" />
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Validators, FormGroup, FormControl, ReactiveFormsModule, UntypedFormBuilder } from '@angular/forms';
+import { Validators, FormGroup, FormControl, FormArray, ReactiveFormsModule, UntypedFormBuilder } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, ThemePalette } from '@angular/material/core';
 import { MatProgressBarModule, ProgressBarMode } from '@angular/material/progress-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -116,8 +116,8 @@ export class CreateSuitcaseFormComponent implements OnInit {
     });
   }
 
-  public getTypeControls(typeControl: any): FormControl[] {
-    return typeControl.controls as FormControl[];
+  public getTypeControls(): FormGroup[] {
+    return (this.createSuitcaseForm.controls.type as FormArray).controls as FormGroup[];
   }
 
   public isSportsSelected(): boolean {

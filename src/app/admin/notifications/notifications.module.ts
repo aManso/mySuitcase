@@ -21,6 +21,9 @@ import { SharedModule } from '../../core/shared/shared.module';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    NotificationsComponent,
+    CreateNotificationComponent,
+    WebNotificationSendComponent,
     // App
     NotificationsRoutingModule,
     SharedModule,
@@ -30,11 +33,6 @@ import { SharedModule } from '../../core/shared/shared.module';
     MatDialogModule,
     MatSnackBarModule,
     MatInputModule,
-  ],
-  declarations: [
-    NotificationsComponent,
-    CreateNotificationComponent,
-    WebNotificationSendComponent,
   ],
   providers: [
     AdminNotificationsService,

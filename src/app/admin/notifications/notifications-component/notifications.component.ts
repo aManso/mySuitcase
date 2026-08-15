@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { MatTableModule } from '@angular/material/table';
 import { GENERAL_SNACKBAR_TIME } from '../../../core/config/config';
 import { FRONTEND_ERRORS } from '../../../core/const/frontend-errors';
 import { FRONTEND_MESSAGES } from '../../../core/const/frontend-messages';
@@ -9,6 +11,7 @@ import { Notification } from '../../../core/models/notification';
 import { InfoDialogComponent } from '../../../core/shared/info-dialog/info-dialog.component';
 import { CreateNotificationComponent } from '../create-notification-component/create-notification.component';
 import { AdminNotificationsService } from '../notifications.service';
+import { WebNotificationSendComponent } from '../../components/web-notification-send/web-notification-send.component';
 
 export interface PeriodicElement {
   name: string;
@@ -19,6 +22,8 @@ export interface PeriodicElement {
 
 @Component({
   selector: 'notifications-component',
+  standalone: true,
+  imports: [MatTableModule, MatIconModule, WebNotificationSendComponent],
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

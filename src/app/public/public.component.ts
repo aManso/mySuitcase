@@ -16,7 +16,7 @@ import { TimeoutDialogComponent } from '../core/session/timeout-dialog/timeout-d
   templateUrl: './public.component.html',
   styles: [':host {display: inline-block; width: 100%; height: 100%}'],
   standalone: true,
-  imports: [RouterOutlet, TimeoutDialogComponent],
+  imports: [RouterOutlet],
   providers: [
     LoginService,
     SuitcaseService,

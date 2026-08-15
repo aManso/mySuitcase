@@ -1,6 +1,7 @@
 import {
-  Component, inject, Input,
+  Component, inject, input,
 } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EXTENDED_SNACKBAR_TIME } from '../../../../app/core/config/config';
 import { FRONTEND_ERRORS } from '../../../../app/core/const/frontend-errors';
@@ -10,16 +11,18 @@ import { AdminNotificationsService } from '../../notifications/notifications.ser
 
 @Component({
   selector: 'web-notification-send',
+  standalone: true,
+  imports: [MatIconModule],
   styles: [`.send-button{ display: flex; align-items: center; width: 200px; justify-content: space-between;}`],
   templateUrl: './web-notification-send.component.html',
 })
 export class WebNotificationSendComponent {
-  @Input() notificationId: string;
+  public readonly notificationId = input.required<string>();
   private readonly _notificationsService: AdminNotificationsService = inject(AdminNotificationsService);
   private readonly _snackBar: MatSnackBar = inject(MatSnackBar);
 
   public sendNotification() {
-    this._notificationsService.sendNotification(this.notificationId).subscribe(()=> {
+    this._notificationsService.sendNotification(this.notificationId()).subscribe(()=> {
       this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_SENT_NOTIFICATION.message, '', {duration: EXTENDED_SNACKBAR_TIME});
     }, ((error)=> {
       console.log(error);

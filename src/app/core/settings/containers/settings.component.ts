@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,11 +12,19 @@ import { User } from '../../models/user';
 import { ExtraFieldsInfoBottomSheetComponent } from '../../shared/extra-fields-info-bottom-sheet/extra-fields-info-bottom-sheet.component';
 import { passwordValidator } from '../../validators/validators';
 import { SettingsService } from '../settings.service';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { NavBarComponent } from '../../shared/navbar/containers/navbar.component';
+import { FooterComponent } from '../../shared/footer/containers/footer.component';
 
 @Component({
+  standalone: true,
   selector: 'settings-component',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+  styleUrls: ['./settings.component.scss'],
+  imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatIconModule, MatRadioModule, NavBarComponent, FooterComponent],
+  providers: [],
 })
 export class SettingsComponent{
   private _user: User;
@@ -24,15 +33,12 @@ export class SettingsComponent{
   public settingsForm: FormGroup;
   public passwordForm: FormGroup;
 
-  public constructor(
-    private _fb: FormBuilder,
-    private _settingsService: SettingsService,
-    private _loginService: LoginService,
-    private _activatedRoute: ActivatedRoute,
-    private _snackBar: MatSnackBar,
-    private _bottomSheet: MatBottomSheet,
-  ) {
-  }
+  private readonly _fb: FormBuilder;
+  private readonly _settingsService: SettingsService;
+  private readonly _loginService: LoginService;
+  private readonly _activatedRoute: ActivatedRoute;
+  private readonly _snackBar: MatSnackBar;
+  private readonly _bottomSheet: MatBottomSheet;
 
   public ngOnInit() {
     this._user = this._activatedRoute.snapshot.data.user;

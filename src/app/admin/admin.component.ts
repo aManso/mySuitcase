@@ -4,14 +4,18 @@ import { LoginService } from '../core/login/login.service';
 import { SessionService } from '../core/session/session.service';
 import { TimeoutDialogComponent } from '../core/session/timeout-dialog/timeout-dialog.component';
 import { Logger } from '../core/services/logger.service';
-import { AdminNavBarModule } from './components/navbar/admin-navbar.module';
+import { AdminNavBarComponent } from './components/navbar/admin-navbar/admin-navbar.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
     templateUrl: './admin.component.html',
     changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true,
-    imports: [AdminNavBarModule],
+    imports: [
+      RouterModule, // needed for routerLink in view
+      AdminNavBarComponent
+    ],
 })
 export class AdminComponent implements AfterViewInit {
 
