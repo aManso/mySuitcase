@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { Observable, of, of as _of } from 'rxjs';
@@ -8,10 +8,8 @@ import { RegisterService } from './register.service';
 
 @Injectable()
 export class RegisterResolver  {
-  constructor(
-    private _registerService: RegisterService,
-  ) {
-  }
+
+  private readonly _registerService: RegisterService = inject(RegisterService);
 
   /**
    * resolve method

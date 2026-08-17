@@ -10,10 +10,7 @@ export class RegisterService {
   private readonly URL_REGISTER = environment.apiUrl + 'register/';
   private readonly URL_REGISTER_CONFIRM = environment.apiUrl + 'register/confirm';
 
-  public constructor(
-    private readonly _http: HttpClient,
-  ) {
-  }
+  private readonly _http = inject(HttpClient);
 
   /**
    * It register a new user into the system

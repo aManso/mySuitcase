@@ -11,5 +11,4 @@ import { NavBarComponent } from './containers/navbar.component';
   providers: [],
 })
 export class NavBarModule {
-  constructor() {}
 }

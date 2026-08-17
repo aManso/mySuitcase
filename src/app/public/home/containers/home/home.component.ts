@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   public isAdmin: boolean;
   public isLogged = false;
   public showOverview = false;
-  @ViewChild('overview') private overviewContainer: ElementRef;
+  private readonly overviewContainer = viewChild<ElementRef>('overview');
   private _maximumSuitcases: number;
   private readonly _loginService = inject(LoginService);
   private readonly _userService = inject(UserService);
@@ -131,7 +131,7 @@ export class HomeComponent implements OnInit {
     try {
       // we can scroll using the HTMLElement or selecting the item in the dom and triggering scroll
       // document.querySelector('#' + target).scrollIntoView();
-      (this.overviewContainer.nativeElement as HTMLElement).scrollIntoView();
+      (this.overviewContainer()?.nativeElement as HTMLElement).scrollIntoView();
     } catch(err) { }
   }
 

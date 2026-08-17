@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, ChangeDetectorRef, inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit, ChangeDetectorRef, inject, input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Coordinates } from '../../../../core/models/trip';
 import { environment } from '../../../../../environments/environment';
 import { ConfigService } from '../../../../core/services/config.service';
@@ -13,8 +13,8 @@ import { ConfigService } from '../../../../core/services/config.service';
 export class WeatherPanelComponent implements OnInit {
   private _maxAllowedDaysInAPI = 7;
 
-  @Input() coordinates: Coordinates;
-  @Input() weatherDays: number;
+  readonly coordinates = input.required<Coordinates>();
+  readonly weatherDays = input.required<number>();
 
   public weatherIsReady: boolean;
   public weatherData: any;
@@ -25,15 +25,19 @@ export class WeatherPanelComponent implements OnInit {
   private readonly _configService = inject(ConfigService);
 
   public ngOnInit() {
-    const url = this.URL_WEATHER_API + '?lat='+this.coordinates.lat.toString()+'&lon='+this.coordinates.lng.toString()+'&lan='+this.getLanguage(this._configService.getLocale());
-    this._http.get(url).subscribe((response: any) => {
-      this._parseData(response);
-    }, (error) => {
-      console.log(error);
-      if (!environment.production) {
-        // TODO just for testing;
-        const mockResponse = this.buildMockWeather();
-        this._parseData(mockResponse);
+    const coordinates = this.coordinates();
+    const url = this.URL_WEATHER_API + '?lat='+coordinates.lat.toString()+'&lon='+coordinates.lng.toString()+'&lan='+this.getLanguage(this._configService.getLocale());
+    this._http.get(url).subscribe({
+      next: (response: any) => {
+        this._parseData(response);
+      },
+      error: (error) => {
+        console.log(error);
+        if (!environment.production) {
+          // TODO just for testing;
+          const mockResponse = this.buildMockWeather();
+          this._parseData(mockResponse);
+        }
       }
     })
   }
@@ -43,9 +47,10 @@ export class WeatherPanelComponent implements OnInit {
   }
 
   private _parseData(data: any) {
+    const weatherDays = this.weatherDays();
     this.weatherIsReady = !!data;
     this.weatherData = data;
-    this.weatherData.daily = data.daily.splice(this._maxAllowedDaysInAPI - this.weatherDays, this.weatherDays);
+    this.weatherData.daily = data.daily.splice(this._maxAllowedDaysInAPI - weatherDays, weatherDays);
     this.weatherData.daily.forEach((dailyWeather: any) => {
       dailyWeather.dayOfMonth = new Date(parseInt(dailyWeather.dt + '000')).getDate();
       const sunriseTime = new Date(parseInt(dailyWeather.sunrise + '000'));

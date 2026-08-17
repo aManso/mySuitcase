@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -32,14 +32,11 @@ export class UpdatePasswordComponent {
   public updatePasswordForm: FormGroup;
   private token: string;
 
-  public constructor(
-    private readonly _loginService: LoginService,
-    private readonly _router: Router,
-    private readonly _fb: FormBuilder,
-    private readonly _snackBar: MatSnackBar,
-    private readonly _route: ActivatedRoute
-  ) {
-  }
+  private readonly _loginService = inject(LoginService);
+  private readonly _router = inject(Router);
+  private readonly _fb = inject(FormBuilder);
+  private readonly _snackBar = inject(MatSnackBar);
+  private readonly _route = inject(ActivatedRoute);
 
   public ngOnInit() {
     this._route.queryParams.subscribe(params => {
@@ -71,12 +68,14 @@ export class UpdatePasswordComponent {
 
   public submit() {
     if (this.updatePasswordForm.valid) {
-      this._loginService.updatePassword(this.updatePasswordForm.value.password, this.token).subscribe(() => {
-        this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_UPDATE_PASSWORD.message, '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['success-snackbar']});
-        this.goTo('/login');
-      },
-      (error: any) => {
-        this._showGeneralError();
+      this._loginService.updatePassword(this.updatePasswordForm.value.password, this.token).subscribe({
+        next: () => {
+          this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_UPDATE_PASSWORD.message, '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['success-snackbar']});
+          this.goTo('/login');
+        },
+        error: (error: any) => {
+          this._showGeneralError();
+        }
       });
     }
   }

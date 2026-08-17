@@ -7,8 +7,6 @@ export class UserService {
 
     private _activeUser: User|undefined;
 
-    constructor() {    }
-
     public get activeUser(): User|undefined {
         return this._activeUser;
     }

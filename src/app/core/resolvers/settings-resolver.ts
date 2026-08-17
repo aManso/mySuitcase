@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { Observable, of as _of } from 'rxjs';
@@ -7,12 +7,10 @@ import { LoginService } from '../login/login.service';
 import { UserService } from '../services/user.service';
 
 @Injectable()
-export class SettingsResolver  {
-  constructor(
-    private readonly _userService: UserService,
-    private readonly _loginService: LoginService,
-  ) {
-  }
+export class SettingsResolver {
+
+  private readonly _userService = inject(UserService);
+  private readonly _loginService = inject(LoginService);
 
   /**
    * resolve method

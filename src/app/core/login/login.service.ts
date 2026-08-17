@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
@@ -19,11 +19,12 @@ export class LoginService {
 
   public logged$: BehaviorSubject<User|undefined>;
 
+  private readonly _http = inject(HttpClient);
+  private readonly _router = inject(Router);
+  private readonly _sessionService = inject(SessionService);
+  private readonly _userService = inject(UserService);
+
   public constructor(
-    private readonly _http: HttpClient,
-    private readonly _router: Router,
-    private readonly _sessionService: SessionService,
-    private readonly _userService: UserService,
   ) {
     this.logged$ = new BehaviorSubject<User|undefined>(undefined);
 
@@ -35,28 +36,31 @@ export class LoginService {
 
   public login(form: {email: string, password: string, keepSession: boolean}): Observable<User|boolean> {
     const $loginResponse = new Subject<User>();
-    (this._http.post(this.URL_CHECK_EXISTING_USER, form) as Observable<UserLogin>).subscribe((response: UserLogin) => {
-      if (typeof response === 'object') {
-        console.log('user logged', response.user);
-        // we store the user in the service
-        this._userService.activeUser = response.user;
-        
-        // we keep the token of the session
-        const storageMethod = form.keepSession ? localStorage : sessionStorage;
-        this._sessionService.setStorageMethod(storageMethod);
-        this._sessionService.startSession(response.token);
+    (this._http.post(this.URL_CHECK_EXISTING_USER, form) as Observable<UserLogin>).subscribe({
+      next: (response: UserLogin) => {
+        if (typeof response === 'object') {
+          console.log('user logged', response.user);
+          // we store the user in the service
+          this._userService.activeUser = response.user;
+          
+          // we keep the token of the session
+          const storageMethod = form.keepSession ? localStorage : sessionStorage;
+          this._sessionService.setStorageMethod(storageMethod);
+          this._sessionService.startSession(response.token);
 
-        $loginResponse.next(response.user);
-        // we notified the observers
-        this.logged$.next(response.user)
-      } else {
-        // If request was ok, but not user was found, response is undefined
-        $loginResponse.next(response);
-        // we notified the observers
-        this.logged$.next(response)
+          $loginResponse.next(response.user);
+          // we notified the observers
+          this.logged$.next(response.user)
+        } else {
+          // If request was ok, but not user was found, response is undefined
+          $loginResponse.next(response);
+          // we notified the observers
+          this.logged$.next(response)
+        }
+      },
+      error: (error: any) => {
+        $loginResponse.error(error);
       }
-    }, (error: any) => {
-      $loginResponse.error(error);
     });
     return $loginResponse;
   }
@@ -64,15 +68,18 @@ export class LoginService {
   public recoverActiveUser(): Observable<User> {
     const $userResponse = new Subject<User>();
     // we get it from the BE using the token in the sessionStorage
-    this.getUser(this._sessionService.getIdToken()).subscribe((user: User) => {
-      this._userService.activeUser = user;
-      $userResponse.next(this._userService.activeUser);
-    }, (error: HttpErrorResponse)=> {
-      if (error.status == 401) {
-        this._sessionService.removeToken();
+    this.getUser(this._sessionService.getIdToken()).subscribe({
+      next: (user: User) => {
+        this._userService.activeUser = user;
+        $userResponse.next(this._userService.activeUser);
+      },
+      error: (error: HttpErrorResponse)=> {
+        if (error.status == 401) {
+          this._sessionService.removeToken();
+        }
+        console.log(error);
+        $userResponse.error(error);
       }
-      console.log(error);
-      $userResponse.error(error);
     });
     return $userResponse;
   }

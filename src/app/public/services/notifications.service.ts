@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { SwPush } from '@angular/service-worker';
 
 import { Observable, Subject } from "rxjs";
@@ -13,10 +13,8 @@ const PUBLIC_VAPID_KEY= "BN_Vaz62gKS1Mi6YS-6guChhEdg8J14bupDKzgh2rgeIcTwmGiDiblm
 export class NotificationsService {
     private readonly ADD_SUBSCRIBER_API = environment.apiUrl + 'notifications/subscribe';
 
-    public constructor(
-        private readonly _http: HttpClient,
-        private readonly _swPush: SwPush,
-    ) {}
+    private readonly _http = inject(HttpClient);
+    private readonly _swPush = inject(SwPush);
 
     /**
      * It checks if Service Workers are enabled (prod build & (https or localhost)), and if so creates a push subscription

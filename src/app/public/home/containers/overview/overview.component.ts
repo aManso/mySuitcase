@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, LOCALE_ID, inject } from '@angular/core';
+import { ChangeDetectorRef, ChangeDetectionStrategy, Component, OnInit, LOCALE_ID, inject, output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -27,8 +27,7 @@ export class OverviewComponent implements OnInit {
   public suitcaseListTotal: number;
   public dataReady = false;
 
-  @Output()
-  public dataLoaded: EventEmitter<void> = new EventEmitter<void>();
+  public dataLoaded = output<void>();
 
   private readonly _suitcaseService = inject(SuitcaseService);
   private readonly _dialog = inject(MatDialog);
@@ -107,12 +106,15 @@ export class OverviewComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((confirm: string) => {
       if (confirm === 'true') {
-        this._suitcaseService.removeSuitcase(id).subscribe((response: SimpleOutput) => {
-          this.suitcaseList.splice(index, 1);
-          this._changeDetector.detectChanges();
-          this._snackBar.open(FRONTEND_MESSAGES.SUITCASE_REMOVED.message, '', {duration: GENERAL_SNACKBAR_TIME});
-        }, (error: any) => {
-          this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: EXTENDED_SNACKBAR_TIME});
+        this._suitcaseService.removeSuitcase(id).subscribe({
+          next: (response: SimpleOutput) => {
+            this.suitcaseList.splice(index, 1);
+            this._changeDetector.detectChanges();
+            this._snackBar.open(FRONTEND_MESSAGES.SUITCASE_REMOVED.message, '', {duration: GENERAL_SNACKBAR_TIME});
+          },
+          error: (error: any) => {
+            this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: EXTENDED_SNACKBAR_TIME});
+          }
         });
       }
       dialogRef.close();

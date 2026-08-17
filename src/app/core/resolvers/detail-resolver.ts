@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 
 import {Observable, of as _of} from 'rxjs';
@@ -8,11 +8,10 @@ import {SuitcaseService} from '../services/suitcase.service';
 import {Suitcase} from '../models/suitcase';
 
 @Injectable({ providedIn: 'root' })
-export class DetailResolver  {
-  constructor(
-    private readonly _router: Router,
-    private readonly _suitcaseService: SuitcaseService,
-    ) { }
+export class DetailResolver {
+
+  private readonly _router = inject(Router);
+  private readonly _suitcaseService = inject(SuitcaseService); 
 
   /**
    * resolve method

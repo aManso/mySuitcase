@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable, of } from "rxjs";
 import { catchError, retry, map } from 'rxjs/operators';
@@ -12,10 +12,8 @@ export class AdminUserService {
     private readonly URL_API = environment.apiUrl + 'users/';
     private _activeUser: User|undefined;
 
-    constructor(
-        private _http: HttpClient,
-        private _router: Router,
-    ) {    }
+    private readonly _http = inject(HttpClient);
+    private readonly _router = inject(Router);
 
     public get activeUser(): User|undefined {
         return this._activeUser;

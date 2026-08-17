@@ -40,6 +40,4 @@ import { SharedModule } from '../../core/shared/shared.module';
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } }
   ],
 })
-export class NotificationsModule {
-  constructor() {}
-}
+export class NotificationsModule {}

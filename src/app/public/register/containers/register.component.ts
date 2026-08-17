@@ -105,17 +105,19 @@ export class RegisterComponent implements OnInit{
    */
   public submit() {
     if (this.isValidForm()) {
-      this._registerService.register(this.adaptUser(this.registerForm.value), this.lang).subscribe((response: SimpleOutput) => {
-        if (response.success) {
-          this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_REGISTER.message, '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['success-snackbar']});
-          this.goTo(this._baseRoute.toString());
-        } else {
-          this._snackBar.open(FRONTEND_ERRORS.USER_EXISTS.message, '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['error-snackbar']});
-        }
-      },
-        (error: any) => {
+      this._registerService.register(this.adaptUser(this.registerForm.value), this.lang).subscribe({
+        next: (response: SimpleOutput) => {
+          if (response.success) {
+            this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_REGISTER.message, '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['success-snackbar']});
+            this.goTo(this._baseRoute.toString());
+          } else {
+            this._snackBar.open(FRONTEND_ERRORS.USER_EXISTS.message, '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['error-snackbar']});
+          }
+        },
+        error: (error: any) => {
           this._showGeneralError();
-        });
+        }
+      });
     }
   }
 

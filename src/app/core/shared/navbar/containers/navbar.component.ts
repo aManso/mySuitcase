@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -21,12 +21,10 @@ export class NavBarComponent {
   public showLanguages = false;
   public languages = Languages;
 
-  public constructor(
-    private readonly _router: Router,
-    private readonly sessionService: SessionService,
-    public loginService: LoginService,
-    private readonly configService: ConfigService,
-  ) {}
+  private readonly _router: Router = inject(Router);
+  private readonly sessionService: SessionService = inject(SessionService);
+  private readonly loginService: LoginService = inject(LoginService);
+  private readonly configService: ConfigService = inject(ConfigService);
 
   public goTo(path: string, data?: any) {
     this._router.navigate(data ? [path, data] : [path]);

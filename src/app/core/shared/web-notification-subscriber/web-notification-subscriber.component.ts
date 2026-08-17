@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -22,14 +22,11 @@ import { LoginService } from '../../login/login.service';
 })
 export class WebNotificationSubscriberComponent {
 
-  constructor(
-    private readonly _notificationsService: NotificationsService,
-    private readonly _loginService: LoginService,
-    private readonly _router: Router,
-    private readonly _snackBar: MatSnackBar,
-    private readonly _dialog: MatDialog,
-  ) {
-  }
+  private readonly _notificationsService = inject(NotificationsService);
+  private readonly _loginService = inject(LoginService);
+  private readonly _router = inject(Router);
+  private readonly _snackBar = inject(MatSnackBar);
+  private readonly _dialog = inject(MatDialog);
 
   public applyForNotifications() {
     this._loginService.isLoggedIn() ? this._subscribeNotifications() : this._goToLogin();

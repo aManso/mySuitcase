@@ -15,10 +15,7 @@ import { PWAInstallerService } from '../../services/pwa-installer.service';
 })
 export class PwaInstallerComponent implements AfterViewInit {
 
-  constructor(
-    private readonly _pwaInstallerService: PWAInstallerService,
-  ) {
-  }
+  private readonly _pwaInstallerService: PWAInstallerService = inject(PWAInstallerService);
 
   public ngAfterViewInit(): void {
     this._pwaInstallerService.loadScript();

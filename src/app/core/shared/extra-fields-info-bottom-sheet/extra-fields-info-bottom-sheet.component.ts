@@ -1,5 +1,6 @@
 import {
   Component,
+  inject,
 } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -13,7 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatTooltipModule, MatIconModule],
 })
 export class ExtraFieldsInfoBottomSheetComponent {
-  constructor(private readonly _bottomSheetRef: MatBottomSheetRef<ExtraFieldsInfoBottomSheetComponent>) {}
+
+  private readonly _bottomSheetRef = inject(MatBottomSheetRef<ExtraFieldsInfoBottomSheetComponent>);
 
   public closePanel(event: MouseEvent): void {
     this._bottomSheetRef.dismiss();

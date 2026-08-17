@@ -47,5 +47,4 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
   providers: [],
 })
 export class SharedModule {
-  constructor() {}
 }

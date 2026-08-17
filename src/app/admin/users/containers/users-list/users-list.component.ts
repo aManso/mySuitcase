@@ -26,22 +26,28 @@ export class UsersListComponent implements OnInit {
 
   // **************** Just for testing *************
   public getUsers() {
-    this._userService.getUsers().subscribe((userList: User[]) => {
-      this.result = JSON.stringify(userList);
-      this._changeDetector.detectChanges();
-    }, (error) => {
-      // TODO replace for a info message
-      console.error(error);
+    this._userService.getUsers().subscribe({
+      next: (userList: User[]) => {
+        this.result = JSON.stringify(userList);
+        this._changeDetector.detectChanges();
+      },
+      error: (error) => {
+        // TODO replace for a info message
+        console.error(error);
+      }
     });
   }
 
   public getUser() {
-    this._userService.getUser(this.usersForm.controls.userId.value).subscribe((user: User) => {
-      this.result = JSON.stringify(user);
-      this._changeDetector.detectChanges();
-    }, (error) => {
-      // TODO replace for a info message
-      console.error(error);
+    this._userService.getUser(this.usersForm.controls.userId.value).subscribe({
+      next: (user: User) => {
+        this.result = JSON.stringify(user);
+        this._changeDetector.detectChanges();
+      },
+      error: (error) => {
+        // TODO replace for a info message
+        console.error(error);
+      }
     });
   }
 
@@ -74,22 +80,28 @@ export class UsersListComponent implements OnInit {
   }
 
   public updateUser() {
-    this._userService.getUser(this.usersForm.controls.userId.value).subscribe((user: User) => {
-      this.result = JSON.stringify(user);
-      this._changeDetector.detectChanges();
-    }, (error) => {
-      // TODO replace for a info message
-      console.error(error);
+    this._userService.getUser(this.usersForm.controls.userId.value).subscribe({
+      next: (user: User) => {
+        this.result = JSON.stringify(user);
+        this._changeDetector.detectChanges();
+      },
+      error: (error) => {
+        // TODO replace for a info message
+        console.error(error);
+      }
     });
   }
 
   public deleteUser() {
-    this._userService.deleteUser(this.usersForm.controls.userId.value).subscribe((response: any) => {
-      this.result = JSON.stringify(response);
-      this.getUsers();
-    }, (error) => {
-      // TODO replace for a info message
-      console.error(error);
+    this._userService.deleteUser(this.usersForm.controls.userId.value).subscribe({
+      next: (response: any) => {
+        this.result = JSON.stringify(response);
+        this.getUsers();
+      },
+      error: (error) => {
+        // TODO replace for a info message
+        console.error(error);
+      }
     });
   }
   // **************** End of methods for testing *************

@@ -23,10 +23,9 @@ export class AdminComponent implements AfterViewInit {
   private readonly _elementRef = inject(ElementRef);
   private readonly _sessionService = inject(SessionService);
   private readonly _dialog = inject(MatDialog);
+  private readonly _logger = inject(Logger);
 
-  public constructor(
-    private _logger: Logger,
-  ) {
+  public constructor() {
     this._logger.log('AdminComponent')
   }
 

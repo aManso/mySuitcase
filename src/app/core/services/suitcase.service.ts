@@ -48,13 +48,16 @@ export class SuitcaseService {
       }),
       last(),
     )
-    .subscribe((data: any) => {
-      this._currentSuitcase = data.body.response;
-      console.log('Suitcase saved! ', data.body.response);
-      $saveResponse.next();
-    }, (error: any) => {
-      console.log('There was a problem at saving the suitcase: ', error);
-      $saveResponse.error(error);
+    .subscribe({
+      next: (data: any) => {
+        this._currentSuitcase = data.body.response;
+        console.log('Suitcase saved! ', data.body.response);
+        $saveResponse.next();
+      },
+      error: (error: any) => {
+        console.log('There was a problem at saving the suitcase: ', error);
+        $saveResponse.error(error);
+      }
     });
     return $saveResponse;
   }
@@ -118,12 +121,15 @@ export class SuitcaseService {
         return trip;
       })
     )
-    .subscribe((trip: TripType) => {
-      console.log('Recommendations retrieved', trip);
-      $saveResponse.next(trip);
-    }, (error: any) => {
-      console.log('There was a problem at retrieving the recommendations: ', error);
-      $saveResponse.error(error);
+    .subscribe({
+      next: (trip: TripType) => {
+        console.log('Recommendations retrieved', trip);
+        $saveResponse.next(trip);
+      },
+      error: (error: any) => {
+        console.log('There was a problem at retrieving the recommendations: ', error);
+        $saveResponse.error(error);
+      }
     });
     return $saveResponse;
   }
@@ -139,26 +145,32 @@ export class SuitcaseService {
   // *********************** OVERVIEW ************************
   public retrieveSuitcaseOverview(input: SuitcaseOverviewInput): Observable<SuitcaseOverviewOutput> {
     const $overviewResponse = new Subject<SuitcaseOverviewOutput>();
-    this._http.post<SuitcaseOverviewOutput>(this.SUITCASE_OVERVIEW_API, input).subscribe((response: SuitcaseOverviewOutput) => {
-      console.log('Suitcase overview retrieved', response);
-      this.totalSuitcases = response.list.length;
-      $overviewResponse.next(response);
-    }, (error: any) => {
-      console.log('There was a problem at retrieving the overview: ', error);
-      $overviewResponse.error(error);
+    this._http.post<SuitcaseOverviewOutput>(this.SUITCASE_OVERVIEW_API, input).subscribe({
+      next: (response: SuitcaseOverviewOutput) => {
+        console.log('Suitcase overview retrieved', response);
+        this.totalSuitcases = response.list.length;
+        $overviewResponse.next(response);
+      },
+      error: (error: any) => {
+        console.log('There was a problem at retrieving the overview: ', error);
+        $overviewResponse.error(error);
+      }
     });
     return $overviewResponse;
   }
 
   public removeSuitcase(id: string): Observable<SimpleOutput> {
     const $response = new Subject<SimpleOutput>();
-    this._http.post<SimpleOutput>(this.REMOVE_SUITCASE_API, {id}).subscribe((response: SimpleOutput) => {
-      console.log('Suitcase removed', response);
-      this.totalSuitcases--;
-      $response.next(response);
-    }, (error: any) => {
-      console.log('There was a problem at removing the suitcase: ', error);
-      $response.error(error);
+    this._http.post<SimpleOutput>(this.REMOVE_SUITCASE_API, {id}).subscribe({
+      next: (response: SimpleOutput) => {
+        console.log('Suitcase removed', response);
+        this.totalSuitcases--;
+        $response.next(response);
+      },
+      error: (error: any) => {
+        console.log('There was a problem at removing the suitcase: ', error);
+        $response.error(error);
+      }
     });
     return $response;
   }
@@ -170,13 +182,16 @@ export class SuitcaseService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this._sessionService.getToken()}`
     });
-    this._http.get<SuitcaseDetailOutput>(this.SUITCASE_DETAIL_API + name, {headers: headers}).subscribe((response: SuitcaseDetailOutput) => {
-      console.log('Suitcase detail retrieved', response);
-      $detailResponse.next(response);
-      $detailResponse.complete();
-    }, (error: any) => {
-      console.log('There was a problem at retrieving the detail of the suitcase: ', error);
-      $detailResponse.error(error);
+    this._http.get<SuitcaseDetailOutput>(this.SUITCASE_DETAIL_API + name, {headers: headers}).subscribe({
+      next: (response: SuitcaseDetailOutput) => {
+        console.log('Suitcase detail retrieved', response);
+        $detailResponse.next(response);
+        $detailResponse.complete();
+      },
+      error: (error: any) => {
+        console.log('There was a problem at retrieving the detail of the suitcase: ', error);
+        $detailResponse.error(error);
+      }
     });
     return $detailResponse;
   }

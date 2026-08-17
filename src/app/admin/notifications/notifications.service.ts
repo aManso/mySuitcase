@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
 import { map } from "rxjs/operators";
 import { Notification, NotificationOutput } from "../../core/models/notification";
@@ -12,9 +12,7 @@ export class AdminNotificationsService {
     private readonly ADD_NOTIFICATION_API = environment.apiUrl + 'notifications/add';
     private readonly DELETE_NOTIFICATION_API = environment.apiUrl + 'notifications/delete/';
 
-    public constructor(
-        private _http: HttpClient,
-    ) {}
+    private readonly _http = inject(HttpClient);
 
     public getNotifications(): Observable<Notification[]> {
         return this._http.get<NotificationOutput>(this.URL_API).pipe(map((response: NotificationOutput)=> {return response.list}));

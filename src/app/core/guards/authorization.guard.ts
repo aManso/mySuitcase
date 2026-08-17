@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 
 import { Observable, of } from 'rxjs';
@@ -12,11 +12,9 @@ import { UserService } from '../services/user.service';
 export class AuthorizationGuard  {
   public lastIntendedTargetRoute: string;
 
-  constructor(
-    private readonly _userService: UserService,
-    private readonly _loginService: LoginService,
-    private readonly _router: Router,
-    ) {}
+  private readonly _userService = inject(UserService);
+  private readonly _loginService = inject(LoginService);
+  private readonly _router = inject(Router);
 
   /**
   * If user is logged in, check if it has admin rights, otherwise redirect to login

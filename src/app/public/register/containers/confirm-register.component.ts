@@ -1,4 +1,4 @@
-import { Component, OnInit, InjectionToken } from '@angular/core';
+import { Component, OnInit, InjectionToken, inject } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavBarComponent } from '../../../core/shared/navbar/containers/navbar.component';
@@ -15,13 +15,11 @@ export const BASE_ROUTE = new InjectionToken<string[]>('BASE_ROUTE');
   standalone: true,
   imports: [NavBarComponent, FooterComponent],
 })
-export class ConfirmRegisterComponent implements OnInit{
+export class ConfirmRegisterComponent implements OnInit {
 
-  public constructor(
-    private readonly _snackBar: MatSnackBar,
-    private readonly _router: Router,
-    private readonly _activatedRoute: ActivatedRoute,
-  ) {}
+  private readonly _snackBar: MatSnackBar = inject(MatSnackBar);
+  private readonly _router: Router = inject(Router);
+  private readonly _activatedRoute: ActivatedRoute = inject(ActivatedRoute);
  
   /**
    * It retrieves a token as confirmRegistration from the resolver, otherwise so error

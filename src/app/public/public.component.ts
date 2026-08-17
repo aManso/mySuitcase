@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
@@ -31,13 +31,10 @@ import { TimeoutDialogComponent } from '../core/session/timeout-dialog/timeout-d
 })
 export class PublicComponent implements AfterViewInit {
 
-  public constructor(
-    private readonly _loginService: LoginService,
-    private readonly _sessionService: SessionService,
-    private readonly _elementRef: ElementRef,
-    private readonly _dialog: MatDialog,
-  ) {
-  }
+  private readonly _loginService: LoginService = inject(LoginService);
+  private readonly _sessionService: SessionService = inject(SessionService);
+  private readonly _elementRef: ElementRef = inject(ElementRef);
+  private readonly _dialog: MatDialog = inject(MatDialog);
 
   /**
    * After the view of the module has been loaded, we init the timeout session.

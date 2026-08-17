@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -25,12 +25,10 @@ import { ContactService } from '../contact.service';
 export class ContactComponent implements OnInit {
   public contactForm: FormGroup;
 
-  constructor(
-    private readonly _contactService: ContactService,
-    private readonly _fb: FormBuilder,
-    private readonly _snackBar: MatSnackBar,
-    private readonly _router: Router,
-  ) { }
+  private readonly _contactService: ContactService = inject(ContactService);
+  private readonly _fb: FormBuilder = inject(FormBuilder);
+  private readonly _snackBar: MatSnackBar = inject(MatSnackBar);
+  private readonly _router: Router = inject(Router);
 
   ngOnInit() {
     this.contactForm = this._setContactForm();
