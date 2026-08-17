@@ -2,3 +2,15 @@ RewriteEngine On
 RewriteBase /
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect the site root to the default locale.
+RewriteRule ^$ en-US/ [R=302,L]
+
+# Let real files and directories be served directly.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Locale-aware SPA fallback.
+RewriteRule ^(en-US|es-ES|fr-FR)/?$ $1/index.html [L]
+RewriteRule ^(en-US|es-ES|fr-FR)/.*$ $1/index.html [L]

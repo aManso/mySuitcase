@@ -3,7 +3,9 @@
     <script>
         const LOCALE_KEY = 'locale';
         (function load() {
-            const locale = getLocale();
+            let locale = getLocale();
+            locale = locale === 'es' ? 'es-ES' : locale;
+            locale = locale === 'en' ? 'en-US' : locale;
             localStorage.setItem(LOCALE_KEY, locale)
             document.location.href=document.location.href + locale + "/"
         })()
