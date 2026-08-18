@@ -1,66 +1,60 @@
 @if (weatherData) {
-  <!--according to https://openweathermap.org/weather-conditions-->
   <div id="weather-widget">
     <div class="weather-forecast-wrapper">
-      @for (weatherOfTheDay of weatherData.daily; track $index) {
+      @for (weatherOfTheDay of weatherData.daily.time; track $index) {
         <div class="weather-forecast__day-row">
           <div class="weather-forecast__data">
-            @switch (weatherOfTheDay.weather[0].main) {
-              @case ('Clear') {
-                <i class="fas fa-sun sun"></i>
-              }
-              @case ('Clouds') {
-                @switch (weatherOfTheDay.weather[0].description) {
-                  @case ('few clouds') { <i class="fas fa-cloud-sun clouds-1"></i> }
-                  @case ('scattered clouds') { <i class="fas fa-cloud clouds-2"></i> }
-                  @case ('broken clouds') { <i class="fas fa-cloud clouds-3"></i> }
-                  @case ('overcast clouds') { <i class="fas fa-cloud clouds-4"></i> }
-                }
-              }
-              @case ('Rain') {
-                @switch (weatherOfTheDay.weather[0].description) {
-                  @case ('light rain') { <i class="fas fa-cloud-sun-rain rain-1"></i> }
-                  @case ('moderate rain') { <i class="fas fa-cloud-sun-rain rain-1"></i> }
-                  @case ('heavy intensity rain') { <i class="fas fa-cloud-rain rain-2"></i> }
-                  @case ('very heavy rain') { <i class="fas fa-cloud-rain rain-2"></i> }
-                  @case ('extreme rain') { <i class="fas fa-cloud-rain rain-2"></i> }
-                  @case ('light intensity shower rain') { <i class="fas fa-cloud-showers-heavy rain-3"></i> }
-                  @case ('shower rain') { <i class="fas fa-cloud-showers-heavy rain-3"></i> }
-                  @case ('heavy intensity shower rain') { <i class="fas fa-cloud-showers-heavy rain-3"></i> }
-                  @case ('ragged shower rain') { <i class="fas fa-cloud-showers-heavy rain-3"></i> }
-                }
-              }
-              @case ('Thunderstorm') {
-                <i class="fas fa-bolt bolt"></i>
-              }
-              @case ('Snow') {
-                <i class="fas fa-snowflake"></i>
-              }
-              @case ('Drizzle') {
-                <i class="fas fa-cloud-rain"></i>
-              }
-              @default {
-                <!--'Mist' || 'Fog' || 'Smoke' || 'Haze' || 'Dust' || 'Sand' || 'Ash' || 'Squall' || 'Tornado'-->
-                <i class="fas fa-smog"></i>
-              }
+            @switch (weatherData.daily.weather_code[$index]) {
+              @case (0) { <i class="fas fa-sun sun"></i> }
+              @case (1) { <i class="fas fa-cloud clouds-2"></i> }
+              @case (2) { <i class="fas fa-cloud clouds-3"></i> }
+              @case (3) { <i class="fas fa-cloud clouds-4"></i> }
+              @case (45) { <i class="fas fa-smog"></i> }
+              @case (48) { <i class="fas fa-smog"></i> }
+              @case (51) { <i class="fas fa-cloud-rain"></i> }
+              @case (53) { <i class="fas fa-cloud-rain"></i> }
+              @case (55) { <i class="fas fa-cloud-rain"></i> }
+              @case (56) { <i class="fas fa-cloud-rain"></i> }
+              @case (57) { <i class="fas fa-cloud-rain"></i> }
+              @case (61) { <i class="fas fa-cloud-showers-heavy rain-1"></i> }
+              @case (63) { <i class="fas fa-cloud-showers-heavy rain-2"></i> }
+              @case (65) { <i class="fas fa-cloud-showers-heavy rain-3"></i> }
+              @case (66) { <i class="fas fa-cloud-showers-heavy rain-3"></i> }
+              @case (67) { <i class="fas fa-cloud-showers-heavy rain-3"></i> }
+              @case (71) { <i class="fas fa-snowflake snow-1"></i> }
+              @case (73) { <i class="fas fa-snowflake snow-2"></i> }
+              @case (75) { <i class="fas fa-snowflake snow-3"></i> }
+              @case (77) { <i class="fas fa-snowflake snow-3"></i> }
+              @case (80) { <i class="fas fa-cloud-showers-heavy rain-1"></i> }
+              @case (81) { <i class="fas fa-cloud-showers-heavy rain-2"></i> }
+              @case (82) { <i class="fas fa-cloud-showers-heavy rain-3"></i> }
+              @case (85) { <i class="fas fa-snowflake snow-1"></i> }
+              @case (86) { <i class="fas fa-snowflake snow-2"></i> }
+              @case (95) { <i class="fas fa-bolt bolt"></i> }
+              @case (96) { <i class="fas fa-bolt bolt"></i> }
+              @case (99) { <i class="fas fa-bolt bolt"></i> }
             }
-            <span class="weather-forecast__description">{{weatherOfTheDay.weather[0].description}}</span>
+            <span class="weather-forecast__description">{{weatherData.daily.weather_code_object[$index].commonName}}</span>
           </div>
           <div class="weather-forecast__temperatures">
-            <i class="fas fa-thermometer-quarter thermometer-min"></i><span>{{weatherOfTheDay.temp.min}}`C</span><br>
-            <i class="fas fa-thermometer-full thermometer-max"></i><span>{{weatherOfTheDay.temp.max}}`C</span><br>
+            <i class="fas fa-thermometer-quarter thermometer-min"></i><span>{{weatherData.daily.temperature_2m_min[$index]}}°C</span><br>
+            <i class="fas fa-thermometer-full thermometer-max"></i><span>{{weatherData.daily.temperature_2m_max[$index]}}°C</span><br>
           </div>
           <div class="weather-forecast__day-night">
-            <i class="fas fa-sun sunrise"></i><span>{{weatherOfTheDay.sunrise}}</span><br>
-            <i class="fas fa-moon sunset"></i><span>{{weatherOfTheDay.sunset}}</span><br>
+            <i class="fas fa-sun sunrise"></i><span>{{weatherData.daily.sunrise[$index]}}</span><br>
+            <i class="fas fa-moon sunset"></i><span>{{weatherData.daily.sunset[$index]}}</span><br>
           </div>
           <div class="weather-forecast__atmosphere">
-            <i class="fas fa-wind wind"></i><span class="weather-forecast__wind-speed">{{weatherOfTheDay.wind_speed}} m/s</span><br>
-            <i class="fas fa-tint tint"></i><span>{{weatherOfTheDay.humidity}}%</span><br>
+            @if (weatherData.daily.wind_speed_10m_max) {
+              <i class="fas fa-wind wind"></i><span class="weather-forecast__wind-speed">{{weatherData.daily.wind_speed_10m_max[$index]}} m/s</span><br>
+            }
+            @if (weatherData.daily.precipitation_probability_max) {
+              <i class="fas fa-tint tint"></i><span>{{weatherData.daily.precipitation_probability_max[$index]}}%</span><br>
+            }
           </div>
           <div class="weather-forecast__calendar">
             <i class="far fa-calendar calendar"></i>
-            <span class="weather-forecast__day-of-month">{{weatherOfTheDay.dayOfMonth}}</span>
+            <span class="weather-forecast__day-of-month">{{weatherData.daily.time[$index]}}</span>
           </div>
         </div>
       }

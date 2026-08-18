@@ -36,6 +36,7 @@ import { FRONTEND_ERRORS } from '../../core/const/frontend-errors';
 import { FRONTEND_MESSAGES } from '../../core/const/frontend-messages';
 import { NavBarComponent } from '../../core/shared/navbar/containers/navbar.component';
 import { FooterComponent } from '../../core/shared/footer/containers/footer.component';
+import { maxAllowedDaysInAPI } from '../../core/models/open-meteo-weather';
 
 @Component({
     selector: 'app-create-suitcase',
@@ -69,6 +70,7 @@ export class CreateSuitcaseComponent implements OnInit {
   public showWeather = true;
   public showSuggestions = true;
   public weatherDays: number;
+  public startWeatherDays: number;
   public suggestionList: TripType;
   public newItem: string;
   public counter = 1;
@@ -78,7 +80,7 @@ export class CreateSuitcaseComponent implements OnInit {
   @HostBinding('class.print-mode') public printMode = false;
   public dataReady = false;
 
-  private _sevenDaysDateInMillis: number;
+  private _maxAllowedDaysDateInMillis: number;
   private _locale: string
 
   // Each of the categories in the suggestion column
@@ -179,22 +181,33 @@ export class CreateSuitcaseComponent implements OnInit {
 
   // WEATHER
   private handleWeatherPanel() {
-    this.getNext7Days();
     // show weather data if possible
     this.weatherReady = this._checkShowWeather();
-    this.weatherDays = this.weatherReady ? Math.ceil((this._sevenDaysDateInMillis - new Date(this.suitcase.date.from).getTime()) / (1000*60*60*24)) : 0;
+    this.weatherDays = this.getNextAllowedDays();
+    this.startWeatherDays = this.getStartWeatherDays();
   }
 
-  private getNext7Days() {
-    // The weather API just allow know next 7 days
-    const sevenDaysDate = new Date();
-    sevenDaysDate.setDate(sevenDaysDate.getDate() + 7);
-    this._sevenDaysDateInMillis = sevenDaysDate.getTime();
+  private getStartWeatherDays(): number {
+    const msPerDay = 1000 * 60 * 60 * 24;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const startDate = new Date(this.suitcase.date.from);
+    startDate.setHours(0, 0, 0, 0);
+
+    const dayOffset = Math.floor((startDate.getTime() - today.getTime()) / msPerDay);
+    return Math.max(0, Math.min(maxAllowedDaysInAPI, dayOffset));
+  }
+
+  private getNextAllowedDays(): number {
+    const date = new Date();
+    date.setHours(0, 0, 0, 0);
+    date.setDate(date.getDate() + maxAllowedDaysInAPI);
+    const maxDate = new Date(this.suitcase.date.to).getTime() < date.getTime() ? new Date(this.suitcase.date.to) : date;
+    return (maxDate.getTime() - new Date(this.suitcase.date.from).getTime()) / (1000 * 60 * 60 * 24);
   }
 
   private _checkShowWeather(): boolean {
-    // show the weather panel if the dates of the trip are in the next 7 days
-    return !!this.suitcase && new Date(this.suitcase.date.from).getTime() < this._sevenDaysDateInMillis;
+    return !!this.suitcase && new Date(this.suitcase.date.from).getTime() < (new Date().getTime() + maxAllowedDaysInAPI * 24 * 60 * 60 * 1000);
   }
 
   // EDIT
