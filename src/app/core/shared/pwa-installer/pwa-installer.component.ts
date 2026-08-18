@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  inject,
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
