@@ -99,15 +99,18 @@ export class SettingsComponent{
   }
 
   public saveChanges() {
-    this._settingsService.update({...this.settingsForm.value, _id: this._user._id}).subscribe((response)=> {
-      this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_USER_UPDATED.title, FRONTEND_MESSAGES.CONFIRMATION_USER_UPDATED.message, {duration: GENERAL_SNACKBAR_TIME, panelClass: ['success-snackbar'], horizontalPosition: 'center', verticalPosition: 'top'});
-    }, (error)=> {
-      if (error && (error.error === BACKEND_ERROR_TYPES.WRONG_PASSWORD || error.error === BACKEND_ERROR_TYPES.EXISTING_EMAIL)) {
-        this._snackBar.open(
-          error.error === BACKEND_ERROR_TYPES.WRONG_PASSWORD ? BACKEND_ERRORS.WRONG_PASSWORD.message : BACKEND_ERRORS.EXISTING_EMAIL.message,
-           '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['error-snackbar'], horizontalPosition: 'center', verticalPosition: 'top'});
+    this._settingsService.update({...this.settingsForm.value, _id: this._user._id}).subscribe({
+      next: (response)=> {
+        this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_USER_UPDATED.title, FRONTEND_MESSAGES.CONFIRMATION_USER_UPDATED.message, {duration: GENERAL_SNACKBAR_TIME, panelClass: ['success-snackbar'], horizontalPosition: 'center', verticalPosition: 'top'});
+      },
+      error: (error)=> {
+        if (error && (error.error === BACKEND_ERROR_TYPES.WRONG_PASSWORD || error.error === BACKEND_ERROR_TYPES.EXISTING_EMAIL)) {
+          this._snackBar.open(
+            error.error === BACKEND_ERROR_TYPES.WRONG_PASSWORD ? BACKEND_ERRORS.WRONG_PASSWORD.message : BACKEND_ERRORS.EXISTING_EMAIL.message,
+             '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['error-snackbar'], horizontalPosition: 'center', verticalPosition: 'top'});
+        }
+        console.log(error);
       }
-      console.log(error);
     });
   }
 }

@@ -367,20 +367,23 @@ export class CreateSuitcaseComponent implements OnInit {
         width: '400px',
         hasBackdrop: true,
       });
-      dialogRef.afterClosed().subscribe((confirm: boolean) => {
-        if (confirm) {
-          this.suitcase.items = this.suitcaseList;
-          this._suitcaseService.saveSuitcase(this.suitcase, true).subscribe(()=> {
-            this._snackBar.open(FRONTEND_MESSAGES.SUITCASE_SAVED.message, '', {duration: GENERAL_SNACKBAR_TIME});
-            this._router.navigate(['home']);
+      dialogRef.afterClosed().subscribe({
+        next: (confirm: boolean) => {
+          if (confirm) {
+            this.suitcase.items = this.suitcaseList;
+            this._suitcaseService.saveSuitcase(this.suitcase, true).subscribe(() => {
+              this._snackBar.open(FRONTEND_MESSAGES.SUITCASE_SAVED.message, '', {duration: GENERAL_SNACKBAR_TIME});
+              this._router.navigate(['home']);
+            });
+          }
+          dialogRef.close();
+        },
+        error: (error: any) => {
+          let snackBarRef = this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: GENERAL_SNACKBAR_TIME});
+          snackBarRef.onAction().subscribe(() => {
+            snackBarRef.dismiss();
           });
         }
-        dialogRef.close();
-      }, (error: any) => {
-        let snackBarRef = this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: GENERAL_SNACKBAR_TIME});
-        snackBarRef.onAction().subscribe(() => {
-          snackBarRef.dismiss();
-        });
       });
     }
   }

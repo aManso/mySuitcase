@@ -22,12 +22,15 @@ export class WebNotificationSendComponent {
   private readonly _snackBar: MatSnackBar = inject(MatSnackBar);
 
   public sendNotification() {
-    this._notificationsService.sendNotification(this.notificationId()).subscribe(()=> {
-      this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_SENT_NOTIFICATION.message, '', {duration: EXTENDED_SNACKBAR_TIME});
-    }, ((error)=> {
-      console.log(error);
-      this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: EXTENDED_SNACKBAR_TIME});
-    }));
+    this._notificationsService.sendNotification(this.notificationId()).subscribe({
+      next: () => {
+        this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_SENT_NOTIFICATION.message, '', {duration: EXTENDED_SNACKBAR_TIME});
+      },
+      error: (error) => {
+        console.log(error);
+        this._snackBar.open(FRONTEND_ERRORS.GENERAL_ERROR.message, '', {duration: EXTENDED_SNACKBAR_TIME});
+      }
+    });
   }
 
 }

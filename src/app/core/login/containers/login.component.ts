@@ -92,15 +92,16 @@ export class LoginComponent implements OnInit{
   }
 
   private login() {
-    this._loginService.login(this.loginForm.value).subscribe((user: User|boolean) => {
-      if (user) {
-        const targetUrl = this._authenticationGuard.lastIntendedTargetRoute ? this._authenticationGuard.lastIntendedTargetRoute : this._baseRoute;
-        this._router.navigate([targetUrl]);
-      } else {
-        this._showGeneralError();
-      }
-    },
-      (error: any) => {
+    this._loginService.login(this.loginForm.value).subscribe({
+      next: (user: User|boolean) => {
+        if (user) {
+          const targetUrl = this._authenticationGuard.lastIntendedTargetRoute ? this._authenticationGuard.lastIntendedTargetRoute : this._baseRoute;
+          this._router.navigate([targetUrl]);
+        } else {
+          this._showGeneralError();
+        }
+      },
+      error: (error: any) => {
         if (error.error === BACKEND_ERROR_TYPES.USER_NOT_FOUND) {
           this._snackBar.open(BACKEND_ERRORS.USER_NOT_FOUND.message, '', {duration: GENERAL_SNACKBAR_TIME, panelClass: ['error-snackbar']});
         } else if (error.error === BACKEND_ERROR_TYPES.USER_NOT_CONFIRMED) {
@@ -108,16 +109,19 @@ export class LoginComponent implements OnInit{
         } else {
           this._showGeneralError();
         }
-      });
+      }
+    });
   }
 
   private remindPassword() {
     const lang = this._configService.getLocale();
-    this._loginService.remindPassword(this.loginForm.value.email, lang).subscribe(() => {
-      this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_REMINDER_PASSWORD_SENT.message, '', {duration: GENERAL_SNACKBAR_TIME, panelClass: ['success-snackbar']});
-    },
-    (error: any) => {
-      this._showGeneralError();
+    this._loginService.remindPassword(this.loginForm.value.email, lang).subscribe({
+      next: () => {
+        this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_REMINDER_PASSWORD_SENT.message, '', {duration: GENERAL_SNACKBAR_TIME, panelClass: ['success-snackbar']});
+      },
+      error: (error: any) => {
+        this._showGeneralError();
+      }
     });
   }
 
