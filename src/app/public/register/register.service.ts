@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { SimpleOutput } from '../../core/models/shared';
 import { environment } from '../../../environments/environment';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class RegisterService {
   private readonly URL_REGISTER = environment.apiUrl + 'register/';
   private readonly URL_REGISTER_CONFIRM = environment.apiUrl + 'register/confirm';
