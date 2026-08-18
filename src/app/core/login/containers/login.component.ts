@@ -117,7 +117,7 @@ export class LoginComponent implements OnInit{
     const lang = this._configService.getLocale();
     this._loginService.remindPassword(this.loginForm.value.email, lang).subscribe({
       next: () => {
-        this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_REMINDER_PASSWORD_SENT.message, '', {duration: GENERAL_SNACKBAR_TIME, panelClass: ['success-snackbar']});
+        this._snackBar.open(FRONTEND_MESSAGES.CONFIRMATION_REMINDER_PASSWORD_SENT.message, '', {duration: EXTENDED_SNACKBAR_TIME, panelClass: ['success-snackbar']});
       },
       error: (error: any) => {
         this._showGeneralError();
