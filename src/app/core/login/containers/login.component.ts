@@ -9,7 +9,7 @@ import { AuthenticationGuard } from '../../../core/guards/authentication.guard';
 // TODO use it when launching to PROD
 import { passwordValidator } from '../../../core/validators/validators';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { GENERAL_SNACKBAR_TIME } from '../../../core/config/config';
+import { EXTENDED_SNACKBAR_TIME, GENERAL_SNACKBAR_TIME } from '../../../core/config/config';
 import { BACKEND_ERRORS, BACKEND_ERROR_TYPES } from '../../const/backend-errors';
 import { FRONTEND_ERRORS } from '../../const/frontend-errors';
 import { FRONTEND_MESSAGES } from '../../const/frontend-messages';

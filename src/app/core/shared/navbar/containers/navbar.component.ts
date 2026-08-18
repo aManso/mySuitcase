@@ -23,7 +23,7 @@ export class NavBarComponent {
 
   private readonly _router: Router = inject(Router);
   private readonly sessionService: SessionService = inject(SessionService);
-  private readonly loginService: LoginService = inject(LoginService);
+  protected readonly loginService: LoginService = inject(LoginService);
   private readonly configService: ConfigService = inject(ConfigService);
 
   public goTo(path: string, data?: any) {
